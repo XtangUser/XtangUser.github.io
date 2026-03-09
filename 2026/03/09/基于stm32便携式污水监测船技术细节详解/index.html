@@ -1,0 +1,400 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>嵌入式开发·基于stm32便携式污水监测船技术细节详解 | 别催小唐敲代码</title><meta name="author" content="小唐"><meta name="copyright" content="小唐"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="基于STM32的便携式污水监测船技术细节详解，涵盖核心控制器选择、GPIO&#x2F;ADC&#x2F;I2C&#x2F;SPI原理、传感器模块、物联网通信技术和AI应用等内容。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="嵌入式开发·基于stm32便携式污水监测船技术细节详解">
+<meta property="og:url" content="https://xtanguser.github.io/2026/03/09/%E5%9F%BA%E4%BA%8Estm32%E4%BE%BF%E6%90%BA%E5%BC%8F%E6%B1%A1%E6%B0%B4%E7%9B%91%E6%B5%8B%E8%88%B9%E6%8A%80%E6%9C%AF%E7%BB%86%E8%8A%82%E8%AF%A6%E8%A7%A3/index.html">
+<meta property="og:site_name" content="别催小唐敲代码">
+<meta property="og:description" content="基于STM32的便携式污水监测船技术细节详解，涵盖核心控制器选择、GPIO&#x2F;ADC&#x2F;I2C&#x2F;SPI原理、传感器模块、物联网通信技术和AI应用等内容。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200913163144761.png#pic_center">
+<meta property="article:published_time" content="2026-03-08T16:00:00.000Z">
+<meta property="article:modified_time" content="2026-03-09T12:20:18.430Z">
+<meta property="article:author" content="小唐">
+<meta property="article:tag" content="STM32">
+<meta property="article:tag" content="嵌入式">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20200913163144761.png#pic_center"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "嵌入式开发·基于stm32便携式污水监测船技术细节详解",
+  "url": "https://xtanguser.github.io/2026/03/09/%E5%9F%BA%E4%BA%8Estm32%E4%BE%BF%E6%90%BA%E5%BC%8F%E6%B1%A1%E6%B0%B4%E7%9B%91%E6%B5%8B%E8%88%B9%E6%8A%80%E6%9C%AF%E7%BB%86%E8%8A%82%E8%AF%A6%E8%A7%A3/",
+  "image": "https://img-blog.csdnimg.cn/20200913163144761.png#pic_center",
+  "datePublished": "2026-03-08T16:00:00.000Z",
+  "dateModified": "2026-03-09T12:20:18.430Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "小唐",
+      "url": "https://XtangUser.github.io"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://xtanguser.github.io/2026/03/09/%E5%9F%BA%E4%BA%8Estm32%E4%BE%BF%E6%90%BA%E5%BC%8F%E6%B1%A1%E6%B0%B4%E7%9B%91%E6%B5%8B%E8%88%B9%E6%8A%80%E6%9C%AF%E7%BB%86%E8%8A%82%E8%AF%A6%E8%A7%A3/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=5.5.4"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.1.0/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.1.9/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!true && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          const mediaQueryDark = window.matchMedia('(prefers-color-scheme: dark)')
+          const mediaQueryLight = window.matchMedia('(prefers-color-scheme: light)')
+
+          if (theme === undefined) {
+            if (mediaQueryLight.matches) activateLightMode()
+            else if (mediaQueryDark.matches) activateDarkMode()
+            else {
+              const hour = new Date().getHours()
+              const isNight = hour <= 6 || hour >= 18
+              isNight ? activateDarkMode() : activateLightMode()
+            }
+            mediaQueryDark.addEventListener('change', () => {
+              if (saveToLocal.get('theme') === undefined) {
+                e.matches ? activateDarkMode() : activateLightMode()
+              }
+            })
+          } else {
+            theme === 'light' ? activateLightMode() : activateDarkMode()
+          }
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"pagination":{"enable":false,"hitsPerPage":8},"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.13.0/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: true,
+  percent: {
+    toc: true,
+    rightside: true,
+  },
+  autoDarkmode: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '嵌入式开发·基于stm32便携式污水监测船技术细节详解',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><link rel="stylesheet" href="/css/custom.css"><meta name="generator" content="Hexo 8.1.1"></head><body><script>window.paceOptions = {
+  restartOnPushState: false
+}
+
+btf.addGlobalFn('pjaxSend', () => {
+  Pace.restart()
+}, 'pace_restart')
+
+</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/themes/blue/pace-theme-minimal.min.css"/><script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js"></script><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">10</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">14</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">9</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-code"></i><span> 技术</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/categories/%E5%89%8D%E7%AB%AF/"><i class="fa-fw fab fa-html5"></i><span> 前端</span></a></li><li><a class="site-page child" href="/categories/%E5%90%8E%E7%AB%AF/"><i class="fa-fw fas fa-server"></i><span> 后端</span></a></li><li><a class="site-page child" href="/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F/"><i class="fa-fw fas fa-microchip"></i><span> 嵌入式</span></a></li><li><a class="site-page child" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"><i class="fa-fw fas fa-database"></i><span> 数据库</span></a></li><li><a class="site-page child" href="/categories/%E5%B7%A5%E5%85%B7%E7%AE%B1/"><i class="fa-fw fas fa-tools"></i><span> 工具箱</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-heartbeat"></i><span> 生活经历</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/categories/%E4%B8%AA%E4%BA%BA%E8%8D%A3%E8%AA%89/"><i class="fa-fw fas fa-coffee"></i><span> 个人荣誉</span></a></li><li><a class="site-page child" href="/categories/%E9%9A%8F%E7%AC%94/"><i class="fa-fw fas fa-pen-nib"></i><span> 随笔</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-share-alt"></i><span> 分享</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/categories/%E8%B5%84%E6%BA%90/"><i class="fa-fw fas fa-book-open"></i><span> 资源</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user-circle"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(https://img-blog.csdnimg.cn/20200913163144761.png#pic_center);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">别催小唐敲代码</span></a><a class="nav-page-title" href="/"><span class="site-name">嵌入式开发·基于stm32便携式污水监测船技术细节详解</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-code"></i><span> 技术</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/categories/%E5%89%8D%E7%AB%AF/"><i class="fa-fw fab fa-html5"></i><span> 前端</span></a></li><li><a class="site-page child" href="/categories/%E5%90%8E%E7%AB%AF/"><i class="fa-fw fas fa-server"></i><span> 后端</span></a></li><li><a class="site-page child" href="/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F/"><i class="fa-fw fas fa-microchip"></i><span> 嵌入式</span></a></li><li><a class="site-page child" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"><i class="fa-fw fas fa-database"></i><span> 数据库</span></a></li><li><a class="site-page child" href="/categories/%E5%B7%A5%E5%85%B7%E7%AE%B1/"><i class="fa-fw fas fa-tools"></i><span> 工具箱</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-heartbeat"></i><span> 生活经历</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/categories/%E4%B8%AA%E4%BA%BA%E8%8D%A3%E8%AA%89/"><i class="fa-fw fas fa-coffee"></i><span> 个人荣誉</span></a></li><li><a class="site-page child" href="/categories/%E9%9A%8F%E7%AC%94/"><i class="fa-fw fas fa-pen-nib"></i><span> 随笔</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-share-alt"></i><span> 分享</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/categories/%E8%B5%84%E6%BA%90/"><i class="fa-fw fas fa-book-open"></i><span> 资源</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user-circle"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">嵌入式开发·基于stm32便携式污水监测船技术细节详解</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2026-03-08T16:00:00.000Z" title="发表于 2026-03-09 00:00:00">2026-03-09</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-03-09T12:20:18.430Z" title="更新于 2026-03-09 20:20:18">2026-03-09</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F/">嵌入式</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">总字数:</span><span class="word-count">1.8k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>5分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h1 id="基于stm32便携式污水监测船技术细节详解"><a href="#基于stm32便携式污水监测船技术细节详解" class="headerlink" title="基于stm32便携式污水监测船技术细节详解"></a>基于stm32便携式污水监测船技术细节详解</h1><p>1.为什么选这款核心控制器：STM32F103C8T6</p>
+<p>性价比高、资源丰富（GPIO、ADC、定时器、UART接口够用）、生态成熟。对于本项目的数据采集和电机控制，F103的性能完全满足实时性要求。</p>
+<p><img src="https://img-blog.csdnimg.cn/20200913163144761.png#pic_center" alt="STM32F103C8T6封装引脚图_stm32f103c8t6引脚图及功能中文说明-CSDN博客"></p>
+<p>我选用的主控是STM32F103C8T6。它基于Cortex-M3内核，主频72MHz，拥有64K Flash（相当于固态硬盘）和20K SRAM（内存），对于这个便携式检测船项目来说性价比很高。</p>
+<p>在资源分配上，我充分利用了它的外设：</p>
+<ol>
+<li><strong>串口方面</strong>：它有<strong>3个USART</strong>。我用USART1打印调试日志，USART2对接ESP8266 Wi-Fi模块上传数据到OneNET云平台。</li>
+<li><strong>ADC方面</strong>：它有<strong>2个12位ADC</strong>。我开启了多通道扫描模式配合DMA，实时采集pH值、浊度和TDS传感器的模拟信号。</li>
+<li><strong>定时器方面</strong>：我使用通用定时器产生两路<strong>PWM波</strong>，控制船体电机的差速转向。</li>
+</ol>
+<p>总体来说，C8T6的资源刚好满足项目需求，且引脚（48脚）体积小，适合便携式设备。</p>
+<h1 id="2-GPIO、ADC、I2C、SPI原理解释"><a href="#2-GPIO、ADC、I2C、SPI原理解释" class="headerlink" title="2.GPIO、ADC、I2C、SPI原理解释"></a>2.GPIO、ADC、I2C、SPI原理解释</h1><h3 id="GPIO-——-最简单的-“引脚开关”"><a href="#GPIO-——-最简单的-“引脚开关”" class="headerlink" title="GPIO —— 最简单的 “引脚开关”"></a>GPIO —— 最简单的 “引脚开关”</h3><p>全称：General Purpose Input Output 通用输入输出口</p>
+<p>就是单片机最普通的引脚，只有两种状态：</p>
+<ul>
+<li>高电平 ≈ 3.3V &#x2F; 5V</li>
+<li>低电平 ≈ 0V</li>
+</ul>
+<p>两种模式</p>
+<ol>
+<li><p>输出（Output）</p>
+<ul>
+<li>输出高 → 灯亮、继电器吸合</li>
+<li>输出低 → 灯灭、继电器断开</li>
+</ul>
+</li>
+<li><p>输入（Input）</p>
+<p>单片机读外部电平：</p>
+<ul>
+<li>读高 &#x2F; 低 → 判断按键按下、传感器信号</li>
+</ul>
+</li>
+</ol>
+<p>一句话理解</p>
+<p>GPIO &#x3D; 单片机的手和眼，能控制也能读取。</p>
+<hr>
+<h2 id="ADC-——-测量-“模拟量”-的转换器"><a href="#ADC-——-测量-“模拟量”-的转换器" class="headerlink" title="ADC —— 测量 “模拟量” 的转换器"></a>ADC —— 测量 “模拟量” 的转换器</h2><p>全称：Analog to Digital Converter 模拟转数字</p>
+<p>现实世界很多量是连续变化的：</p>
+<ul>
+<li>电压 0~3.3V</li>
+<li>温度、光照、声音、电位器旋钮</li>
+</ul>
+<p>但单片机只认识 0 和 1，所以需要 ADC：</p>
+<ol>
+<li>外部输入连续电压</li>
+<li>ADC 把它转成数字（比如 0~4095）</li>
+<li>单片机就能计算：电压 &#x3D; 多少、温度 &#x3D; 多少</li>
+</ol>
+<p>关键概念</p>
+<ul>
+<li>分辨率：如 12 位 → 0~4095</li>
+<li>参考电压：如 3.3V</li>
+<li>数字越大 → 电压越高</li>
+</ul>
+<p>ADC &#x3D; 把 “连续电压” 翻译成单片机能看懂的 “数字”。</p>
+<h2 id="I2C-——-两根线的-“低速简约通信”"><a href="#I2C-——-两根线的-“低速简约通信”" class="headerlink" title="I2C —— 两根线的 “低速简约通信”"></a>I2C —— 两根线的 “低速简约通信”</h2><p>全称：Inter-Integrated Circuit</p>
+<ol>
+<li>SDA：数据线（发数据）</li>
+<li>SCL：时钟线（同步节奏）</li>
+</ol>
+<ul>
+<li>主机（单片机）发时钟信号，大家同步</li>
+<li>总线上可以挂多个设备</li>
+<li>每个设备有唯一地址</li>
+<li>主机喊地址 → 对应设备回应</li>
+</ul>
+<p>优点 &#x2F; 缺点</p>
+<ul>
+<li>优点：线少、简单、支持多设备</li>
+<li>缺点：速度不快</li>
+</ul>
+<p>典型设备</p>
+<p>OLED 屏、陀螺仪、温湿度传感器、EEPROM</p>
+<p>I2C &#x3D; 两根线，大家轮流说话，地址找人。</p>
+<h2 id="SPI-——-四根线的-“高速通信”"><a href="#SPI-——-四根线的-“高速通信”" class="headerlink" title="SPI —— 四根线的 “高速通信”"></a>SPI —— 四根线的 “高速通信”</h2><p>全称：Serial Peripheral Interface</p>
+<p>通常 4 根线</p>
+<ol>
+<li>SCLK：时钟</li>
+<li>MOSI：主机发 → 从机收</li>
+<li>MISO：从机发 → 主机收</li>
+<li>CS&#x2F;SS：片选（选谁通信）</li>
+</ol>
+<ul>
+<li>全双工：一边发一边收</li>
+<li>时钟一蹦，数据就移一位</li>
+<li>用 CS 选中一个设备，只跟它说话</li>
+<li>速度可以非常快</li>
+</ul>
+<p>优点 &#x2F; 缺点</p>
+<ul>
+<li>优点：极快、全双工、稳定</li>
+<li>缺点：线多，每个设备要单独 CS</li>
+</ul>
+<p>典型设备</p>
+<p>Flash、屏、SD 卡、高速 ADC、射频模块</p>
+<p>SPI &#x3D; 高速专车，点对点，速度快到飞起。</p>
+<hr>
+<p>超简总结（最好记）</p>
+<ul>
+<li><strong>GPIO</strong>：控制高低电平、读开关</li>
+<li><strong>ADC</strong>：把模拟电压转成数字</li>
+<li><strong>I2C</strong>：2 根线，慢，省引脚，多设备</li>
+<li><strong>SPI</strong>：4 根线，快，全双工，高速设备</li>
+</ul>
+<h2 id="传感器模块"><a href="#传感器模块" class="headerlink" title="传感器模块"></a>传感器模块</h2><ul>
+<li><p><strong>pH 传感器（E-201 玻璃探头）：</strong></p>
+<ul>
+<li><strong>原理：</strong> 用于检测水体的酸碱度（0~14）。它输出的是微弱的电压模拟信号，需要主控芯片进行读取转换。</li>
+<li><strong>技术细节：</strong> pH 值的测量极易受水温影响，因此该模块在硬件设计上与下面的温度传感器（DS18B20）相连，<strong>实现了温度补偿</strong>，让酸碱度测得更准。</li>
+</ul>
+</li>
+<li><p><strong>2. 温度传感器（DS18B20）：</strong></p>
+<ul>
+<li><strong>原理：</strong> 采用防水型探头测量水温。这是一款高精度的数字温度传感器。</li>
+<li><strong>技术细节：</strong> 它采用单总线（1-Wire）技术，只需要一根数据线就能和主控芯片通信，大大节省了引脚资源。</li>
+</ul>
+</li>
+<li><p><strong>3. 浊度传感器（TWS）：</strong></p>
+<ul>
+<li><strong>原理：</strong> 检测水中有机物、无机物等悬浮颗粒的多少（即水的浑浊程度）。</li>
+<li><strong>技术细节：</strong> 光学原理，水越浑浊，透过的光越少，传感器将其转化为电压信号传给 STM32 的 ADC 接口。</li>
+</ul>
+</li>
+<li><p><strong>4. TDS 电导率传感器：</strong></p>
+<ul>
+<li><strong>原理：</strong> 检测水中溶解的固体总量（如重金属离子、可溶性盐等）。导电率越高，说明水中杂质可能越多。</li>
+</ul>
+</li>
+</ul>
+<h3 id="三、-系统的“神经网络”：物联网通信技术-传输层"><a href="#三、-系统的“神经网络”：物联网通信技术-传输层" class="headerlink" title="三、 系统的“神经网络”：物联网通信技术 (传输层)"></a>三、 系统的“神经网络”：物联网通信技术 (传输层)</h3><p>小船在水上测到的数据，需要实时传回岸上，这就需要强大的无线通信技术。</p>
+<ul>
+<li><strong>1. 硬件通信模块：ESP-01S WiFi 模块</strong><ul>
+<li>该模块支持 2.4GHz 频段，能在 100米范围（视距）内提供稳定的无线网络。它通过串口（RX&#x2F;TX）与 STM32 通信，把单片机里的数据打包发到互联网上。</li>
+</ul>
+</li>
+<li><strong>2. 通信协议：MQTT 协议</strong><ul>
+<li><strong>为什么用 MQTT？</strong> 在复杂的水域环境中，网络信号可能不好。MQTT 是一种<strong>轻量级、低开销、高可靠性</strong>的物联网协议。它采用“发布&#x2F;订阅”模式，即使在网络不稳定的情况下，也能最大程度保证数据不丢失。</li>
+</ul>
+</li>
+<li><strong>3. 云端中枢：OneNET 物联网云平台</strong><ul>
+<li>由中国移动提供的物联网平台。小船作为“设备”接入该平台，源源不断地把水质数据上传到云端数据库中；同时，云平台也可以向下发指令（比如遥控小船的动作）</li>
+</ul>
+</li>
+</ul>
+<h3 id="四、-系统的“决策端”：软件可视化与-AI-技术-应用层"><a href="#四、-系统的“决策端”：软件可视化与-AI-技术-应用层" class="headerlink" title="四、 系统的“决策端”：软件可视化与 AI 技术 (应用层)"></a>四、 系统的“决策端”：软件可视化与 AI 技术 (应用层)</h3><p>终端用户（监测人员）如何看数据？如何分析污染？****</p>
+<ul>
+<li><strong>1. 跨平台可视化界面（H5 &#x2F; 微信小程序 &#x2F; PC端）：</strong><ul>
+<li>系统开发了多个客户端。通过调用 OneNET 云平台的 API 接口，抓取云端数据，并使用 <strong>ECharts 数据图表库</strong>，把枯燥的数字变成直观的折线图、仪表盘，实时显示水温、pH值、电量等。</li>
+</ul>
+</li>
+<li><strong>2. 引入大模型技术（科大讯飞星火认知大模型）：</strong><ul>
+<li>这是本系统的一个<strong>极大创新点</strong>。论文中提到接入了“科大讯飞星火大平台”的 API。</li>
+<li><strong>底层技术：</strong> 采用 WebSocket 协议实现网页端与 AI 服务器的<strong>双向实时通信</strong>。</li>
+<li><strong>应用场景：</strong> 当检测到异常数据（例如某区域 pH 值突然过低，呈强酸性），监测人员可以在系统里直接询问 AI 大模型。AI 会结合当前的水质数据，提供高效的数据分析、污染源追踪建议或异常问题的解决方案（类似于给系统配备了一个水质环保专家）。</li>
+</ul>
+</li>
+</ul>
+<p><strong>论文地址：<a target="_blank" rel="noopener" href="https://kns.cnki.net/kcms2/article/abstract?v=vxt3_kKBHYNEJzrmyA4eGKltgMKXlhXAEj7-gV4zCn_JtsnotFjNa4ZY_g_gg7S8gnAdUqFXHrBm78N9car35ANc0oEoZRM_UtwUZfWrOGXqB-4ITyTaO1GwUrjosmNs5YskwcmgkkfXQ9TIN_SPVToIBNNhCznsfKrpRazdaSc=&uniplatform=NZKPT">https://kns.cnki.net/kcms2/article/abstract?v=vxt3_kKBHYNEJzrmyA4eGKltgMKXlhXAEj7-gV4zCn_JtsnotFjNa4ZY_g_gg7S8gnAdUqFXHrBm78N9car35ANc0oEoZRM_UtwUZfWrOGXqB-4ITyTaO1GwUrjosmNs5YskwcmgkkfXQ9TIN_SPVToIBNNhCznsfKrpRazdaSc=&amp;uniplatform=NZKPT</a></strong></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://XtangUser.github.io">小唐</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://xtanguser.github.io/2026/03/09/%E5%9F%BA%E4%BA%8Estm32%E4%BE%BF%E6%90%BA%E5%BC%8F%E6%B1%A1%E6%B0%B4%E7%9B%91%E6%B5%8B%E8%88%B9%E6%8A%80%E6%9C%AF%E7%BB%86%E8%8A%82%E8%AF%A6%E8%A7%A3/">https://xtanguser.github.io/2026/03/09/%E5%9F%BA%E4%BA%8Estm32%E4%BE%BF%E6%90%BA%E5%BC%8F%E6%B1%A1%E6%B0%B4%E7%9B%91%E6%B5%8B%E8%88%B9%E6%8A%80%E6%9C%AF%E7%BB%86%E8%8A%82%E8%AF%A6%E8%A7%A3/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://XtangUser.github.io" target="_blank">别催小唐敲代码</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F/">嵌入式</a><a class="post-meta__tags" href="/tags/STM32/">STM32</a></div><div class="post-share"><div class="social-share" data-image="https://img-blog.csdnimg.cn/20200913163144761.png#pic_center" data-sites="facebook,x,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/2026/03/09/%E5%90%8E%E7%AB%AF%E5%BC%80%E7%AF%87/" title="后端开发·栏目介绍"><img class="cover" src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&amp;q=80" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">后端开发·栏目介绍</div></div><div class="info-2"><div class="info-item-1">记录后端开发学习实践，涵盖 Java、SpringBoot、Node.js、Docker、Nginx 等技术。</div></div></div></a><a class="pagination-related" href="/2026/03/09/%E4%BD%A0%E5%A5%BD/" title="你好，世界！"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">你好，世界！</div></div><div class="info-2"><div class="info-item-1">你好，世界！欢迎来到我的博客！这是我的第一篇文章，记录了我对技术的热爱和对生活的感悟。 </div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/2026/03/09/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%BC%80%E7%AF%87/" title="嵌入式开发·栏目介绍"><img class="cover" src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&q=80" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2026-03-09</div><div class="info-item-2">嵌入式开发·栏目介绍</div></div><div class="info-2"><div class="info-item-1">记录嵌入式开发学习与实战，涵盖 STM32、FreeRTOS、PCB 设计、传感器应用等内容。</div></div></div></a></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">小唐</div><div class="author-info-description">热爱技术的开发者 | 记录生活与代码</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">10</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">14</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">9</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/XtangUser"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/XtangUser" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">欢迎来到我的小站！这里记录着技术学习与生活感悟，希望对你有所帮助 ✨</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9F%BA%E4%BA%8Estm32%E4%BE%BF%E6%90%BA%E5%BC%8F%E6%B1%A1%E6%B0%B4%E7%9B%91%E6%B5%8B%E8%88%B9%E6%8A%80%E6%9C%AF%E7%BB%86%E8%8A%82%E8%AF%A6%E8%A7%A3"><span class="toc-number">1.</span> <span class="toc-text">基于stm32便携式污水监测船技术细节详解</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-GPIO%E3%80%81ADC%E3%80%81I2C%E3%80%81SPI%E5%8E%9F%E7%90%86%E8%A7%A3%E9%87%8A"><span class="toc-number">2.</span> <span class="toc-text">2.GPIO、ADC、I2C、SPI原理解释</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#GPIO-%E2%80%94%E2%80%94-%E6%9C%80%E7%AE%80%E5%8D%95%E7%9A%84-%E2%80%9C%E5%BC%95%E8%84%9A%E5%BC%80%E5%85%B3%E2%80%9D"><span class="toc-number">2.1.</span> <span class="toc-text">GPIO —— 最简单的 “引脚开关”</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ADC-%E2%80%94%E2%80%94-%E6%B5%8B%E9%87%8F-%E2%80%9C%E6%A8%A1%E6%8B%9F%E9%87%8F%E2%80%9D-%E7%9A%84%E8%BD%AC%E6%8D%A2%E5%99%A8"><span class="toc-number">2.2.</span> <span class="toc-text">ADC —— 测量 “模拟量” 的转换器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#I2C-%E2%80%94%E2%80%94-%E4%B8%A4%E6%A0%B9%E7%BA%BF%E7%9A%84-%E2%80%9C%E4%BD%8E%E9%80%9F%E7%AE%80%E7%BA%A6%E9%80%9A%E4%BF%A1%E2%80%9D"><span class="toc-number">2.3.</span> <span class="toc-text">I2C —— 两根线的 “低速简约通信”</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SPI-%E2%80%94%E2%80%94-%E5%9B%9B%E6%A0%B9%E7%BA%BF%E7%9A%84-%E2%80%9C%E9%AB%98%E9%80%9F%E9%80%9A%E4%BF%A1%E2%80%9D"><span class="toc-number">2.4.</span> <span class="toc-text">SPI —— 四根线的 “高速通信”</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BC%A0%E6%84%9F%E5%99%A8%E6%A8%A1%E5%9D%97"><span class="toc-number">2.5.</span> <span class="toc-text">传感器模块</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%89%E3%80%81-%E7%B3%BB%E7%BB%9F%E7%9A%84%E2%80%9C%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E2%80%9D%EF%BC%9A%E7%89%A9%E8%81%94%E7%BD%91%E9%80%9A%E4%BF%A1%E6%8A%80%E6%9C%AF-%E4%BC%A0%E8%BE%93%E5%B1%82"><span class="toc-number">2.5.1.</span> <span class="toc-text">三、 系统的“神经网络”：物联网通信技术 (传输层)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%9B%E3%80%81-%E7%B3%BB%E7%BB%9F%E7%9A%84%E2%80%9C%E5%86%B3%E7%AD%96%E7%AB%AF%E2%80%9D%EF%BC%9A%E8%BD%AF%E4%BB%B6%E5%8F%AF%E8%A7%86%E5%8C%96%E4%B8%8E-AI-%E6%8A%80%E6%9C%AF-%E5%BA%94%E7%94%A8%E5%B1%82"><span class="toc-number">2.5.2.</span> <span class="toc-text">四、 系统的“决策端”：软件可视化与 AI 技术 (应用层)</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2026/03/09/%E4%B8%AA%E4%BA%BA%E8%8D%A3%E8%AA%89/" title="个人荣誉"><img src="https://s3.imagency.cn/e/b511900cb1347f24f4f252f3f74404ed.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="个人荣誉"/></a><div class="content"><a class="title" href="/2026/03/09/%E4%B8%AA%E4%BA%BA%E8%8D%A3%E8%AA%89/" title="个人荣誉">个人荣誉</a><time datetime="2026-03-08T16:00:00.000Z" title="发表于 2026-03-09 00:00:00">2026-03-09</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/03/09/%E4%BD%A0%E5%A5%BD/" title="你好，世界！">你好，世界！</a><time datetime="2026-03-08T16:00:00.000Z" title="发表于 2026-03-09 00:00:00">2026-03-09</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/03/09/%E5%9F%BA%E4%BA%8Estm32%E4%BE%BF%E6%90%BA%E5%BC%8F%E6%B1%A1%E6%B0%B4%E7%9B%91%E6%B5%8B%E8%88%B9%E6%8A%80%E6%9C%AF%E7%BB%86%E8%8A%82%E8%AF%A6%E8%A7%A3/" title="嵌入式开发·基于stm32便携式污水监测船技术细节详解"><img src="https://img-blog.csdnimg.cn/20200913163144761.png#pic_center" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="嵌入式开发·基于stm32便携式污水监测船技术细节详解"/></a><div class="content"><a class="title" href="/2026/03/09/%E5%9F%BA%E4%BA%8Estm32%E4%BE%BF%E6%90%BA%E5%BC%8F%E6%B1%A1%E6%B0%B4%E7%9B%91%E6%B5%8B%E8%88%B9%E6%8A%80%E6%9C%AF%E7%BB%86%E8%8A%82%E8%AF%A6%E8%A7%A3/" title="嵌入式开发·基于stm32便携式污水监测船技术细节详解">嵌入式开发·基于stm32便携式污水监测船技术细节详解</a><time datetime="2026-03-08T16:00:00.000Z" title="发表于 2026-03-09 00:00:00">2026-03-09</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/03/09/%E5%90%8E%E7%AB%AF%E5%BC%80%E7%AF%87/" title="后端开发·栏目介绍"><img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&amp;q=80" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="后端开发·栏目介绍"/></a><div class="content"><a class="title" href="/2026/03/09/%E5%90%8E%E7%AB%AF%E5%BC%80%E7%AF%87/" title="后端开发·栏目介绍">后端开发·栏目介绍</a><time datetime="2026-03-08T16:00:00.000Z" title="发表于 2026-03-09 00:00:00">2026-03-09</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/03/09/%E5%89%8D%E7%AB%AF%E5%BC%80%E7%AF%87/" title="前端开发·栏目介绍"><img src="https://images.unsplash.com/photo-1593720213428-28a5b9e94613?w=800&amp;q=80" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="前端开发·栏目介绍"/></a><div class="content"><a class="title" href="/2026/03/09/%E5%89%8D%E7%AB%AF%E5%BC%80%E7%AF%87/" title="前端开发·栏目介绍">前端开发·栏目介绍</a><time datetime="2026-03-08T16:00:00.000Z" title="发表于 2026-03-09 00:00:00">2026-03-09</time></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2025 - 2026 By 小唐</span><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 8.1.1</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.5.4</a></span></div><div class="footer_custom_text">用代码记录生活，用文字传递温度 🌟</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.4"></script><script src="/js/main.js?v=5.5.4"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.1.9/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><script>(function(){var MSGS=['你好呀，有什么可以帮你的吗？','欢迎来到小唐的博客～','今天也要加油哦！','喜欢的话记得收藏哦～','记得多喝水，注意休息！','有技术问题尽管来找我～','博客持续更新，常回来看看！','学习使我快乐！','代码改变世界！','要相信自己，你可以的！','嘿嘿，被你发现啦～','摸我干嘛，认真工作呢！','今天学到新东西了吗？'];var bubble=null,hideTimer=null;function createBubble(){var b=document.createElement('div');b.id='live2d-talk';var s=b.style;s.cssText='position:fixed;bottom:310px;left:10px;max-width:200px;padding:10px 14px;background:#fff;border:2px solid<script id="canvas_nest" defer="defer" color="149,225,211" opacity="0.5" zIndex="-1" count="80" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/dist/canvas-nest.min.js"></script><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/dist/click-heart.min.js" async="async" mobile="false"></script><script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js" defer="defer"></script><script>document.addEventListener('DOMContentLoaded', () => {
+  const pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+  window.pjax = new Pjax({
+    elements: 'a:not([target="_blank"])',
+    selectors: pjaxSelectors,
+    cacheBust: false,
+    analytics: false,
+    scrollRestoration: false
+  })
+
+  const triggerPjaxFn = (val) => {
+    if (!val) return
+    Object.values(val).forEach(fn => {
+      try {
+        fn()
+      } catch (err) {
+        console.debug('Pjax callback failed:', err)
+      }
+    })
+  }
+
+  document.addEventListener('pjax:send', () => {
+    // removeEventListener
+    btf.removeGlobalFnEvent('pjaxSendOnce')
+    btf.removeGlobalFnEvent('themeChange')
+
+    // reset readmode
+    const $bodyClassList = document.body.classList
+    if ($bodyClassList.contains('read-mode')) $bodyClassList.remove('read-mode')
+
+    triggerPjaxFn(window.globalFn.pjaxSend)
+  })
+
+  document.addEventListener('pjax:complete', () => {
+    btf.removeGlobalFnEvent('pjaxCompleteOnce')
+    document.querySelectorAll('script[data-pjax]').forEach(item => {
+      const newScript = document.createElement('script')
+      const content = item.text || item.textContent || item.innerHTML || ""
+      Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+      newScript.appendChild(document.createTextNode(content))
+      item.parentNode.replaceChild(newScript, item)
+    })
+
+    triggerPjaxFn(window.globalFn.pjaxComplete)
+  })
+
+  document.addEventListener('pjax:error', e => {
+    if (e.request.status === 404) {
+      false
+        ? pjax.loadUrl('/404.html')
+        : window.location.href = e.request.responseURL
+    }
+  })
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><i class="fas fa-spinner fa-pulse" id="loading-status" hidden="hidden"></i><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="local-search-input"><input placeholder="搜索文章..." type="text"/></div><hr/><div id="local-search-results"></div><div class="ais-Pagination" id="local-search-pagination" style="display:none;"><ul class="ais-Pagination-list"></ul></div><div id="local-search-stats"></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=5.5.4"></script></div></div><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":false},"react":{"opacity":0.8},"dialog":{"enable":false,"hitokoto":false},"log":false});</script></body></html>
