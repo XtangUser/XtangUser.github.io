@@ -55,6 +55,60 @@
       </tags>
   </entry>
   <entry>
+    <title>后端开发·栏目介绍</title>
+    <url>/2026/03/09/%E5%90%8E%E7%AB%AF%E5%BC%80%E7%AF%87/</url>
+    <content><![CDATA[<blockquote>
+<p>这里记录我在后端开发路上的学习成果与项目经验。</p>
+</blockquote>
+<span id="more"></span>
+
+<h2 id="📌-本栏目内容"><a href="#📌-本栏目内容" class="headerlink" title="📌 本栏目内容"></a>📌 本栏目内容</h2><p>本栏目将持续更新以下方向的技术文章：</p>
+<ul>
+<li><strong>Java &#x2F; SpringBoot</strong> 后端开发与接口设计</li>
+<li><strong>Node.js</strong> 服务端开发</li>
+<li><strong>Docker &#x2F; Linux &#x2F; Nginx</strong> 部署与运维</li>
+<li><strong>数据库交互</strong> 与接口对接实践</li>
+</ul>
+<blockquote>
+<p>持续更新中，敬请期待 🚀</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>后端</category>
+      </categories>
+      <tags>
+        <tag>后端</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>嵌入式开发·栏目介绍</title>
+    <url>/2026/03/09/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%BC%80%E7%AF%87/</url>
+    <content><![CDATA[<blockquote>
+<p>这里记录我在嵌入式开发领域的学习积累与项目实践。</p>
+</blockquote>
+<span id="more"></span>
+
+<h2 id="📌-本栏目内容"><a href="#📌-本栏目内容" class="headerlink" title="📌 本栏目内容"></a>📌 本栏目内容</h2><p>本栏目将持续更新以下方向的技术文章：</p>
+<ul>
+<li><strong>STM32</strong> F1&#x2F;F4 系列开发与外设驱动</li>
+<li><strong>FreeRTOS</strong> 实时操作系统应用</li>
+<li><strong>传感器</strong> 选型、校准与数据采集</li>
+<li><strong>PCB 拓展板</strong> 设计与硬件调试</li>
+<li><strong>MQTT &#x2F; WiFi</strong> 物联网通信实践</li>
+</ul>
+<blockquote>
+<p>持续更新中，敬请期待 🚀</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>嵌入式</category>
+      </categories>
+      <tags>
+        <tag>嵌入式</tag>
+        <tag>STM32</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>嵌入式开发·基于stm32便携式污水监测船技术细节详解</title>
     <url>/2026/03/09/%E5%9F%BA%E4%BA%8Estm32%E4%BE%BF%E6%90%BA%E5%BC%8F%E6%B1%A1%E6%B0%B4%E7%9B%91%E6%B5%8B%E8%88%B9%E6%8A%80%E6%9C%AF%E7%BB%86%E8%8A%82%E8%AF%A6%E8%A7%A3/</url>
     <content><![CDATA[<h1 id="基于stm32便携式污水监测船技术细节详解"><a href="#基于stm32便携式污水监测船技术细节详解" class="headerlink" title="基于stm32便携式污水监测船技术细节详解"></a>基于stm32便携式污水监测船技术细节详解</h1><p>1.为什么选这款核心控制器：STM32F103C8T6</p>
@@ -224,60 +278,6 @@
       </tags>
   </entry>
   <entry>
-    <title>嵌入式开发·栏目介绍</title>
-    <url>/2026/03/09/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%BC%80%E7%AF%87/</url>
-    <content><![CDATA[<blockquote>
-<p>这里记录我在嵌入式开发领域的学习积累与项目实践。</p>
-</blockquote>
-<span id="more"></span>
-
-<h2 id="📌-本栏目内容"><a href="#📌-本栏目内容" class="headerlink" title="📌 本栏目内容"></a>📌 本栏目内容</h2><p>本栏目将持续更新以下方向的技术文章：</p>
-<ul>
-<li><strong>STM32</strong> F1&#x2F;F4 系列开发与外设驱动</li>
-<li><strong>FreeRTOS</strong> 实时操作系统应用</li>
-<li><strong>传感器</strong> 选型、校准与数据采集</li>
-<li><strong>PCB 拓展板</strong> 设计与硬件调试</li>
-<li><strong>MQTT &#x2F; WiFi</strong> 物联网通信实践</li>
-</ul>
-<blockquote>
-<p>持续更新中，敬请期待 🚀</p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>嵌入式</category>
-      </categories>
-      <tags>
-        <tag>嵌入式</tag>
-        <tag>STM32</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>后端开发·栏目介绍</title>
-    <url>/2026/03/09/%E5%90%8E%E7%AB%AF%E5%BC%80%E7%AF%87/</url>
-    <content><![CDATA[<blockquote>
-<p>这里记录我在后端开发路上的学习成果与项目经验。</p>
-</blockquote>
-<span id="more"></span>
-
-<h2 id="📌-本栏目内容"><a href="#📌-本栏目内容" class="headerlink" title="📌 本栏目内容"></a>📌 本栏目内容</h2><p>本栏目将持续更新以下方向的技术文章：</p>
-<ul>
-<li><strong>Java &#x2F; SpringBoot</strong> 后端开发与接口设计</li>
-<li><strong>Node.js</strong> 服务端开发</li>
-<li><strong>Docker &#x2F; Linux &#x2F; Nginx</strong> 部署与运维</li>
-<li><strong>数据库交互</strong> 与接口对接实践</li>
-</ul>
-<blockquote>
-<p>持续更新中，敬请期待 🚀</p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>后端</category>
-      </categories>
-      <tags>
-        <tag>后端</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>工具箱·栏目介绍</title>
     <url>/2026/03/09/%E5%B7%A5%E5%85%B7%E7%AE%B1%E5%BC%80%E7%AF%87/</url>
     <content><![CDATA[<blockquote>
@@ -305,33 +305,6 @@
       </tags>
   </entry>
   <entry>
-    <title>数据库·栏目介绍</title>
-    <url>/2026/03/09/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%BC%80%E7%AF%87/</url>
-    <content><![CDATA[<blockquote>
-<p>这里记录数据库相关的学习笔记与实战经验。</p>
-</blockquote>
-<span id="more"></span>
-
-<h2 id="📌-本栏目内容"><a href="#📌-本栏目内容" class="headerlink" title="📌 本栏目内容"></a>📌 本栏目内容</h2><p>本栏目将持续更新以下方向的技术文章：</p>
-<ul>
-<li><strong>MySQL</strong> 基础与进阶</li>
-<li><strong>数据库设计</strong> 范式与 ER 图</li>
-<li><strong>SQL 优化</strong> 索引与查询性能</li>
-<li><strong>数据库原理</strong> 课程学习笔记</li>
-</ul>
-<blockquote>
-<p>持续更新中，敬请期待 🚀</p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>数据库</category>
-      </categories>
-      <tags>
-        <tag>数据库</tag>
-        <tag>MySQL</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>资源分享·栏目介绍</title>
     <url>/2026/03/09/%E8%B5%84%E6%BA%90%E5%88%86%E4%BA%AB%E5%BC%80%E7%AF%87/</url>
     <content><![CDATA[<blockquote>
@@ -356,6 +329,33 @@
       <tags>
         <tag>资源</tag>
         <tag>分享</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>数据库·栏目介绍</title>
+    <url>/2026/03/09/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%BC%80%E7%AF%87/</url>
+    <content><![CDATA[<blockquote>
+<p>这里记录数据库相关的学习笔记与实战经验。</p>
+</blockquote>
+<span id="more"></span>
+
+<h2 id="📌-本栏目内容"><a href="#📌-本栏目内容" class="headerlink" title="📌 本栏目内容"></a>📌 本栏目内容</h2><p>本栏目将持续更新以下方向的技术文章：</p>
+<ul>
+<li><strong>MySQL</strong> 基础与进阶</li>
+<li><strong>数据库设计</strong> 范式与 ER 图</li>
+<li><strong>SQL 优化</strong> 索引与查询性能</li>
+<li><strong>数据库原理</strong> 课程学习笔记</li>
+</ul>
+<blockquote>
+<p>持续更新中，敬请期待 🚀</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>数据库</category>
+      </categories>
+      <tags>
+        <tag>数据库</tag>
+        <tag>MySQL</tag>
       </tags>
   </entry>
   <entry>

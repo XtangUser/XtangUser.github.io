@@ -27,6 +27,9 @@
   var hideTimer = null
   var checkTimer = null
   var resizeBound = false
+  var preferredVoice = null
+  var SPEECH_RATE = 0.9
+  var SPEECH_PITCH = 0.88
 
   function loadState() {
     var defaults = {
@@ -55,6 +58,50 @@
     try {
       window.localStorage.setItem(STATE_KEY, JSON.stringify(state))
     } catch (error) {}
+  }
+
+  function scoreVoice(voice) {
+    var text = ((voice.name || '') + ' ' + (voice.lang || '')).toLowerCase()
+    var score = 0
+
+    if (text.indexOf('zh') !== -1 || text.indexOf('cmn') !== -1 || text.indexOf('chinese') !== -1) score += 50
+    if (text.indexOf('xiaoyi') !== -1 || text.indexOf('晓伊') !== -1) score += 90
+    if (text.indexOf('huihui') !== -1 || text.indexOf('慧慧') !== -1) score += 82
+    if (text.indexOf('tingting') !== -1 || text.indexOf('婷婷') !== -1) score += 78
+    if (text.indexOf('xiaoxiao') !== -1 || text.indexOf('晓晓') !== -1) score += 70
+    if (text.indexOf('yaoyao') !== -1 || text.indexOf('云希') !== -1 || text.indexOf('yunxi') !== -1) score += 66
+    if (text.indexOf('female') !== -1 || text.indexOf('女') !== -1) score += 35
+    if (text.indexOf('natural') !== -1 || text.indexOf('neural') !== -1 || text.indexOf('online') !== -1) score += 30
+    if (text.indexOf('male') !== -1 || text.indexOf('男') !== -1) score -= 25
+    if (voice.default) score += 10
+
+    return score
+  }
+
+  function pickPreferredVoice() {
+    if (!('speechSynthesis' in window)) return null
+
+    var voices = window.speechSynthesis.getVoices()
+    if (!voices || !voices.length) return null
+
+    var chineseVoices = voices.filter(function (voice) {
+      var lang = (voice.lang || '').toLowerCase()
+      var name = (voice.name || '').toLowerCase()
+      return lang.indexOf('zh') !== -1 || lang.indexOf('cmn') !== -1 || name.indexOf('chinese') !== -1
+    })
+
+    var candidates = chineseVoices.length ? chineseVoices : voices
+    candidates.sort(function (left, right) {
+      return scoreVoice(right) - scoreVoice(left)
+    })
+
+    preferredVoice = candidates[0] || null
+    return preferredVoice
+  }
+
+  function getPreferredVoice() {
+    if (preferredVoice) return preferredVoice
+    return pickPreferredVoice()
   }
 
   function clampPosition() {
@@ -153,6 +200,7 @@
     if (voiceButton) {
       voiceButton.textContent = state.voiceEnabled ? '语音开' : '语音关'
       voiceButton.style.background = state.voiceEnabled ? '#0f766e' : '#9ca3af'
+      voiceButton.title = preferredVoice ? ('当前语音: ' + preferredVoice.name) : '当前语音: 浏览器默认'
     }
   }
 
@@ -187,8 +235,16 @@
     if (!state.voiceEnabled || !('speechSynthesis' in window)) return
     var utterance = new SpeechSynthesisUtterance(text)
     utterance.lang = 'zh-CN'
-    utterance.rate = 1
-    utterance.pitch = 1
+    utterance.rate = SPEECH_RATE
+    utterance.pitch = SPEECH_PITCH
+    utterance.volume = 1
+
+    var voice = getPreferredVoice()
+    if (voice) {
+      utterance.voice = voice
+      utterance.lang = voice.lang || 'zh-CN'
+    }
+
     window.speechSynthesis.cancel()
     window.speechSynthesis.speak(utterance)
   }
@@ -292,6 +348,14 @@
   helper.initialized = true
   helper.refresh = refresh
   window.__xtLive2DHelper = helper
+
+  if ('speechSynthesis' in window) {
+    pickPreferredVoice()
+    window.speechSynthesis.addEventListener('voiceschanged', function () {
+      pickPreferredVoice()
+      updateVoiceButton()
+    })
+  }
 
   document.addEventListener('DOMContentLoaded', refresh)
   document.addEventListener('pjax:complete', refresh)
