@@ -28,64 +28,11 @@
 ]]></content>
   </entry>
   <entry>
-    <title>前端开发·栏目介绍</title>
-    <url>/2026/03/09/%E5%89%8D%E7%AB%AF%E5%BC%80%E7%AF%87/</url>
-    <content><![CDATA[<blockquote>
-<p>这里记录我在前端开发路上的学习成果与实践经验。</p>
-</blockquote>
-<span id="more"></span>
-
-<h2 id="📌-本栏目内容"><a href="#📌-本栏目内容" class="headerlink" title="📌 本栏目内容"></a>📌 本栏目内容</h2><p>本栏目将持续更新以下方向的技术文章：</p>
-<ul>
-<li><strong>Vue3</strong> 组件开发、状态管理、性能优化</li>
-<li><strong>HTML &#x2F; CSS &#x2F; JavaScript</strong> 基础与进阶</li>
-<li><strong>Three.js</strong> 3D 场景搭建与交互</li>
-<li><strong>uniapp</strong> 小程序跨端开发</li>
-<li><strong>AI 辅助编程</strong> 效率提升实践</li>
-</ul>
-<blockquote>
-<p>持续更新中，敬请期待 🚀</p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>前端</category>
-      </categories>
-      <tags>
-        <tag>前端</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>后端开发·栏目介绍</title>
-    <url>/2026/03/09/%E5%90%8E%E7%AB%AF%E5%BC%80%E7%AF%87/</url>
-    <content><![CDATA[<blockquote>
-<p>这里记录我在后端开发路上的学习成果与项目经验。</p>
-</blockquote>
-<span id="more"></span>
-
-<h2 id="📌-本栏目内容"><a href="#📌-本栏目内容" class="headerlink" title="📌 本栏目内容"></a>📌 本栏目内容</h2><p>本栏目将持续更新以下方向的技术文章：</p>
-<ul>
-<li><strong>Java &#x2F; SpringBoot</strong> 后端开发与接口设计</li>
-<li><strong>Node.js</strong> 服务端开发</li>
-<li><strong>Docker &#x2F; Linux &#x2F; Nginx</strong> 部署与运维</li>
-<li><strong>数据库交互</strong> 与接口对接实践</li>
-</ul>
-<blockquote>
-<p>持续更新中，敬请期待 🚀</p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>后端</category>
-      </categories>
-      <tags>
-        <tag>后端</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>嵌入式开发·基于stm32便携式污水监测船技术细节详解</title>
     <url>/2026/03/09/%E5%9F%BA%E4%BA%8Estm32%E4%BE%BF%E6%90%BA%E5%BC%8F%E6%B1%A1%E6%B0%B4%E7%9B%91%E6%B5%8B%E8%88%B9%E6%8A%80%E6%9C%AF%E7%BB%86%E8%8A%82%E8%AF%A6%E8%A7%A3/</url>
     <content><![CDATA[<h1 id="基于stm32便携式污水监测船技术细节详解"><a href="#基于stm32便携式污水监测船技术细节详解" class="headerlink" title="基于stm32便携式污水监测船技术细节详解"></a>基于stm32便携式污水监测船技术细节详解</h1><p>1.为什么选这款核心控制器：STM32F103C8T6</p>
 <p>性价比高、资源丰富（GPIO、ADC、定时器、UART接口够用）、生态成熟。对于本项目的数据采集和电机控制，F103的性能完全满足实时性要求。</p>
-<p><img src="https://img-blog.csdnimg.cn/20200913163144761.png#pic_center"></p>
+<p><img src="https://s3.imagency.cn/e/fa3b463dc229c7bf4a49e9050124c1d8.png"></p>
 <p>我选用的主控是STM32F103C8T6。它基于Cortex-M3内核，主频72MHz，拥有64K Flash（相当于固态硬盘）和20K SRAM（内存），对于这个便携式检测船项目来说性价比很高。</p>
 <p>在资源分配上，我充分利用了它的外设：</p>
 <ol>
@@ -250,30 +197,56 @@
       </tags>
   </entry>
   <entry>
-    <title>数据库·栏目介绍</title>
-    <url>/2026/03/09/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%BC%80%E7%AF%87/</url>
+    <title>工具箱·栏目介绍</title>
+    <url>/2026/03/09/%E5%B7%A5%E5%85%B7%E7%AE%B1%E5%BC%80%E7%AF%87/</url>
     <content><![CDATA[<blockquote>
-<p>这里记录数据库相关的学习笔记与实战经验。</p>
+<p>好的工具能让开发事半功倍，这里收录我日常使用的效率神器。</p>
 </blockquote>
 <span id="more"></span>
 
-<h2 id="📌-本栏目内容"><a href="#📌-本栏目内容" class="headerlink" title="📌 本栏目内容"></a>📌 本栏目内容</h2><p>本栏目将持续更新以下方向的技术文章：</p>
+<h2 id="📌-本栏目内容"><a href="#📌-本栏目内容" class="headerlink" title="📌 本栏目内容"></a>📌 本栏目内容</h2><p>本栏目将持续更新以下内容：</p>
 <ul>
-<li><strong>MySQL</strong> 基础与进阶</li>
-<li><strong>数据库设计</strong> 范式与 ER 图</li>
-<li><strong>SQL 优化</strong> 索引与查询性能</li>
-<li><strong>数据库原理</strong> 课程学习笔记</li>
+<li><strong>开发工具</strong> 配置与使用技巧（VS Code、Git 等）</li>
+<li><strong>AI 辅助编程</strong> 工具实践</li>
+<li><strong>实用脚本</strong> 与自动化工作流</li>
+<li><strong>好用插件</strong> 推荐与评测</li>
 </ul>
 <blockquote>
 <p>持续更新中，敬请期待 🚀</p>
 </blockquote>
 ]]></content>
       <categories>
-        <category>数据库</category>
+        <category>工具箱</category>
       </categories>
       <tags>
-        <tag>数据库</tag>
-        <tag>MySQL</tag>
+        <tag>工具</tag>
+        <tag>效率</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>后端开发·栏目介绍</title>
+    <url>/2026/03/09/%E5%90%8E%E7%AB%AF%E5%BC%80%E7%AF%87/</url>
+    <content><![CDATA[<blockquote>
+<p>这里记录我在后端开发路上的学习成果与项目经验。</p>
+</blockquote>
+<span id="more"></span>
+
+<h2 id="📌-本栏目内容"><a href="#📌-本栏目内容" class="headerlink" title="📌 本栏目内容"></a>📌 本栏目内容</h2><p>本栏目将持续更新以下方向的技术文章：</p>
+<ul>
+<li><strong>Java &#x2F; SpringBoot</strong> 后端开发与接口设计</li>
+<li><strong>Node.js</strong> 服务端开发</li>
+<li><strong>Docker &#x2F; Linux &#x2F; Nginx</strong> 部署与运维</li>
+<li><strong>数据库交互</strong> 与接口对接实践</li>
+</ul>
+<blockquote>
+<p>持续更新中，敬请期待 🚀</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>后端</category>
+      </categories>
+      <tags>
+        <tag>后端</tag>
       </tags>
   </entry>
   <entry>
@@ -305,30 +278,30 @@
       </tags>
   </entry>
   <entry>
-    <title>随笔·栏目介绍</title>
-    <url>/2026/03/09/%E9%9A%8F%E7%AC%94%E5%BC%80%E7%AF%87/</url>
+    <title>前端开发·栏目介绍</title>
+    <url>/2026/03/09/%E5%89%8D%E7%AB%AF%E5%BC%80%E7%AF%87/</url>
     <content><![CDATA[<blockquote>
-<p>技术之外，也要好好生活。这里是我的文字角落。</p>
+<p>这里记录我在前端开发路上的学习成果与实践经验。</p>
 </blockquote>
 <span id="more"></span>
 
-<h2 id="📌-本栏目内容"><a href="#📌-本栏目内容" class="headerlink" title="📌 本栏目内容"></a>📌 本栏目内容</h2><p>不谈技术，只聊生活：</p>
+<h2 id="📌-本栏目内容"><a href="#📌-本栏目内容" class="headerlink" title="📌 本栏目内容"></a>📌 本栏目内容</h2><p>本栏目将持续更新以下方向的技术文章：</p>
 <ul>
-<li>校园日常与成长感悟</li>
-<li>竞赛备赛的心路历程</li>
-<li>读书笔记与思考随录</li>
-<li>生活中值得记录的小事</li>
+<li><strong>Vue3</strong> 组件开发、状态管理、性能优化</li>
+<li><strong>HTML &#x2F; CSS &#x2F; JavaScript</strong> 基础与进阶</li>
+<li><strong>Three.js</strong> 3D 场景搭建与交互</li>
+<li><strong>uniapp</strong> 小程序跨端开发</li>
+<li><strong>AI 辅助编程</strong> 效率提升实践</li>
 </ul>
 <blockquote>
-<p>慢慢更新，随心而写 ✍️</p>
+<p>持续更新中，敬请期待 🚀</p>
 </blockquote>
 ]]></content>
       <categories>
-        <category>随笔</category>
+        <category>前端</category>
       </categories>
       <tags>
-        <tag>随笔</tag>
-        <tag>生活</tag>
+        <tag>前端</tag>
       </tags>
   </entry>
   <entry>
@@ -359,30 +332,57 @@
       </tags>
   </entry>
   <entry>
-    <title>工具箱·栏目介绍</title>
-    <url>/2026/03/09/%E5%B7%A5%E5%85%B7%E7%AE%B1%E5%BC%80%E7%AF%87/</url>
+    <title>数据库·栏目介绍</title>
+    <url>/2026/03/09/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%BC%80%E7%AF%87/</url>
     <content><![CDATA[<blockquote>
-<p>好的工具能让开发事半功倍，这里收录我日常使用的效率神器。</p>
+<p>这里记录数据库相关的学习笔记与实战经验。</p>
 </blockquote>
 <span id="more"></span>
 
-<h2 id="📌-本栏目内容"><a href="#📌-本栏目内容" class="headerlink" title="📌 本栏目内容"></a>📌 本栏目内容</h2><p>本栏目将持续更新以下内容：</p>
+<h2 id="📌-本栏目内容"><a href="#📌-本栏目内容" class="headerlink" title="📌 本栏目内容"></a>📌 本栏目内容</h2><p>本栏目将持续更新以下方向的技术文章：</p>
 <ul>
-<li><strong>开发工具</strong> 配置与使用技巧（VS Code、Git 等）</li>
-<li><strong>AI 辅助编程</strong> 工具实践</li>
-<li><strong>实用脚本</strong> 与自动化工作流</li>
-<li><strong>好用插件</strong> 推荐与评测</li>
+<li><strong>MySQL</strong> 基础与进阶</li>
+<li><strong>数据库设计</strong> 范式与 ER 图</li>
+<li><strong>SQL 优化</strong> 索引与查询性能</li>
+<li><strong>数据库原理</strong> 课程学习笔记</li>
 </ul>
 <blockquote>
 <p>持续更新中，敬请期待 🚀</p>
 </blockquote>
 ]]></content>
       <categories>
-        <category>工具箱</category>
+        <category>数据库</category>
       </categories>
       <tags>
-        <tag>工具</tag>
-        <tag>效率</tag>
+        <tag>数据库</tag>
+        <tag>MySQL</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>随笔·栏目介绍</title>
+    <url>/2026/03/09/%E9%9A%8F%E7%AC%94%E5%BC%80%E7%AF%87/</url>
+    <content><![CDATA[<blockquote>
+<p>技术之外，也要好好生活。这里是我的文字角落。</p>
+</blockquote>
+<span id="more"></span>
+
+<h2 id="📌-本栏目内容"><a href="#📌-本栏目内容" class="headerlink" title="📌 本栏目内容"></a>📌 本栏目内容</h2><p>不谈技术，只聊生活：</p>
+<ul>
+<li>校园日常与成长感悟</li>
+<li>竞赛备赛的心路历程</li>
+<li>读书笔记与思考随录</li>
+<li>生活中值得记录的小事</li>
+</ul>
+<blockquote>
+<p>慢慢更新，随心而写 ✍️</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>随笔</category>
+      </categories>
+      <tags>
+        <tag>随笔</tag>
+        <tag>生活</tag>
       </tags>
   </entry>
 </search>
