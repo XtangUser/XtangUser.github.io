@@ -1,0 +1,16 @@
+/* ============================================================
+   自定义样式 - 修改这里可以调整博客外观
+   ============================================================ */
+
+/* 首页打字机副标题文字颜色 */
+#site-info .typed-cursor,
+#site-info .subtitle-text,
+#site-info #subtitle,
+#subtitle {
+  color: #00c4b6 !important;
+}
+
+/* 打字机光标颜色 */
+.typed-cursor {
+  color: #00c4b6 !important;
+}
