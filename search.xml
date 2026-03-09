@@ -1,57 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>前端开发·栏目介绍</title>
-    <url>/2026/03/09/%E5%89%8D%E7%AB%AF%E5%BC%80%E7%AF%87/</url>
+    <title>后端开发·栏目介绍</title>
+    <url>/2026/03/09/%E5%90%8E%E7%AB%AF%E5%BC%80%E7%AF%87/</url>
     <content><![CDATA[<blockquote>
-<p>这里记录我在前端开发路上的学习成果与实践经验。</p>
+<p>这里记录我在后端开发路上的学习成果与项目经验。</p>
 </blockquote>
 <span id="more"></span>
 
 <h2 id="📌-本栏目内容"><a href="#📌-本栏目内容" class="headerlink" title="📌 本栏目内容"></a>📌 本栏目内容</h2><p>本栏目将持续更新以下方向的技术文章：</p>
 <ul>
-<li><strong>Vue3</strong> 组件开发、状态管理、性能优化</li>
-<li><strong>HTML &#x2F; CSS &#x2F; JavaScript</strong> 基础与进阶</li>
-<li><strong>Three.js</strong> 3D 场景搭建与交互</li>
-<li><strong>uniapp</strong> 小程序跨端开发</li>
-<li><strong>AI 辅助编程</strong> 效率提升实践</li>
+<li><strong>Java &#x2F; SpringBoot</strong> 后端开发与接口设计</li>
+<li><strong>Node.js</strong> 服务端开发</li>
+<li><strong>Docker &#x2F; Linux &#x2F; Nginx</strong> 部署与运维</li>
+<li><strong>数据库交互</strong> 与接口对接实践</li>
 </ul>
 <blockquote>
 <p>持续更新中，敬请期待 🚀</p>
 </blockquote>
 ]]></content>
       <categories>
-        <category>前端</category>
+        <category>后端</category>
       </categories>
       <tags>
-        <tag>前端</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>你好，世界！</title>
-    <url>/2026/03/09/%E4%BD%A0%E5%A5%BD/</url>
-    <content><![CDATA[<h1 id="你好，世界！"><a href="#你好，世界！" class="headerlink" title="你好，世界！"></a>你好，世界！</h1><p>欢迎来到我的博客！这是我的第一篇文章，记录了我对技术的热爱和对生活的感悟。</p>
-]]></content>
-  </entry>
-  <entry>
-    <title>个人荣誉</title>
-    <url>/2026/03/09/%E4%B8%AA%E4%BA%BA%E8%8D%A3%E8%AA%89/</url>
-    <content><![CDATA[<blockquote>
-<p>每一份荣誉，都是过去努力的见证。愿每一步都算数，愿未来更值得期待。✨</p>
-</blockquote>
-<span id="more"></span>
-
-<h2 id="🏆-荣誉证书"><a href="#🏆-荣誉证书" class="headerlink" title="🏆 荣誉证书"></a>🏆 荣誉证书</h2><div class="gallery-container" data-type="data" data-button="" data-limit="10" data-first="10">
-    <div class="gallery-items">[{"url":"https://s3.imagency.cn/e/b511900cb1347f24f4f252f3f74404ed.jpg","alt":"","title":""},{"url":"https://s3.imagency.cn/e/7f3170e74c45cbbb32b4eb817774c5a0.png","alt":"","title":""},{"url":"https://s3.imagency.cn/e/bd645f2f928a17abb68359c6ac50165d.jpg","alt":"","title":""},{"url":"https://s3.imagency.cn/e/a8348d079d9f33e83e70194b565a7c3c.png","alt":"","title":""},{"url":"https://s3.imagency.cn/e/bdda82f6878d4a4c2127186c788a5ab9.png","alt":"","title":""},{"url":"https://s3.imagency.cn/e/092b929a2066799ba41ac8bfe565b420.png","alt":"","title":""},{"url":"https://s3.imagency.cn/e/33d47cb48852f9cd85a2b0f1675da933.png","alt":"","title":""},{"url":"https://s3.imagency.cn/e/24b7769472b800e7fde25fe3a14ea19e.png","alt":"","title":""},{"url":"https://s3.imagency.cn/e/4231c102d956238cd41d38c7e5502db5.png","alt":"","title":""},{"url":"https://s3.imagency.cn/e/1f86cb1303786e00e80e0bd250d00d6e.png","alt":"","title":""},{"url":"https://s3.imagency.cn/e/4e1cf95861263c7554e08296ca9268b9.jpg","alt":"","title":""},{"url":"https://s3.imagency.cn/e/83af1eaac6cb26b28f1950841df4e34a.png","alt":"","title":""},{"url":"https://s3.imagency.cn/e/bc3e8fba3c95e5f83b9619a360b65547.png","alt":"","title":""},{"url":"https://s3.imagency.cn/e/05e1b583d970340e5db33d90110180b4.jpg","alt":"","title":""},{"url":"https://s3.imagency.cn/e/6317babd37733a4c8f1df58d5ce6e98c.png","alt":"","title":""},{"url":"https://s3.imagency.cn/e/7e42833dd484ff4f30e0109c484deff1.png","alt":"","title":""},{"url":"https://s3.imagency.cn/e/8f1e967d4009a7fb42678f0843abfe94.png","alt":"","title":""},{"url":"https://s3.imagency.cn/e/68ef3f645b0c9c08927eaf98bf96c7d0.png","alt":"","title":""}]</div>
-  </div>
-]]></content>
-      <categories>
-        <category>生活经历</category>
-        <category>个人荣誉</category>
-      </categories>
-      <tags>
-        <tag>荣誉</tag>
-        <tag>成就</tag>
+        <tag>后端</tag>
       </tags>
   </entry>
   <entry>
@@ -83,6 +55,38 @@
       </tags>
   </entry>
   <entry>
+    <title>个人荣誉</title>
+    <url>/2026/03/09/%E4%B8%AA%E4%BA%BA%E8%8D%A3%E8%AA%89/</url>
+    <content><![CDATA[<blockquote>
+<p>每一份荣誉，都是过去努力的见证。愿每一步都算数，愿未来更值得期待。✨</p>
+</blockquote>
+<span id="more"></span>
+
+<h2 id="🏆-荣誉证书"><a href="#🏆-荣誉证书" class="headerlink" title="🏆 荣誉证书"></a>🏆 荣誉证书</h2><div class="gallery-container" data-type="data" data-button="" data-limit="10" data-first="10">
+    <div class="gallery-items">[{"url":"https://s3.imagency.cn/e/b511900cb1347f24f4f252f3f74404ed.jpg","alt":"","title":""},{"url":"https://s3.imagency.cn/e/7f3170e74c45cbbb32b4eb817774c5a0.png","alt":"","title":""},{"url":"https://s3.imagency.cn/e/bd645f2f928a17abb68359c6ac50165d.jpg","alt":"","title":""},{"url":"https://s3.imagency.cn/e/a8348d079d9f33e83e70194b565a7c3c.png","alt":"","title":""},{"url":"https://s3.imagency.cn/e/bdda82f6878d4a4c2127186c788a5ab9.png","alt":"","title":""},{"url":"https://s3.imagency.cn/e/092b929a2066799ba41ac8bfe565b420.png","alt":"","title":""},{"url":"https://s3.imagency.cn/e/33d47cb48852f9cd85a2b0f1675da933.png","alt":"","title":""},{"url":"https://s3.imagency.cn/e/24b7769472b800e7fde25fe3a14ea19e.png","alt":"","title":""},{"url":"https://s3.imagency.cn/e/4231c102d956238cd41d38c7e5502db5.png","alt":"","title":""},{"url":"https://s3.imagency.cn/e/1f86cb1303786e00e80e0bd250d00d6e.png","alt":"","title":""},{"url":"https://s3.imagency.cn/e/4e1cf95861263c7554e08296ca9268b9.jpg","alt":"","title":""},{"url":"https://s3.imagency.cn/e/83af1eaac6cb26b28f1950841df4e34a.png","alt":"","title":""},{"url":"https://s3.imagency.cn/e/bc3e8fba3c95e5f83b9619a360b65547.png","alt":"","title":""},{"url":"https://s3.imagency.cn/e/05e1b583d970340e5db33d90110180b4.jpg","alt":"","title":""},{"url":"https://s3.imagency.cn/e/6317babd37733a4c8f1df58d5ce6e98c.png","alt":"","title":""},{"url":"https://s3.imagency.cn/e/7e42833dd484ff4f30e0109c484deff1.png","alt":"","title":""},{"url":"https://s3.imagency.cn/e/8f1e967d4009a7fb42678f0843abfe94.png","alt":"","title":""},{"url":"https://s3.imagency.cn/e/68ef3f645b0c9c08927eaf98bf96c7d0.png","alt":"","title":""}]</div>
+  </div>
+]]></content>
+      <categories>
+        <category>生活经历</category>
+        <category>个人荣誉</category>
+      </categories>
+      <tags>
+        <tag>荣誉</tag>
+        <tag>成就</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title></title>
+    <url>/2026/03/09/%E5%9F%BA%E4%BA%8Estm32%E4%BE%BF%E6%90%BA%E5%BC%8F%E6%B1%A1%E6%B0%B4%E7%9B%91%E6%B5%8B%E8%88%B9%E8%AF%A6%E8%A7%A3/</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>你好，世界！</title>
+    <url>/2026/03/09/%E4%BD%A0%E5%A5%BD/</url>
+    <content><![CDATA[<h1 id="你好，世界！"><a href="#你好，世界！" class="headerlink" title="你好，世界！"></a>你好，世界！</h1><p>欢迎来到我的博客！这是我的第一篇文章，记录了我对技术的热爱和对生活的感悟。</p>
+]]></content>
+  </entry>
+  <entry>
     <title>工具箱·栏目介绍</title>
     <url>/2026/03/09/%E5%B7%A5%E5%85%B7%E7%AE%B1%E5%BC%80%E7%AF%87/</url>
     <content><![CDATA[<blockquote>
@@ -110,56 +114,57 @@
       </tags>
   </entry>
   <entry>
-    <title>后端开发·栏目介绍</title>
-    <url>/2026/03/09/%E5%90%8E%E7%AB%AF%E5%BC%80%E7%AF%87/</url>
+    <title>前端开发·栏目介绍</title>
+    <url>/2026/03/09/%E5%89%8D%E7%AB%AF%E5%BC%80%E7%AF%87/</url>
     <content><![CDATA[<blockquote>
-<p>这里记录我在后端开发路上的学习成果与项目经验。</p>
+<p>这里记录我在前端开发路上的学习成果与实践经验。</p>
 </blockquote>
 <span id="more"></span>
 
 <h2 id="📌-本栏目内容"><a href="#📌-本栏目内容" class="headerlink" title="📌 本栏目内容"></a>📌 本栏目内容</h2><p>本栏目将持续更新以下方向的技术文章：</p>
 <ul>
-<li><strong>Java &#x2F; SpringBoot</strong> 后端开发与接口设计</li>
-<li><strong>Node.js</strong> 服务端开发</li>
-<li><strong>Docker &#x2F; Linux &#x2F; Nginx</strong> 部署与运维</li>
-<li><strong>数据库交互</strong> 与接口对接实践</li>
+<li><strong>Vue3</strong> 组件开发、状态管理、性能优化</li>
+<li><strong>HTML &#x2F; CSS &#x2F; JavaScript</strong> 基础与进阶</li>
+<li><strong>Three.js</strong> 3D 场景搭建与交互</li>
+<li><strong>uniapp</strong> 小程序跨端开发</li>
+<li><strong>AI 辅助编程</strong> 效率提升实践</li>
 </ul>
 <blockquote>
 <p>持续更新中，敬请期待 🚀</p>
 </blockquote>
 ]]></content>
       <categories>
-        <category>后端</category>
+        <category>前端</category>
       </categories>
       <tags>
-        <tag>后端</tag>
+        <tag>前端</tag>
       </tags>
   </entry>
   <entry>
-    <title>数据库·栏目介绍</title>
-    <url>/2026/03/09/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%BC%80%E7%AF%87/</url>
+    <title>随笔·栏目介绍</title>
+    <url>/2026/03/09/%E9%9A%8F%E7%AC%94%E5%BC%80%E7%AF%87/</url>
     <content><![CDATA[<blockquote>
-<p>这里记录数据库相关的学习笔记与实战经验。</p>
+<p>技术之外，也要好好生活。这里是我的文字角落。</p>
 </blockquote>
 <span id="more"></span>
 
-<h2 id="📌-本栏目内容"><a href="#📌-本栏目内容" class="headerlink" title="📌 本栏目内容"></a>📌 本栏目内容</h2><p>本栏目将持续更新以下方向的技术文章：</p>
+<h2 id="📌-本栏目内容"><a href="#📌-本栏目内容" class="headerlink" title="📌 本栏目内容"></a>📌 本栏目内容</h2><p>不谈技术，只聊生活：</p>
 <ul>
-<li><strong>MySQL</strong> 基础与进阶</li>
-<li><strong>数据库设计</strong> 范式与 ER 图</li>
-<li><strong>SQL 优化</strong> 索引与查询性能</li>
-<li><strong>数据库原理</strong> 课程学习笔记</li>
+<li>校园日常与成长感悟</li>
+<li>竞赛备赛的心路历程</li>
+<li>读书笔记与思考随录</li>
+<li>生活中值得记录的小事</li>
 </ul>
 <blockquote>
-<p>持续更新中，敬请期待 🚀</p>
+<p>慢慢更新，随心而写 ✍️</p>
 </blockquote>
 ]]></content>
       <categories>
-        <category>数据库</category>
+        <category>随笔</category>
       </categories>
       <tags>
-        <tag>数据库</tag>
-        <tag>MySQL</tag>
+        <tag>随笔</tag>
+        <tag>生活</tag>
       </tags>
   </entry>
   <entry>
@@ -190,35 +195,30 @@
       </tags>
   </entry>
   <entry>
-    <title></title>
-    <url>/2026/03/09/%E5%9F%BA%E4%BA%8Estm32%E4%BE%BF%E6%90%BA%E5%BC%8F%E6%B1%A1%E6%B0%B4%E7%9B%91%E6%B5%8B%E8%88%B9%E8%AF%A6%E8%A7%A3/</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
-    <title>随笔·栏目介绍</title>
-    <url>/2026/03/09/%E9%9A%8F%E7%AC%94%E5%BC%80%E7%AF%87/</url>
+    <title>数据库·栏目介绍</title>
+    <url>/2026/03/09/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%BC%80%E7%AF%87/</url>
     <content><![CDATA[<blockquote>
-<p>技术之外，也要好好生活。这里是我的文字角落。</p>
+<p>这里记录数据库相关的学习笔记与实战经验。</p>
 </blockquote>
 <span id="more"></span>
 
-<h2 id="📌-本栏目内容"><a href="#📌-本栏目内容" class="headerlink" title="📌 本栏目内容"></a>📌 本栏目内容</h2><p>不谈技术，只聊生活：</p>
+<h2 id="📌-本栏目内容"><a href="#📌-本栏目内容" class="headerlink" title="📌 本栏目内容"></a>📌 本栏目内容</h2><p>本栏目将持续更新以下方向的技术文章：</p>
 <ul>
-<li>校园日常与成长感悟</li>
-<li>竞赛备赛的心路历程</li>
-<li>读书笔记与思考随录</li>
-<li>生活中值得记录的小事</li>
+<li><strong>MySQL</strong> 基础与进阶</li>
+<li><strong>数据库设计</strong> 范式与 ER 图</li>
+<li><strong>SQL 优化</strong> 索引与查询性能</li>
+<li><strong>数据库原理</strong> 课程学习笔记</li>
 </ul>
 <blockquote>
-<p>慢慢更新，随心而写 ✍️</p>
+<p>持续更新中，敬请期待 🚀</p>
 </blockquote>
 ]]></content>
       <categories>
-        <category>随笔</category>
+        <category>数据库</category>
       </categories>
       <tags>
-        <tag>随笔</tag>
-        <tag>生活</tag>
+        <tag>数据库</tag>
+        <tag>MySQL</tag>
       </tags>
   </entry>
 </search>
