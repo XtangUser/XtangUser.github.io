@@ -14,3 +14,111 @@
 .typed-cursor {
   color: #00c4b6 !important;
 }
+
+/* ============================================================
+   玻璃磨砂效果 (Frosted Glass Effect)
+   ============================================================ */
+
+/* 全局渐变背景，使磨砂效果可见 */
+#body-wrap {
+  background: linear-gradient(135deg, #dfe9f3 0%, #e8d9f5 35%, #fde8f0 65%, #d9f0f5 100%);
+  background-attachment: fixed;
+}
+
+[data-theme="dark"] #body-wrap {
+  background: linear-gradient(135deg, #0d0b1e 0%, #1a1035 45%, #0b1a22 100%);
+  background-attachment: fixed;
+}
+
+/* 导航栏磨砂玻璃 */
+#nav {
+  background: rgba(255, 255, 255, 0.42) !important;
+  backdrop-filter: blur(16px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(16px) saturate(180%) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.55) !important;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.07) !important;
+}
+
+[data-theme="dark"] #nav {
+  background: rgba(13, 11, 30, 0.55) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+}
+
+/* 侧边栏所有卡片磨砂玻璃 */
+.card-widget {
+  background: rgba(255, 255, 255, 0.48) !important;
+  backdrop-filter: blur(14px) saturate(160%) !important;
+  -webkit-backdrop-filter: blur(14px) saturate(160%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.65) !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.09) !important;
+}
+
+[data-theme="dark"] .card-widget {
+  background: rgba(20, 14, 48, 0.48) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.28) !important;
+}
+
+/* 首页文章卡片磨砂玻璃 */
+#recent-posts .recent-post-item {
+  background: rgba(255, 255, 255, 0.48) !important;
+  backdrop-filter: blur(14px) saturate(160%) !important;
+  -webkit-backdrop-filter: blur(14px) saturate(160%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.65) !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.09) !important;
+}
+
+[data-theme="dark"] #recent-posts .recent-post-item {
+  background: rgba(20, 14, 48, 0.48) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+/* 文章内容区磨砂玻璃 */
+#article-container,
+.post-wrap,
+#post {
+  background: rgba(255, 255, 255, 0.58) !important;
+  backdrop-filter: blur(14px) saturate(160%) !important;
+  -webkit-backdrop-filter: blur(14px) saturate(160%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.65) !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.09) !important;
+}
+
+[data-theme="dark"] #article-container,
+[data-theme="dark"] .post-wrap,
+[data-theme="dark"] #post {
+  background: rgba(20, 14, 48, 0.52) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+}
+
+/* 归档、标签、分类等列表页容器 */
+#archive,
+#tag,
+#category {
+  background: rgba(255, 255, 255, 0.42) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  border-radius: 12px;
+  padding: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.55) !important;
+}
+
+[data-theme="dark"] #archive,
+[data-theme="dark"] #tag,
+[data-theme="dark"] #category {
+  background: rgba(20, 14, 48, 0.42) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+}
+
+/* 页脚磨砂 */
+#footer {
+  background: rgba(255, 255, 255, 0.28) !important;
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.35) !important;
+}
+
+[data-theme="dark"] #footer {
+  background: rgba(13, 11, 30, 0.48) !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.06) !important;
+}

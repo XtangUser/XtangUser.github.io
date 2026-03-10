@@ -1,10 +1,105 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>数组</title>
+    <url>/2026/03/10/C%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/</url>
+    <content><![CDATA[<h1 id="第一讲–一维数组"><a href="#第一讲–一维数组" class="headerlink" title="第一讲–一维数组"></a>第一讲–一维数组</h1> <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">一维数组是相同类型元素的连续存储集合。 </span><br><span class="line"></span><br><span class="line">声明方式：    int a[10];          // 声明一个长度为10的整型数组   </span><br><span class="line"></span><br><span class="line"> int a[] = &#123;1,2,3&#125;;  // 声明并初始化，长度自动推断为3    </span><br><span class="line"></span><br><span class="line">int a[5] = &#123;0&#125;;     // 全部初始化为0 </span><br><span class="line"></span><br><span class="line">关键点： 1. 数组下标从 0 开始，a[0] 是第一个元素 </span><br><span class="line"></span><br><span class="line">2. 数组名 a 代表首元素地址（与指针密切相关） </span><br><span class="line">3. 数组越界访问是未定义行为（不会报错但很危险） </span><br><span class="line">4. 数组作为函数参数时，退化为指针，不携带长度信息</span><br></pre></td></tr></table></figure>
+
+<h3 id="✏️-练习题1：数组元素逆序"><a href="#✏️-练习题1：数组元素逆序" class="headerlink" title="✏️ 练习题1：数组元素逆序"></a>✏️ 练习题1：数组元素逆序</h3><blockquote>
+<p><strong>题目</strong>：输入 n 个整数存入数组，将数组元素逆序后输出。</p>
+<p><strong>输入示例</strong>：<code>5</code> → <code>1 2 3 4 5</code><br><strong>输出示例</strong>：<code>5 4 3 2 1</code></p>
+</blockquote>
+<p>   <strong>思路分析</strong>：</p>
+<ul>
+<li>用两个指针（下标）<code>i</code> 和 <code>j</code>，分别指向头和尾</li>
+<li>交换 <code>a[i]</code> 和 <code>a[j]</code>，然后 <code>i++</code>，<code>j--</code></li>
+<li>直到 <code>i &gt;= j</code></li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">    int n;</span><br><span class="line">    scanf(&quot;%d&quot;, &amp;n);</span><br><span class="line">    </span><br><span class="line">    int a[100];</span><br><span class="line">    for (int i = 0; i &lt; n; i++) &#123;</span><br><span class="line">        scanf(&quot;%d&quot;, &amp;a[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    // 逆序：首尾交换</span><br><span class="line">    int i = 0, j = n - 1;</span><br><span class="line">    while (i &lt; j) &#123;</span><br><span class="line">        int temp = a[i];</span><br><span class="line">        a[i] = a[j];</span><br><span class="line">        a[j] = temp;</span><br><span class="line">        i++;</span><br><span class="line">        j--;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    // 输出</span><br><span class="line">    for (int i = 0; i &lt; n; i++) &#123;</span><br><span class="line">        printf(&quot;%d &quot;, a[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    printf(&quot;\n&quot;);</span><br><span class="line">    </span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>复杂度</strong>：时间 O(n)，空间 O(1)</p>
+<p><code>#include &lt;stdio.h&gt;</code><br><code>// 函数声明</code><br><code>void reverseeArr(int *arr, int n);</code><br><code>int main()</code><br><code>{</code><br>    <code>int n = 0;</code><br>    <code>printf(&quot;Enter the size of the array: &quot;);</code><br>    <code>scanf(&quot;%d&quot;, &amp;n);</code><br>    <code>int arr[n];</code><br>    <code>for (int i = 0; i &lt; n; i++)</code><br>    <code>{</code><br>        <code>scanf(&quot;%d&quot;, &amp;arr[i]);</code><br>    <code>}</code><br>    <code>reverseeArr(arr, n);</code><br>    <code>printf(&quot;Reversed array: &quot;);</code><br>    <code>for (int i = 0; i &lt; n; i++)</code><br>    <code>{</code><br>        <code>printf(&quot;%d &quot;, arr[i]);</code><br>    <code>}</code><br>    <code>printf(&quot;\n&quot;);</code><br><code>}</code></p>
+<p><code>void reverseeArr(int *arr, int n) {     //*arr是数组的第一个元素，arr是数组的地址，*的作用是解构数组地址，获取数组的第一个元素的值</code><br>    <code>printf(&quot;%d &quot;, *arr);</code><br>    <code>int i = 0, j = n - 1;</code><br>    <code>for (i = 0; i &lt; j; i++, j--)</code><br>    <code>{</code><br>        <code>int temp = arr[i];</code><br>        <code>arr[i] = arr[j];</code><br>        <code>arr[j] = temp;</code><br>    <code>}</code><br><code>}</code></p>
+<h1 id="第二讲–二维数组"><a href="#第二讲–二维数组" class="headerlink" title="第二讲–二维数组"></a>第二讲–二维数组</h1><h2 id="第2讲：二维数组"><a href="#第2讲：二维数组" class="headerlink" title="第2讲：二维数组"></a>第2讲：二维数组</h2><h3 id="🔑-知识点讲解"><a href="#🔑-知识点讲解" class="headerlink" title="🔑 知识点讲解"></a>🔑 知识点讲解</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">二维数组可看作&quot;数组的数组&quot;，即矩阵。</span><br><span class="line"></span><br><span class="line">声明方式：</span><br><span class="line">    int a[3][4];                     // 3行4列</span><br><span class="line">    int a[2][3] = &#123;&#123;1,2,3&#125;,&#123;4,5,6&#125;&#125;; // 初始化</span><br><span class="line"></span><br><span class="line">内存布局：</span><br><span class="line">    行优先存储（C语言），即 a[0][0], a[0][1], ..., a[0][3], a[1][0], ...</span><br><span class="line"></span><br><span class="line">访问：a[i][j] 表示第 i 行第 j 列</span><br><span class="line"></span><br><span class="line">作为函数参数时，第一维可以省略，第二维不能省略：</span><br><span class="line">    void func(int a[][4], int rows);</span><br></pre></td></tr></table></figure>
+
+<h3 id="✏️-练习题2：矩阵转置"><a href="#✏️-练习题2：矩阵转置" class="headerlink" title="✏️ 练习题2：矩阵转置"></a>✏️ 练习题2：矩阵转置</h3><blockquote>
+<p><strong>题目</strong>：输入一个 m×n 的矩阵，输出它的转置矩阵（n×m）。</p>
+<p><strong>输入示例</strong>：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">2 3</span><br><span class="line">1 2 3</span><br><span class="line">4 5 6</span><br></pre></td></tr></table></figure>
+
+<p><strong>输出示例</strong>：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">1 4</span><br><span class="line">2 5</span><br><span class="line">3 6</span><br></pre></td></tr></table></figure></blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">    int m, n;</span><br><span class="line">    scanf(&quot;%d %d&quot;, &amp;m, &amp;n);</span><br><span class="line">    </span><br><span class="line">    int a[100][100], b[100][100];</span><br><span class="line">    </span><br><span class="line">    // 读入矩阵</span><br><span class="line">    for (int i = 0; i &lt; m; i++)</span><br><span class="line">        for (int j = 0; j &lt; n; j++)</span><br><span class="line">            scanf(&quot;%d&quot;, &amp;a[i][j]);</span><br><span class="line">    </span><br><span class="line">    // 转置：b[j][i] = a[i][j]</span><br><span class="line">    for (int i = 0; i &lt; m; i++)</span><br><span class="line">        for (int j = 0; j &lt; n; j++)</span><br><span class="line">            b[j][i] = a[i][j];</span><br><span class="line">    </span><br><span class="line">    // 输出转置后的矩阵 (n行m列)</span><br><span class="line">    for (int i = 0; i &lt; n; i++) &#123;</span><br><span class="line">        for (int j = 0; j &lt; m; j++) &#123;</span><br><span class="line">            printf(&quot;%d &quot;, b[i][j]);</span><br><span class="line">        &#125;</span><br><span class="line">        printf(&quot;\n&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="第3讲：字符数组与字符串"><a href="#第3讲：字符数组与字符串" class="headerlink" title="第3讲：字符数组与字符串"></a>第3讲：字符数组与字符串</h2><h3 id="🔑-知识点讲解-1"><a href="#🔑-知识点讲解-1" class="headerlink" title="🔑 知识点讲解"></a><strong>🔑</strong> 知识点讲解</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">C 无 string 类型，字符串 = 字符数组 + \0 结尾</span><br><span class="line">char s[20];</span><br><span class="line">char s[]=&quot;hello&quot;;      // 自动带 \0</span><br><span class="line">char s[]=&#123;&#x27;h&#x27;,&#x27;e&#x27;,&#x27;l&#x27;,&#x27;l&#x27;,&#x27;o&#x27;,&#x27;\0&#x27;&#125;;</span><br><span class="line"></span><br><span class="line">常用函数（#include &lt;string.h&gt;）</span><br><span class="line">strlen(s) 长度（不含 \0）→ s：字符串</span><br><span class="line">strcpy(dst,src) 复制 src 到 dst → dst：目标数组，src：源字符串</span><br><span class="line">strcmp(s1,s2) 比较 s1/s2 → 返回 0 = 相等</span><br><span class="line">strcat(dst,src) 拼接 src 到 dst 后 → dst：目标数组，src：源字符串</span><br><span class="line">输入</span><br><span class="line">scanf(&quot;%s&quot;,s) 遇空格 / 换行停止 → s：字符数组</span><br><span class="line">fgets(s,n,stdin) 安全读整行 → s：数组，n：最大长度，stdin：标准输入</span><br><span class="line">输出</span><br><span class="line">printf(&quot;%s&quot;,s) 输出字符串 → s：数组</span><br><span class="line">puts(s) 输出 + 自动换行 → s：数组</span><br></pre></td></tr></table></figure>
+
+<h3 id="✏️-练习题3：统计字符串中各类字符个数"><a href="#✏️-练习题3：统计字符串中各类字符个数" class="headerlink" title="✏️ 练习题3：统计字符串中各类字符个数"></a>✏️ 练习题3：统计字符串中各类字符个数</h3><blockquote>
+<p><strong>题目</strong>：输入一行字符串，统计其中字母、数字、空格和其他字符的个数。</p>
+<p><strong>输入</strong>：<code>Hello World! 123</code><br><strong>输出</strong>：<code>字母:10 数字:3 空格:2 其他:1</code></p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">#include &lt;ctype.h&gt;</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">    char s[200];</span><br><span class="line">    fgets(s, 200, stdin);  // 读取一行</span><br><span class="line">    </span><br><span class="line">    int letter = 0, digit = 0, space = 0, other = 0;</span><br><span class="line">    </span><br><span class="line">    for (int i = 0; s[i] != &#x27;\0&#x27; &amp;&amp; s[i] != &#x27;\n&#x27;; i++) &#123;</span><br><span class="line">        if (isalpha(s[i]))      letter++;</span><br><span class="line">        else if (isdigit(s[i])) digit++;</span><br><span class="line">        else if (s[i] == &#x27; &#x27;)   space++;</span><br><span class="line">        else                    other++;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    printf(&quot;字母:%d 数字:%d 空格:%d 其他:%d\n&quot;, </span><br><span class="line">           letter, digit, space, other);</span><br><span class="line">    </span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 输入一行字符串，计算其中的空格，数字，字母的个数，并输出结果。</span><br><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">#include &lt;string.h&gt;</span><br><span class="line">int main()</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">    char str[100];</span><br><span class="line">    int space_count = 0, digit_count = 0, letter_count = 0; int others_count = 0;</span><br><span class="line">    printf(&quot;请输入一行字符串：&quot;);</span><br><span class="line">    // 使用fgets函数读取输入，避免缓冲区溢出,sizeof(str)==strlen(str)吗？不一定，sizeof(str)是数组的总大小，而strlen(str)是字符串的实际长度，可能小于sizeof(str)。因此，使用fgets可以确保不会超过数组的大小，避免缓冲区溢出。</span><br><span class="line">    fgets(str, sizeof(str), stdin);</span><br><span class="line">    for (int i = 0; str[i] != &#x27;\0&#x27;; i++) &#123;</span><br><span class="line">        printf(&quot;%c &quot;, str[i]);</span><br><span class="line">        if (str[i] == &#x27; &#x27;) &#123;</span><br><span class="line">            space_count++;</span><br><span class="line">        &#125; else if (str[i] &gt;= &#x27;0&#x27; &amp;&amp; str[i] &lt;= &#x27;9&#x27;) &#123;</span><br><span class="line">            digit_count++;</span><br><span class="line">        &#125; else if ((str[i] &gt;= &#x27;A&#x27; &amp;&amp; str[i] &lt;= &#x27;Z&#x27;) || (str[i] &gt;= &#x27;a&#x27; &amp;&amp; str[i] &lt;= &#x27;z&#x27;)) &#123;</span><br><span class="line">            letter_count++;</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            others_count++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    printf(&quot;空格的个数：%d\n&quot;, space_count);</span><br><span class="line">    printf(&quot;数字的个数：%d\n&quot;, digit_count);</span><br><span class="line">    printf(&quot;字母的个数：%d\n&quot;, letter_count);</span><br><span class="line">    printf(&quot;其他字符的个数：%d\n&quot;, others_count);</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>c语言数据结构与算法</category>
+      </categories>
+      <tags>
+        <tag>c语言数据结构与算法</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>个人荣誉</title>
+    <url>/2026/03/09/%E4%B8%AA%E4%BA%BA%E8%8D%A3%E8%AA%89/</url>
+    <content><![CDATA[<blockquote>
+<p>每一份荣誉，都是过去努力的见证。愿每一步都算数，愿未来更值得期待。✨</p>
+</blockquote>
+<span id="more"></span>
+
+<h2 id="🏆-荣誉证书"><a href="#🏆-荣誉证书" class="headerlink" title="🏆 荣誉证书"></a>🏆 荣誉证书</h2><div class="gallery-container" data-type="data" data-button="" data-limit="10" data-first="10">
+    <div class="gallery-items">[{"url":"https://s3.imagency.cn/e/b511900cb1347f24f4f252f3f74404ed.jpg","alt":"","title":""},{"url":"https://s3.imagency.cn/e/7f3170e74c45cbbb32b4eb817774c5a0.png","alt":"","title":""},{"url":"https://s3.imagency.cn/e/bd645f2f928a17abb68359c6ac50165d.jpg","alt":"","title":""},{"url":"https://s3.imagency.cn/e/a8348d079d9f33e83e70194b565a7c3c.png","alt":"","title":""},{"url":"https://s3.imagency.cn/e/bdda82f6878d4a4c2127186c788a5ab9.png","alt":"","title":""},{"url":"https://s3.imagency.cn/e/092b929a2066799ba41ac8bfe565b420.png","alt":"","title":""},{"url":"https://s3.imagency.cn/e/33d47cb48852f9cd85a2b0f1675da933.png","alt":"","title":""},{"url":"https://s3.imagency.cn/e/24b7769472b800e7fde25fe3a14ea19e.png","alt":"","title":""},{"url":"https://s3.imagency.cn/e/4231c102d956238cd41d38c7e5502db5.png","alt":"","title":""},{"url":"https://s3.imagency.cn/e/1f86cb1303786e00e80e0bd250d00d6e.png","alt":"","title":""},{"url":"https://s3.imagency.cn/e/4e1cf95861263c7554e08296ca9268b9.jpg","alt":"","title":""},{"url":"https://s3.imagency.cn/e/83af1eaac6cb26b28f1950841df4e34a.png","alt":"","title":""},{"url":"https://s3.imagency.cn/e/bc3e8fba3c95e5f83b9619a360b65547.png","alt":"","title":""},{"url":"https://s3.imagency.cn/e/05e1b583d970340e5db33d90110180b4.jpg","alt":"","title":""},{"url":"https://s3.imagency.cn/e/6317babd37733a4c8f1df58d5ce6e98c.png","alt":"","title":""},{"url":"https://s3.imagency.cn/e/7e42833dd484ff4f30e0109c484deff1.png","alt":"","title":""},{"url":"https://s3.imagency.cn/e/8f1e967d4009a7fb42678f0843abfe94.png","alt":"","title":""},{"url":"https://s3.imagency.cn/e/68ef3f645b0c9c08927eaf98bf96c7d0.png","alt":"","title":""}]</div>
+  </div>
+]]></content>
+      <categories>
+        <category>个人荣誉</category>
+      </categories>
+      <tags>
+        <tag>荣誉</tag>
+        <tag>成就</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>你好，世界！</title>
     <url>/2026/03/09/%E4%BD%A0%E5%A5%BD/</url>
     <content><![CDATA[<h1 id="你好，世界！"><a href="#你好，世界！" class="headerlink" title="你好，世界！"></a>你好，世界！</h1><p>欢迎来到我的博客！这是我的第一篇文章，记录了我对技术的热爱和对生活的感悟。</p>
 ]]></content>
+  </entry>
+  <entry>
+    <title>后端开发·栏目介绍</title>
+    <url>/2026/03/09/%E5%90%8E%E7%AB%AF%E5%BC%80%E7%AF%87/</url>
+    <content><![CDATA[<blockquote>
+<p>这里记录我在后端开发路上的学习成果与项目经验。</p>
+</blockquote>
+<span id="more"></span>
+
+<h2 id="📌-本栏目内容"><a href="#📌-本栏目内容" class="headerlink" title="📌 本栏目内容"></a>📌 本栏目内容</h2><p>本栏目将持续更新以下方向的技术文章：</p>
+<ul>
+<li><strong>Java &#x2F; SpringBoot</strong> 后端开发与接口设计</li>
+<li><strong>Node.js</strong> 服务端开发</li>
+<li><strong>Docker &#x2F; Linux &#x2F; Nginx</strong> 部署与运维</li>
+<li><strong>数据库交互</strong> 与接口对接实践</li>
+</ul>
+<blockquote>
+<p>持续更新中，敬请期待 🚀</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>后端</category>
+      </categories>
+      <tags>
+        <tag>后端</tag>
+      </tags>
   </entry>
   <entry>
     <title>前端开发·栏目介绍</title>
@@ -31,52 +126,6 @@
       </categories>
       <tags>
         <tag>前端</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>个人荣誉</title>
-    <url>/2026/03/09/%E4%B8%AA%E4%BA%BA%E8%8D%A3%E8%AA%89/</url>
-    <content><![CDATA[<blockquote>
-<p>每一份荣誉，都是过去努力的见证。愿每一步都算数，愿未来更值得期待。✨</p>
-</blockquote>
-<span id="more"></span>
-
-<h2 id="🏆-荣誉证书"><a href="#🏆-荣誉证书" class="headerlink" title="🏆 荣誉证书"></a>🏆 荣誉证书</h2><div class="gallery-container" data-type="data" data-button="" data-limit="10" data-first="10">
-    <div class="gallery-items">[{"url":"https://s3.imagency.cn/e/b511900cb1347f24f4f252f3f74404ed.jpg","alt":"","title":""},{"url":"https://s3.imagency.cn/e/7f3170e74c45cbbb32b4eb817774c5a0.png","alt":"","title":""},{"url":"https://s3.imagency.cn/e/bd645f2f928a17abb68359c6ac50165d.jpg","alt":"","title":""},{"url":"https://s3.imagency.cn/e/a8348d079d9f33e83e70194b565a7c3c.png","alt":"","title":""},{"url":"https://s3.imagency.cn/e/bdda82f6878d4a4c2127186c788a5ab9.png","alt":"","title":""},{"url":"https://s3.imagency.cn/e/092b929a2066799ba41ac8bfe565b420.png","alt":"","title":""},{"url":"https://s3.imagency.cn/e/33d47cb48852f9cd85a2b0f1675da933.png","alt":"","title":""},{"url":"https://s3.imagency.cn/e/24b7769472b800e7fde25fe3a14ea19e.png","alt":"","title":""},{"url":"https://s3.imagency.cn/e/4231c102d956238cd41d38c7e5502db5.png","alt":"","title":""},{"url":"https://s3.imagency.cn/e/1f86cb1303786e00e80e0bd250d00d6e.png","alt":"","title":""},{"url":"https://s3.imagency.cn/e/4e1cf95861263c7554e08296ca9268b9.jpg","alt":"","title":""},{"url":"https://s3.imagency.cn/e/83af1eaac6cb26b28f1950841df4e34a.png","alt":"","title":""},{"url":"https://s3.imagency.cn/e/bc3e8fba3c95e5f83b9619a360b65547.png","alt":"","title":""},{"url":"https://s3.imagency.cn/e/05e1b583d970340e5db33d90110180b4.jpg","alt":"","title":""},{"url":"https://s3.imagency.cn/e/6317babd37733a4c8f1df58d5ce6e98c.png","alt":"","title":""},{"url":"https://s3.imagency.cn/e/7e42833dd484ff4f30e0109c484deff1.png","alt":"","title":""},{"url":"https://s3.imagency.cn/e/8f1e967d4009a7fb42678f0843abfe94.png","alt":"","title":""},{"url":"https://s3.imagency.cn/e/68ef3f645b0c9c08927eaf98bf96c7d0.png","alt":"","title":""}]</div>
-  </div>
-]]></content>
-      <categories>
-        <category>个人荣誉</category>
-      </categories>
-      <tags>
-        <tag>荣誉</tag>
-        <tag>成就</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>后端开发·栏目介绍</title>
-    <url>/2026/03/09/%E5%90%8E%E7%AB%AF%E5%BC%80%E7%AF%87/</url>
-    <content><![CDATA[<blockquote>
-<p>这里记录我在后端开发路上的学习成果与项目经验。</p>
-</blockquote>
-<span id="more"></span>
-
-<h2 id="📌-本栏目内容"><a href="#📌-本栏目内容" class="headerlink" title="📌 本栏目内容"></a>📌 本栏目内容</h2><p>本栏目将持续更新以下方向的技术文章：</p>
-<ul>
-<li><strong>Java &#x2F; SpringBoot</strong> 后端开发与接口设计</li>
-<li><strong>Node.js</strong> 服务端开发</li>
-<li><strong>Docker &#x2F; Linux &#x2F; Nginx</strong> 部署与运维</li>
-<li><strong>数据库交互</strong> 与接口对接实践</li>
-</ul>
-<blockquote>
-<p>持续更新中，敬请期待 🚀</p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>后端</category>
-      </categories>
-      <tags>
-        <tag>后端</tag>
       </tags>
   </entry>
   <entry>
@@ -249,60 +298,6 @@
       </tags>
   </entry>
   <entry>
-    <title>数据库·栏目介绍</title>
-    <url>/2026/03/09/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%BC%80%E7%AF%87/</url>
-    <content><![CDATA[<blockquote>
-<p>这里记录数据库相关的学习笔记与实战经验。</p>
-</blockquote>
-<span id="more"></span>
-
-<h2 id="📌-本栏目内容"><a href="#📌-本栏目内容" class="headerlink" title="📌 本栏目内容"></a>📌 本栏目内容</h2><p>本栏目将持续更新以下方向的技术文章：</p>
-<ul>
-<li><strong>MySQL</strong> 基础与进阶</li>
-<li><strong>数据库设计</strong> 范式与 ER 图</li>
-<li><strong>SQL 优化</strong> 索引与查询性能</li>
-<li><strong>数据库原理</strong> 课程学习笔记</li>
-</ul>
-<blockquote>
-<p>持续更新中，敬请期待 🚀</p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>数据库</category>
-      </categories>
-      <tags>
-        <tag>数据库</tag>
-        <tag>MySQL</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>工具箱·栏目介绍</title>
-    <url>/2026/03/09/%E5%B7%A5%E5%85%B7%E7%AE%B1%E5%BC%80%E7%AF%87/</url>
-    <content><![CDATA[<blockquote>
-<p>好的工具能让开发事半功倍，这里收录我日常使用的效率神器。</p>
-</blockquote>
-<span id="more"></span>
-
-<h2 id="📌-本栏目内容"><a href="#📌-本栏目内容" class="headerlink" title="📌 本栏目内容"></a>📌 本栏目内容</h2><p>本栏目将持续更新以下内容：</p>
-<ul>
-<li><strong>开发工具</strong> 配置与使用技巧（VS Code、Git 等）</li>
-<li><strong>AI 辅助编程</strong> 工具实践</li>
-<li><strong>实用脚本</strong> 与自动化工作流</li>
-<li><strong>好用插件</strong> 推荐与评测</li>
-</ul>
-<blockquote>
-<p>持续更新中，敬请期待 🚀</p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>工具箱</category>
-      </categories>
-      <tags>
-        <tag>工具</tag>
-        <tag>效率</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>嵌入式开发·栏目介绍</title>
     <url>/2026/03/09/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%BC%80%E7%AF%87/</url>
     <content><![CDATA[<blockquote>
@@ -355,6 +350,60 @@
       <tags>
         <tag>资源</tag>
         <tag>分享</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>工具箱·栏目介绍</title>
+    <url>/2026/03/09/%E5%B7%A5%E5%85%B7%E7%AE%B1%E5%BC%80%E7%AF%87/</url>
+    <content><![CDATA[<blockquote>
+<p>好的工具能让开发事半功倍，这里收录我日常使用的效率神器。</p>
+</blockquote>
+<span id="more"></span>
+
+<h2 id="📌-本栏目内容"><a href="#📌-本栏目内容" class="headerlink" title="📌 本栏目内容"></a>📌 本栏目内容</h2><p>本栏目将持续更新以下内容：</p>
+<ul>
+<li><strong>开发工具</strong> 配置与使用技巧（VS Code、Git 等）</li>
+<li><strong>AI 辅助编程</strong> 工具实践</li>
+<li><strong>实用脚本</strong> 与自动化工作流</li>
+<li><strong>好用插件</strong> 推荐与评测</li>
+</ul>
+<blockquote>
+<p>持续更新中，敬请期待 🚀</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>工具箱</category>
+      </categories>
+      <tags>
+        <tag>工具</tag>
+        <tag>效率</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>数据库·栏目介绍</title>
+    <url>/2026/03/09/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%BC%80%E7%AF%87/</url>
+    <content><![CDATA[<blockquote>
+<p>这里记录数据库相关的学习笔记与实战经验。</p>
+</blockquote>
+<span id="more"></span>
+
+<h2 id="📌-本栏目内容"><a href="#📌-本栏目内容" class="headerlink" title="📌 本栏目内容"></a>📌 本栏目内容</h2><p>本栏目将持续更新以下方向的技术文章：</p>
+<ul>
+<li><strong>MySQL</strong> 基础与进阶</li>
+<li><strong>数据库设计</strong> 范式与 ER 图</li>
+<li><strong>SQL 优化</strong> 索引与查询性能</li>
+<li><strong>数据库原理</strong> 课程学习笔记</li>
+</ul>
+<blockquote>
+<p>持续更新中，敬请期待 🚀</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>数据库</category>
+      </categories>
+      <tags>
+        <tag>数据库</tag>
+        <tag>MySQL</tag>
       </tags>
   </entry>
   <entry>
