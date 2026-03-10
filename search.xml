@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>你好，世界！</title>
+    <url>/2026/03/09/%E4%BD%A0%E5%A5%BD/</url>
+    <content><![CDATA[<h1 id="你好，世界！"><a href="#你好，世界！" class="headerlink" title="你好，世界！"></a>你好，世界！</h1><p>欢迎来到我的博客！这是我的第一篇文章，记录了我对技术的热爱和对生活的感悟。</p>
+]]></content>
+  </entry>
+  <entry>
     <title>个人荣誉</title>
     <url>/2026/03/09/%E4%B8%AA%E4%BA%BA%E8%8D%A3%E8%AA%89/</url>
     <content><![CDATA[<blockquote>
@@ -18,6 +24,85 @@
       <tags>
         <tag>荣誉</tag>
         <tag>成就</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>C语言函数</title>
+    <url>/2026/03/10/C%E8%AF%AD%E8%A8%80%E5%87%BD%E6%95%B0/</url>
+    <content><![CDATA[<h2 id="第4讲：函数"><a href="#第4讲：函数" class="headerlink" title="第4讲：函数"></a>第4讲：函数</h2><h3 id="🔑-知识点讲解"><a href="#🔑-知识点讲解" class="headerlink" title="🔑 知识点讲解"></a>🔑 知识点讲解</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">函数是代码复用的基本单位。</span><br><span class="line"></span><br><span class="line">格式：</span><br><span class="line">    返回类型 函数名(参数列表) &#123;</span><br><span class="line">        函数体;</span><br><span class="line">        return 返回值;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">关键点：</span><br><span class="line">1. 值传递：函数内修改形参不影响实参</span><br><span class="line">2. 地址传递：传指针可以修改实参</span><br><span class="line">3. 数组传参：数组名即地址，函数内可以修改原数组</span><br><span class="line">4. 递归：函数调用自身，必须有终止条件</span><br><span class="line"></span><br><span class="line">函数声明（原型）：</span><br><span class="line">    如果函数定义在 main 之后，需要在前面声明。</span><br><span class="line">    int add(int a, int b);  // 声明</span><br></pre></td></tr></table></figure>
+
+<h3 id="✏️-练习题4：递归求斐波那契数列"><a href="#✏️-练习题4：递归求斐波那契数列" class="headerlink" title="✏️ 练习题4：递归求斐波那契数列"></a>✏️ 练习题4：递归求斐波那契数列</h3><blockquote>
+<p><strong>题目</strong>：用递归和非递归两种方式实现斐波那契数列第 n 项。<br>F(1)&#x3D;1, F(2)&#x3D;1, F(n)&#x3D;F(n-1)+F(n-2)</p>
+<p><strong>输入</strong>：<code>10</code><br><strong>输出</strong>：<code>55</code></p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line"></span><br><span class="line">// 方法1：递归（简洁但效率低，O(2^n)）</span><br><span class="line">int fib_recursive(int n) &#123;</span><br><span class="line">    if (n &lt;= 2) return 1;</span><br><span class="line">    return fib_recursive(n - 1) + fib_recursive(n - 2);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 方法2：迭代（推荐，O(n)）</span><br><span class="line">int fib_iterative(int n) &#123;</span><br><span class="line">    if (n &lt;= 2) return 1;</span><br><span class="line">    int a = 1, b = 1, c;</span><br><span class="line">    for (int i = 3; i &lt;= n; i++) &#123;</span><br><span class="line">        c = a + b;</span><br><span class="line">        a = b;</span><br><span class="line">        b = c;</span><br><span class="line">    &#125;</span><br><span class="line">    return b;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">    int n;</span><br><span class="line">    scanf(&quot;%d&quot;, &amp;n);</span><br><span class="line">    printf(&quot;递归: %d\n&quot;, fib_recursive(n));</span><br><span class="line">    printf(&quot;迭代: %d\n&quot;, fib_iterative(n));</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>⚠️ <strong>面试高频问题</strong>：递归的时间复杂度是 O(2^n)，可用<strong>记忆化</strong>或<strong>动态规划</strong>优化到 O(n)。</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>算法</category>
+      </categories>
+      <tags>
+        <tag>C语言</tag>
+        <tag>函数</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>工具箱·栏目介绍</title>
+    <url>/2026/03/09/%E5%B7%A5%E5%85%B7%E7%AE%B1%E5%BC%80%E7%AF%87/</url>
+    <content><![CDATA[<blockquote>
+<p>好的工具能让开发事半功倍，这里收录我日常使用的效率神器。</p>
+</blockquote>
+<span id="more"></span>
+
+<h2 id="📌-本栏目内容"><a href="#📌-本栏目内容" class="headerlink" title="📌 本栏目内容"></a>📌 本栏目内容</h2><p>本栏目将持续更新以下内容：</p>
+<ul>
+<li><strong>开发工具</strong> 配置与使用技巧（VS Code、Git 等）</li>
+<li><strong>AI 辅助编程</strong> 工具实践</li>
+<li><strong>实用脚本</strong> 与自动化工作流</li>
+<li><strong>好用插件</strong> 推荐与评测</li>
+<li><strong>效率提升</strong> 技巧与方法分享</li>
+</ul>
+<blockquote>
+<p>持续更新中，敬请期待 🚀</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>工具箱</category>
+      </categories>
+      <tags>
+        <tag>工具</tag>
+        <tag>效率</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>嵌入式开发·栏目介绍</title>
+    <url>/2026/03/09/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%BC%80%E7%AF%87/</url>
+    <content><![CDATA[<blockquote>
+<p>这里记录我在嵌入式开发领域的学习积累与项目实践。</p>
+</blockquote>
+<span id="more"></span>
+
+<h2 id="📌-本栏目内容"><a href="#📌-本栏目内容" class="headerlink" title="📌 本栏目内容"></a>📌 本栏目内容</h2><p>本栏目将持续更新以下方向的技术文章：</p>
+<ul>
+<li><strong>STM32</strong> F1&#x2F;F4 系列开发与外设驱动</li>
+<li><strong>FreeRTOS</strong> 实时操作系统应用</li>
+<li><strong>传感器</strong> 选型、校准与数据采集</li>
+<li><strong>PCB 拓展板</strong> 设计与硬件调试</li>
+<li><strong>MQTT &#x2F; WiFi</strong> 物联网通信实践</li>
+</ul>
+<blockquote>
+<p>持续更新中，敬请期待 🚀</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>嵌入式</category>
+      </categories>
+      <tags>
+        <tag>嵌入式</tag>
+        <tag>STM32</tag>
       </tags>
   </entry>
   <entry>
@@ -94,32 +179,6 @@
       </categories>
       <tags>
         <tag>算法</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>后端开发·栏目介绍</title>
-    <url>/2026/03/09/%E5%90%8E%E7%AB%AF%E5%BC%80%E7%AF%87/</url>
-    <content><![CDATA[<blockquote>
-<p>这里记录我在后端开发路上的学习成果与项目经验。</p>
-</blockquote>
-<span id="more"></span>
-
-<h2 id="📌-本栏目内容"><a href="#📌-本栏目内容" class="headerlink" title="📌 本栏目内容"></a>📌 本栏目内容</h2><p>本栏目将持续更新以下方向的技术文章：</p>
-<ul>
-<li><strong>Java &#x2F; SpringBoot</strong> 后端开发与接口设计</li>
-<li><strong>Node.js</strong> 服务端开发</li>
-<li><strong>Docker &#x2F; Linux &#x2F; Nginx</strong> 部署与运维</li>
-<li><strong>数据库交互</strong> 与接口对接实践</li>
-</ul>
-<blockquote>
-<p>持续更新中，敬请期待 🚀</p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>后端</category>
-      </categories>
-      <tags>
-        <tag>后端</tag>
       </tags>
   </entry>
   <entry>
@@ -292,64 +351,46 @@
       </tags>
   </entry>
   <entry>
-    <title>你好，世界！</title>
-    <url>/2026/03/09/%E4%BD%A0%E5%A5%BD/</url>
-    <content><![CDATA[<h1 id="你好，世界！"><a href="#你好，世界！" class="headerlink" title="你好，世界！"></a>你好，世界！</h1><p>欢迎来到我的博客！这是我的第一篇文章，记录了我对技术的热爱和对生活的感悟。</p>
-]]></content>
+    <title>指针基础</title>
+    <url>/2026/03/10/%E6%8C%87%E9%92%88%E5%9F%BA%E7%A1%80/</url>
+    <content><![CDATA[<h2 id="第5讲：指针基础"><a href="#第5讲：指针基础" class="headerlink" title="第5讲：指针基础"></a>第5讲：指针基础</h2><h3 id="🔑-知识点讲解"><a href="#🔑-知识点讲解" class="headerlink" title="🔑 知识点讲解"></a>🔑 知识点讲解</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">指针是存放地址的变量。</span><br><span class="line"></span><br><span class="line">声明：</span><br><span class="line">    int a = 10;</span><br><span class="line">    int *p = &amp;a;    // p 存储 a 的地址</span><br><span class="line">    </span><br><span class="line">操作符：</span><br><span class="line">    &amp;  — 取地址运算符</span><br><span class="line">    *  — 解引用运算符（取指针指向的值）</span><br><span class="line">    </span><br><span class="line">    *p = 20;        // 通过指针修改 a 的值，现在 a = 20</span><br><span class="line"></span><br><span class="line">指针与数组：</span><br><span class="line">    int a[5] = &#123;1,2,3,4,5&#125;;</span><br><span class="line">    int *p = a;     // p 指向 a[0]</span><br><span class="line">    *(p+2) == a[2]  // 指针算术</span><br><span class="line"></span><br><span class="line">指针作为函数参数（地址传递）：</span><br><span class="line">    void swap(int *a, int *b) &#123;</span><br><span class="line">        int temp = *a;</span><br><span class="line">        *a = *b;</span><br><span class="line">        *b = temp;</span><br><span class="line">    &#125;</span><br><span class="line">    调用: swap(&amp;x, &amp;y);</span><br><span class="line"></span><br><span class="line">指针的大小：</span><br><span class="line">    32位系统：4字节</span><br><span class="line">    64位系统：8字节（与指向的类型无关）</span><br></pre></td></tr></table></figure>
+
+<h3 id="✏️-练习题5：用指针实现数组求最大最小值"><a href="#✏️-练习题5：用指针实现数组求最大最小值" class="headerlink" title="✏️ 练习题5：用指针实现数组求最大最小值"></a>✏️ 练习题5：用指针实现数组求最大最小值</h3><blockquote>
+<p><strong>题目</strong>：输入 n 个整数，用指针方式遍历数组，求最大值和最小值，通过指针参数返回。</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line"></span><br><span class="line">void findMinMax(int *arr, int n, int *max, int *min) &#123;</span><br><span class="line">    *max = arr[0];</span><br><span class="line">    *min = arr[0];</span><br><span class="line">    for (int i = 1; i &lt; n; i++) &#123;</span><br><span class="line">        if (*(arr + i) &gt; *max) *max = *(arr + i);</span><br><span class="line">        if (*(arr + i) &lt; *min) *min = *(arr + i);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">    int n;</span><br><span class="line">    scanf(&quot;%d&quot;, &amp;n);</span><br><span class="line">    </span><br><span class="line">    int a[100];</span><br><span class="line">    for (int i = 0; i &lt; n; i++)</span><br><span class="line">        scanf(&quot;%d&quot;, &amp;a[i]);</span><br><span class="line">    </span><br><span class="line">    int max, min;</span><br><span class="line">    findMinMax(a, n, &amp;max, &amp;min);</span><br><span class="line">    </span><br><span class="line">    printf(&quot;最大值: %d\n最小值: %d\n&quot;, max, min);</span><br><span class="line">    </span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>算法</category>
+      </categories>
+      <tags>
+        <tag>C语言</tag>
+        <tag>指针</tag>
+      </tags>
   </entry>
   <entry>
-    <title>嵌入式开发·栏目介绍</title>
-    <url>/2026/03/09/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%BC%80%E7%AF%87/</url>
+    <title>后端开发·栏目介绍</title>
+    <url>/2026/03/09/%E5%90%8E%E7%AB%AF%E5%BC%80%E7%AF%87/</url>
     <content><![CDATA[<blockquote>
-<p>这里记录我在嵌入式开发领域的学习积累与项目实践。</p>
+<p>这里记录我在后端开发路上的学习成果与项目经验。</p>
 </blockquote>
 <span id="more"></span>
 
 <h2 id="📌-本栏目内容"><a href="#📌-本栏目内容" class="headerlink" title="📌 本栏目内容"></a>📌 本栏目内容</h2><p>本栏目将持续更新以下方向的技术文章：</p>
 <ul>
-<li><strong>STM32</strong> F1&#x2F;F4 系列开发与外设驱动</li>
-<li><strong>FreeRTOS</strong> 实时操作系统应用</li>
-<li><strong>传感器</strong> 选型、校准与数据采集</li>
-<li><strong>PCB 拓展板</strong> 设计与硬件调试</li>
-<li><strong>MQTT &#x2F; WiFi</strong> 物联网通信实践</li>
+<li><strong>Java &#x2F; SpringBoot</strong> 后端开发与接口设计</li>
+<li><strong>Node.js</strong> 服务端开发</li>
+<li><strong>Docker &#x2F; Linux &#x2F; Nginx</strong> 部署与运维</li>
+<li><strong>数据库交互</strong> 与接口对接实践</li>
 </ul>
 <blockquote>
 <p>持续更新中，敬请期待 🚀</p>
 </blockquote>
 ]]></content>
       <categories>
-        <category>嵌入式</category>
+        <category>后端</category>
       </categories>
       <tags>
-        <tag>嵌入式</tag>
-        <tag>STM32</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>资源分享·栏目介绍</title>
-    <url>/2026/03/09/%E8%B5%84%E6%BA%90%E5%88%86%E4%BA%AB%E5%BC%80%E7%AF%87/</url>
-    <content><![CDATA[<blockquote>
-<p>好东西要一起分享，这里收录我认为有价值的学习资源。</p>
-</blockquote>
-<span id="more"></span>
-
-<h2 id="📌-本栏目内容"><a href="#📌-本栏目内容" class="headerlink" title="📌 本栏目内容"></a>📌 本栏目内容</h2><p>本栏目将持续整理以下资源：</p>
-<ul>
-<li><strong>技术书单</strong> 嵌入式 &#x2F; Web &#x2F; 物联网方向推荐</li>
-<li><strong>开源项目</strong> 值得学习的优质仓库</li>
-<li><strong>学习网站</strong> 免费教程与文档资源</li>
-<li><strong>竞赛资料</strong> 备赛经验与参考资料整理</li>
-</ul>
-<blockquote>
-<p>持续更新，欢迎互相交流 📚</p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>资源</category>
-      </categories>
-      <tags>
-        <tag>资源</tag>
-        <tag>分享</tag>
+        <tag>后端</tag>
       </tags>
   </entry>
   <entry>
@@ -380,31 +421,30 @@
       </tags>
   </entry>
   <entry>
-    <title>工具箱·栏目介绍</title>
-    <url>/2026/03/09/%E5%B7%A5%E5%85%B7%E7%AE%B1%E5%BC%80%E7%AF%87/</url>
+    <title>资源分享·栏目介绍</title>
+    <url>/2026/03/09/%E8%B5%84%E6%BA%90%E5%88%86%E4%BA%AB%E5%BC%80%E7%AF%87/</url>
     <content><![CDATA[<blockquote>
-<p>好的工具能让开发事半功倍，这里收录我日常使用的效率神器。</p>
+<p>好东西要一起分享，这里收录我认为有价值的学习资源。</p>
 </blockquote>
 <span id="more"></span>
 
-<h2 id="📌-本栏目内容"><a href="#📌-本栏目内容" class="headerlink" title="📌 本栏目内容"></a>📌 本栏目内容</h2><p>本栏目将持续更新以下内容：</p>
+<h2 id="📌-本栏目内容"><a href="#📌-本栏目内容" class="headerlink" title="📌 本栏目内容"></a>📌 本栏目内容</h2><p>本栏目将持续整理以下资源：</p>
 <ul>
-<li><strong>开发工具</strong> 配置与使用技巧（VS Code、Git 等）</li>
-<li><strong>AI 辅助编程</strong> 工具实践</li>
-<li><strong>实用脚本</strong> 与自动化工作流</li>
-<li><strong>好用插件</strong> 推荐与评测</li>
-<li><strong>效率提升</strong> 技巧与方法分享</li>
+<li><strong>技术书单</strong> 嵌入式 &#x2F; Web &#x2F; 物联网方向推荐</li>
+<li><strong>开源项目</strong> 值得学习的优质仓库</li>
+<li><strong>学习网站</strong> 免费教程与文档资源</li>
+<li><strong>竞赛资料</strong> 备赛经验与参考资料整理</li>
 </ul>
 <blockquote>
-<p>持续更新中，敬请期待 🚀</p>
+<p>持续更新，欢迎互相交流 📚</p>
 </blockquote>
 ]]></content>
       <categories>
-        <category>工具箱</category>
+        <category>资源</category>
       </categories>
       <tags>
-        <tag>工具</tag>
-        <tag>效率</tag>
+        <tag>资源</tag>
+        <tag>分享</tag>
       </tags>
   </entry>
   <entry>
@@ -432,6 +472,38 @@
       <tags>
         <tag>随笔</tag>
         <tag>生活</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>指针进阶</title>
+    <url>/2026/03/10/%E6%8C%87%E9%92%88%E8%BF%9B%E9%98%B6/</url>
+    <content><![CDATA[<h2 id="第6讲：指针进阶（指针与动态内存）"><a href="#第6讲：指针进阶（指针与动态内存）" class="headerlink" title="第6讲：指针进阶（指针与动态内存）"></a>第6讲：指针进阶（指针与动态内存）</h2><h3 id="🔑-知识点讲解"><a href="#🔑-知识点讲解" class="headerlink" title="🔑 知识点讲解"></a>🔑 知识点讲解</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">动态内存分配（需 #include &lt;stdlib.h&gt;）：</span><br><span class="line"></span><br><span class="line">malloc：分配内存</span><br><span class="line">    int *p = (int *)malloc(n * sizeof(int));</span><br><span class="line">    </span><br><span class="line">calloc：分配并初始化为0</span><br><span class="line">    int *p = (int *)calloc(n, sizeof(int));</span><br><span class="line">    </span><br><span class="line">realloc：重新调整大小</span><br><span class="line">    p = (int *)realloc(p, new_size * sizeof(int));</span><br><span class="line">    </span><br><span class="line">free：释放内存</span><br><span class="line">    free(p);</span><br><span class="line">    p = NULL;  // 避免野指针</span><br><span class="line"></span><br><span class="line">⚠️ 常见错误：</span><br><span class="line">1. 忘记 free → 内存泄漏</span><br><span class="line">2. free 后继续使用 → 野指针（悬挂指针）</span><br><span class="line">3. 重复 free → 未定义行为</span><br><span class="line">4. malloc 返回 NULL 未检查</span><br><span class="line"></span><br><span class="line">指针的指针（二级指针）：</span><br><span class="line">    int a = 10;</span><br><span class="line">    int *p = &amp;a;</span><br><span class="line">    int **pp = &amp;p;</span><br><span class="line">    **pp == 10  // true</span><br></pre></td></tr></table></figure>
+
+<h3 id="✏️-练习题6：动态创建数组并排序"><a href="#✏️-练习题6：动态创建数组并排序" class="headerlink" title="✏️ 练习题6：动态创建数组并排序"></a>✏️ 练习题6：动态创建数组并排序</h3><blockquote>
+<p><strong>题目</strong>：动态分配一个长度为 n 的数组，输入数据后排序输出。</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">#include &lt;stdlib.h&gt;</span><br><span class="line"></span><br><span class="line">int cmp(const void *a, const void *b) &#123;</span><br><span class="line">    return (*(int *)a) - (*(int *)b);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">    int n;</span><br><span class="line">    scanf(&quot;%d&quot;, &amp;n);</span><br><span class="line">    </span><br><span class="line">    // 动态分配</span><br><span class="line">    int *arr = (int *)malloc(n * sizeof(int));</span><br><span class="line">    if (arr == NULL) &#123;</span><br><span class="line">        printf(&quot;内存分配失败\n&quot;);</span><br><span class="line">        return 1;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    for (int i = 0; i &lt; n; i++)</span><br><span class="line">        scanf(&quot;%d&quot;, &amp;arr[i]);</span><br><span class="line">    </span><br><span class="line">    // 排序（使用库函数 qsort）</span><br><span class="line">    qsort(arr, n, sizeof(int), cmp);</span><br><span class="line">    </span><br><span class="line">    for (int i = 0; i &lt; n; i++)</span><br><span class="line">        printf(&quot;%d &quot;, arr[i]);</span><br><span class="line">    printf(&quot;\n&quot;);</span><br><span class="line">    </span><br><span class="line">    // 释放内存</span><br><span class="line">    free(arr);</span><br><span class="line">    arr = NULL;</span><br><span class="line">    </span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 动态分配一个长度为 n 的数组，输入数据后排序输出。</span><br><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">#include&lt;stdlib.h&gt;</span><br><span class="line">int main()&#123;</span><br><span class="line">    int n=0;//用于分配数组大小</span><br><span class="line">   printf(&quot;请输入数组大小：\n&quot;);</span><br><span class="line">   scanf(&quot;%d&quot;,&amp;n);</span><br><span class="line">   int *arr=(int *)malloc(sizeof(int) * n);</span><br><span class="line">   printf(&quot;请输入数据：\n&quot;);</span><br><span class="line">   for(int i=0;i&lt;n;i++)&#123;</span><br><span class="line">    scanf(&quot;%d&quot;,arr+i);</span><br><span class="line">   &#125;</span><br><span class="line">   //冒泡排序</span><br><span class="line">   for(int k=0;k&lt;n;k++)</span><br><span class="line">   &#123;</span><br><span class="line">    for (int i = 0; i &lt; n-1-k; i++)</span><br><span class="line">    &#123;</span><br><span class="line">       if(arr[i]&gt;arr[i+1])&#123;</span><br><span class="line">        int temp=arr[i];</span><br><span class="line">        arr[i]=arr[i+1];</span><br><span class="line">        arr[i+1]=temp;</span><br><span class="line">       &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">   &#125;</span><br><span class="line">    printf(&quot;排序后的数组为：\n&quot;);</span><br><span class="line">    for(int i=0;i&lt;n;i++)&#123;</span><br><span class="line">        printf(&quot;%d &quot;,arr[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    free(arr);</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="第7讲：结构体"><a href="#第7讲：结构体" class="headerlink" title="第7讲：结构体"></a>第7讲：结构体</h2><h3 id="🔑-知识点讲解-1"><a href="#🔑-知识点讲解-1" class="headerlink" title="🔑 知识点讲解"></a>🔑 知识点讲解</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">结构体可以将不同类型的数据组合在一起。</span><br><span class="line"></span><br><span class="line">定义：</span><br><span class="line">    struct Student &#123;</span><br><span class="line">        int id;</span><br><span class="line">        char name[20];</span><br><span class="line">        float score;</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">使用：</span><br><span class="line">    struct Student s1 = &#123;1, &quot;张三&quot;, 90.5&#125;;</span><br><span class="line">    struct Student s2;</span><br><span class="line">    s2.id = 2;</span><br><span class="line">    strcpy(s2.name, &quot;李四&quot;);  // 字符串不能直接 =</span><br><span class="line">    s2.score = 85.0;</span><br><span class="line"></span><br><span class="line">结构体指针：</span><br><span class="line">    struct Student *p = &amp;s1;</span><br><span class="line">    p-&gt;id        // 等价于 (*p).id</span><br><span class="line">    p-&gt;score     // 箭头运算符</span><br><span class="line"></span><br><span class="line">结构体数组：</span><br><span class="line">    struct Student class[50];</span><br><span class="line">    class[0].id = 1;</span><br><span class="line"></span><br><span class="line">typedef 简化：</span><br><span class="line">    typedef struct &#123;</span><br><span class="line">        int id;</span><br><span class="line">        char name[20];</span><br><span class="line">        float score;</span><br><span class="line">    &#125; Student;</span><br><span class="line">    </span><br><span class="line">    Student s1;  // 不需要写 struct 了</span><br></pre></td></tr></table></figure>
+
+<h3 id="✏️-练习题7：学生成绩管理"><a href="#✏️-练习题7：学生成绩管理" class="headerlink" title="✏️ 练习题7：学生成绩管理"></a>✏️ 练习题7：学生成绩管理</h3><blockquote>
+<p><strong>题目</strong>：定义学生结构体（学号、姓名、成绩），输入 n 个学生信息，按成绩从高到低排序输出。</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">#include &lt;string.h&gt;</span><br><span class="line"></span><br><span class="line">typedef struct &#123;</span><br><span class="line">    int id;</span><br><span class="line">    char name[20];</span><br><span class="line">    float score;</span><br><span class="line">&#125; Student;</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">    int n;</span><br><span class="line">    scanf(&quot;%d&quot;, &amp;n);</span><br><span class="line">    </span><br><span class="line">    Student stu[100];</span><br><span class="line">    for (int i = 0; i &lt; n; i++) &#123;</span><br><span class="line">        scanf(&quot;%d %s %f&quot;, &amp;stu[i].id, stu[i].name, &amp;stu[i].score);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    // 冒泡排序，按成绩降序</span><br><span class="line">    for (int i = 0; i &lt; n - 1; i++) &#123;</span><br><span class="line">        for (int j = 0; j &lt; n - 1 - i; j++) &#123;</span><br><span class="line">            if (stu[j].score &lt; stu[j + 1].score) &#123;</span><br><span class="line">                Student temp = stu[j];</span><br><span class="line">                stu[j] = stu[j + 1];</span><br><span class="line">                stu[j + 1] = temp;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    // 输出</span><br><span class="line">    printf(&quot;%-5s %-10s %-6s\n&quot;, &quot;学号&quot;, &quot;姓名&quot;, &quot;成绩&quot;);</span><br><span class="line">    for (int i = 0; i &lt; n; i++) &#123;</span><br><span class="line">        printf(&quot;%-5d %-10s %-6.1f\n&quot;, </span><br><span class="line">               stu[i].id, stu[i].name, stu[i].score);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 定义学生结构体（学号、姓名、成绩），输入 n 个学生信息，按成绩从高到低排序输出。</span><br><span class="line">#include&lt;stdio.h&gt;</span><br><span class="line">#include&lt;stdlib.h&gt;</span><br><span class="line">typedef struct student&#123;</span><br><span class="line">int id;</span><br><span class="line">char name[100];</span><br><span class="line">float score;</span><br><span class="line">&#125; students;</span><br><span class="line"></span><br><span class="line">//定义返回参数</span><br><span class="line">int cmp(const void *a,const void *b)&#123;</span><br><span class="line">    students *s1=(students *)a;//强制类型转换</span><br><span class="line">    students *s2=(students *)b;</span><br><span class="line">    //按照成绩从高到低排序</span><br><span class="line">    if(s1-&gt;score&lt;s2-&gt;score)&#123;</span><br><span class="line">        return 1;</span><br><span class="line">        //返回1表示s1应该排在s2后面</span><br><span class="line">    &#125;else if(s1-&gt;score&gt;s2-&gt;score)&#123;</span><br><span class="line">        //返回-1表示s1应该排在s2前面</span><br><span class="line">        return -1;</span><br><span class="line">    &#125;else&#123;</span><br><span class="line">        return 0;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main()&#123;</span><br><span class="line">    int n=0;</span><br><span class="line">    printf(&quot;请输入学生人数：\n&quot;);</span><br><span class="line">    scanf(&quot;%d&quot;,&amp;n);</span><br><span class="line">    //动态分配一个长度为 n 的学生数组，输入数据后排序输出。</span><br><span class="line">    students *arr=(students *)malloc(sizeof(students)*n);</span><br><span class="line">    printf(&quot;请输入学生信息（学号 姓名 成绩）：\n&quot;);</span><br><span class="line">    for(int i=0;i&lt;n;i++)&#123;</span><br><span class="line">        scanf(&quot;%d %s %f&quot;,&amp;arr[i].id,arr[i].name,&amp;arr[i].score);</span><br><span class="line">    &#125;</span><br><span class="line">    qsort(arr,n,sizeof(students),cmp);</span><br><span class="line">    printf(&quot;排序后的学生信息为：\n&quot;);</span><br><span class="line">    for(int i=0;i&lt;n;i++)&#123;</span><br><span class="line">        printf(&quot;%d %s %.2f\n&quot;,arr[i].id,arr[i].name,arr[i].score);</span><br><span class="line">    &#125;</span><br><span class="line">    free(arr);</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//实例输入：</span><br><span class="line">//请输入学生人数：</span><br><span class="line">//3</span><br><span class="line">//请输入学生信息（学号 姓名 成绩）：</span><br><span class="line">//1001 Alice 85.5</span><br><span class="line">//1002 Bob 92.0</span><br><span class="line">//1003 Charlie 78.0</span><br><span class="line">//实例输出：</span><br><span class="line">//排序后的学生信息为：</span><br><span class="line">//1002 Bob 92.00</span><br><span class="line">//1001 Alice 85.50</span><br><span class="line">//1003 Charlie 78.00</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>算法</category>
+      </categories>
+      <tags>
+        <tag>指针</tag>
+        <tag>动态内存</tag>
+        <tag>结构体</tag>
       </tags>
   </entry>
 </search>
