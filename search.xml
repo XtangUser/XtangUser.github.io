@@ -24,65 +24,6 @@
       </tags>
   </entry>
   <entry>
-    <title>你好，世界！</title>
-    <url>/2026/03/09/%E4%BD%A0%E5%A5%BD/</url>
-    <content><![CDATA[<h1 id="你好，世界！"><a href="#你好，世界！" class="headerlink" title="你好，世界！"></a>你好，世界！</h1><p>欢迎来到我的博客！这是我的第一篇文章，记录了我对技术的热爱和对生活的感悟。</p>
-]]></content>
-  </entry>
-  <entry>
-    <title>后端开发·栏目介绍</title>
-    <url>/2026/03/09/%E5%90%8E%E7%AB%AF%E5%BC%80%E7%AF%87/</url>
-    <content><![CDATA[<blockquote>
-<p>这里记录我在后端开发路上的学习成果与项目经验。</p>
-</blockquote>
-<span id="more"></span>
-
-<h2 id="📌-本栏目内容"><a href="#📌-本栏目内容" class="headerlink" title="📌 本栏目内容"></a>📌 本栏目内容</h2><p>本栏目将持续更新以下方向的技术文章：</p>
-<ul>
-<li><strong>Java &#x2F; SpringBoot</strong> 后端开发与接口设计</li>
-<li><strong>Node.js</strong> 服务端开发</li>
-<li><strong>Docker &#x2F; Linux &#x2F; Nginx</strong> 部署与运维</li>
-<li><strong>数据库交互</strong> 与接口对接实践</li>
-</ul>
-<blockquote>
-<p>持续更新中，敬请期待 🚀</p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>后端</category>
-      </categories>
-      <tags>
-        <tag>后端</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>前端开发·栏目介绍</title>
-    <url>/2026/03/09/%E5%89%8D%E7%AB%AF%E5%BC%80%E7%AF%87/</url>
-    <content><![CDATA[<blockquote>
-<p>这里记录我在前端开发路上的学习成果与实践经验。</p>
-</blockquote>
-<span id="more"></span>
-
-<h2 id="📌-本栏目内容"><a href="#📌-本栏目内容" class="headerlink" title="📌 本栏目内容"></a>📌 本栏目内容</h2><p>本栏目将持续更新以下方向的技术文章：</p>
-<ul>
-<li><strong>Vue3</strong> 组件开发、状态管理、性能优化</li>
-<li><strong>HTML &#x2F; CSS &#x2F; JavaScript</strong> 基础与进阶</li>
-<li><strong>Three.js</strong> 3D 场景搭建与交互</li>
-<li><strong>uniapp</strong> 小程序跨端开发</li>
-<li><strong>AI 辅助编程</strong> 效率提升实践</li>
-</ul>
-<blockquote>
-<p>持续更新中，敬请期待 🚀</p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>前端</category>
-      </categories>
-      <tags>
-        <tag>前端</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>个人荣誉</title>
     <url>/2026/03/09/%E4%B8%AA%E4%BA%BA%E8%8D%A3%E8%AA%89/</url>
     <content><![CDATA[<blockquote>
@@ -124,6 +65,65 @@
         <tag>荣誉</tag>
         <tag>成就</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>前端开发·栏目介绍</title>
+    <url>/2026/03/09/%E5%89%8D%E7%AB%AF%E5%BC%80%E7%AF%87/</url>
+    <content><![CDATA[<blockquote>
+<p>这里记录我在前端开发路上的学习成果与实践经验。</p>
+</blockquote>
+<span id="more"></span>
+
+<h2 id="📌-本栏目内容"><a href="#📌-本栏目内容" class="headerlink" title="📌 本栏目内容"></a>📌 本栏目内容</h2><p>本栏目将持续更新以下方向的技术文章：</p>
+<ul>
+<li><strong>Vue3</strong> 组件开发、状态管理、性能优化</li>
+<li><strong>HTML &#x2F; CSS &#x2F; JavaScript</strong> 基础与进阶</li>
+<li><strong>Three.js</strong> 3D 场景搭建与交互</li>
+<li><strong>uniapp</strong> 小程序跨端开发</li>
+<li><strong>AI 辅助编程</strong> 效率提升实践</li>
+</ul>
+<blockquote>
+<p>持续更新中，敬请期待 🚀</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>前端</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>后端开发·栏目介绍</title>
+    <url>/2026/03/09/%E5%90%8E%E7%AB%AF%E5%BC%80%E7%AF%87/</url>
+    <content><![CDATA[<blockquote>
+<p>这里记录我在后端开发路上的学习成果与项目经验。</p>
+</blockquote>
+<span id="more"></span>
+
+<h2 id="📌-本栏目内容"><a href="#📌-本栏目内容" class="headerlink" title="📌 本栏目内容"></a>📌 本栏目内容</h2><p>本栏目将持续更新以下方向的技术文章：</p>
+<ul>
+<li><strong>Java &#x2F; SpringBoot</strong> 后端开发与接口设计</li>
+<li><strong>Node.js</strong> 服务端开发</li>
+<li><strong>Docker &#x2F; Linux &#x2F; Nginx</strong> 部署与运维</li>
+<li><strong>数据库交互</strong> 与接口对接实践</li>
+</ul>
+<blockquote>
+<p>持续更新中，敬请期待 🚀</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>后端</category>
+      </categories>
+      <tags>
+        <tag>后端</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>你好，世界！</title>
+    <url>/2026/03/09/%E4%BD%A0%E5%A5%BD/</url>
+    <content><![CDATA[<h1 id="你好，世界！"><a href="#你好，世界！" class="headerlink" title="你好，世界！"></a>你好，世界！</h1><p>欢迎来到我的博客！这是我的第一篇文章，记录了我对技术的热爱和对生活的感悟。</p>
+]]></content>
   </entry>
   <entry>
     <title>嵌入式开发·栏目介绍</title>
@@ -559,44 +559,6 @@
       </tags>
   </entry>
   <entry>
-    <title>查找算法</title>
-    <url>/2026/03/11/%E6%9F%A5%E6%89%BE/</url>
-    <content><![CDATA[<h1 id="📕-第三部分：查找算法"><a href="#📕-第三部分：查找算法" class="headerlink" title="📕 第三部分：查找算法"></a>📕 第三部分：查找算法</h1><hr>
-<h2 id="第14讲：顺序查找与二分查找"><a href="#第14讲：顺序查找与二分查找" class="headerlink" title="第14讲：顺序查找与二分查找"></a>第14讲：顺序查找与二分查找</h2><h3 id="🔑-知识点讲解"><a href="#🔑-知识点讲解" class="headerlink" title="🔑 知识点讲解"></a>🔑 知识点讲解</h3><figure class="highlight markdown"><table><tr><td class="code"><pre><code class="hljs markdown"><span class="hljs-bullet">1.</span> 顺序查找（线性查找）<br>   从头到尾逐个比较<br>   时间：O(n)<br>   适用：无序数组<br><br><span class="hljs-bullet">2.</span> 二分查找（折半查找）⭐<br>   前提：数组必须有序<br>   每次取中间元素比较，将搜索范围缩小一半<br>   时间：O(logn)<br><br>   关键细节（面试爱问）：<br><span class="hljs-bullet">   -</span> mid = left + (right - left) / 2  （防溢出，不用 (left+right)/2）<br><span class="hljs-bullet">   -</span> 循环条件：left &lt;= right<br><span class="hljs-bullet">   -</span> 找到返回下标，找不到返回 -1<br><br>二分查找的变体（重点）：<br><span class="hljs-bullet">   -</span> 查找第一个等于target的位置<br><span class="hljs-bullet">   -</span> 查找最后一个等于target的位置<br><span class="hljs-bullet">   -</span> 查找第一个大于等于target的位置<br><span class="hljs-bullet">   -</span> 查找最后一个小于等于target的位置<br></code></pre></td></tr></table></figure>
-
-<h3 id="✏️-练习题9：二分查找及其变体"><a href="#✏️-练习题9：二分查找及其变体" class="headerlink" title="✏️ 练习题9：二分查找及其变体"></a>✏️ 练习题9：二分查找及其变体</h3><figure class="highlight angelscript"><table><tr><td class="code"><pre><code class="hljs angelscript">#include &lt;stdio.h&gt;<br><br><span class="hljs-comment">// 标准二分查找</span><br><span class="hljs-built_in">int</span> binarySearch(<span class="hljs-built_in">int</span> a[], <span class="hljs-built_in">int</span> n, <span class="hljs-built_in">int</span> target) &#123;<br>    <span class="hljs-built_in">int</span> left = <span class="hljs-number">0</span>, right = n - <span class="hljs-number">1</span>;<br>    <span class="hljs-keyword">while</span> (left &lt;= right) &#123;<br>        <span class="hljs-built_in">int</span> mid = left + (right - left) / <span class="hljs-number">2</span>;<br>        <span class="hljs-keyword">if</span> (a[mid] == target) <span class="hljs-keyword">return</span> mid;<br>        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (a[mid] &lt; target) left = mid + <span class="hljs-number">1</span>;<br>        <span class="hljs-keyword">else</span> right = mid - <span class="hljs-number">1</span>;<br>    &#125;<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">-1</span>;<br>&#125;<br><br><span class="hljs-comment">// 查找第一个等于target的位置</span><br><span class="hljs-built_in">int</span> findFirst(<span class="hljs-built_in">int</span> a[], <span class="hljs-built_in">int</span> n, <span class="hljs-built_in">int</span> target) &#123;<br>    <span class="hljs-built_in">int</span> left = <span class="hljs-number">0</span>, right = n - <span class="hljs-number">1</span>, result = <span class="hljs-number">-1</span>;<br>    <span class="hljs-keyword">while</span> (left &lt;= right) &#123;<br>        <span class="hljs-built_in">int</span> mid = left + (right - left) / <span class="hljs-number">2</span>;<br>        <span class="hljs-keyword">if</span> (a[mid] == target) &#123;<br>            result = mid;<br>            right = mid - <span class="hljs-number">1</span>;  <span class="hljs-comment">// 继续往左找</span><br>        &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (a[mid] &lt; target) &#123;<br>            left = mid + <span class="hljs-number">1</span>;<br>        &#125; <span class="hljs-keyword">else</span> &#123;<br>            right = mid - <span class="hljs-number">1</span>;<br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">return</span> result;<br>&#125;<br><br><span class="hljs-comment">// 查找最后一个等于target的位置</span><br><span class="hljs-built_in">int</span> findLast(<span class="hljs-built_in">int</span> a[], <span class="hljs-built_in">int</span> n, <span class="hljs-built_in">int</span> target) &#123;<br>    <span class="hljs-built_in">int</span> left = <span class="hljs-number">0</span>, right = n - <span class="hljs-number">1</span>, result = <span class="hljs-number">-1</span>;<br>    <span class="hljs-keyword">while</span> (left &lt;= right) &#123;<br>        <span class="hljs-built_in">int</span> mid = left + (right - left) / <span class="hljs-number">2</span>;<br>        <span class="hljs-keyword">if</span> (a[mid] == target) &#123;<br>            result = mid;<br>            left = mid + <span class="hljs-number">1</span>;  <span class="hljs-comment">// 继续往右找</span><br>        &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (a[mid] &lt; target) &#123;<br>            left = mid + <span class="hljs-number">1</span>;<br>        &#125; <span class="hljs-keyword">else</span> &#123;<br>            right = mid - <span class="hljs-number">1</span>;<br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">return</span> result;<br>&#125;<br><br><span class="hljs-built_in">int</span> main() &#123;<br>    <span class="hljs-built_in">int</span> a[] = &#123;<span class="hljs-number">1</span>, <span class="hljs-number">3</span>, <span class="hljs-number">3</span>, <span class="hljs-number">3</span>, <span class="hljs-number">5</span>, <span class="hljs-number">7</span>, <span class="hljs-number">9</span>&#125;;<br>    <span class="hljs-built_in">int</span> n = <span class="hljs-number">7</span>;<br>    <br>    printf(<span class="hljs-string">&quot;查找3的位置: %d\n&quot;</span>, binarySearch(a, n, <span class="hljs-number">3</span>));<br>    printf(<span class="hljs-string">&quot;第一个3的位置: %d\n&quot;</span>, findFirst(a, n, <span class="hljs-number">3</span>));<br>    printf(<span class="hljs-string">&quot;最后一个3的位置: %d\n&quot;</span>, findLast(a, n, <span class="hljs-number">3</span>));<br>    <br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
-
-<p><strong>输出</strong>：</p>
-<figure class="highlight makefile"><table><tr><td class="code"><pre><code class="hljs makefile"><span class="hljs-section">查找3的位置: 2</span><br><span class="hljs-section">第一个3的位置: 1</span><br><span class="hljs-section">最后一个3的位置: 3</span><br></code></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>算法</category>
-      </categories>
-      <tags>
-        <tag>算法</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>贪心算法</title>
-    <url>/2026/03/11/%E8%B4%AA%E5%BF%83/</url>
-    <content><![CDATA[<h1 id="📘-第八部分：贪心算法"><a href="#📘-第八部分：贪心算法" class="headerlink" title="📘 第八部分：贪心算法"></a>📘 第八部分：贪心算法</h1><h2 id="第30讲：贪心算法-⭐⭐"><a href="#第30讲：贪心算法-⭐⭐" class="headerlink" title="第30讲：贪心算法 ⭐⭐"></a>第30讲：贪心算法 ⭐⭐</h2><h3 id="🔑-知识点讲解"><a href="#🔑-知识点讲解" class="headerlink" title="🔑 知识点讲解"></a>🔑 知识点讲解</h3><figure class="highlight markdown"><table><tr><td class="code"><pre><code class="hljs markdown">贪心策略：每一步都选择当前最优解，希望最终得到全局最优。<br><br>适用条件：<br><span class="hljs-bullet">1.</span> 贪心选择性质：局部最优能导致全局最优<br><span class="hljs-bullet">2.</span> 最优子结构：问题的最优解包含子问题的最优解<br><br>经典贪心问题：<br><span class="hljs-bullet">1.</span> 活动选择（区间调度）<br><span class="hljs-bullet">2.</span> 分数背包<br><span class="hljs-bullet">3.</span> 哈夫曼编码<br><span class="hljs-bullet">4.</span> Dijkstra最短路径<br><span class="hljs-bullet">5.</span> Prim/Kruskal最小生成树<br><span class="hljs-bullet">6.</span> 找零钱问题<br><br>⚠️ 贪心不一定能得到最优解！<br>   如0-1背包问题，贪心不行，需要动态规划。<br></code></pre></td></tr></table></figure>
-
-<h3 id="✏️-练习题14：活动选择问题"><a href="#✏️-练习题14：活动选择问题" class="headerlink" title="✏️ 练习题14：活动选择问题"></a>✏️ 练习题14：活动选择问题</h3><blockquote>
-<p><strong>题目</strong>：有 n 个活动，每个活动有开始时间和结束时间。同一时间只能参加一个活动，求最多能参加多少个活动。</p>
-</blockquote>
-<figure class="highlight arduino"><table><tr><td class="code"><pre><code class="hljs arduino"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdio.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdlib.h&gt;</span></span><br><br><span class="hljs-keyword">typedef</span> <span class="hljs-keyword">struct</span> &#123;<br>    <span class="hljs-type">int</span> start, end;<br>&#125; Activity;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">cmp</span><span class="hljs-params">(<span class="hljs-type">const</span> <span class="hljs-type">void</span> *a, <span class="hljs-type">const</span> <span class="hljs-type">void</span> *b)</span> </span>&#123;<br>    <span class="hljs-keyword">return</span> ((Activity *)a)-&gt;end - ((Activity *)b)-&gt;end;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br>    <span class="hljs-type">int</span> n;<br>    <span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d&quot;</span>, &amp;n);<br>    <br>    Activity act[<span class="hljs-number">100</span>];<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i++)<br>        <span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d %d&quot;</span>, &amp;act[i].start, &amp;act[i].end);<br>    <br>    <span class="hljs-comment">// 贪心：按结束时间排序</span><br>    <span class="hljs-built_in">qsort</span>(act, n, <span class="hljs-built_in">sizeof</span>(Activity), cmp);<br>    <br>    <span class="hljs-type">int</span> count = <span class="hljs-number">1</span>;<br>    <span class="hljs-type">int</span> lastEnd = act[<span class="hljs-number">0</span>].end;<br>    <br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;选择活动: [%d,%d]&quot;</span>, act[<span class="hljs-number">0</span>].start, act[<span class="hljs-number">0</span>].end);<br>    <br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt; n; i++) &#123;<br>        <span class="hljs-keyword">if</span> (act[i].start &gt;= lastEnd) &#123;<br>            count++;<br>            lastEnd = act[i].end;<br>            <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot; [%d,%d]&quot;</span>, act[i].start, act[i].end);<br>        &#125;<br>    &#125;<br>    <br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;\n最多参加 %d 个活动\n&quot;</span>, count);<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
-
-<h3 id="✏️-练习题15：分数背包问题"><a href="#✏️-练习题15：分数背包问题" class="headerlink" title="✏️ 练习题15：分数背包问题"></a>✏️ 练习题15：分数背包问题</h3><blockquote>
-<p><strong>题目</strong>：有 n 个物品，每个有重量和价值。背包容量为 W，物品可以分割。求最大价值。</p>
-</blockquote>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdio.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdlib.h&gt;</span></span><br><br><span class="hljs-keyword">typedef</span> <span class="hljs-keyword">struct</span> &#123;<br>    <span class="hljs-type">double</span> weight, value;<br>    <span class="hljs-type">double</span> ratio;  <span class="hljs-comment">// 性价比</span><br>&#125; Item;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">cmp</span><span class="hljs-params">(<span class="hljs-type">const</span> <span class="hljs-type">void</span> *a, <span class="hljs-type">const</span> <span class="hljs-type">void</span> *b)</span> </span>&#123;<br>    <span class="hljs-type">double</span> diff = ((Item *)b)-&gt;ratio - ((Item *)a)-&gt;ratio;<br>    <span class="hljs-keyword">return</span> diff &gt; <span class="hljs-number">0</span> ? <span class="hljs-number">1</span> : (diff &lt; <span class="hljs-number">0</span> ? <span class="hljs-number">-1</span> : <span class="hljs-number">0</span>);<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br>    <span class="hljs-type">int</span> n;<br>    <span class="hljs-type">double</span> W;<br>    <span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d %lf&quot;</span>, &amp;n, &amp;W);<br>    <br>    Item items[<span class="hljs-number">100</span>];<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i++) &#123;<br>        <span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%lf %lf&quot;</span>, &amp;items[i].weight, &amp;items[i].value);<br>        items[i].ratio = items[i].value / items[i].weight;<br>    &#125;<br>    <br>    <span class="hljs-comment">// 按性价比降序排序</span><br>    <span class="hljs-built_in">qsort</span>(items, n, <span class="hljs-built_in">sizeof</span>(Item), cmp);<br>    <br>    <span class="hljs-type">double</span> totalValue = <span class="hljs-number">0</span>;<br>    <span class="hljs-type">double</span> remain = W;<br>    <br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; n &amp;&amp; remain &gt; <span class="hljs-number">0</span>; i++) &#123;<br>        <span class="hljs-keyword">if</span> (items[i].weight &lt;= remain) &#123;<br>            <span class="hljs-comment">// 整个物品装入</span><br>            totalValue += items[i].value;<br>            remain -= items[i].weight;<br>        &#125; <span class="hljs-keyword">else</span> &#123;<br>            <span class="hljs-comment">// 装入部分</span><br>            totalValue += remain * items[i].ratio;<br>            remain = <span class="hljs-number">0</span>;<br>        &#125;<br>    &#125;<br>    <br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;最大价值: %.2f\n&quot;</span>, totalValue);<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>算法</category>
-      </categories>
-      <tags>
-        <tag>算法</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>数据库·栏目介绍</title>
     <url>/2026/03/09/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%BC%80%E7%AF%87/</url>
     <content><![CDATA[<blockquote>
@@ -621,6 +583,23 @@
       <tags>
         <tag>数据库</tag>
         <tag>MySQL</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>查找算法</title>
+    <url>/2026/03/11/%E6%9F%A5%E6%89%BE/</url>
+    <content><![CDATA[<h1 id="📕-第三部分：查找算法"><a href="#📕-第三部分：查找算法" class="headerlink" title="📕 第三部分：查找算法"></a>📕 第三部分：查找算法</h1><hr>
+<h2 id="第14讲：顺序查找与二分查找"><a href="#第14讲：顺序查找与二分查找" class="headerlink" title="第14讲：顺序查找与二分查找"></a>第14讲：顺序查找与二分查找</h2><h3 id="🔑-知识点讲解"><a href="#🔑-知识点讲解" class="headerlink" title="🔑 知识点讲解"></a>🔑 知识点讲解</h3><figure class="highlight markdown"><table><tr><td class="code"><pre><code class="hljs markdown"><span class="hljs-bullet">1.</span> 顺序查找（线性查找）<br>   从头到尾逐个比较<br>   时间：O(n)<br>   适用：无序数组<br><br><span class="hljs-bullet">2.</span> 二分查找（折半查找）⭐<br>   前提：数组必须有序<br>   每次取中间元素比较，将搜索范围缩小一半<br>   时间：O(logn)<br><br>   关键细节（面试爱问）：<br><span class="hljs-bullet">   -</span> mid = left + (right - left) / 2  （防溢出，不用 (left+right)/2）<br><span class="hljs-bullet">   -</span> 循环条件：left &lt;= right<br><span class="hljs-bullet">   -</span> 找到返回下标，找不到返回 -1<br><br>二分查找的变体（重点）：<br><span class="hljs-bullet">   -</span> 查找第一个等于target的位置<br><span class="hljs-bullet">   -</span> 查找最后一个等于target的位置<br><span class="hljs-bullet">   -</span> 查找第一个大于等于target的位置<br><span class="hljs-bullet">   -</span> 查找最后一个小于等于target的位置<br></code></pre></td></tr></table></figure>
+
+<h3 id="✏️-练习题9：二分查找及其变体"><a href="#✏️-练习题9：二分查找及其变体" class="headerlink" title="✏️ 练习题9：二分查找及其变体"></a>✏️ 练习题9：二分查找及其变体</h3><figure class="highlight angelscript"><table><tr><td class="code"><pre><code class="hljs angelscript">#include &lt;stdio.h&gt;<br><br><span class="hljs-comment">// 标准二分查找</span><br><span class="hljs-built_in">int</span> binarySearch(<span class="hljs-built_in">int</span> a[], <span class="hljs-built_in">int</span> n, <span class="hljs-built_in">int</span> target) &#123;<br>    <span class="hljs-built_in">int</span> left = <span class="hljs-number">0</span>, right = n - <span class="hljs-number">1</span>;<br>    <span class="hljs-keyword">while</span> (left &lt;= right) &#123;<br>        <span class="hljs-built_in">int</span> mid = left + (right - left) / <span class="hljs-number">2</span>;<br>        <span class="hljs-keyword">if</span> (a[mid] == target) <span class="hljs-keyword">return</span> mid;<br>        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (a[mid] &lt; target) left = mid + <span class="hljs-number">1</span>;<br>        <span class="hljs-keyword">else</span> right = mid - <span class="hljs-number">1</span>;<br>    &#125;<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">-1</span>;<br>&#125;<br><br><span class="hljs-comment">// 查找第一个等于target的位置</span><br><span class="hljs-built_in">int</span> findFirst(<span class="hljs-built_in">int</span> a[], <span class="hljs-built_in">int</span> n, <span class="hljs-built_in">int</span> target) &#123;<br>    <span class="hljs-built_in">int</span> left = <span class="hljs-number">0</span>, right = n - <span class="hljs-number">1</span>, result = <span class="hljs-number">-1</span>;<br>    <span class="hljs-keyword">while</span> (left &lt;= right) &#123;<br>        <span class="hljs-built_in">int</span> mid = left + (right - left) / <span class="hljs-number">2</span>;<br>        <span class="hljs-keyword">if</span> (a[mid] == target) &#123;<br>            result = mid;<br>            right = mid - <span class="hljs-number">1</span>;  <span class="hljs-comment">// 继续往左找</span><br>        &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (a[mid] &lt; target) &#123;<br>            left = mid + <span class="hljs-number">1</span>;<br>        &#125; <span class="hljs-keyword">else</span> &#123;<br>            right = mid - <span class="hljs-number">1</span>;<br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">return</span> result;<br>&#125;<br><br><span class="hljs-comment">// 查找最后一个等于target的位置</span><br><span class="hljs-built_in">int</span> findLast(<span class="hljs-built_in">int</span> a[], <span class="hljs-built_in">int</span> n, <span class="hljs-built_in">int</span> target) &#123;<br>    <span class="hljs-built_in">int</span> left = <span class="hljs-number">0</span>, right = n - <span class="hljs-number">1</span>, result = <span class="hljs-number">-1</span>;<br>    <span class="hljs-keyword">while</span> (left &lt;= right) &#123;<br>        <span class="hljs-built_in">int</span> mid = left + (right - left) / <span class="hljs-number">2</span>;<br>        <span class="hljs-keyword">if</span> (a[mid] == target) &#123;<br>            result = mid;<br>            left = mid + <span class="hljs-number">1</span>;  <span class="hljs-comment">// 继续往右找</span><br>        &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (a[mid] &lt; target) &#123;<br>            left = mid + <span class="hljs-number">1</span>;<br>        &#125; <span class="hljs-keyword">else</span> &#123;<br>            right = mid - <span class="hljs-number">1</span>;<br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">return</span> result;<br>&#125;<br><br><span class="hljs-built_in">int</span> main() &#123;<br>    <span class="hljs-built_in">int</span> a[] = &#123;<span class="hljs-number">1</span>, <span class="hljs-number">3</span>, <span class="hljs-number">3</span>, <span class="hljs-number">3</span>, <span class="hljs-number">5</span>, <span class="hljs-number">7</span>, <span class="hljs-number">9</span>&#125;;<br>    <span class="hljs-built_in">int</span> n = <span class="hljs-number">7</span>;<br>    <br>    printf(<span class="hljs-string">&quot;查找3的位置: %d\n&quot;</span>, binarySearch(a, n, <span class="hljs-number">3</span>));<br>    printf(<span class="hljs-string">&quot;第一个3的位置: %d\n&quot;</span>, findFirst(a, n, <span class="hljs-number">3</span>));<br>    printf(<span class="hljs-string">&quot;最后一个3的位置: %d\n&quot;</span>, findLast(a, n, <span class="hljs-number">3</span>));<br>    <br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p><strong>输出</strong>：</p>
+<figure class="highlight makefile"><table><tr><td class="code"><pre><code class="hljs makefile"><span class="hljs-section">查找3的位置: 2</span><br><span class="hljs-section">第一个3的位置: 1</span><br><span class="hljs-section">最后一个3的位置: 3</span><br></code></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>算法</category>
+      </categories>
+      <tags>
+        <tag>算法</tag>
       </tags>
   </entry>
   <entry>
@@ -670,6 +649,27 @@
 <h2 id="第16讲：双链表"><a href="#第16讲：双链表" class="headerlink" title="第16讲：双链表"></a>第16讲：双链表</h2><h3 id="🔑-知识点讲解-1"><a href="#🔑-知识点讲解-1" class="headerlink" title="🔑 知识点讲解"></a>🔑 知识点讲解</h3><figure class="highlight xl"><table><tr><td class="code"><pre><code class="hljs xl">双链表每个节点有两个指针：前驱和后继。<br><br>typedef struct DNode &#123;<br>    int <span class="hljs-keyword">data</span>;<br>    struct DNode *prev;<br>    struct DNode *next;<br>&#125; DNode;<br><br>优点：可以双向遍历，删除给定节点时间O(<span class="hljs-number">1</span>)（单链表需要知道前驱）<br>缺点：额外的空间开销<br><br>插入操作（在 p 节点后插入 s）：<br>    <span class="hljs-function"><span class="hljs-title">s</span>-&gt;</span><span class="hljs-function"><span class="hljs-title">next</span> = p-&gt;</span>next;<br>    <span class="hljs-function"><span class="hljs-title">s</span>-&gt;</span>prev = p;<br>    <span class="hljs-function"><span class="hljs-title">if</span> (p-&gt;</span><span class="hljs-function"><span class="hljs-title">next</span>) p-&gt;</span><span class="hljs-function"><span class="hljs-title">next</span>-&gt;</span>prev = s;<br>    <span class="hljs-function"><span class="hljs-title">p</span>-&gt;</span>next = s;<br><br>删除操作（删除 p 节点）：<br>    <span class="hljs-function"><span class="hljs-title">p</span>-&gt;</span><span class="hljs-function"><span class="hljs-title">prev</span>-&gt;</span><span class="hljs-function"><span class="hljs-title">next</span> = p-&gt;</span>next;<br>    <span class="hljs-function"><span class="hljs-title">if</span> (p-&gt;</span><span class="hljs-function"><span class="hljs-title">next</span>) p-&gt;</span><span class="hljs-function"><span class="hljs-title">next</span>-&gt;</span><span class="hljs-function"><span class="hljs-title">prev</span> = p-&gt;</span>prev;<br>    free(p);<br></code></pre></td></tr></table></figure>
 
 <figure class="highlight cpp"><table><tr><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdio.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdlib.h&gt;</span></span><br><br><span class="hljs-keyword">typedef</span> <span class="hljs-keyword">struct</span> <span class="hljs-title class_">DNode</span> &#123;<br>    <span class="hljs-type">int</span> data;<br>    <span class="hljs-keyword">struct</span> <span class="hljs-title class_">DNode</span> *prev;<br>    <span class="hljs-keyword">struct</span> <span class="hljs-title class_">DNode</span> *next;<br>&#125; DNode;<br><br><span class="hljs-function">DNode* <span class="hljs-title">createDList</span><span class="hljs-params">()</span> </span>&#123;<br>    DNode *head = (DNode *)<span class="hljs-built_in">malloc</span>(<span class="hljs-built_in">sizeof</span>(DNode));<br>    head-&gt;data = <span class="hljs-number">0</span>;<br>    head-&gt;prev = <span class="hljs-literal">NULL</span>;<br>    head-&gt;next = <span class="hljs-literal">NULL</span>;<br>    <span class="hljs-keyword">return</span> head;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">insertTailD</span><span class="hljs-params">(DNode *head, <span class="hljs-type">int</span> val)</span> </span>&#123;<br>    DNode *newNode = (DNode *)<span class="hljs-built_in">malloc</span>(<span class="hljs-built_in">sizeof</span>(DNode));<br>    newNode-&gt;data = val;<br>    newNode-&gt;next = <span class="hljs-literal">NULL</span>;<br>    <br>    DNode *p = head;<br>    <span class="hljs-keyword">while</span> (p-&gt;next) p = p-&gt;next;<br>    <br>    newNode-&gt;prev = p;<br>    p-&gt;next = newNode;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">printDList</span><span class="hljs-params">(DNode *head)</span> </span>&#123;<br>    DNode *p = head-&gt;next;<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;正向: &quot;</span>);<br>    DNode *tail = <span class="hljs-literal">NULL</span>;<br>    <span class="hljs-keyword">while</span> (p) &#123;<br>        <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d &lt;-&gt; &quot;</span>, p-&gt;data);<br>        tail = p;<br>        p = p-&gt;next;<br>    &#125;<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;NULL\n&quot;</span>);<br>    <br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;反向: &quot;</span>);<br>    <span class="hljs-keyword">while</span> (tail &amp;&amp; tail != head) &#123;<br>        <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d &lt;-&gt; &quot;</span>, tail-&gt;data);<br>        tail = tail-&gt;prev;<br>    &#125;<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;HEAD\n&quot;</span>);<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br>    DNode *list = <span class="hljs-built_in">createDList</span>();<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= <span class="hljs-number">5</span>; i++)<br>        <span class="hljs-built_in">insertTailD</span>(list, i);<br>    <span class="hljs-built_in">printDList</span>(list);<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>算法</category>
+      </categories>
+      <tags>
+        <tag>算法</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>贪心算法</title>
+    <url>/2026/03/11/%E8%B4%AA%E5%BF%83/</url>
+    <content><![CDATA[<h1 id="📘-第八部分：贪心算法"><a href="#📘-第八部分：贪心算法" class="headerlink" title="📘 第八部分：贪心算法"></a>📘 第八部分：贪心算法</h1><h2 id="第30讲：贪心算法-⭐⭐"><a href="#第30讲：贪心算法-⭐⭐" class="headerlink" title="第30讲：贪心算法 ⭐⭐"></a>第30讲：贪心算法 ⭐⭐</h2><h3 id="🔑-知识点讲解"><a href="#🔑-知识点讲解" class="headerlink" title="🔑 知识点讲解"></a>🔑 知识点讲解</h3><figure class="highlight markdown"><table><tr><td class="code"><pre><code class="hljs markdown">贪心策略：每一步都选择当前最优解，希望最终得到全局最优。<br><br>适用条件：<br><span class="hljs-bullet">1.</span> 贪心选择性质：局部最优能导致全局最优<br><span class="hljs-bullet">2.</span> 最优子结构：问题的最优解包含子问题的最优解<br><br>经典贪心问题：<br><span class="hljs-bullet">1.</span> 活动选择（区间调度）<br><span class="hljs-bullet">2.</span> 分数背包<br><span class="hljs-bullet">3.</span> 哈夫曼编码<br><span class="hljs-bullet">4.</span> Dijkstra最短路径<br><span class="hljs-bullet">5.</span> Prim/Kruskal最小生成树<br><span class="hljs-bullet">6.</span> 找零钱问题<br><br>⚠️ 贪心不一定能得到最优解！<br>   如0-1背包问题，贪心不行，需要动态规划。<br></code></pre></td></tr></table></figure>
+
+<h3 id="✏️-练习题14：活动选择问题"><a href="#✏️-练习题14：活动选择问题" class="headerlink" title="✏️ 练习题14：活动选择问题"></a>✏️ 练习题14：活动选择问题</h3><blockquote>
+<p><strong>题目</strong>：有 n 个活动，每个活动有开始时间和结束时间。同一时间只能参加一个活动，求最多能参加多少个活动。</p>
+</blockquote>
+<figure class="highlight arduino"><table><tr><td class="code"><pre><code class="hljs arduino"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdio.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdlib.h&gt;</span></span><br><br><span class="hljs-keyword">typedef</span> <span class="hljs-keyword">struct</span> &#123;<br>    <span class="hljs-type">int</span> start, end;<br>&#125; Activity;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">cmp</span><span class="hljs-params">(<span class="hljs-type">const</span> <span class="hljs-type">void</span> *a, <span class="hljs-type">const</span> <span class="hljs-type">void</span> *b)</span> </span>&#123;<br>    <span class="hljs-keyword">return</span> ((Activity *)a)-&gt;end - ((Activity *)b)-&gt;end;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br>    <span class="hljs-type">int</span> n;<br>    <span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d&quot;</span>, &amp;n);<br>    <br>    Activity act[<span class="hljs-number">100</span>];<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i++)<br>        <span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d %d&quot;</span>, &amp;act[i].start, &amp;act[i].end);<br>    <br>    <span class="hljs-comment">// 贪心：按结束时间排序</span><br>    <span class="hljs-built_in">qsort</span>(act, n, <span class="hljs-built_in">sizeof</span>(Activity), cmp);<br>    <br>    <span class="hljs-type">int</span> count = <span class="hljs-number">1</span>;<br>    <span class="hljs-type">int</span> lastEnd = act[<span class="hljs-number">0</span>].end;<br>    <br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;选择活动: [%d,%d]&quot;</span>, act[<span class="hljs-number">0</span>].start, act[<span class="hljs-number">0</span>].end);<br>    <br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt; n; i++) &#123;<br>        <span class="hljs-keyword">if</span> (act[i].start &gt;= lastEnd) &#123;<br>            count++;<br>            lastEnd = act[i].end;<br>            <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot; [%d,%d]&quot;</span>, act[i].start, act[i].end);<br>        &#125;<br>    &#125;<br>    <br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;\n最多参加 %d 个活动\n&quot;</span>, count);<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="✏️-练习题15：分数背包问题"><a href="#✏️-练习题15：分数背包问题" class="headerlink" title="✏️ 练习题15：分数背包问题"></a>✏️ 练习题15：分数背包问题</h3><blockquote>
+<p><strong>题目</strong>：有 n 个物品，每个有重量和价值。背包容量为 W，物品可以分割。求最大价值。</p>
+</blockquote>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdio.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdlib.h&gt;</span></span><br><br><span class="hljs-keyword">typedef</span> <span class="hljs-keyword">struct</span> &#123;<br>    <span class="hljs-type">double</span> weight, value;<br>    <span class="hljs-type">double</span> ratio;  <span class="hljs-comment">// 性价比</span><br>&#125; Item;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">cmp</span><span class="hljs-params">(<span class="hljs-type">const</span> <span class="hljs-type">void</span> *a, <span class="hljs-type">const</span> <span class="hljs-type">void</span> *b)</span> </span>&#123;<br>    <span class="hljs-type">double</span> diff = ((Item *)b)-&gt;ratio - ((Item *)a)-&gt;ratio;<br>    <span class="hljs-keyword">return</span> diff &gt; <span class="hljs-number">0</span> ? <span class="hljs-number">1</span> : (diff &lt; <span class="hljs-number">0</span> ? <span class="hljs-number">-1</span> : <span class="hljs-number">0</span>);<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br>    <span class="hljs-type">int</span> n;<br>    <span class="hljs-type">double</span> W;<br>    <span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d %lf&quot;</span>, &amp;n, &amp;W);<br>    <br>    Item items[<span class="hljs-number">100</span>];<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i++) &#123;<br>        <span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%lf %lf&quot;</span>, &amp;items[i].weight, &amp;items[i].value);<br>        items[i].ratio = items[i].value / items[i].weight;<br>    &#125;<br>    <br>    <span class="hljs-comment">// 按性价比降序排序</span><br>    <span class="hljs-built_in">qsort</span>(items, n, <span class="hljs-built_in">sizeof</span>(Item), cmp);<br>    <br>    <span class="hljs-type">double</span> totalValue = <span class="hljs-number">0</span>;<br>    <span class="hljs-type">double</span> remain = W;<br>    <br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; n &amp;&amp; remain &gt; <span class="hljs-number">0</span>; i++) &#123;<br>        <span class="hljs-keyword">if</span> (items[i].weight &lt;= remain) &#123;<br>            <span class="hljs-comment">// 整个物品装入</span><br>            totalValue += items[i].value;<br>            remain -= items[i].weight;<br>        &#125; <span class="hljs-keyword">else</span> &#123;<br>            <span class="hljs-comment">// 装入部分</span><br>            totalValue += remain * items[i].ratio;<br>            remain = <span class="hljs-number">0</span>;<br>        &#125;<br>    &#125;<br>    <br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;最大价值: %.2f\n&quot;</span>, totalValue);<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>算法</category>
       </categories>

@@ -1,29 +1,29 @@
 /* ============================================================
-   Fluid 主题自定义样式 - 高性能优化版
+   Butterfly 主题自定义样式 - 清新风格版
    ============================================================
-   性能原则：
-   · 不使用 backdrop-filter（文章页卡顿元凶）
+   风格：清新自然，简洁舒适
+   · 主色调：天空蓝 + 薄荷绿
    · 动画只用 transform / opacity（GPU 加速，不触发重排）
    · background-attachment: fixed 仅用于 body 层
    ============================================================ */
 
 /* ============================================================
-   全局背景（仅一层渐变，极轻量）
+   全局背景 - 清新渐变
    ============================================================ */
 body {
-  background: linear-gradient(145deg, #eef2ff 0%, #f0f9ff 50%, #fdf4ff 100%);
+  background: linear-gradient(145deg, #e8f8f5 0%, #eaf4fb 50%, #f0f4ff 100%);
   background-attachment: fixed;
 }
 
 html[data-user-color-scheme="dark"] body {
-  background: linear-gradient(145deg, #0e0b20 0%, #111827 50%, #0b1520 100%);
+  background: linear-gradient(145deg, #0a1628 0%, #0d1f2d 50%, #0a1a26 100%);
 }
 
 /* ============================================================
-   导航栏（仅 body 背景可见时才需要毛玻璃，此处用半透明代替）
+   导航栏（清新风格）
    ============================================================ */
 #navbar {
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.10);
+  box-shadow: 0 2px 16px rgba(14, 165, 233, 0.08);
   transition: background 0.3s ease;
 }
 
@@ -32,13 +32,13 @@ html[data-user-color-scheme="dark"] body {
    ============================================================ */
 .post-content {
   font-size: 16.5px;
-  line-height: 1.92;
-  letter-spacing: 0.018em;
-  color: #2d3748;
+  line-height: 1.96;
+  letter-spacing: 0.02em;
+  color: #1e3a4f;
 }
 
 html[data-user-color-scheme="dark"] .post-content {
-  color: #d1d5db;
+  color: #c8d8e4;
 }
 
 /* 段落间距 */
@@ -49,15 +49,15 @@ html[data-user-color-scheme="dark"] .post-content {
 /* 文章容器 - 用 box-shadow 代替 backdrop-filter（无 GPU 压力）*/
 .post-container,
 #board-wrap .post-content-wrap {
-  background: rgba(255, 255, 255, 0.96);
-  border-radius: 14px;
-  box-shadow: 0 4px 24px rgba(99, 102, 241, 0.08), 0 1px 4px rgba(0, 0, 0, 0.04);
+  background: rgba(255, 255, 255, 0.97);
+  border-radius: 16px;
+  box-shadow: 0 4px 28px rgba(14, 165, 233, 0.10), 0 1px 4px rgba(0, 0, 0, 0.04);
 }
 
 html[data-user-color-scheme="dark"] .post-container,
 html[data-user-color-scheme="dark"] #board-wrap .post-content-wrap {
-  background: rgba(17, 24, 39, 0.97);
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.35);
+  background: rgba(10, 22, 40, 0.97);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.40);
 }
 
 /* ============================================================
@@ -65,15 +65,15 @@ html[data-user-color-scheme="dark"] #board-wrap .post-content-wrap {
    ============================================================ */
 .recent-post-item,
 .index-post-item {
-  border-radius: 12px;
+  border-radius: 14px;
   transition: transform 0.22s ease, box-shadow 0.22s ease;
   will-change: transform;
 }
 
 .recent-post-item:hover,
 .index-post-item:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 32px rgba(99, 102, 241, 0.13) !important;
+  transform: translateY(-5px);
+  box-shadow: 0 14px 36px rgba(14, 165, 233, 0.16) !important;
 }
 
 /* ============================================================
@@ -81,8 +81,8 @@ html[data-user-color-scheme="dark"] #board-wrap .post-content-wrap {
    ============================================================ */
 .sidebar-card,
 .card-widget {
-  border-radius: 12px;
-  box-shadow: 0 2px 14px rgba(0, 0, 0, 0.06);
+  border-radius: 14px;
+  box-shadow: 0 2px 16px rgba(14, 165, 233, 0.08);
   transition: box-shadow 0.2s ease;
 }
 
@@ -107,16 +107,18 @@ pre {
    引用块样式
    ============================================================ */
 .post-content blockquote {
-  border-left: 4px solid #6366f1;
-  padding: 0.6em 1.1em;
-  background: rgba(99, 102, 241, 0.05);
-  border-radius: 0 8px 8px 0;
+  border-left: 4px solid #0ea5e9;
+  padding: 0.7em 1.2em;
+  background: rgba(14, 165, 233, 0.06);
+  border-radius: 0 10px 10px 0;
   margin: 1.2em 0;
+  color: #334e5c;
 }
 
 html[data-user-color-scheme="dark"] .post-content blockquote {
-  background: rgba(99, 102, 241, 0.10);
-  border-left-color: #818cf8;
+  background: rgba(14, 165, 233, 0.10);
+  border-left-color: #38bdf8;
+  color: #94c7d8;
 }
 
 /* ============================================================
@@ -135,12 +137,12 @@ html[data-user-color-scheme="dark"] .post-content blockquote {
 }
 
 .post-content table th {
-  background: rgba(99, 102, 241, 0.08);
+  background: rgba(14, 165, 233, 0.08);
   font-weight: 600;
 }
 
 html[data-user-color-scheme="dark"] .post-content table th {
-  background: rgba(99, 102, 241, 0.16);
+  background: rgba(14, 165, 233, 0.18);
 }
 
 html[data-user-color-scheme="dark"] .post-content table td,
@@ -152,9 +154,11 @@ html[data-user-color-scheme="dark"] .post-content table th {
    图片：圆角 + 轻阴影（无 filter，避免卡顿）
    ============================================================ */
 .post-content img {
-  border-radius: 8px;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.10);
+  border-radius: 10px;
+  box-shadow: 0 4px 18px rgba(14, 165, 233, 0.12);
   max-width: 100%;
+  display: block;
+  margin: 0.5em auto;
 }
 
 /* ============================================================
@@ -169,9 +173,15 @@ html[data-user-color-scheme="dark"] .post-content table th {
 }
 
 .post-content h2 {
-  border-bottom: 2px solid rgba(99, 102, 241, 0.25);
+  border-bottom: 2px solid rgba(14, 165, 233, 0.28);
   padding-bottom: 0.35em;
   margin-top: 2em;
+  color: #0e6fa8;
+}
+
+html[data-user-color-scheme="dark"] .post-content h2 {
+  color: #38bdf8;
+  border-bottom-color: rgba(56, 189, 248, 0.25);
 }
 
 /* ============================================================
@@ -179,7 +189,7 @@ html[data-user-color-scheme="dark"] .post-content table th {
    ============================================================ */
 #toc-item-active > a,
 .toc-item.active > a {
-  color: #6366f1 !important;
+  color: #0ea5e9 !important;
   font-weight: 600;
 }
 
@@ -195,12 +205,12 @@ html[data-user-color-scheme="dark"] .post-content table th {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(99, 102, 241, 0.35);
+  background: rgba(14, 165, 233, 0.35);
   border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(99, 102, 241, 0.6);
+  background: rgba(14, 165, 233, 0.62);
 }
 
 /* ============================================================
@@ -211,12 +221,13 @@ html {
 }
 
 /* ============================================================
-   打字机副标题颜色（与主题色一致）
+   打字机副标题颜色（清新天蓝色）
    ============================================================ */
 #subtitle,
 .typed-cursor,
 .subtitle-text {
-  color: #a5b4fc !important;
+  color: #7dd3fc !important;
+  text-shadow: 0 0 20px rgba(14, 165, 233, 0.3);
 }
 
 /* ============================================================
@@ -224,14 +235,14 @@ html {
    ============================================================ */
 footer.footer,
 #footer {
-  background: rgba(255, 255, 255, 0.85);
-  border-top: 1px solid rgba(99, 102, 241, 0.12);
+  background: rgba(245, 252, 255, 0.90);
+  border-top: 1px solid rgba(14, 165, 233, 0.14);
 }
 
 html[data-user-color-scheme="dark"] footer.footer,
 html[data-user-color-scheme="dark"] #footer {
-  background: rgba(14, 11, 32, 0.92);
-  border-top-color: rgba(99, 102, 241, 0.15);
+  background: rgba(10, 22, 40, 0.95);
+  border-top-color: rgba(14, 165, 233, 0.15);
 }
 
 /* ============================================================
@@ -254,50 +265,50 @@ html[data-user-color-scheme="dark"] #footer {
 
 /* 全局渐变背景，使磨砂效果可见 */
 #body-wrap {
-  background: linear-gradient(135deg, #dfe9f3 0%, #e8d9f5 35%, #fde8f0 65%, #d9f0f5 100%);
+  background: linear-gradient(135deg, #e0f7f4 0%, #dff0fb 35%, #e8f0ff 65%, #f0faf7 100%);
   background-attachment: fixed;
 }
 
 [data-theme="dark"] #body-wrap {
-  background: linear-gradient(135deg, #0d0b1e 0%, #1a1035 45%, #0b1a22 100%);
+  background: linear-gradient(135deg, #060f1c 0%, #0a1628 45%, #071520 100%);
   background-attachment: fixed;
 }
 
 /* 导航栏磨砂玻璃 */
 #nav {
-  background: rgba(255, 255, 255, 0.42) !important;
-  backdrop-filter: blur(16px) saturate(180%) !important;
-  -webkit-backdrop-filter: blur(16px) saturate(180%) !important;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.55) !important;
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.07) !important;
+  background: rgba(240, 252, 255, 0.45) !important;
+  backdrop-filter: blur(18px) saturate(185%) !important;
+  -webkit-backdrop-filter: blur(18px) saturate(185%) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.60) !important;
+  box-shadow: 0 4px 24px rgba(14, 165, 233, 0.08) !important;
 }
 
 [data-theme="dark"] #nav {
-  background: rgba(13, 11, 30, 0.55) !important;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+  background: rgba(6, 15, 28, 0.58) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07) !important;
 }
 
 /* 侧边栏所有卡片磨砂玻璃 */
 .card-widget {
-  background: rgba(255, 255, 255, 0.48) !important;
+  background: rgba(240, 252, 255, 0.52) !important;
   backdrop-filter: blur(14px) saturate(160%) !important;
   -webkit-backdrop-filter: blur(14px) saturate(160%) !important;
-  border: 1px solid rgba(255, 255, 255, 0.65) !important;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.09) !important;
+  border: 1px solid rgba(255, 255, 255, 0.70) !important;
+  box-shadow: 0 6px 28px rgba(14, 165, 233, 0.10) !important;
 }
 
 [data-theme="dark"] .card-widget {
-  background: rgba(20, 14, 48, 0.48) !important;
-  border: 1px solid rgba(255, 255, 255, 0.1) !important;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.28) !important;
+  background: rgba(10, 22, 50, 0.50) !important;
+  border: 1px solid rgba(255, 255, 255, 0.09) !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.30) !important;
 }
 
 /* 首页文章卡片磨砂玻璃 */
 #recent-posts .recent-post-item {
-  background: rgba(255, 255, 255, 0.48) !important;
+  background: rgba(240, 252, 255, 0.52) !important;
   backdrop-filter: blur(14px) saturate(160%) !important;
   -webkit-backdrop-filter: blur(14px) saturate(160%) !important;
-  border: 1px solid rgba(255, 255, 255, 0.65) !important;
+  border: 1px solid rgba(255, 255, 255, 0.70) !important;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.09) !important;
 }
 
