@@ -1,6 +1,104 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>个人荣誉</title>
+    <url>/2026/03/09/%E4%B8%AA%E4%BA%BA%E8%8D%A3%E8%AA%89/</url>
+    <content><![CDATA[<blockquote>
+<p>每一份荣誉，都是过去努力的见证。愿每一步都算数，愿未来更值得期待。✨</p>
+</blockquote>
+<span id="more"></span>
+
+<h2 id="🏆-荣誉证书"><a href="#🏆-荣誉证书" class="headerlink" title="🏆 荣誉证书"></a>🏆 荣誉证书</h2><div class="gallery-container" data-type="data" data-button="" data-limit="10" data-first="10">
+    <div class="gallery-items">[{"url":"https://s3.imagency.cn/e/b511900cb1347f24f4f252f3f74404ed.jpg","alt":"","title":""},{"url":"https://s3.imagency.cn/e/7f3170e74c45cbbb32b4eb817774c5a0.png","alt":"","title":""},{"url":"https://s3.imagency.cn/e/bd645f2f928a17abb68359c6ac50165d.jpg","alt":"","title":""},{"url":"https://s3.imagency.cn/e/a8348d079d9f33e83e70194b565a7c3c.png","alt":"","title":""},{"url":"https://s3.imagency.cn/e/bdda82f6878d4a4c2127186c788a5ab9.png","alt":"","title":""},{"url":"https://s3.imagency.cn/e/092b929a2066799ba41ac8bfe565b420.png","alt":"","title":""},{"url":"https://s3.imagency.cn/e/33d47cb48852f9cd85a2b0f1675da933.png","alt":"","title":""},{"url":"https://s3.imagency.cn/e/24b7769472b800e7fde25fe3a14ea19e.png","alt":"","title":""},{"url":"https://s3.imagency.cn/e/4231c102d956238cd41d38c7e5502db5.png","alt":"","title":""},{"url":"https://s3.imagency.cn/e/1f86cb1303786e00e80e0bd250d00d6e.png","alt":"","title":""},{"url":"https://s3.imagency.cn/e/4e1cf95861263c7554e08296ca9268b9.jpg","alt":"","title":""},{"url":"https://s3.imagency.cn/e/83af1eaac6cb26b28f1950841df4e34a.png","alt":"","title":""},{"url":"https://s3.imagency.cn/e/bc3e8fba3c95e5f83b9619a360b65547.png","alt":"","title":""},{"url":"https://s3.imagency.cn/e/05e1b583d970340e5db33d90110180b4.jpg","alt":"","title":""},{"url":"https://s3.imagency.cn/e/6317babd37733a4c8f1df58d5ce6e98c.png","alt":"","title":""},{"url":"https://s3.imagency.cn/e/7e42833dd484ff4f30e0109c484deff1.png","alt":"","title":""},{"url":"https://s3.imagency.cn/e/8f1e967d4009a7fb42678f0843abfe94.png","alt":"","title":""},{"url":"https://s3.imagency.cn/e/68ef3f645b0c9c08927eaf98bf96c7d0.png","alt":"","title":""}]</div>
+  </div>
+]]></content>
+      <categories>
+        <category>个人荣誉</category>
+      </categories>
+      <tags>
+        <tag>荣誉</tag>
+        <tag>成就</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>C语言函数</title>
+    <url>/2026/03/10/C%E8%AF%AD%E8%A8%80%E5%87%BD%E6%95%B0/</url>
+    <content><![CDATA[<h2 id="第4讲：函数"><a href="#第4讲：函数" class="headerlink" title="第4讲：函数"></a>第4讲：函数</h2><h3 id="🔑-知识点讲解"><a href="#🔑-知识点讲解" class="headerlink" title="🔑 知识点讲解"></a>🔑 知识点讲解</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">函数是代码复用的基本单位。</span><br><span class="line"></span><br><span class="line">格式：</span><br><span class="line">    返回类型 函数名(参数列表) &#123;</span><br><span class="line">        函数体;</span><br><span class="line">        return 返回值;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">关键点：</span><br><span class="line">1. 值传递：函数内修改形参不影响实参</span><br><span class="line">2. 地址传递：传指针可以修改实参</span><br><span class="line">3. 数组传参：数组名即地址，函数内可以修改原数组</span><br><span class="line">4. 递归：函数调用自身，必须有终止条件</span><br><span class="line"></span><br><span class="line">函数声明（原型）：</span><br><span class="line">    如果函数定义在 main 之后，需要在前面声明。</span><br><span class="line">    int add(int a, int b);  // 声明</span><br></pre></td></tr></table></figure>
+
+<h3 id="✏️-练习题4：递归求斐波那契数列"><a href="#✏️-练习题4：递归求斐波那契数列" class="headerlink" title="✏️ 练习题4：递归求斐波那契数列"></a>✏️ 练习题4：递归求斐波那契数列</h3><blockquote>
+<p><strong>题目</strong>：用递归和非递归两种方式实现斐波那契数列第 n 项。<br>F(1)&#x3D;1, F(2)&#x3D;1, F(n)&#x3D;F(n-1)+F(n-2)</p>
+<p><strong>输入</strong>：<code>10</code><br><strong>输出</strong>：<code>55</code></p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line"></span><br><span class="line">// 方法1：递归（简洁但效率低，O(2^n)）</span><br><span class="line">int fib_recursive(int n) &#123;</span><br><span class="line">    if (n &lt;= 2) return 1;</span><br><span class="line">    return fib_recursive(n - 1) + fib_recursive(n - 2);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 方法2：迭代（推荐，O(n)）</span><br><span class="line">int fib_iterative(int n) &#123;</span><br><span class="line">    if (n &lt;= 2) return 1;</span><br><span class="line">    int a = 1, b = 1, c;</span><br><span class="line">    for (int i = 3; i &lt;= n; i++) &#123;</span><br><span class="line">        c = a + b;</span><br><span class="line">        a = b;</span><br><span class="line">        b = c;</span><br><span class="line">    &#125;</span><br><span class="line">    return b;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">    int n;</span><br><span class="line">    scanf(&quot;%d&quot;, &amp;n);</span><br><span class="line">    printf(&quot;递归: %d\n&quot;, fib_recursive(n));</span><br><span class="line">    printf(&quot;迭代: %d\n&quot;, fib_iterative(n));</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>⚠️ <strong>面试高频问题</strong>：递归的时间复杂度是 O(2^n)，可用<strong>记忆化</strong>或<strong>动态规划</strong>优化到 O(n)。</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>算法</category>
+      </categories>
+      <tags>
+        <tag>C语言</tag>
+        <tag>函数</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>数组</title>
+    <url>/2026/03/10/C%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/</url>
+    <content><![CDATA[<h1 id="第一讲–一维数组"><a href="#第一讲–一维数组" class="headerlink" title="第一讲–一维数组"></a>第一讲–一维数组</h1> <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">一维数组是相同类型元素的连续存储集合。 </span><br><span class="line"></span><br><span class="line">声明方式：    int a[10];          // 声明一个长度为10的整型数组   </span><br><span class="line"></span><br><span class="line"> int a[] = &#123;1,2,3&#125;;  // 声明并初始化，长度自动推断为3    </span><br><span class="line"></span><br><span class="line">int a[5] = &#123;0&#125;;     // 全部初始化为0 </span><br><span class="line"></span><br><span class="line">关键点： 1. 数组下标从 0 开始，a[0] 是第一个元素 </span><br><span class="line"></span><br><span class="line">2. 数组名 a 代表首元素地址（与指针密切相关） </span><br><span class="line">3. 数组越界访问是未定义行为（不会报错但很危险） </span><br><span class="line">4. 数组作为函数参数时，退化为指针，不携带长度信息</span><br></pre></td></tr></table></figure>
+
+<h3 id="✏️-练习题1：数组元素逆序"><a href="#✏️-练习题1：数组元素逆序" class="headerlink" title="✏️ 练习题1：数组元素逆序"></a>✏️ 练习题1：数组元素逆序</h3><blockquote>
+<p><strong>题目</strong>：输入 n 个整数存入数组，将数组元素逆序后输出。</p>
+<p><strong>输入示例</strong>：<code>5</code> → <code>1 2 3 4 5</code><br><strong>输出示例</strong>：<code>5 4 3 2 1</code></p>
+</blockquote>
+<p>   <strong>思路分析</strong>：</p>
+<ul>
+<li>用两个指针（下标）<code>i</code> 和 <code>j</code>，分别指向头和尾</li>
+<li>交换 <code>a[i]</code> 和 <code>a[j]</code>，然后 <code>i++</code>，<code>j--</code></li>
+<li>直到 <code>i &gt;= j</code></li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">    int n;</span><br><span class="line">    scanf(&quot;%d&quot;, &amp;n);</span><br><span class="line">    </span><br><span class="line">    int a[100];</span><br><span class="line">    for (int i = 0; i &lt; n; i++) &#123;</span><br><span class="line">        scanf(&quot;%d&quot;, &amp;a[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    // 逆序：首尾交换</span><br><span class="line">    int i = 0, j = n - 1;</span><br><span class="line">    while (i &lt; j) &#123;</span><br><span class="line">        int temp = a[i];</span><br><span class="line">        a[i] = a[j];</span><br><span class="line">        a[j] = temp;</span><br><span class="line">        i++;</span><br><span class="line">        j--;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    // 输出</span><br><span class="line">    for (int i = 0; i &lt; n; i++) &#123;</span><br><span class="line">        printf(&quot;%d &quot;, a[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    printf(&quot;\n&quot;);</span><br><span class="line">    </span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>复杂度</strong>：时间 O(n)，空间 O(1)</p>
+<p><code>#include &lt;stdio.h&gt;</code><br><code>// 函数声明</code><br><code>void reverseeArr(int *arr, int n);</code><br><code>int main()</code><br><code>{</code><br>    <code>int n = 0;</code><br>    <code>printf(&quot;Enter the size of the array: &quot;);</code><br>    <code>scanf(&quot;%d&quot;, &amp;n);</code><br>    <code>int arr[n];</code><br>    <code>for (int i = 0; i &lt; n; i++)</code><br>    <code>{</code><br>        <code>scanf(&quot;%d&quot;, &amp;arr[i]);</code><br>    <code>}</code><br>    <code>reverseeArr(arr, n);</code><br>    <code>printf(&quot;Reversed array: &quot;);</code><br>    <code>for (int i = 0; i &lt; n; i++)</code><br>    <code>{</code><br>        <code>printf(&quot;%d &quot;, arr[i]);</code><br>    <code>}</code><br>    <code>printf(&quot;\n&quot;);</code><br><code>}</code></p>
+<p><code>void reverseeArr(int *arr, int n) {     //*arr是数组的第一个元素，arr是数组的地址，*的作用是解构数组地址，获取数组的第一个元素的值</code><br>    <code>printf(&quot;%d &quot;, *arr);</code><br>    <code>int i = 0, j = n - 1;</code><br>    <code>for (i = 0; i &lt; j; i++, j--)</code><br>    <code>{</code><br>        <code>int temp = arr[i];</code><br>        <code>arr[i] = arr[j];</code><br>        <code>arr[j] = temp;</code><br>    <code>}</code><br><code>}</code></p>
+<h1 id="第二讲–二维数组"><a href="#第二讲–二维数组" class="headerlink" title="第二讲–二维数组"></a>第二讲–二维数组</h1><h2 id="第2讲：二维数组"><a href="#第2讲：二维数组" class="headerlink" title="第2讲：二维数组"></a>第2讲：二维数组</h2><h3 id="🔑-知识点讲解"><a href="#🔑-知识点讲解" class="headerlink" title="🔑 知识点讲解"></a>🔑 知识点讲解</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">二维数组可看作&quot;数组的数组&quot;，即矩阵。</span><br><span class="line"></span><br><span class="line">声明方式：</span><br><span class="line">    int a[3][4];                     // 3行4列</span><br><span class="line">    int a[2][3] = &#123;&#123;1,2,3&#125;,&#123;4,5,6&#125;&#125;; // 初始化</span><br><span class="line"></span><br><span class="line">内存布局：</span><br><span class="line">    行优先存储（C语言），即 a[0][0], a[0][1], ..., a[0][3], a[1][0], ...</span><br><span class="line"></span><br><span class="line">访问：a[i][j] 表示第 i 行第 j 列</span><br><span class="line"></span><br><span class="line">作为函数参数时，第一维可以省略，第二维不能省略：</span><br><span class="line">    void func(int a[][4], int rows);</span><br></pre></td></tr></table></figure>
+
+<h3 id="✏️-练习题2：矩阵转置"><a href="#✏️-练习题2：矩阵转置" class="headerlink" title="✏️ 练习题2：矩阵转置"></a>✏️ 练习题2：矩阵转置</h3><blockquote>
+<p><strong>题目</strong>：输入一个 m×n 的矩阵，输出它的转置矩阵（n×m）。</p>
+<p><strong>输入示例</strong>：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">2 3</span><br><span class="line">1 2 3</span><br><span class="line">4 5 6</span><br></pre></td></tr></table></figure>
+
+<p><strong>输出示例</strong>：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">1 4</span><br><span class="line">2 5</span><br><span class="line">3 6</span><br></pre></td></tr></table></figure></blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">    int m, n;</span><br><span class="line">    scanf(&quot;%d %d&quot;, &amp;m, &amp;n);</span><br><span class="line">    </span><br><span class="line">    int a[100][100], b[100][100];</span><br><span class="line">    </span><br><span class="line">    // 读入矩阵</span><br><span class="line">    for (int i = 0; i &lt; m; i++)</span><br><span class="line">        for (int j = 0; j &lt; n; j++)</span><br><span class="line">            scanf(&quot;%d&quot;, &amp;a[i][j]);</span><br><span class="line">    </span><br><span class="line">    // 转置：b[j][i] = a[i][j]</span><br><span class="line">    for (int i = 0; i &lt; m; i++)</span><br><span class="line">        for (int j = 0; j &lt; n; j++)</span><br><span class="line">            b[j][i] = a[i][j];</span><br><span class="line">    </span><br><span class="line">    // 输出转置后的矩阵 (n行m列)</span><br><span class="line">    for (int i = 0; i &lt; n; i++) &#123;</span><br><span class="line">        for (int j = 0; j &lt; m; j++) &#123;</span><br><span class="line">            printf(&quot;%d &quot;, b[i][j]);</span><br><span class="line">        &#125;</span><br><span class="line">        printf(&quot;\n&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="第3讲：字符数组与字符串"><a href="#第3讲：字符数组与字符串" class="headerlink" title="第3讲：字符数组与字符串"></a>第3讲：字符数组与字符串</h2><h3 id="🔑-知识点讲解-1"><a href="#🔑-知识点讲解-1" class="headerlink" title="🔑 知识点讲解"></a><strong>🔑</strong> 知识点讲解</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">C 无 string 类型，字符串 = 字符数组 + \0 结尾</span><br><span class="line">char s[20];</span><br><span class="line">char s[]=&quot;hello&quot;;      // 自动带 \0</span><br><span class="line">char s[]=&#123;&#x27;h&#x27;,&#x27;e&#x27;,&#x27;l&#x27;,&#x27;l&#x27;,&#x27;o&#x27;,&#x27;\0&#x27;&#125;;</span><br><span class="line"></span><br><span class="line">常用函数（#include &lt;string.h&gt;）</span><br><span class="line">strlen(s) 长度（不含 \0）→ s：字符串</span><br><span class="line">strcpy(dst,src) 复制 src 到 dst → dst：目标数组，src：源字符串</span><br><span class="line">strcmp(s1,s2) 比较 s1/s2 → 返回 0 = 相等</span><br><span class="line">strcat(dst,src) 拼接 src 到 dst 后 → dst：目标数组，src：源字符串</span><br><span class="line">输入</span><br><span class="line">scanf(&quot;%s&quot;,s) 遇空格 / 换行停止 → s：字符数组</span><br><span class="line">fgets(s,n,stdin) 安全读整行 → s：数组，n：最大长度，stdin：标准输入</span><br><span class="line">输出</span><br><span class="line">printf(&quot;%s&quot;,s) 输出字符串 → s：数组</span><br><span class="line">puts(s) 输出 + 自动换行 → s：数组</span><br></pre></td></tr></table></figure>
+
+<h3 id="✏️-练习题3：统计字符串中各类字符个数"><a href="#✏️-练习题3：统计字符串中各类字符个数" class="headerlink" title="✏️ 练习题3：统计字符串中各类字符个数"></a>✏️ 练习题3：统计字符串中各类字符个数</h3><blockquote>
+<p><strong>题目</strong>：输入一行字符串，统计其中字母、数字、空格和其他字符的个数。</p>
+<p><strong>输入</strong>：<code>Hello World! 123</code><br><strong>输出</strong>：<code>字母:10 数字:3 空格:2 其他:1</code></p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">#include &lt;ctype.h&gt;</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">    char s[200];</span><br><span class="line">    fgets(s, 200, stdin);  // 读取一行</span><br><span class="line">    </span><br><span class="line">    int letter = 0, digit = 0, space = 0, other = 0;</span><br><span class="line">    </span><br><span class="line">    for (int i = 0; s[i] != &#x27;\0&#x27; &amp;&amp; s[i] != &#x27;\n&#x27;; i++) &#123;</span><br><span class="line">        if (isalpha(s[i]))      letter++;</span><br><span class="line">        else if (isdigit(s[i])) digit++;</span><br><span class="line">        else if (s[i] == &#x27; &#x27;)   space++;</span><br><span class="line">        else                    other++;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    printf(&quot;字母:%d 数字:%d 空格:%d 其他:%d\n&quot;, </span><br><span class="line">           letter, digit, space, other);</span><br><span class="line">    </span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 输入一行字符串，计算其中的空格，数字，字母的个数，并输出结果。</span><br><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">#include &lt;string.h&gt;</span><br><span class="line">int main()</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">    char str[100];</span><br><span class="line">    int space_count = 0, digit_count = 0, letter_count = 0; int others_count = 0;</span><br><span class="line">    printf(&quot;请输入一行字符串：&quot;);</span><br><span class="line">    // 使用fgets函数读取输入，避免缓冲区溢出,sizeof(str)==strlen(str)吗？不一定，sizeof(str)是数组的总大小，而strlen(str)是字符串的实际长度，可能小于sizeof(str)。因此，使用fgets可以确保不会超过数组的大小，避免缓冲区溢出。</span><br><span class="line">    fgets(str, sizeof(str), stdin);</span><br><span class="line">    for (int i = 0; str[i] != &#x27;\0&#x27;; i++) &#123;</span><br><span class="line">        printf(&quot;%c &quot;, str[i]);</span><br><span class="line">        if (str[i] == &#x27; &#x27;) &#123;</span><br><span class="line">            space_count++;</span><br><span class="line">        &#125; else if (str[i] &gt;= &#x27;0&#x27; &amp;&amp; str[i] &lt;= &#x27;9&#x27;) &#123;</span><br><span class="line">            digit_count++;</span><br><span class="line">        &#125; else if ((str[i] &gt;= &#x27;A&#x27; &amp;&amp; str[i] &lt;= &#x27;Z&#x27;) || (str[i] &gt;= &#x27;a&#x27; &amp;&amp; str[i] &lt;= &#x27;z&#x27;)) &#123;</span><br><span class="line">            letter_count++;</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            others_count++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    printf(&quot;空格的个数：%d\n&quot;, space_count);</span><br><span class="line">    printf(&quot;数字的个数：%d\n&quot;, digit_count);</span><br><span class="line">    printf(&quot;字母的个数：%d\n&quot;, letter_count);</span><br><span class="line">    printf(&quot;其他字符的个数：%d\n&quot;, others_count);</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>算法</category>
+      </categories>
+      <tags>
+        <tag>算法</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>你好，世界！</title>
+    <url>/2026/03/09/%E4%BD%A0%E5%A5%BD/</url>
+    <content><![CDATA[<h1 id="你好，世界！"><a href="#你好，世界！" class="headerlink" title="你好，世界！"></a>你好，世界！</h1><p>欢迎来到我的博客！这是我的第一篇文章，记录了我对技术的热爱和对生活的感悟。</p>
+]]></content>
+  </entry>
+  <entry>
     <title>前端开发·栏目介绍</title>
     <url>/2026/03/09/%E5%89%8D%E7%AB%AF%E5%BC%80%E7%AF%87/</url>
     <content><![CDATA[<blockquote>
@@ -25,29 +123,6 @@
       </categories>
       <tags>
         <tag>前端</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>C语言函数</title>
-    <url>/2026/03/10/C%E8%AF%AD%E8%A8%80%E5%87%BD%E6%95%B0/</url>
-    <content><![CDATA[<h2 id="第4讲：函数"><a href="#第4讲：函数" class="headerlink" title="第4讲：函数"></a>第4讲：函数</h2><h3 id="🔑-知识点讲解"><a href="#🔑-知识点讲解" class="headerlink" title="🔑 知识点讲解"></a>🔑 知识点讲解</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">函数是代码复用的基本单位。</span><br><span class="line"></span><br><span class="line">格式：</span><br><span class="line">    返回类型 函数名(参数列表) &#123;</span><br><span class="line">        函数体;</span><br><span class="line">        return 返回值;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">关键点：</span><br><span class="line">1. 值传递：函数内修改形参不影响实参</span><br><span class="line">2. 地址传递：传指针可以修改实参</span><br><span class="line">3. 数组传参：数组名即地址，函数内可以修改原数组</span><br><span class="line">4. 递归：函数调用自身，必须有终止条件</span><br><span class="line"></span><br><span class="line">函数声明（原型）：</span><br><span class="line">    如果函数定义在 main 之后，需要在前面声明。</span><br><span class="line">    int add(int a, int b);  // 声明</span><br></pre></td></tr></table></figure>
-
-<h3 id="✏️-练习题4：递归求斐波那契数列"><a href="#✏️-练习题4：递归求斐波那契数列" class="headerlink" title="✏️ 练习题4：递归求斐波那契数列"></a>✏️ 练习题4：递归求斐波那契数列</h3><blockquote>
-<p><strong>题目</strong>：用递归和非递归两种方式实现斐波那契数列第 n 项。<br>F(1)&#x3D;1, F(2)&#x3D;1, F(n)&#x3D;F(n-1)+F(n-2)</p>
-<p><strong>输入</strong>：<code>10</code><br><strong>输出</strong>：<code>55</code></p>
-</blockquote>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line"></span><br><span class="line">// 方法1：递归（简洁但效率低，O(2^n)）</span><br><span class="line">int fib_recursive(int n) &#123;</span><br><span class="line">    if (n &lt;= 2) return 1;</span><br><span class="line">    return fib_recursive(n - 1) + fib_recursive(n - 2);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 方法2：迭代（推荐，O(n)）</span><br><span class="line">int fib_iterative(int n) &#123;</span><br><span class="line">    if (n &lt;= 2) return 1;</span><br><span class="line">    int a = 1, b = 1, c;</span><br><span class="line">    for (int i = 3; i &lt;= n; i++) &#123;</span><br><span class="line">        c = a + b;</span><br><span class="line">        a = b;</span><br><span class="line">        b = c;</span><br><span class="line">    &#125;</span><br><span class="line">    return b;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">    int n;</span><br><span class="line">    scanf(&quot;%d&quot;, &amp;n);</span><br><span class="line">    printf(&quot;递归: %d\n&quot;, fib_recursive(n));</span><br><span class="line">    printf(&quot;迭代: %d\n&quot;, fib_iterative(n));</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>⚠️ <strong>面试高频问题</strong>：递归的时间复杂度是 O(2^n)，可用<strong>记忆化</strong>或<strong>动态规划</strong>优化到 O(n)。</p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>算法</category>
-      </categories>
-      <tags>
-        <tag>C语言</tag>
-        <tag>函数</tag>
       </tags>
   </entry>
   <entry>
@@ -246,59 +321,32 @@
       </tags>
   </entry>
   <entry>
-    <title>数组</title>
-    <url>/2026/03/10/C%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/</url>
-    <content><![CDATA[<h1 id="第一讲–一维数组"><a href="#第一讲–一维数组" class="headerlink" title="第一讲–一维数组"></a>第一讲–一维数组</h1> <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">一维数组是相同类型元素的连续存储集合。 </span><br><span class="line"></span><br><span class="line">声明方式：    int a[10];          // 声明一个长度为10的整型数组   </span><br><span class="line"></span><br><span class="line"> int a[] = &#123;1,2,3&#125;;  // 声明并初始化，长度自动推断为3    </span><br><span class="line"></span><br><span class="line">int a[5] = &#123;0&#125;;     // 全部初始化为0 </span><br><span class="line"></span><br><span class="line">关键点： 1. 数组下标从 0 开始，a[0] 是第一个元素 </span><br><span class="line"></span><br><span class="line">2. 数组名 a 代表首元素地址（与指针密切相关） </span><br><span class="line">3. 数组越界访问是未定义行为（不会报错但很危险） </span><br><span class="line">4. 数组作为函数参数时，退化为指针，不携带长度信息</span><br></pre></td></tr></table></figure>
-
-<h3 id="✏️-练习题1：数组元素逆序"><a href="#✏️-练习题1：数组元素逆序" class="headerlink" title="✏️ 练习题1：数组元素逆序"></a>✏️ 练习题1：数组元素逆序</h3><blockquote>
-<p><strong>题目</strong>：输入 n 个整数存入数组，将数组元素逆序后输出。</p>
-<p><strong>输入示例</strong>：<code>5</code> → <code>1 2 3 4 5</code><br><strong>输出示例</strong>：<code>5 4 3 2 1</code></p>
+    <title>工具箱·栏目介绍</title>
+    <url>/2026/03/09/%E5%B7%A5%E5%85%B7%E7%AE%B1%E5%BC%80%E7%AF%87/</url>
+    <content><![CDATA[<blockquote>
+<p>好的工具能让开发事半功倍，这里收录我日常使用的效率神器。</p>
 </blockquote>
-<p>   <strong>思路分析</strong>：</p>
+<span id="more"></span>
+
+<h2 id="📌-本栏目内容"><a href="#📌-本栏目内容" class="headerlink" title="📌 本栏目内容"></a>📌 本栏目内容</h2><p>本栏目将持续更新以下内容：</p>
 <ul>
-<li>用两个指针（下标）<code>i</code> 和 <code>j</code>，分别指向头和尾</li>
-<li>交换 <code>a[i]</code> 和 <code>a[j]</code>，然后 <code>i++</code>，<code>j--</code></li>
-<li>直到 <code>i &gt;= j</code></li>
+<li><strong>开发工具</strong> 配置与使用技巧（VS Code、Git 等）</li>
+<li><strong>AI 辅助编程</strong> 工具实践</li>
+<li><strong>实用脚本</strong> 与自动化工作流</li>
+<li><strong>好用插件</strong> 推荐与评测</li>
+<li><strong>效率提升</strong> 技巧与方法分享</li>
 </ul>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">    int n;</span><br><span class="line">    scanf(&quot;%d&quot;, &amp;n);</span><br><span class="line">    </span><br><span class="line">    int a[100];</span><br><span class="line">    for (int i = 0; i &lt; n; i++) &#123;</span><br><span class="line">        scanf(&quot;%d&quot;, &amp;a[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    // 逆序：首尾交换</span><br><span class="line">    int i = 0, j = n - 1;</span><br><span class="line">    while (i &lt; j) &#123;</span><br><span class="line">        int temp = a[i];</span><br><span class="line">        a[i] = a[j];</span><br><span class="line">        a[j] = temp;</span><br><span class="line">        i++;</span><br><span class="line">        j--;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    // 输出</span><br><span class="line">    for (int i = 0; i &lt; n; i++) &#123;</span><br><span class="line">        printf(&quot;%d &quot;, a[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    printf(&quot;\n&quot;);</span><br><span class="line">    </span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><strong>复杂度</strong>：时间 O(n)，空间 O(1)</p>
-<p><code>#include &lt;stdio.h&gt;</code><br><code>// 函数声明</code><br><code>void reverseeArr(int *arr, int n);</code><br><code>int main()</code><br><code>{</code><br>    <code>int n = 0;</code><br>    <code>printf(&quot;Enter the size of the array: &quot;);</code><br>    <code>scanf(&quot;%d&quot;, &amp;n);</code><br>    <code>int arr[n];</code><br>    <code>for (int i = 0; i &lt; n; i++)</code><br>    <code>{</code><br>        <code>scanf(&quot;%d&quot;, &amp;arr[i]);</code><br>    <code>}</code><br>    <code>reverseeArr(arr, n);</code><br>    <code>printf(&quot;Reversed array: &quot;);</code><br>    <code>for (int i = 0; i &lt; n; i++)</code><br>    <code>{</code><br>        <code>printf(&quot;%d &quot;, arr[i]);</code><br>    <code>}</code><br>    <code>printf(&quot;\n&quot;);</code><br><code>}</code></p>
-<p><code>void reverseeArr(int *arr, int n) {     //*arr是数组的第一个元素，arr是数组的地址，*的作用是解构数组地址，获取数组的第一个元素的值</code><br>    <code>printf(&quot;%d &quot;, *arr);</code><br>    <code>int i = 0, j = n - 1;</code><br>    <code>for (i = 0; i &lt; j; i++, j--)</code><br>    <code>{</code><br>        <code>int temp = arr[i];</code><br>        <code>arr[i] = arr[j];</code><br>        <code>arr[j] = temp;</code><br>    <code>}</code><br><code>}</code></p>
-<h1 id="第二讲–二维数组"><a href="#第二讲–二维数组" class="headerlink" title="第二讲–二维数组"></a>第二讲–二维数组</h1><h2 id="第2讲：二维数组"><a href="#第2讲：二维数组" class="headerlink" title="第2讲：二维数组"></a>第2讲：二维数组</h2><h3 id="🔑-知识点讲解"><a href="#🔑-知识点讲解" class="headerlink" title="🔑 知识点讲解"></a>🔑 知识点讲解</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">二维数组可看作&quot;数组的数组&quot;，即矩阵。</span><br><span class="line"></span><br><span class="line">声明方式：</span><br><span class="line">    int a[3][4];                     // 3行4列</span><br><span class="line">    int a[2][3] = &#123;&#123;1,2,3&#125;,&#123;4,5,6&#125;&#125;; // 初始化</span><br><span class="line"></span><br><span class="line">内存布局：</span><br><span class="line">    行优先存储（C语言），即 a[0][0], a[0][1], ..., a[0][3], a[1][0], ...</span><br><span class="line"></span><br><span class="line">访问：a[i][j] 表示第 i 行第 j 列</span><br><span class="line"></span><br><span class="line">作为函数参数时，第一维可以省略，第二维不能省略：</span><br><span class="line">    void func(int a[][4], int rows);</span><br></pre></td></tr></table></figure>
-
-<h3 id="✏️-练习题2：矩阵转置"><a href="#✏️-练习题2：矩阵转置" class="headerlink" title="✏️ 练习题2：矩阵转置"></a>✏️ 练习题2：矩阵转置</h3><blockquote>
-<p><strong>题目</strong>：输入一个 m×n 的矩阵，输出它的转置矩阵（n×m）。</p>
-<p><strong>输入示例</strong>：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">2 3</span><br><span class="line">1 2 3</span><br><span class="line">4 5 6</span><br></pre></td></tr></table></figure>
-
-<p><strong>输出示例</strong>：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">1 4</span><br><span class="line">2 5</span><br><span class="line">3 6</span><br></pre></td></tr></table></figure></blockquote>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">    int m, n;</span><br><span class="line">    scanf(&quot;%d %d&quot;, &amp;m, &amp;n);</span><br><span class="line">    </span><br><span class="line">    int a[100][100], b[100][100];</span><br><span class="line">    </span><br><span class="line">    // 读入矩阵</span><br><span class="line">    for (int i = 0; i &lt; m; i++)</span><br><span class="line">        for (int j = 0; j &lt; n; j++)</span><br><span class="line">            scanf(&quot;%d&quot;, &amp;a[i][j]);</span><br><span class="line">    </span><br><span class="line">    // 转置：b[j][i] = a[i][j]</span><br><span class="line">    for (int i = 0; i &lt; m; i++)</span><br><span class="line">        for (int j = 0; j &lt; n; j++)</span><br><span class="line">            b[j][i] = a[i][j];</span><br><span class="line">    </span><br><span class="line">    // 输出转置后的矩阵 (n行m列)</span><br><span class="line">    for (int i = 0; i &lt; n; i++) &#123;</span><br><span class="line">        for (int j = 0; j &lt; m; j++) &#123;</span><br><span class="line">            printf(&quot;%d &quot;, b[i][j]);</span><br><span class="line">        &#125;</span><br><span class="line">        printf(&quot;\n&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="第3讲：字符数组与字符串"><a href="#第3讲：字符数组与字符串" class="headerlink" title="第3讲：字符数组与字符串"></a>第3讲：字符数组与字符串</h2><h3 id="🔑-知识点讲解-1"><a href="#🔑-知识点讲解-1" class="headerlink" title="🔑 知识点讲解"></a><strong>🔑</strong> 知识点讲解</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">C 无 string 类型，字符串 = 字符数组 + \0 结尾</span><br><span class="line">char s[20];</span><br><span class="line">char s[]=&quot;hello&quot;;      // 自动带 \0</span><br><span class="line">char s[]=&#123;&#x27;h&#x27;,&#x27;e&#x27;,&#x27;l&#x27;,&#x27;l&#x27;,&#x27;o&#x27;,&#x27;\0&#x27;&#125;;</span><br><span class="line"></span><br><span class="line">常用函数（#include &lt;string.h&gt;）</span><br><span class="line">strlen(s) 长度（不含 \0）→ s：字符串</span><br><span class="line">strcpy(dst,src) 复制 src 到 dst → dst：目标数组，src：源字符串</span><br><span class="line">strcmp(s1,s2) 比较 s1/s2 → 返回 0 = 相等</span><br><span class="line">strcat(dst,src) 拼接 src 到 dst 后 → dst：目标数组，src：源字符串</span><br><span class="line">输入</span><br><span class="line">scanf(&quot;%s&quot;,s) 遇空格 / 换行停止 → s：字符数组</span><br><span class="line">fgets(s,n,stdin) 安全读整行 → s：数组，n：最大长度，stdin：标准输入</span><br><span class="line">输出</span><br><span class="line">printf(&quot;%s&quot;,s) 输出字符串 → s：数组</span><br><span class="line">puts(s) 输出 + 自动换行 → s：数组</span><br></pre></td></tr></table></figure>
-
-<h3 id="✏️-练习题3：统计字符串中各类字符个数"><a href="#✏️-练习题3：统计字符串中各类字符个数" class="headerlink" title="✏️ 练习题3：统计字符串中各类字符个数"></a>✏️ 练习题3：统计字符串中各类字符个数</h3><blockquote>
-<p><strong>题目</strong>：输入一行字符串，统计其中字母、数字、空格和其他字符的个数。</p>
-<p><strong>输入</strong>：<code>Hello World! 123</code><br><strong>输出</strong>：<code>字母:10 数字:3 空格:2 其他:1</code></p>
+<blockquote>
+<p>持续更新中，敬请期待 🚀</p>
 </blockquote>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">#include &lt;ctype.h&gt;</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">    char s[200];</span><br><span class="line">    fgets(s, 200, stdin);  // 读取一行</span><br><span class="line">    </span><br><span class="line">    int letter = 0, digit = 0, space = 0, other = 0;</span><br><span class="line">    </span><br><span class="line">    for (int i = 0; s[i] != &#x27;\0&#x27; &amp;&amp; s[i] != &#x27;\n&#x27;; i++) &#123;</span><br><span class="line">        if (isalpha(s[i]))      letter++;</span><br><span class="line">        else if (isdigit(s[i])) digit++;</span><br><span class="line">        else if (s[i] == &#x27; &#x27;)   space++;</span><br><span class="line">        else                    other++;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    printf(&quot;字母:%d 数字:%d 空格:%d 其他:%d\n&quot;, </span><br><span class="line">           letter, digit, space, other);</span><br><span class="line">    </span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 输入一行字符串，计算其中的空格，数字，字母的个数，并输出结果。</span><br><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">#include &lt;string.h&gt;</span><br><span class="line">int main()</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">    char str[100];</span><br><span class="line">    int space_count = 0, digit_count = 0, letter_count = 0; int others_count = 0;</span><br><span class="line">    printf(&quot;请输入一行字符串：&quot;);</span><br><span class="line">    // 使用fgets函数读取输入，避免缓冲区溢出,sizeof(str)==strlen(str)吗？不一定，sizeof(str)是数组的总大小，而strlen(str)是字符串的实际长度，可能小于sizeof(str)。因此，使用fgets可以确保不会超过数组的大小，避免缓冲区溢出。</span><br><span class="line">    fgets(str, sizeof(str), stdin);</span><br><span class="line">    for (int i = 0; str[i] != &#x27;\0&#x27;; i++) &#123;</span><br><span class="line">        printf(&quot;%c &quot;, str[i]);</span><br><span class="line">        if (str[i] == &#x27; &#x27;) &#123;</span><br><span class="line">            space_count++;</span><br><span class="line">        &#125; else if (str[i] &gt;= &#x27;0&#x27; &amp;&amp; str[i] &lt;= &#x27;9&#x27;) &#123;</span><br><span class="line">            digit_count++;</span><br><span class="line">        &#125; else if ((str[i] &gt;= &#x27;A&#x27; &amp;&amp; str[i] &lt;= &#x27;Z&#x27;) || (str[i] &gt;= &#x27;a&#x27; &amp;&amp; str[i] &lt;= &#x27;z&#x27;)) &#123;</span><br><span class="line">            letter_count++;</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            others_count++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    printf(&quot;空格的个数：%d\n&quot;, space_count);</span><br><span class="line">    printf(&quot;数字的个数：%d\n&quot;, digit_count);</span><br><span class="line">    printf(&quot;字母的个数：%d\n&quot;, letter_count);</span><br><span class="line">    printf(&quot;其他字符的个数：%d\n&quot;, others_count);</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 ]]></content>
       <categories>
-        <category>算法</category>
+        <category>工具箱</category>
       </categories>
       <tags>
-        <tag>算法</tag>
+        <tag>工具</tag>
+        <tag>效率</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>你好，世界！</title>
-    <url>/2026/03/09/%E4%BD%A0%E5%A5%BD/</url>
-    <content><![CDATA[<h1 id="你好，世界！"><a href="#你好，世界！" class="headerlink" title="你好，世界！"></a>你好，世界！</h1><p>欢迎来到我的博客！这是我的第一篇文章，记录了我对技术的热爱和对生活的感悟。</p>
-]]></content>
   </entry>
   <entry>
     <title>嵌入式开发·栏目介绍</title>
@@ -346,51 +394,30 @@
       </tags>
   </entry>
   <entry>
-    <title>个人荣誉</title>
-    <url>/2026/03/09/%E4%B8%AA%E4%BA%BA%E8%8D%A3%E8%AA%89/</url>
+    <title>数据库·栏目介绍</title>
+    <url>/2026/03/09/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%BC%80%E7%AF%87/</url>
     <content><![CDATA[<blockquote>
-<p>每一份荣誉，都是过去努力的见证。愿每一步都算数，愿未来更值得期待。✨</p>
+<p>这里记录数据库相关的学习笔记与实战经验。</p>
 </blockquote>
 <span id="more"></span>
 
-<h2 id="🏆-荣誉证书"><a href="#🏆-荣誉证书" class="headerlink" title="🏆 荣誉证书"></a>🏆 荣誉证书</h2><div class="gallery-container" data-type="data" data-button="" data-limit="10" data-first="10">
-    <div class="gallery-items">[{"url":"https://s3.imagency.cn/e/b511900cb1347f24f4f252f3f74404ed.jpg","alt":"","title":""},{"url":"https://s3.imagency.cn/e/7f3170e74c45cbbb32b4eb817774c5a0.png","alt":"","title":""},{"url":"https://s3.imagency.cn/e/bd645f2f928a17abb68359c6ac50165d.jpg","alt":"","title":""},{"url":"https://s3.imagency.cn/e/a8348d079d9f33e83e70194b565a7c3c.png","alt":"","title":""},{"url":"https://s3.imagency.cn/e/bdda82f6878d4a4c2127186c788a5ab9.png","alt":"","title":""},{"url":"https://s3.imagency.cn/e/092b929a2066799ba41ac8bfe565b420.png","alt":"","title":""},{"url":"https://s3.imagency.cn/e/33d47cb48852f9cd85a2b0f1675da933.png","alt":"","title":""},{"url":"https://s3.imagency.cn/e/24b7769472b800e7fde25fe3a14ea19e.png","alt":"","title":""},{"url":"https://s3.imagency.cn/e/4231c102d956238cd41d38c7e5502db5.png","alt":"","title":""},{"url":"https://s3.imagency.cn/e/1f86cb1303786e00e80e0bd250d00d6e.png","alt":"","title":""},{"url":"https://s3.imagency.cn/e/4e1cf95861263c7554e08296ca9268b9.jpg","alt":"","title":""},{"url":"https://s3.imagency.cn/e/83af1eaac6cb26b28f1950841df4e34a.png","alt":"","title":""},{"url":"https://s3.imagency.cn/e/bc3e8fba3c95e5f83b9619a360b65547.png","alt":"","title":""},{"url":"https://s3.imagency.cn/e/05e1b583d970340e5db33d90110180b4.jpg","alt":"","title":""},{"url":"https://s3.imagency.cn/e/6317babd37733a4c8f1df58d5ce6e98c.png","alt":"","title":""},{"url":"https://s3.imagency.cn/e/7e42833dd484ff4f30e0109c484deff1.png","alt":"","title":""},{"url":"https://s3.imagency.cn/e/8f1e967d4009a7fb42678f0843abfe94.png","alt":"","title":""},{"url":"https://s3.imagency.cn/e/68ef3f645b0c9c08927eaf98bf96c7d0.png","alt":"","title":""}]</div>
-  </div>
-]]></content>
-      <categories>
-        <category>个人荣誉</category>
-      </categories>
-      <tags>
-        <tag>荣誉</tag>
-        <tag>成就</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>工具箱·栏目介绍</title>
-    <url>/2026/03/09/%E5%B7%A5%E5%85%B7%E7%AE%B1%E5%BC%80%E7%AF%87/</url>
-    <content><![CDATA[<blockquote>
-<p>好的工具能让开发事半功倍，这里收录我日常使用的效率神器。</p>
-</blockquote>
-<span id="more"></span>
-
-<h2 id="📌-本栏目内容"><a href="#📌-本栏目内容" class="headerlink" title="📌 本栏目内容"></a>📌 本栏目内容</h2><p>本栏目将持续更新以下内容：</p>
+<h2 id="📌-本栏目内容"><a href="#📌-本栏目内容" class="headerlink" title="📌 本栏目内容"></a>📌 本栏目内容</h2><p>本栏目将持续更新以下方向的技术文章：</p>
 <ul>
-<li><strong>开发工具</strong> 配置与使用技巧（VS Code、Git 等）</li>
-<li><strong>AI 辅助编程</strong> 工具实践</li>
-<li><strong>实用脚本</strong> 与自动化工作流</li>
-<li><strong>好用插件</strong> 推荐与评测</li>
-<li><strong>效率提升</strong> 技巧与方法分享</li>
+<li><strong>MySQL</strong> 基础与进阶</li>
+<li><strong>数据库设计</strong> 范式与 ER 图</li>
+<li><strong>SQL 优化</strong> 索引与查询性能</li>
+<li><strong>数据库原理</strong> 课程学习笔记</li>
 </ul>
 <blockquote>
 <p>持续更新中，敬请期待 🚀</p>
 </blockquote>
 ]]></content>
       <categories>
-        <category>工具箱</category>
+        <category>数据库</category>
       </categories>
       <tags>
-        <tag>工具</tag>
-        <tag>效率</tag>
+        <tag>数据库</tag>
+        <tag>MySQL</tag>
       </tags>
   </entry>
   <entry>
@@ -426,30 +453,20 @@
       </tags>
   </entry>
   <entry>
-    <title>数据库·栏目介绍</title>
-    <url>/2026/03/09/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%BC%80%E7%AF%87/</url>
-    <content><![CDATA[<blockquote>
-<p>这里记录数据库相关的学习笔记与实战经验。</p>
-</blockquote>
-<span id="more"></span>
+    <title>查找算法</title>
+    <url>/2026/03/11/%E6%9F%A5%E6%89%BE/</url>
+    <content><![CDATA[<h1 id="📕-第三部分：查找算法"><a href="#📕-第三部分：查找算法" class="headerlink" title="📕 第三部分：查找算法"></a>📕 第三部分：查找算法</h1><hr>
+<h2 id="第14讲：顺序查找与二分查找"><a href="#第14讲：顺序查找与二分查找" class="headerlink" title="第14讲：顺序查找与二分查找"></a>第14讲：顺序查找与二分查找</h2><h3 id="🔑-知识点讲解"><a href="#🔑-知识点讲解" class="headerlink" title="🔑 知识点讲解"></a>🔑 知识点讲解</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">1. 顺序查找（线性查找）</span><br><span class="line">   从头到尾逐个比较</span><br><span class="line">   时间：O(n)</span><br><span class="line">   适用：无序数组</span><br><span class="line"></span><br><span class="line">2. 二分查找（折半查找）⭐</span><br><span class="line">   前提：数组必须有序</span><br><span class="line">   每次取中间元素比较，将搜索范围缩小一半</span><br><span class="line">   时间：O(logn)</span><br><span class="line"></span><br><span class="line">   关键细节（面试爱问）：</span><br><span class="line">   - mid = left + (right - left) / 2  （防溢出，不用 (left+right)/2）</span><br><span class="line">   - 循环条件：left &lt;= right</span><br><span class="line">   - 找到返回下标，找不到返回 -1</span><br><span class="line"></span><br><span class="line">二分查找的变体（重点）：</span><br><span class="line">   - 查找第一个等于target的位置</span><br><span class="line">   - 查找最后一个等于target的位置</span><br><span class="line">   - 查找第一个大于等于target的位置</span><br><span class="line">   - 查找最后一个小于等于target的位置</span><br></pre></td></tr></table></figure>
 
-<h2 id="📌-本栏目内容"><a href="#📌-本栏目内容" class="headerlink" title="📌 本栏目内容"></a>📌 本栏目内容</h2><p>本栏目将持续更新以下方向的技术文章：</p>
-<ul>
-<li><strong>MySQL</strong> 基础与进阶</li>
-<li><strong>数据库设计</strong> 范式与 ER 图</li>
-<li><strong>SQL 优化</strong> 索引与查询性能</li>
-<li><strong>数据库原理</strong> 课程学习笔记</li>
-</ul>
-<blockquote>
-<p>持续更新中，敬请期待 🚀</p>
-</blockquote>
-]]></content>
+<h3 id="✏️-练习题9：二分查找及其变体"><a href="#✏️-练习题9：二分查找及其变体" class="headerlink" title="✏️ 练习题9：二分查找及其变体"></a>✏️ 练习题9：二分查找及其变体</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line"></span><br><span class="line">// 标准二分查找</span><br><span class="line">int binarySearch(int a[], int n, int target) &#123;</span><br><span class="line">    int left = 0, right = n - 1;</span><br><span class="line">    while (left &lt;= right) &#123;</span><br><span class="line">        int mid = left + (right - left) / 2;</span><br><span class="line">        if (a[mid] == target) return mid;</span><br><span class="line">        else if (a[mid] &lt; target) left = mid + 1;</span><br><span class="line">        else right = mid - 1;</span><br><span class="line">    &#125;</span><br><span class="line">    return -1;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 查找第一个等于target的位置</span><br><span class="line">int findFirst(int a[], int n, int target) &#123;</span><br><span class="line">    int left = 0, right = n - 1, result = -1;</span><br><span class="line">    while (left &lt;= right) &#123;</span><br><span class="line">        int mid = left + (right - left) / 2;</span><br><span class="line">        if (a[mid] == target) &#123;</span><br><span class="line">            result = mid;</span><br><span class="line">            right = mid - 1;  // 继续往左找</span><br><span class="line">        &#125; else if (a[mid] &lt; target) &#123;</span><br><span class="line">            left = mid + 1;</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            right = mid - 1;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return result;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 查找最后一个等于target的位置</span><br><span class="line">int findLast(int a[], int n, int target) &#123;</span><br><span class="line">    int left = 0, right = n - 1, result = -1;</span><br><span class="line">    while (left &lt;= right) &#123;</span><br><span class="line">        int mid = left + (right - left) / 2;</span><br><span class="line">        if (a[mid] == target) &#123;</span><br><span class="line">            result = mid;</span><br><span class="line">            left = mid + 1;  // 继续往右找</span><br><span class="line">        &#125; else if (a[mid] &lt; target) &#123;</span><br><span class="line">            left = mid + 1;</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            right = mid - 1;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return result;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">    int a[] = &#123;1, 3, 3, 3, 5, 7, 9&#125;;</span><br><span class="line">    int n = 7;</span><br><span class="line">    </span><br><span class="line">    printf(&quot;查找3的位置: %d\n&quot;, binarySearch(a, n, 3));</span><br><span class="line">    printf(&quot;第一个3的位置: %d\n&quot;, findFirst(a, n, 3));</span><br><span class="line">    printf(&quot;最后一个3的位置: %d\n&quot;, findLast(a, n, 3));</span><br><span class="line">    </span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>输出</strong>：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">查找3的位置: 2</span><br><span class="line">第一个3的位置: 1</span><br><span class="line">最后一个3的位置: 3</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
-        <category>数据库</category>
+        <category>算法</category>
       </categories>
       <tags>
-        <tag>数据库</tag>
-        <tag>MySQL</tag>
+        <tag>算法</tag>
       </tags>
   </entry>
   <entry>
@@ -478,21 +495,16 @@
 <h3 id="✏️-练习题8：排序综合"><a href="#✏️-练习题8：排序综合" class="headerlink" title="✏️ 练习题8：排序综合"></a>✏️ 练习题8：排序综合</h3><blockquote>
 <p><strong>题目</strong>：输入 n 个整数，分别用冒泡、选择、插入、快排四种方法排序，并输出每种排序的比较次数。</p>
 </blockquote>
-<p>C</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">#include &lt;string.h&gt;</span><br><span class="line"></span><br><span class="line">long long cmpCount;</span><br><span class="line"></span><br><span class="line">void bubbleSortCount(int a[], int n) &#123;</span><br><span class="line">    cmpCount = 0;</span><br><span class="line">    for (int i = 0; i &lt; n - 1; i++) &#123;</span><br><span class="line">        for (int j = 0; j &lt; n - 1 - i; j++) &#123;</span><br><span class="line">            cmpCount++;</span><br><span class="line">            if (a[j] &gt; a[j + 1]) &#123;</span><br><span class="line">                int t = a[j]; a[j] = a[j+1]; a[j+1] = t;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void selectionSortCount(int a[], int n) &#123;</span><br><span class="line">    cmpCount = 0;</span><br><span class="line">    for (int i = 0; i &lt; n - 1; i++) &#123;</span><br><span class="line">        int m = i;</span><br><span class="line">        for (int j = i + 1; j &lt; n; j++) &#123;</span><br><span class="line">            cmpCount++;</span><br><span class="line">            if (a[j] &lt; a[m]) m = j;</span><br><span class="line">        &#125;</span><br><span class="line">        int t = a[i]; a[i] = a[m]; a[m] = t;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void insertionSortCount(int a[], int n) &#123;</span><br><span class="line">    cmpCount = 0;</span><br><span class="line">    for (int i = 1; i &lt; n; i++) &#123;</span><br><span class="line">        int key = a[i], j = i - 1;</span><br><span class="line">        while (j &gt;= 0) &#123;</span><br><span class="line">            cmpCount++;</span><br><span class="line">            if (a[j] &gt; key) &#123; a[j+1] = a[j]; j--; &#125;</span><br><span class="line">            else break;</span><br><span class="line">        &#125;</span><br><span class="line">        a[j+1] = key;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void quickSortCount(int a[], int l, int r) &#123;</span><br><span class="line">    if (l &gt;= r) return;</span><br><span class="line">    int pivot = a[l], i = l, j = r;</span><br><span class="line">    while (i &lt; j) &#123;</span><br><span class="line">        while (i &lt; j) &#123; cmpCount++; if (a[j] &gt;= pivot) j--; else break; &#125;</span><br><span class="line">        a[i] = a[j];</span><br><span class="line">        while (i &lt; j) &#123; cmpCount++; if (a[i] &lt;= pivot) i++; else break; &#125;</span><br><span class="line">        a[j] = a[i];</span><br><span class="line">    &#125;</span><br><span class="line">    a[i] = pivot;</span><br><span class="line">    quickSortCount(a, l, i-1);</span><br><span class="line">    quickSortCount(a, i+1, r);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">    int n;</span><br><span class="line">    scanf(&quot;%d&quot;, &amp;n);</span><br><span class="line">    int orig[10000], a[10000];</span><br><span class="line">    for (int i = 0; i &lt; n; i++) scanf(&quot;%d&quot;, &amp;orig[i]);</span><br><span class="line">    </span><br><span class="line">    memcpy(a, orig, n * sizeof(int));</span><br><span class="line">    bubbleSortCount(a, n);</span><br><span class="line">    printf(&quot;冒泡排序比较次数: %lld\n&quot;, cmpCount);</span><br><span class="line">    </span><br><span class="line">    memcpy(a, orig, n * sizeof(int));</span><br><span class="line">    selectionSortCount(a, n);</span><br><span class="line">    printf(&quot;选择排序比较次数: %lld\n&quot;, cmpCount);</span><br><span class="line">    </span><br><span class="line">    memcpy(a, orig, n * sizeof(int));</span><br><span class="line">    insertionSortCount(a, n);</span><br><span class="line">    printf(&quot;插入排序比较次数: %lld\n&quot;, cmpCount);</span><br><span class="line">    </span><br><span class="line">    memcpy(a, orig, n * sizeof(int));</span><br><span class="line">    cmpCount = 0;</span><br><span class="line">    quickSortCount(a, 0, n-1);</span><br><span class="line">    printf(&quot;快速排序比较次数: %lld\n&quot;, cmpCount);</span><br><span class="line">    </span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <hr>
-<h2 id="第12讲：归并排序-⭐"><a href="#第12讲：归并排序-⭐" class="headerlink" title="第12讲：归并排序 ⭐"></a>第12讲：归并排序 ⭐</h2><h3 id="🔑-知识点讲解-4"><a href="#🔑-知识点讲解-4" class="headerlink" title="🔑 知识点讲解"></a>🔑 知识点讲解</h3><p>text</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">核心思想：分治法</span><br><span class="line">1. 将数组分成两半</span><br><span class="line">2. 分别递归排序</span><br><span class="line">3. 合并两个有序数组（Merge操作是关键）</span><br><span class="line"></span><br><span class="line">合并过程：</span><br><span class="line">    用两个指针分别指向两个有序子数组的头部</span><br><span class="line">    比较，较小的放入临时数组</span><br><span class="line">    最后把剩余的放入</span><br><span class="line"></span><br><span class="line">时间复杂度：始终 O(nlogn)（比快排稳定）</span><br><span class="line">空间复杂度：O(n)（需要临时数组）</span><br><span class="line">稳定性：稳定 ⭐（这是归并排序的重要优势）</span><br></pre></td></tr></table></figure>
+<h2 id="第12讲：归并排序-⭐"><a href="#第12讲：归并排序-⭐" class="headerlink" title="第12讲：归并排序 ⭐"></a>第12讲：归并排序 ⭐</h2><h3 id="🔑-知识点讲解-4"><a href="#🔑-知识点讲解-4" class="headerlink" title="🔑 知识点讲解"></a>🔑 知识点讲解</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">核心思想：分治法</span><br><span class="line">1. 将数组分成两半</span><br><span class="line">2. 分别递归排序</span><br><span class="line">3. 合并两个有序数组（Merge操作是关键）</span><br><span class="line"></span><br><span class="line">合并过程：</span><br><span class="line">    用两个指针分别指向两个有序子数组的头部</span><br><span class="line">    比较，较小的放入临时数组</span><br><span class="line">    最后把剩余的放入</span><br><span class="line"></span><br><span class="line">时间复杂度：始终 O(nlogn)（比快排稳定）</span><br><span class="line">空间复杂度：O(n)（需要临时数组）</span><br><span class="line">稳定性：稳定 ⭐（这是归并排序的重要优势）</span><br></pre></td></tr></table></figure>
 
-<p>C</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line"></span><br><span class="line">int temp[100000];  // 临时数组</span><br><span class="line"></span><br><span class="line">void merge(int a[], int left, int mid, int right) &#123;</span><br><span class="line">    int i = left, j = mid + 1, k = left;</span><br><span class="line">    </span><br><span class="line">    while (i &lt;= mid &amp;&amp; j &lt;= right) &#123;</span><br><span class="line">        if (a[i] &lt;= a[j])</span><br><span class="line">            temp[k++] = a[i++];</span><br><span class="line">        else</span><br><span class="line">            temp[k++] = a[j++];</span><br><span class="line">    &#125;</span><br><span class="line">    while (i &lt;= mid)   temp[k++] = a[i++];</span><br><span class="line">    while (j &lt;= right) temp[k++] = a[j++];</span><br><span class="line">    </span><br><span class="line">    // 拷贝回原数组</span><br><span class="line">    for (int i = left; i &lt;= right; i++)</span><br><span class="line">        a[i] = temp[i];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void mergeSort(int a[], int left, int right) &#123;</span><br><span class="line">    if (left &gt;= right) return;</span><br><span class="line">    int mid = left + (right - left) / 2;</span><br><span class="line">    mergeSort(a, left, mid);</span><br><span class="line">    mergeSort(a, mid + 1, right);</span><br><span class="line">    merge(a, left, mid, right);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">    int a[] = &#123;38, 27, 43, 3, 9, 82, 10&#125;;</span><br><span class="line">    int n = 7;</span><br><span class="line">    </span><br><span class="line">    mergeSort(a, 0, n - 1);</span><br><span class="line">    </span><br><span class="line">    for (int i = 0; i &lt; n; i++)</span><br><span class="line">        printf(&quot;%d &quot;, a[i]);</span><br><span class="line">    printf(&quot;\n&quot;);</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <hr>
-<h2 id="第13讲：堆排序-⭐"><a href="#第13讲：堆排序-⭐" class="headerlink" title="第13讲：堆排序 ⭐"></a>第13讲：堆排序 ⭐</h2><h3 id="🔑-知识点讲解-5"><a href="#🔑-知识点讲解-5" class="headerlink" title="🔑 知识点讲解"></a>🔑 知识点讲解</h3><p>text</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">核心思想：利用堆（完全二叉树）的性质排序</span><br><span class="line"></span><br><span class="line">大顶堆：父节点 &gt;= 子节点 → 用于升序排序</span><br><span class="line">小顶堆：父节点 &lt;= 子节点 → 用于降序排序</span><br><span class="line"></span><br><span class="line">完全二叉树的数组表示（下标从0开始）：</span><br><span class="line">    父节点: (i-1)/2</span><br><span class="line">    左子节点: 2*i+1</span><br><span class="line">    右子节点: 2*i+2</span><br><span class="line"></span><br><span class="line">过程：</span><br><span class="line">1. 建堆：从最后一个非叶节点开始，自底向上调整（heapify）</span><br><span class="line">2. 排序：</span><br><span class="line">   - 将堆顶（最大值）与末尾元素交换</span><br><span class="line">   - 堆大小减1</span><br><span class="line">   - 对堆顶做heapify</span><br><span class="line">   - 重复</span><br><span class="line"></span><br><span class="line">时间复杂度：O(nlogn)</span><br><span class="line">空间复杂度：O(1)</span><br><span class="line">稳定性：不稳定</span><br></pre></td></tr></table></figure>
+<h2 id="第13讲：堆排序-⭐"><a href="#第13讲：堆排序-⭐" class="headerlink" title="第13讲：堆排序 ⭐"></a>第13讲：堆排序 ⭐</h2><h3 id="🔑-知识点讲解-5"><a href="#🔑-知识点讲解-5" class="headerlink" title="🔑 知识点讲解"></a>🔑 知识点讲解</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">核心思想：利用堆（完全二叉树）的性质排序</span><br><span class="line"></span><br><span class="line">大顶堆：父节点 &gt;= 子节点 → 用于升序排序</span><br><span class="line">小顶堆：父节点 &lt;= 子节点 → 用于降序排序</span><br><span class="line"></span><br><span class="line">完全二叉树的数组表示（下标从0开始）：</span><br><span class="line">    父节点: (i-1)/2</span><br><span class="line">    左子节点: 2*i+1</span><br><span class="line">    右子节点: 2*i+2</span><br><span class="line"></span><br><span class="line">过程：</span><br><span class="line">1. 建堆：从最后一个非叶节点开始，自底向上调整（heapify）</span><br><span class="line">2. 排序：</span><br><span class="line">   - 将堆顶（最大值）与末尾元素交换</span><br><span class="line">   - 堆大小减1</span><br><span class="line">   - 对堆顶做heapify</span><br><span class="line">   - 重复</span><br><span class="line"></span><br><span class="line">时间复杂度：O(nlogn)</span><br><span class="line">空间复杂度：O(1)</span><br><span class="line">稳定性：不稳定</span><br></pre></td></tr></table></figure>
 
-<p>C</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line"></span><br><span class="line">void heapify(int a[], int n, int i) &#123;</span><br><span class="line">    int largest = i;</span><br><span class="line">    int left = 2 * i + 1;</span><br><span class="line">    int right = 2 * i + 2;</span><br><span class="line">    </span><br><span class="line">    if (left &lt; n &amp;&amp; a[left] &gt; a[largest])</span><br><span class="line">        largest = left;</span><br><span class="line">    if (right &lt; n &amp;&amp; a[right] &gt; a[largest])</span><br><span class="line">        largest = right;</span><br><span class="line">    </span><br><span class="line">    if (largest != i) &#123;</span><br><span class="line">        int temp = a[i];</span><br><span class="line">        a[i] = a[largest];</span><br><span class="line">        a[largest] = temp;</span><br><span class="line">        heapify(a, n, largest);  // 递归调整</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void heapSort(int a[], int n) &#123;</span><br><span class="line">    // 1. 建大顶堆</span><br><span class="line">    for (int i = n / 2 - 1; i &gt;= 0; i--)</span><br><span class="line">        heapify(a, n, i);</span><br><span class="line">    </span><br><span class="line">    // 2. 排序</span><br><span class="line">    for (int i = n - 1; i &gt; 0; i--) &#123;</span><br><span class="line">        int temp = a[0];</span><br><span class="line">        a[0] = a[i];</span><br><span class="line">        a[i] = temp;</span><br><span class="line">        heapify(a, i, 0);  // 注意堆大小是i</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">    int a[] = &#123;12, 11, 13, 5, 6, 7&#125;;</span><br><span class="line">    int n = 6;</span><br><span class="line">    heapSort(a, n);</span><br><span class="line">    for (int i = 0; i &lt; n; i++)</span><br><span class="line">        printf(&quot;%d &quot;, a[i]);</span><br><span class="line">    printf(&quot;\n&quot;);</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <hr>
@@ -568,6 +580,33 @@
       </tags>
   </entry>
   <entry>
+    <title>随笔·栏目介绍</title>
+    <url>/2026/03/09/%E9%9A%8F%E7%AC%94%E5%BC%80%E7%AF%87/</url>
+    <content><![CDATA[<blockquote>
+<p>技术之外，也要好好生活。这里是我的文字角落。</p>
+</blockquote>
+<span id="more"></span>
+
+<h2 id="📌-本栏目内容"><a href="#📌-本栏目内容" class="headerlink" title="📌 本栏目内容"></a>📌 本栏目内容</h2><p>不谈技术，只聊生活：</p>
+<ul>
+<li>校园日常与成长感悟</li>
+<li>竞赛备赛的心路历程</li>
+<li>读书笔记与思考随录</li>
+<li>生活中值得记录的小事</li>
+</ul>
+<blockquote>
+<p>慢慢更新，随心而写 ✍️</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>随笔</category>
+      </categories>
+      <tags>
+        <tag>随笔</tag>
+        <tag>生活</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>资源分享·栏目介绍</title>
     <url>/2026/03/09/%E8%B5%84%E6%BA%90%E5%88%86%E4%BA%AB%E5%BC%80%E7%AF%87/</url>
     <content><![CDATA[<blockquote>
@@ -595,30 +634,30 @@
       </tags>
   </entry>
   <entry>
-    <title>随笔·栏目介绍</title>
-    <url>/2026/03/09/%E9%9A%8F%E7%AC%94%E5%BC%80%E7%AF%87/</url>
-    <content><![CDATA[<blockquote>
-<p>技术之外，也要好好生活。这里是我的文字角落。</p>
-</blockquote>
-<span id="more"></span>
+    <title>链表</title>
+    <url>/2026/03/11/%E9%93%BE%E8%A1%A8/</url>
+    <content><![CDATA[<h1 id="📙-第四部分：链表"><a href="#📙-第四部分：链表" class="headerlink" title="📙 第四部分：链表"></a>📙 第四部分：链表</h1><hr>
+<h2 id="第15讲：单链表-⭐⭐"><a href="#第15讲：单链表-⭐⭐" class="headerlink" title="第15讲：单链表 ⭐⭐"></a>第15讲：单链表 ⭐⭐</h2><h3 id="🔑-知识点讲解"><a href="#🔑-知识点讲解" class="headerlink" title="🔑 知识点讲解"></a>🔑 知识点讲解</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">链表是动态数据结构，不需要连续内存。</span><br><span class="line"></span><br><span class="line">单链表节点：</span><br><span class="line">    typedef struct Node &#123;</span><br><span class="line">        int data;           // 数据域</span><br><span class="line">        struct Node *next;  // 指针域，指向下一个节点</span><br><span class="line">    &#125; Node;</span><br><span class="line"></span><br><span class="line">头指针 vs 头节点：</span><br><span class="line">    头指针：指向第一个节点的指针</span><br><span class="line">    头节点：在第一个数据节点前加一个空节点（简化操作）</span><br><span class="line">基本操作：</span><br><span class="line">    1. 创建链表</span><br><span class="line">    2. 头插法 / 尾插法</span><br><span class="line">    3. 插入节点</span><br><span class="line">    4. 删除节点</span><br><span class="line">    5. 查找节点</span><br><span class="line">    6. 链表反转 ⭐（高频考题）</span><br><span class="line">    7. 求链表长度</span><br></pre></td></tr></table></figure>
 
-<h2 id="📌-本栏目内容"><a href="#📌-本栏目内容" class="headerlink" title="📌 本栏目内容"></a>📌 本栏目内容</h2><p>不谈技术，只聊生活：</p>
-<ul>
-<li>校园日常与成长感悟</li>
-<li>竞赛备赛的心路历程</li>
-<li>读书笔记与思考随录</li>
-<li>生活中值得记录的小事</li>
-</ul>
-<blockquote>
-<p>慢慢更新，随心而写 ✍️</p>
+<h3 id="完整单链表实现"><a href="#完整单链表实现" class="headerlink" title="完整单链表实现"></a>完整单链表实现</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">#include &lt;stdlib.h&gt;</span><br><span class="line"></span><br><span class="line">typedef struct Node &#123;</span><br><span class="line">    int data;</span><br><span class="line">    struct Node *next;</span><br><span class="line">&#125; Node;</span><br><span class="line"></span><br><span class="line">// 创建头节点</span><br><span class="line">Node* createList() &#123;</span><br><span class="line">    Node *head = (Node *)malloc(sizeof(Node));</span><br><span class="line">    head-&gt;data = 0;    // 头节点data可以存链表长度</span><br><span class="line">    head-&gt;next = NULL;</span><br><span class="line">    return head;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 尾插法建表</span><br><span class="line">void insertTail(Node *head, int val) &#123;</span><br><span class="line">    Node *newNode = (Node *)malloc(sizeof(Node));</span><br><span class="line">    newNode-&gt;data = val;</span><br><span class="line">    newNode-&gt;next = NULL;</span><br><span class="line">    </span><br><span class="line">    Node *p = head;</span><br><span class="line">    while (p-&gt;next != NULL)</span><br><span class="line">        p = p-&gt;next;</span><br><span class="line">    p-&gt;next = newNode;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 头插法建表（结果与输入顺序相反）</span><br><span class="line">void insertHead(Node *head, int val) &#123;</span><br><span class="line">    Node *newNode = (Node *)malloc(sizeof(Node));</span><br><span class="line">    newNode-&gt;data = val;</span><br><span class="line">    newNode-&gt;next = head-&gt;next;</span><br><span class="line">    head-&gt;next = newNode;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 在第pos个位置后插入</span><br><span class="line">int insertAt(Node *head, int pos, int val) &#123;</span><br><span class="line">    Node *p = head;</span><br><span class="line">    int i = 0;</span><br><span class="line">    while (p != NULL &amp;&amp; i &lt; pos) &#123;</span><br><span class="line">        p = p-&gt;next;</span><br><span class="line">        i++;</span><br><span class="line">    &#125;</span><br><span class="line">    if (p == NULL) return 0;  // 位置无效</span><br><span class="line">    </span><br><span class="line">    Node *newNode = (Node *)malloc(sizeof(Node));</span><br><span class="line">    newNode-&gt;data = val;</span><br><span class="line">    newNode-&gt;next = p-&gt;next;</span><br><span class="line">    p-&gt;next = newNode;</span><br><span class="line">    return 1;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 删除值为val的第一个节点</span><br><span class="line">int deleteNode(Node *head, int val) &#123;</span><br><span class="line">    Node *p = head;</span><br><span class="line">    while (p-&gt;next != NULL) &#123;</span><br><span class="line">        if (p-&gt;next-&gt;data == val) &#123;</span><br><span class="line">            Node *temp = p-&gt;next;</span><br><span class="line">            p-&gt;next = temp-&gt;next;</span><br><span class="line">            free(temp);</span><br><span class="line">            return 1;</span><br><span class="line">        &#125;</span><br><span class="line">        p = p-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">    return 0;  // 未找到</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 反转【带头结点】的单链表，head 是头节点指针</span><br><span class="line">void reverseList(Node *head) &#123;</span><br><span class="line">    // 定义三个辅助指针：前一个、当前、下一个</span><br><span class="line">    Node *prev = NULL;   // 前驱指针，一开始指向空</span><br><span class="line">    Node *curr = head-&gt;next;  // 当前指针，从【第一个有效节点】开始</span><br><span class="line">    Node *next;   // 临时保存下一个节点</span><br><span class="line">    </span><br><span class="line">    // 遍历整个链表，直到当前节点为空（遍历结束）</span><br><span class="line">    while (curr != NULL) &#123;</span><br><span class="line">        next = curr-&gt;next;    // 第一步：先保存下一个节点（不然后面找不到了）</span><br><span class="line">        curr-&gt;next = prev;    // 第二步：反转！当前节点指向前一个节点</span><br><span class="line">        prev = curr;          // 第三步：前驱指针向后移动</span><br><span class="line">        curr = next;          // 第四步：当前指针向后移动</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    // 循环结束后，prev 就是反转后的第一个有效节点</span><br><span class="line">    head-&gt;next = prev;        // 让头节点重新指向新的链表头部</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 打印链表</span><br><span class="line">void printList(Node *head) &#123;</span><br><span class="line">    Node *p = head-&gt;next;</span><br><span class="line">    while (p != NULL) &#123;</span><br><span class="line">        printf(&quot;%d -&gt; &quot;, p-&gt;data);</span><br><span class="line">        p = p-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">    printf(&quot;NULL\n&quot;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 释放链表</span><br><span class="line">void freeList(Node *head) &#123;</span><br><span class="line">    Node *p = head, *temp;</span><br><span class="line">    while (p != NULL) &#123;</span><br><span class="line">        temp = p;</span><br><span class="line">        p = p-&gt;next;</span><br><span class="line">        free(temp);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">    Node *list = createList();</span><br><span class="line">    </span><br><span class="line">    // 尾插法：1 2 3 4 5</span><br><span class="line">    for (int i = 1; i &lt;= 5; i++)</span><br><span class="line">        insertTail(list, i);</span><br><span class="line">    </span><br><span class="line">    printf(&quot;原链表: &quot;);</span><br><span class="line">    printList(list);</span><br><span class="line">    </span><br><span class="line">    // 反转</span><br><span class="line">    reverseList(list);</span><br><span class="line">    printf(&quot;反转后: &quot;);</span><br><span class="line">    printList(list);</span><br><span class="line">    </span><br><span class="line">    // 删除值为3的节点</span><br><span class="line">    deleteNode(list, 3);</span><br><span class="line">    printf(&quot;删除3: &quot;);</span><br><span class="line">    printList(list);</span><br><span class="line">    </span><br><span class="line">    freeList(list);</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>输出</strong>：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">原链表: 1 -&gt; 2 -&gt; 3 -&gt; 4 -&gt; 5 -&gt; NULL</span><br><span class="line">反转后: 5 -&gt; 4 -&gt; 3 -&gt; 2 -&gt; 1 -&gt; NULL</span><br><span class="line">删除3: 5 -&gt; 4 -&gt; 2 -&gt; 1 -&gt; NULL</span><br></pre></td></tr></table></figure>
+
+<h3 id="✏️-练习题10：合并两个有序链表"><a href="#✏️-练习题10：合并两个有序链表" class="headerlink" title="✏️ 练习题10：合并两个有序链表"></a>✏️ 练习题10：合并两个有序链表</h3><blockquote>
+<p><strong>题目</strong>：将两个升序链表合并为一个升序链表。</p>
 </blockquote>
-]]></content>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Node* mergeSortedLists(Node *h1, Node *h2) &#123;</span><br><span class="line">    Node *result = createList();</span><br><span class="line">    Node *p1 = h1-&gt;next, *p2 = h2-&gt;next;</span><br><span class="line">    Node *tail = result;</span><br><span class="line">    </span><br><span class="line">    while (p1 != NULL &amp;&amp; p2 != NULL) &#123;</span><br><span class="line">        Node *newNode = (Node *)malloc(sizeof(Node));</span><br><span class="line">        if (p1-&gt;data &lt;= p2-&gt;data) &#123;</span><br><span class="line">            newNode-&gt;data = p1-&gt;data;</span><br><span class="line">            p1 = p1-&gt;next;</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            newNode-&gt;data = p2-&gt;data;</span><br><span class="line">            p2 = p2-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        newNode-&gt;next = NULL;</span><br><span class="line">        tail-&gt;next = newNode;</span><br><span class="line">        tail = newNode;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    // 处理剩余节点</span><br><span class="line">    Node *remaining = (p1 != NULL) ? p1 : p2;</span><br><span class="line">    while (remaining != NULL) &#123;</span><br><span class="line">        Node *newNode = (Node *)malloc(sizeof(Node));</span><br><span class="line">        newNode-&gt;data = remaining-&gt;data;</span><br><span class="line">        newNode-&gt;next = NULL;</span><br><span class="line">        tail-&gt;next = newNode;</span><br><span class="line">        tail = newNode;</span><br><span class="line">        remaining = remaining-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    return result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="第16讲：双链表"><a href="#第16讲：双链表" class="headerlink" title="第16讲：双链表"></a>第16讲：双链表</h2><h3 id="🔑-知识点讲解-1"><a href="#🔑-知识点讲解-1" class="headerlink" title="🔑 知识点讲解"></a>🔑 知识点讲解</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">双链表每个节点有两个指针：前驱和后继。</span><br><span class="line"></span><br><span class="line">typedef struct DNode &#123;</span><br><span class="line">    int data;</span><br><span class="line">    struct DNode *prev;</span><br><span class="line">    struct DNode *next;</span><br><span class="line">&#125; DNode;</span><br><span class="line"></span><br><span class="line">优点：可以双向遍历，删除给定节点时间O(1)（单链表需要知道前驱）</span><br><span class="line">缺点：额外的空间开销</span><br><span class="line"></span><br><span class="line">插入操作（在 p 节点后插入 s）：</span><br><span class="line">    s-&gt;next = p-&gt;next;</span><br><span class="line">    s-&gt;prev = p;</span><br><span class="line">    if (p-&gt;next) p-&gt;next-&gt;prev = s;</span><br><span class="line">    p-&gt;next = s;</span><br><span class="line"></span><br><span class="line">删除操作（删除 p 节点）：</span><br><span class="line">    p-&gt;prev-&gt;next = p-&gt;next;</span><br><span class="line">    if (p-&gt;next) p-&gt;next-&gt;prev = p-&gt;prev;</span><br><span class="line">    free(p);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">#include &lt;stdlib.h&gt;</span><br><span class="line"></span><br><span class="line">typedef struct DNode &#123;</span><br><span class="line">    int data;</span><br><span class="line">    struct DNode *prev;</span><br><span class="line">    struct DNode *next;</span><br><span class="line">&#125; DNode;</span><br><span class="line"></span><br><span class="line">DNode* createDList() &#123;</span><br><span class="line">    DNode *head = (DNode *)malloc(sizeof(DNode));</span><br><span class="line">    head-&gt;data = 0;</span><br><span class="line">    head-&gt;prev = NULL;</span><br><span class="line">    head-&gt;next = NULL;</span><br><span class="line">    return head;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void insertTailD(DNode *head, int val) &#123;</span><br><span class="line">    DNode *newNode = (DNode *)malloc(sizeof(DNode));</span><br><span class="line">    newNode-&gt;data = val;</span><br><span class="line">    newNode-&gt;next = NULL;</span><br><span class="line">    </span><br><span class="line">    DNode *p = head;</span><br><span class="line">    while (p-&gt;next) p = p-&gt;next;</span><br><span class="line">    </span><br><span class="line">    newNode-&gt;prev = p;</span><br><span class="line">    p-&gt;next = newNode;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void printDList(DNode *head) &#123;</span><br><span class="line">    DNode *p = head-&gt;next;</span><br><span class="line">    printf(&quot;正向: &quot;);</span><br><span class="line">    DNode *tail = NULL;</span><br><span class="line">    while (p) &#123;</span><br><span class="line">        printf(&quot;%d &lt;-&gt; &quot;, p-&gt;data);</span><br><span class="line">        tail = p;</span><br><span class="line">        p = p-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">    printf(&quot;NULL\n&quot;);</span><br><span class="line">    </span><br><span class="line">    printf(&quot;反向: &quot;);</span><br><span class="line">    while (tail &amp;&amp; tail != head) &#123;</span><br><span class="line">        printf(&quot;%d &lt;-&gt; &quot;, tail-&gt;data);</span><br><span class="line">        tail = tail-&gt;prev;</span><br><span class="line">    &#125;</span><br><span class="line">    printf(&quot;HEAD\n&quot;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">    DNode *list = createDList();</span><br><span class="line">    for (int i = 1; i &lt;= 5; i++)</span><br><span class="line">        insertTailD(list, i);</span><br><span class="line">    printDList(list);</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
-        <category>随笔</category>
+        <category>算法</category>
       </categories>
       <tags>
-        <tag>随笔</tag>
-        <tag>生活</tag>
+        <tag>算法</tag>
       </tags>
   </entry>
 </search>
