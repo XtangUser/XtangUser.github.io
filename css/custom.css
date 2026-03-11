@@ -1,19 +1,252 @@
 /* ============================================================
-   自定义样式 - 修改这里可以调整博客外观
+   Fluid 主题自定义样式 - 高性能优化版
+   ============================================================
+   性能原则：
+   · 不使用 backdrop-filter（文章页卡顿元凶）
+   · 动画只用 transform / opacity（GPU 加速，不触发重排）
+   · background-attachment: fixed 仅用于 body 层
    ============================================================ */
 
-/* 首页打字机副标题文字颜色 */
-#site-info .typed-cursor,
-#site-info .subtitle-text,
-#site-info #subtitle,
-#subtitle {
-  color: #00c4b6 !important;
+/* ============================================================
+   全局背景（仅一层渐变，极轻量）
+   ============================================================ */
+body {
+  background: linear-gradient(145deg, #eef2ff 0%, #f0f9ff 50%, #fdf4ff 100%);
+  background-attachment: fixed;
 }
 
-/* 打字机光标颜色 */
-.typed-cursor {
-  color: #00c4b6 !important;
+html[data-user-color-scheme="dark"] body {
+  background: linear-gradient(145deg, #0e0b20 0%, #111827 50%, #0b1520 100%);
 }
+
+/* ============================================================
+   导航栏（仅 body 背景可见时才需要毛玻璃，此处用半透明代替）
+   ============================================================ */
+#navbar {
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.10);
+  transition: background 0.3s ease;
+}
+
+/* ============================================================
+   文章页 - 阅读体验优化（无 backdrop-filter！）
+   ============================================================ */
+.post-content {
+  font-size: 16.5px;
+  line-height: 1.92;
+  letter-spacing: 0.018em;
+  color: #2d3748;
+}
+
+html[data-user-color-scheme="dark"] .post-content {
+  color: #d1d5db;
+}
+
+/* 段落间距 */
+.post-content p {
+  margin-bottom: 1.25em;
+}
+
+/* 文章容器 - 用 box-shadow 代替 backdrop-filter（无 GPU 压力）*/
+.post-container,
+#board-wrap .post-content-wrap {
+  background: rgba(255, 255, 255, 0.96);
+  border-radius: 14px;
+  box-shadow: 0 4px 24px rgba(99, 102, 241, 0.08), 0 1px 4px rgba(0, 0, 0, 0.04);
+}
+
+html[data-user-color-scheme="dark"] .post-container,
+html[data-user-color-scheme="dark"] #board-wrap .post-content-wrap {
+  background: rgba(17, 24, 39, 0.97);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.35);
+}
+
+/* ============================================================
+   首页文章卡片（hover 只用 transform，不重排）
+   ============================================================ */
+.recent-post-item,
+.index-post-item {
+  border-radius: 12px;
+  transition: transform 0.22s ease, box-shadow 0.22s ease;
+  will-change: transform;
+}
+
+.recent-post-item:hover,
+.index-post-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(99, 102, 241, 0.13) !important;
+}
+
+/* ============================================================
+   侧边栏卡片
+   ============================================================ */
+.sidebar-card,
+.card-widget {
+  border-radius: 12px;
+  box-shadow: 0 2px 14px rgba(0, 0, 0, 0.06);
+  transition: box-shadow 0.2s ease;
+}
+
+/* ============================================================
+   代码块优化
+   ============================================================ */
+.highlight,
+pre {
+  border-radius: 10px;
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+/* 代码块横滚时流畅 */
+.highlight pre {
+  overflow-x: auto;
+  /* 使用 GPU 层，避免触发父级重排 */
+  transform: translateZ(0);
+}
+
+/* ============================================================
+   引用块样式
+   ============================================================ */
+.post-content blockquote {
+  border-left: 4px solid #6366f1;
+  padding: 0.6em 1.1em;
+  background: rgba(99, 102, 241, 0.05);
+  border-radius: 0 8px 8px 0;
+  margin: 1.2em 0;
+}
+
+html[data-user-color-scheme="dark"] .post-content blockquote {
+  background: rgba(99, 102, 241, 0.10);
+  border-left-color: #818cf8;
+}
+
+/* ============================================================
+   表格
+   ============================================================ */
+.post-content table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 15px;
+}
+
+.post-content table th,
+.post-content table td {
+  padding: 9px 14px;
+  border: 1px solid #e5e7eb;
+}
+
+.post-content table th {
+  background: rgba(99, 102, 241, 0.08);
+  font-weight: 600;
+}
+
+html[data-user-color-scheme="dark"] .post-content table th {
+  background: rgba(99, 102, 241, 0.16);
+}
+
+html[data-user-color-scheme="dark"] .post-content table td,
+html[data-user-color-scheme="dark"] .post-content table th {
+  border-color: #374151;
+}
+
+/* ============================================================
+   图片：圆角 + 轻阴影（无 filter，避免卡顿）
+   ============================================================ */
+.post-content img {
+  border-radius: 8px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.10);
+  max-width: 100%;
+}
+
+/* ============================================================
+   标题样式
+   ============================================================ */
+.post-content h1,
+.post-content h2,
+.post-content h3,
+.post-content h4 {
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.post-content h2 {
+  border-bottom: 2px solid rgba(99, 102, 241, 0.25);
+  padding-bottom: 0.35em;
+  margin-top: 2em;
+}
+
+/* ============================================================
+   目录（TOC）激活项高亮
+   ============================================================ */
+#toc-item-active > a,
+.toc-item.active > a {
+  color: #6366f1 !important;
+  font-weight: 600;
+}
+
+/* ============================================================
+   滚动条美化（仅 Webkit）
+   ============================================================ */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(99, 102, 241, 0.35);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(99, 102, 241, 0.6);
+}
+
+/* ============================================================
+   平滑滚动
+   ============================================================ */
+html {
+  scroll-behavior: smooth;
+}
+
+/* ============================================================
+   打字机副标题颜色（与主题色一致）
+   ============================================================ */
+#subtitle,
+.typed-cursor,
+.subtitle-text {
+  color: #a5b4fc !important;
+}
+
+/* ============================================================
+   页脚
+   ============================================================ */
+footer.footer,
+#footer {
+  background: rgba(255, 255, 255, 0.85);
+  border-top: 1px solid rgba(99, 102, 241, 0.12);
+}
+
+html[data-user-color-scheme="dark"] footer.footer,
+html[data-user-color-scheme="dark"] #footer {
+  background: rgba(14, 11, 32, 0.92);
+  border-top-color: rgba(99, 102, 241, 0.15);
+}
+
+/* ============================================================
+   Live2D 看板娘位置修正（确保在所有主题中可见）
+   ============================================================ */
+#live2dcanvas {
+  position: fixed !important;
+  left: 0 !important;
+  bottom: 0 !important;
+  z-index: 999999 !important;
+  pointer-events: auto !important;
+  width: 200px !important;
+  height: 400px !important;
+}
+
 
 /* ============================================================
    玻璃磨砂效果 (Frosted Glass Effect)
