@@ -1,26 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>个人荣誉</title>
-    <url>/2026/03/09/%E4%B8%AA%E4%BA%BA%E8%8D%A3%E8%AA%89/</url>
-    <content><![CDATA[<blockquote>
-<p>每一份荣誉，都是过去努力的见证。愿每一步都算数，愿未来更值得期待。✨</p>
-</blockquote>
-<span id="more"></span>
-
-<h2 id="🏆-荣誉证书"><a href="#🏆-荣誉证书" class="headerlink" title="🏆 荣誉证书"></a>🏆 荣誉证书</h2><div class="gallery-container" data-type="data" data-button="" data-limit="10" data-first="10">
-    <div class="gallery-items">[{"url":"https://s3.imagency.cn/e/b511900cb1347f24f4f252f3f74404ed.jpg","alt":"","title":""},{"url":"https://s3.imagency.cn/e/7f3170e74c45cbbb32b4eb817774c5a0.png","alt":"","title":""},{"url":"https://s3.imagency.cn/e/bd645f2f928a17abb68359c6ac50165d.jpg","alt":"","title":""},{"url":"https://s3.imagency.cn/e/a8348d079d9f33e83e70194b565a7c3c.png","alt":"","title":""},{"url":"https://s3.imagency.cn/e/bdda82f6878d4a4c2127186c788a5ab9.png","alt":"","title":""},{"url":"https://s3.imagency.cn/e/092b929a2066799ba41ac8bfe565b420.png","alt":"","title":""},{"url":"https://s3.imagency.cn/e/33d47cb48852f9cd85a2b0f1675da933.png","alt":"","title":""},{"url":"https://s3.imagency.cn/e/24b7769472b800e7fde25fe3a14ea19e.png","alt":"","title":""},{"url":"https://s3.imagency.cn/e/4231c102d956238cd41d38c7e5502db5.png","alt":"","title":""},{"url":"https://s3.imagency.cn/e/1f86cb1303786e00e80e0bd250d00d6e.png","alt":"","title":""},{"url":"https://s3.imagency.cn/e/4e1cf95861263c7554e08296ca9268b9.jpg","alt":"","title":""},{"url":"https://s3.imagency.cn/e/83af1eaac6cb26b28f1950841df4e34a.png","alt":"","title":""},{"url":"https://s3.imagency.cn/e/bc3e8fba3c95e5f83b9619a360b65547.png","alt":"","title":""},{"url":"https://s3.imagency.cn/e/05e1b583d970340e5db33d90110180b4.jpg","alt":"","title":""},{"url":"https://s3.imagency.cn/e/6317babd37733a4c8f1df58d5ce6e98c.png","alt":"","title":""},{"url":"https://s3.imagency.cn/e/7e42833dd484ff4f30e0109c484deff1.png","alt":"","title":""},{"url":"https://s3.imagency.cn/e/8f1e967d4009a7fb42678f0843abfe94.png","alt":"","title":""},{"url":"https://s3.imagency.cn/e/68ef3f645b0c9c08927eaf98bf96c7d0.png","alt":"","title":""}]</div>
-  </div>
-]]></content>
-      <categories>
-        <category>个人荣誉</category>
-      </categories>
-      <tags>
-        <tag>荣誉</tag>
-        <tag>成就</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>C语言函数</title>
     <url>/2026/03/10/C%E8%AF%AD%E8%A8%80%E5%87%BD%E6%95%B0/</url>
     <content><![CDATA[<h2 id="第4讲：函数"><a href="#第4讲：函数" class="headerlink" title="第4讲：函数"></a>第4讲：函数</h2><h3 id="🔑-知识点讲解"><a href="#🔑-知识点讲解" class="headerlink" title="🔑 知识点讲解"></a>🔑 知识点讲解</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">函数是代码复用的基本单位。</span><br><span class="line"></span><br><span class="line">格式：</span><br><span class="line">    返回类型 函数名(参数列表) &#123;</span><br><span class="line">        函数体;</span><br><span class="line">        return 返回值;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">关键点：</span><br><span class="line">1. 值传递：函数内修改形参不影响实参</span><br><span class="line">2. 地址传递：传指针可以修改实参</span><br><span class="line">3. 数组传参：数组名即地址，函数内可以修改原数组</span><br><span class="line">4. 递归：函数调用自身，必须有终止条件</span><br><span class="line"></span><br><span class="line">函数声明（原型）：</span><br><span class="line">    如果函数定义在 main 之后，需要在前面声明。</span><br><span class="line">    int add(int a, int b);  // 声明</span><br></pre></td></tr></table></figure>
@@ -44,52 +24,23 @@
       </tags>
   </entry>
   <entry>
-    <title>数组</title>
-    <url>/2026/03/10/C%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/</url>
-    <content><![CDATA[<h1 id="第一讲–一维数组"><a href="#第一讲–一维数组" class="headerlink" title="第一讲–一维数组"></a>第一讲–一维数组</h1> <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">一维数组是相同类型元素的连续存储集合。 </span><br><span class="line"></span><br><span class="line">声明方式：    int a[10];          // 声明一个长度为10的整型数组   </span><br><span class="line"></span><br><span class="line"> int a[] = &#123;1,2,3&#125;;  // 声明并初始化，长度自动推断为3    </span><br><span class="line"></span><br><span class="line">int a[5] = &#123;0&#125;;     // 全部初始化为0 </span><br><span class="line"></span><br><span class="line">关键点： 1. 数组下标从 0 开始，a[0] 是第一个元素 </span><br><span class="line"></span><br><span class="line">2. 数组名 a 代表首元素地址（与指针密切相关） </span><br><span class="line">3. 数组越界访问是未定义行为（不会报错但很危险） </span><br><span class="line">4. 数组作为函数参数时，退化为指针，不携带长度信息</span><br></pre></td></tr></table></figure>
-
-<h3 id="✏️-练习题1：数组元素逆序"><a href="#✏️-练习题1：数组元素逆序" class="headerlink" title="✏️ 练习题1：数组元素逆序"></a>✏️ 练习题1：数组元素逆序</h3><blockquote>
-<p><strong>题目</strong>：输入 n 个整数存入数组，将数组元素逆序后输出。</p>
-<p><strong>输入示例</strong>：<code>5</code> → <code>1 2 3 4 5</code><br><strong>输出示例</strong>：<code>5 4 3 2 1</code></p>
+    <title>个人荣誉</title>
+    <url>/2026/03/09/%E4%B8%AA%E4%BA%BA%E8%8D%A3%E8%AA%89/</url>
+    <content><![CDATA[<blockquote>
+<p>每一份荣誉，都是过去努力的见证。愿每一步都算数，愿未来更值得期待。✨</p>
 </blockquote>
-<p>   <strong>思路分析</strong>：</p>
-<ul>
-<li>用两个指针（下标）<code>i</code> 和 <code>j</code>，分别指向头和尾</li>
-<li>交换 <code>a[i]</code> 和 <code>a[j]</code>，然后 <code>i++</code>，<code>j--</code></li>
-<li>直到 <code>i &gt;= j</code></li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">    int n;</span><br><span class="line">    scanf(&quot;%d&quot;, &amp;n);</span><br><span class="line">    </span><br><span class="line">    int a[100];</span><br><span class="line">    for (int i = 0; i &lt; n; i++) &#123;</span><br><span class="line">        scanf(&quot;%d&quot;, &amp;a[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    // 逆序：首尾交换</span><br><span class="line">    int i = 0, j = n - 1;</span><br><span class="line">    while (i &lt; j) &#123;</span><br><span class="line">        int temp = a[i];</span><br><span class="line">        a[i] = a[j];</span><br><span class="line">        a[j] = temp;</span><br><span class="line">        i++;</span><br><span class="line">        j--;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    // 输出</span><br><span class="line">    for (int i = 0; i &lt; n; i++) &#123;</span><br><span class="line">        printf(&quot;%d &quot;, a[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    printf(&quot;\n&quot;);</span><br><span class="line">    </span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<span id="more"></span>
 
-<p><strong>复杂度</strong>：时间 O(n)，空间 O(1)</p>
-<p><code>#include &lt;stdio.h&gt;</code><br><code>// 函数声明</code><br><code>void reverseeArr(int *arr, int n);</code><br><code>int main()</code><br><code>{</code><br>    <code>int n = 0;</code><br>    <code>printf(&quot;Enter the size of the array: &quot;);</code><br>    <code>scanf(&quot;%d&quot;, &amp;n);</code><br>    <code>int arr[n];</code><br>    <code>for (int i = 0; i &lt; n; i++)</code><br>    <code>{</code><br>        <code>scanf(&quot;%d&quot;, &amp;arr[i]);</code><br>    <code>}</code><br>    <code>reverseeArr(arr, n);</code><br>    <code>printf(&quot;Reversed array: &quot;);</code><br>    <code>for (int i = 0; i &lt; n; i++)</code><br>    <code>{</code><br>        <code>printf(&quot;%d &quot;, arr[i]);</code><br>    <code>}</code><br>    <code>printf(&quot;\n&quot;);</code><br><code>}</code></p>
-<p><code>void reverseeArr(int *arr, int n) {     //*arr是数组的第一个元素，arr是数组的地址，*的作用是解构数组地址，获取数组的第一个元素的值</code><br>    <code>printf(&quot;%d &quot;, *arr);</code><br>    <code>int i = 0, j = n - 1;</code><br>    <code>for (i = 0; i &lt; j; i++, j--)</code><br>    <code>{</code><br>        <code>int temp = arr[i];</code><br>        <code>arr[i] = arr[j];</code><br>        <code>arr[j] = temp;</code><br>    <code>}</code><br><code>}</code></p>
-<h1 id="第二讲–二维数组"><a href="#第二讲–二维数组" class="headerlink" title="第二讲–二维数组"></a>第二讲–二维数组</h1><h2 id="第2讲：二维数组"><a href="#第2讲：二维数组" class="headerlink" title="第2讲：二维数组"></a>第2讲：二维数组</h2><h3 id="🔑-知识点讲解"><a href="#🔑-知识点讲解" class="headerlink" title="🔑 知识点讲解"></a>🔑 知识点讲解</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">二维数组可看作&quot;数组的数组&quot;，即矩阵。</span><br><span class="line"></span><br><span class="line">声明方式：</span><br><span class="line">    int a[3][4];                     // 3行4列</span><br><span class="line">    int a[2][3] = &#123;&#123;1,2,3&#125;,&#123;4,5,6&#125;&#125;; // 初始化</span><br><span class="line"></span><br><span class="line">内存布局：</span><br><span class="line">    行优先存储（C语言），即 a[0][0], a[0][1], ..., a[0][3], a[1][0], ...</span><br><span class="line"></span><br><span class="line">访问：a[i][j] 表示第 i 行第 j 列</span><br><span class="line"></span><br><span class="line">作为函数参数时，第一维可以省略，第二维不能省略：</span><br><span class="line">    void func(int a[][4], int rows);</span><br></pre></td></tr></table></figure>
-
-<h3 id="✏️-练习题2：矩阵转置"><a href="#✏️-练习题2：矩阵转置" class="headerlink" title="✏️ 练习题2：矩阵转置"></a>✏️ 练习题2：矩阵转置</h3><blockquote>
-<p><strong>题目</strong>：输入一个 m×n 的矩阵，输出它的转置矩阵（n×m）。</p>
-<p><strong>输入示例</strong>：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">2 3</span><br><span class="line">1 2 3</span><br><span class="line">4 5 6</span><br></pre></td></tr></table></figure>
-
-<p><strong>输出示例</strong>：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">1 4</span><br><span class="line">2 5</span><br><span class="line">3 6</span><br></pre></td></tr></table></figure></blockquote>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">    int m, n;</span><br><span class="line">    scanf(&quot;%d %d&quot;, &amp;m, &amp;n);</span><br><span class="line">    </span><br><span class="line">    int a[100][100], b[100][100];</span><br><span class="line">    </span><br><span class="line">    // 读入矩阵</span><br><span class="line">    for (int i = 0; i &lt; m; i++)</span><br><span class="line">        for (int j = 0; j &lt; n; j++)</span><br><span class="line">            scanf(&quot;%d&quot;, &amp;a[i][j]);</span><br><span class="line">    </span><br><span class="line">    // 转置：b[j][i] = a[i][j]</span><br><span class="line">    for (int i = 0; i &lt; m; i++)</span><br><span class="line">        for (int j = 0; j &lt; n; j++)</span><br><span class="line">            b[j][i] = a[i][j];</span><br><span class="line">    </span><br><span class="line">    // 输出转置后的矩阵 (n行m列)</span><br><span class="line">    for (int i = 0; i &lt; n; i++) &#123;</span><br><span class="line">        for (int j = 0; j &lt; m; j++) &#123;</span><br><span class="line">            printf(&quot;%d &quot;, b[i][j]);</span><br><span class="line">        &#125;</span><br><span class="line">        printf(&quot;\n&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="第3讲：字符数组与字符串"><a href="#第3讲：字符数组与字符串" class="headerlink" title="第3讲：字符数组与字符串"></a>第3讲：字符数组与字符串</h2><h3 id="🔑-知识点讲解-1"><a href="#🔑-知识点讲解-1" class="headerlink" title="🔑 知识点讲解"></a><strong>🔑</strong> 知识点讲解</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">C 无 string 类型，字符串 = 字符数组 + \0 结尾</span><br><span class="line">char s[20];</span><br><span class="line">char s[]=&quot;hello&quot;;      // 自动带 \0</span><br><span class="line">char s[]=&#123;&#x27;h&#x27;,&#x27;e&#x27;,&#x27;l&#x27;,&#x27;l&#x27;,&#x27;o&#x27;,&#x27;\0&#x27;&#125;;</span><br><span class="line"></span><br><span class="line">常用函数（#include &lt;string.h&gt;）</span><br><span class="line">strlen(s) 长度（不含 \0）→ s：字符串</span><br><span class="line">strcpy(dst,src) 复制 src 到 dst → dst：目标数组，src：源字符串</span><br><span class="line">strcmp(s1,s2) 比较 s1/s2 → 返回 0 = 相等</span><br><span class="line">strcat(dst,src) 拼接 src 到 dst 后 → dst：目标数组，src：源字符串</span><br><span class="line">输入</span><br><span class="line">scanf(&quot;%s&quot;,s) 遇空格 / 换行停止 → s：字符数组</span><br><span class="line">fgets(s,n,stdin) 安全读整行 → s：数组，n：最大长度，stdin：标准输入</span><br><span class="line">输出</span><br><span class="line">printf(&quot;%s&quot;,s) 输出字符串 → s：数组</span><br><span class="line">puts(s) 输出 + 自动换行 → s：数组</span><br></pre></td></tr></table></figure>
-
-<h3 id="✏️-练习题3：统计字符串中各类字符个数"><a href="#✏️-练习题3：统计字符串中各类字符个数" class="headerlink" title="✏️ 练习题3：统计字符串中各类字符个数"></a>✏️ 练习题3：统计字符串中各类字符个数</h3><blockquote>
-<p><strong>题目</strong>：输入一行字符串，统计其中字母、数字、空格和其他字符的个数。</p>
-<p><strong>输入</strong>：<code>Hello World! 123</code><br><strong>输出</strong>：<code>字母:10 数字:3 空格:2 其他:1</code></p>
-</blockquote>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">#include &lt;ctype.h&gt;</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">    char s[200];</span><br><span class="line">    fgets(s, 200, stdin);  // 读取一行</span><br><span class="line">    </span><br><span class="line">    int letter = 0, digit = 0, space = 0, other = 0;</span><br><span class="line">    </span><br><span class="line">    for (int i = 0; s[i] != &#x27;\0&#x27; &amp;&amp; s[i] != &#x27;\n&#x27;; i++) &#123;</span><br><span class="line">        if (isalpha(s[i]))      letter++;</span><br><span class="line">        else if (isdigit(s[i])) digit++;</span><br><span class="line">        else if (s[i] == &#x27; &#x27;)   space++;</span><br><span class="line">        else                    other++;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    printf(&quot;字母:%d 数字:%d 空格:%d 其他:%d\n&quot;, </span><br><span class="line">           letter, digit, space, other);</span><br><span class="line">    </span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 输入一行字符串，计算其中的空格，数字，字母的个数，并输出结果。</span><br><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">#include &lt;string.h&gt;</span><br><span class="line">int main()</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">    char str[100];</span><br><span class="line">    int space_count = 0, digit_count = 0, letter_count = 0; int others_count = 0;</span><br><span class="line">    printf(&quot;请输入一行字符串：&quot;);</span><br><span class="line">    // 使用fgets函数读取输入，避免缓冲区溢出,sizeof(str)==strlen(str)吗？不一定，sizeof(str)是数组的总大小，而strlen(str)是字符串的实际长度，可能小于sizeof(str)。因此，使用fgets可以确保不会超过数组的大小，避免缓冲区溢出。</span><br><span class="line">    fgets(str, sizeof(str), stdin);</span><br><span class="line">    for (int i = 0; str[i] != &#x27;\0&#x27;; i++) &#123;</span><br><span class="line">        printf(&quot;%c &quot;, str[i]);</span><br><span class="line">        if (str[i] == &#x27; &#x27;) &#123;</span><br><span class="line">            space_count++;</span><br><span class="line">        &#125; else if (str[i] &gt;= &#x27;0&#x27; &amp;&amp; str[i] &lt;= &#x27;9&#x27;) &#123;</span><br><span class="line">            digit_count++;</span><br><span class="line">        &#125; else if ((str[i] &gt;= &#x27;A&#x27; &amp;&amp; str[i] &lt;= &#x27;Z&#x27;) || (str[i] &gt;= &#x27;a&#x27; &amp;&amp; str[i] &lt;= &#x27;z&#x27;)) &#123;</span><br><span class="line">            letter_count++;</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            others_count++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    printf(&quot;空格的个数：%d\n&quot;, space_count);</span><br><span class="line">    printf(&quot;数字的个数：%d\n&quot;, digit_count);</span><br><span class="line">    printf(&quot;字母的个数：%d\n&quot;, letter_count);</span><br><span class="line">    printf(&quot;其他字符的个数：%d\n&quot;, others_count);</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+<h2 id="🏆-荣誉证书"><a href="#🏆-荣誉证书" class="headerlink" title="🏆 荣誉证书"></a>🏆 荣誉证书</h2><div class="gallery-container" data-type="data" data-button="" data-limit="10" data-first="10">
+    <div class="gallery-items">[{"url":"https://s3.imagency.cn/e/b511900cb1347f24f4f252f3f74404ed.jpg","alt":"","title":""},{"url":"https://s3.imagency.cn/e/7f3170e74c45cbbb32b4eb817774c5a0.png","alt":"","title":""},{"url":"https://s3.imagency.cn/e/bd645f2f928a17abb68359c6ac50165d.jpg","alt":"","title":""},{"url":"https://s3.imagency.cn/e/a8348d079d9f33e83e70194b565a7c3c.png","alt":"","title":""},{"url":"https://s3.imagency.cn/e/bdda82f6878d4a4c2127186c788a5ab9.png","alt":"","title":""},{"url":"https://s3.imagency.cn/e/092b929a2066799ba41ac8bfe565b420.png","alt":"","title":""},{"url":"https://s3.imagency.cn/e/33d47cb48852f9cd85a2b0f1675da933.png","alt":"","title":""},{"url":"https://s3.imagency.cn/e/24b7769472b800e7fde25fe3a14ea19e.png","alt":"","title":""},{"url":"https://s3.imagency.cn/e/4231c102d956238cd41d38c7e5502db5.png","alt":"","title":""},{"url":"https://s3.imagency.cn/e/1f86cb1303786e00e80e0bd250d00d6e.png","alt":"","title":""},{"url":"https://s3.imagency.cn/e/4e1cf95861263c7554e08296ca9268b9.jpg","alt":"","title":""},{"url":"https://s3.imagency.cn/e/83af1eaac6cb26b28f1950841df4e34a.png","alt":"","title":""},{"url":"https://s3.imagency.cn/e/bc3e8fba3c95e5f83b9619a360b65547.png","alt":"","title":""},{"url":"https://s3.imagency.cn/e/05e1b583d970340e5db33d90110180b4.jpg","alt":"","title":""},{"url":"https://s3.imagency.cn/e/6317babd37733a4c8f1df58d5ce6e98c.png","alt":"","title":""},{"url":"https://s3.imagency.cn/e/7e42833dd484ff4f30e0109c484deff1.png","alt":"","title":""},{"url":"https://s3.imagency.cn/e/8f1e967d4009a7fb42678f0843abfe94.png","alt":"","title":""},{"url":"https://s3.imagency.cn/e/68ef3f645b0c9c08927eaf98bf96c7d0.png","alt":"","title":""}]</div>
+  </div>
 ]]></content>
       <categories>
-        <category>算法</category>
+        <category>个人荣誉</category>
       </categories>
       <tags>
-        <tag>算法</tag>
+        <tag>荣誉</tag>
+        <tag>成就</tag>
       </tags>
   </entry>
   <entry>
@@ -321,34 +272,6 @@
       </tags>
   </entry>
   <entry>
-    <title>工具箱·栏目介绍</title>
-    <url>/2026/03/09/%E5%B7%A5%E5%85%B7%E7%AE%B1%E5%BC%80%E7%AF%87/</url>
-    <content><![CDATA[<blockquote>
-<p>好的工具能让开发事半功倍，这里收录我日常使用的效率神器。</p>
-</blockquote>
-<span id="more"></span>
-
-<h2 id="📌-本栏目内容"><a href="#📌-本栏目内容" class="headerlink" title="📌 本栏目内容"></a>📌 本栏目内容</h2><p>本栏目将持续更新以下内容：</p>
-<ul>
-<li><strong>开发工具</strong> 配置与使用技巧（VS Code、Git 等）</li>
-<li><strong>AI 辅助编程</strong> 工具实践</li>
-<li><strong>实用脚本</strong> 与自动化工作流</li>
-<li><strong>好用插件</strong> 推荐与评测</li>
-<li><strong>效率提升</strong> 技巧与方法分享</li>
-</ul>
-<blockquote>
-<p>持续更新中，敬请期待 🚀</p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>工具箱</category>
-      </categories>
-      <tags>
-        <tag>工具</tag>
-        <tag>效率</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>嵌入式开发·栏目介绍</title>
     <url>/2026/03/09/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%BC%80%E7%AF%87/</url>
     <content><![CDATA[<blockquote>
@@ -374,50 +297,6 @@
       <tags>
         <tag>嵌入式</tag>
         <tag>STM32</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>指针基础</title>
-    <url>/2026/03/10/%E6%8C%87%E9%92%88%E5%9F%BA%E7%A1%80/</url>
-    <content><![CDATA[<h2 id="第5讲：指针基础"><a href="#第5讲：指针基础" class="headerlink" title="第5讲：指针基础"></a>第5讲：指针基础</h2><h3 id="🔑-知识点讲解"><a href="#🔑-知识点讲解" class="headerlink" title="🔑 知识点讲解"></a>🔑 知识点讲解</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">指针是存放地址的变量。</span><br><span class="line"></span><br><span class="line">声明：</span><br><span class="line">    int a = 10;</span><br><span class="line">    int *p = &amp;a;    // p 存储 a 的地址</span><br><span class="line">    </span><br><span class="line">操作符：</span><br><span class="line">    &amp;  — 取地址运算符</span><br><span class="line">    *  — 解引用运算符（取指针指向的值）</span><br><span class="line">    </span><br><span class="line">    *p = 20;        // 通过指针修改 a 的值，现在 a = 20</span><br><span class="line"></span><br><span class="line">指针与数组：</span><br><span class="line">    int a[5] = &#123;1,2,3,4,5&#125;;</span><br><span class="line">    int *p = a;     // p 指向 a[0]</span><br><span class="line">    *(p+2) == a[2]  // 指针算术</span><br><span class="line"></span><br><span class="line">指针作为函数参数（地址传递）：</span><br><span class="line">    void swap(int *a, int *b) &#123;</span><br><span class="line">        int temp = *a;</span><br><span class="line">        *a = *b;</span><br><span class="line">        *b = temp;</span><br><span class="line">    &#125;</span><br><span class="line">    调用: swap(&amp;x, &amp;y);</span><br><span class="line"></span><br><span class="line">指针的大小：</span><br><span class="line">    32位系统：4字节</span><br><span class="line">    64位系统：8字节（与指向的类型无关）</span><br></pre></td></tr></table></figure>
-
-<h3 id="✏️-练习题5：用指针实现数组求最大最小值"><a href="#✏️-练习题5：用指针实现数组求最大最小值" class="headerlink" title="✏️ 练习题5：用指针实现数组求最大最小值"></a>✏️ 练习题5：用指针实现数组求最大最小值</h3><blockquote>
-<p><strong>题目</strong>：输入 n 个整数，用指针方式遍历数组，求最大值和最小值，通过指针参数返回。</p>
-</blockquote>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line"></span><br><span class="line">void findMinMax(int *arr, int n, int *max, int *min) &#123;</span><br><span class="line">    *max = arr[0];</span><br><span class="line">    *min = arr[0];</span><br><span class="line">    for (int i = 1; i &lt; n; i++) &#123;</span><br><span class="line">        if (*(arr + i) &gt; *max) *max = *(arr + i);</span><br><span class="line">        if (*(arr + i) &lt; *min) *min = *(arr + i);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">    int n;</span><br><span class="line">    scanf(&quot;%d&quot;, &amp;n);</span><br><span class="line">    </span><br><span class="line">    int a[100];</span><br><span class="line">    for (int i = 0; i &lt; n; i++)</span><br><span class="line">        scanf(&quot;%d&quot;, &amp;a[i]);</span><br><span class="line">    </span><br><span class="line">    int max, min;</span><br><span class="line">    findMinMax(a, n, &amp;max, &amp;min);</span><br><span class="line">    </span><br><span class="line">    printf(&quot;最大值: %d\n最小值: %d\n&quot;, max, min);</span><br><span class="line">    </span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>算法</category>
-      </categories>
-      <tags>
-        <tag>C语言</tag>
-        <tag>指针</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>数据库·栏目介绍</title>
-    <url>/2026/03/09/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%BC%80%E7%AF%87/</url>
-    <content><![CDATA[<blockquote>
-<p>这里记录数据库相关的学习笔记与实战经验。</p>
-</blockquote>
-<span id="more"></span>
-
-<h2 id="📌-本栏目内容"><a href="#📌-本栏目内容" class="headerlink" title="📌 本栏目内容"></a>📌 本栏目内容</h2><p>本栏目将持续更新以下方向的技术文章：</p>
-<ul>
-<li><strong>MySQL</strong> 基础与进阶</li>
-<li><strong>数据库设计</strong> 范式与 ER 图</li>
-<li><strong>SQL 优化</strong> 索引与查询性能</li>
-<li><strong>数据库原理</strong> 课程学习笔记</li>
-</ul>
-<blockquote>
-<p>持续更新中，敬请期待 🚀</p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>数据库</category>
-      </categories>
-      <tags>
-        <tag>数据库</tag>
-        <tag>MySQL</tag>
       </tags>
   </entry>
   <entry>
@@ -453,20 +332,48 @@
       </tags>
   </entry>
   <entry>
-    <title>查找算法</title>
-    <url>/2026/03/11/%E6%9F%A5%E6%89%BE/</url>
-    <content><![CDATA[<h1 id="📕-第三部分：查找算法"><a href="#📕-第三部分：查找算法" class="headerlink" title="📕 第三部分：查找算法"></a>📕 第三部分：查找算法</h1><hr>
-<h2 id="第14讲：顺序查找与二分查找"><a href="#第14讲：顺序查找与二分查找" class="headerlink" title="第14讲：顺序查找与二分查找"></a>第14讲：顺序查找与二分查找</h2><h3 id="🔑-知识点讲解"><a href="#🔑-知识点讲解" class="headerlink" title="🔑 知识点讲解"></a>🔑 知识点讲解</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">1. 顺序查找（线性查找）</span><br><span class="line">   从头到尾逐个比较</span><br><span class="line">   时间：O(n)</span><br><span class="line">   适用：无序数组</span><br><span class="line"></span><br><span class="line">2. 二分查找（折半查找）⭐</span><br><span class="line">   前提：数组必须有序</span><br><span class="line">   每次取中间元素比较，将搜索范围缩小一半</span><br><span class="line">   时间：O(logn)</span><br><span class="line"></span><br><span class="line">   关键细节（面试爱问）：</span><br><span class="line">   - mid = left + (right - left) / 2  （防溢出，不用 (left+right)/2）</span><br><span class="line">   - 循环条件：left &lt;= right</span><br><span class="line">   - 找到返回下标，找不到返回 -1</span><br><span class="line"></span><br><span class="line">二分查找的变体（重点）：</span><br><span class="line">   - 查找第一个等于target的位置</span><br><span class="line">   - 查找最后一个等于target的位置</span><br><span class="line">   - 查找第一个大于等于target的位置</span><br><span class="line">   - 查找最后一个小于等于target的位置</span><br></pre></td></tr></table></figure>
+    <title>指针基础</title>
+    <url>/2026/03/10/%E6%8C%87%E9%92%88%E5%9F%BA%E7%A1%80/</url>
+    <content><![CDATA[<h2 id="第5讲：指针基础"><a href="#第5讲：指针基础" class="headerlink" title="第5讲：指针基础"></a>第5讲：指针基础</h2><h3 id="🔑-知识点讲解"><a href="#🔑-知识点讲解" class="headerlink" title="🔑 知识点讲解"></a>🔑 知识点讲解</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">指针是存放地址的变量。</span><br><span class="line"></span><br><span class="line">声明：</span><br><span class="line">    int a = 10;</span><br><span class="line">    int *p = &amp;a;    // p 存储 a 的地址</span><br><span class="line">    </span><br><span class="line">操作符：</span><br><span class="line">    &amp;  — 取地址运算符</span><br><span class="line">    *  — 解引用运算符（取指针指向的值）</span><br><span class="line">    </span><br><span class="line">    *p = 20;        // 通过指针修改 a 的值，现在 a = 20</span><br><span class="line"></span><br><span class="line">指针与数组：</span><br><span class="line">    int a[5] = &#123;1,2,3,4,5&#125;;</span><br><span class="line">    int *p = a;     // p 指向 a[0]</span><br><span class="line">    *(p+2) == a[2]  // 指针算术</span><br><span class="line"></span><br><span class="line">指针作为函数参数（地址传递）：</span><br><span class="line">    void swap(int *a, int *b) &#123;</span><br><span class="line">        int temp = *a;</span><br><span class="line">        *a = *b;</span><br><span class="line">        *b = temp;</span><br><span class="line">    &#125;</span><br><span class="line">    调用: swap(&amp;x, &amp;y);</span><br><span class="line"></span><br><span class="line">指针的大小：</span><br><span class="line">    32位系统：4字节</span><br><span class="line">    64位系统：8字节（与指向的类型无关）</span><br></pre></td></tr></table></figure>
 
-<h3 id="✏️-练习题9：二分查找及其变体"><a href="#✏️-练习题9：二分查找及其变体" class="headerlink" title="✏️ 练习题9：二分查找及其变体"></a>✏️ 练习题9：二分查找及其变体</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line"></span><br><span class="line">// 标准二分查找</span><br><span class="line">int binarySearch(int a[], int n, int target) &#123;</span><br><span class="line">    int left = 0, right = n - 1;</span><br><span class="line">    while (left &lt;= right) &#123;</span><br><span class="line">        int mid = left + (right - left) / 2;</span><br><span class="line">        if (a[mid] == target) return mid;</span><br><span class="line">        else if (a[mid] &lt; target) left = mid + 1;</span><br><span class="line">        else right = mid - 1;</span><br><span class="line">    &#125;</span><br><span class="line">    return -1;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 查找第一个等于target的位置</span><br><span class="line">int findFirst(int a[], int n, int target) &#123;</span><br><span class="line">    int left = 0, right = n - 1, result = -1;</span><br><span class="line">    while (left &lt;= right) &#123;</span><br><span class="line">        int mid = left + (right - left) / 2;</span><br><span class="line">        if (a[mid] == target) &#123;</span><br><span class="line">            result = mid;</span><br><span class="line">            right = mid - 1;  // 继续往左找</span><br><span class="line">        &#125; else if (a[mid] &lt; target) &#123;</span><br><span class="line">            left = mid + 1;</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            right = mid - 1;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return result;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 查找最后一个等于target的位置</span><br><span class="line">int findLast(int a[], int n, int target) &#123;</span><br><span class="line">    int left = 0, right = n - 1, result = -1;</span><br><span class="line">    while (left &lt;= right) &#123;</span><br><span class="line">        int mid = left + (right - left) / 2;</span><br><span class="line">        if (a[mid] == target) &#123;</span><br><span class="line">            result = mid;</span><br><span class="line">            left = mid + 1;  // 继续往右找</span><br><span class="line">        &#125; else if (a[mid] &lt; target) &#123;</span><br><span class="line">            left = mid + 1;</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            right = mid - 1;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return result;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">    int a[] = &#123;1, 3, 3, 3, 5, 7, 9&#125;;</span><br><span class="line">    int n = 7;</span><br><span class="line">    </span><br><span class="line">    printf(&quot;查找3的位置: %d\n&quot;, binarySearch(a, n, 3));</span><br><span class="line">    printf(&quot;第一个3的位置: %d\n&quot;, findFirst(a, n, 3));</span><br><span class="line">    printf(&quot;最后一个3的位置: %d\n&quot;, findLast(a, n, 3));</span><br><span class="line">    </span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><strong>输出</strong>：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">查找3的位置: 2</span><br><span class="line">第一个3的位置: 1</span><br><span class="line">最后一个3的位置: 3</span><br></pre></td></tr></table></figure>]]></content>
+<h3 id="✏️-练习题5：用指针实现数组求最大最小值"><a href="#✏️-练习题5：用指针实现数组求最大最小值" class="headerlink" title="✏️ 练习题5：用指针实现数组求最大最小值"></a>✏️ 练习题5：用指针实现数组求最大最小值</h3><blockquote>
+<p><strong>题目</strong>：输入 n 个整数，用指针方式遍历数组，求最大值和最小值，通过指针参数返回。</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line"></span><br><span class="line">void findMinMax(int *arr, int n, int *max, int *min) &#123;</span><br><span class="line">    *max = arr[0];</span><br><span class="line">    *min = arr[0];</span><br><span class="line">    for (int i = 1; i &lt; n; i++) &#123;</span><br><span class="line">        if (*(arr + i) &gt; *max) *max = *(arr + i);</span><br><span class="line">        if (*(arr + i) &lt; *min) *min = *(arr + i);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">    int n;</span><br><span class="line">    scanf(&quot;%d&quot;, &amp;n);</span><br><span class="line">    </span><br><span class="line">    int a[100];</span><br><span class="line">    for (int i = 0; i &lt; n; i++)</span><br><span class="line">        scanf(&quot;%d&quot;, &amp;a[i]);</span><br><span class="line">    </span><br><span class="line">    int max, min;</span><br><span class="line">    findMinMax(a, n, &amp;max, &amp;min);</span><br><span class="line">    </span><br><span class="line">    printf(&quot;最大值: %d\n最小值: %d\n&quot;, max, min);</span><br><span class="line">    </span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>算法</category>
       </categories>
       <tags>
-        <tag>算法</tag>
+        <tag>C语言</tag>
+        <tag>指针</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>工具箱·栏目介绍</title>
+    <url>/2026/03/09/%E5%B7%A5%E5%85%B7%E7%AE%B1%E5%BC%80%E7%AF%87/</url>
+    <content><![CDATA[<blockquote>
+<p>好的工具能让开发事半功倍，这里收录我日常使用的效率神器。</p>
+</blockquote>
+<span id="more"></span>
+
+<h2 id="📌-本栏目内容"><a href="#📌-本栏目内容" class="headerlink" title="📌 本栏目内容"></a>📌 本栏目内容</h2><p>本栏目将持续更新以下内容：</p>
+<ul>
+<li><strong>开发工具</strong> 配置与使用技巧（VS Code、Git 等）</li>
+<li><strong>AI 辅助编程</strong> 工具实践</li>
+<li><strong>实用脚本</strong> 与自动化工作流</li>
+<li><strong>好用插件</strong> 推荐与评测</li>
+<li><strong>效率提升</strong> 技巧与方法分享</li>
+</ul>
+<blockquote>
+<p>持续更新中，敬请期待 🚀</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>工具箱</category>
+      </categories>
+      <tags>
+        <tag>工具</tag>
+        <tag>效率</tag>
       </tags>
   </entry>
   <entry>
@@ -580,30 +487,96 @@
       </tags>
   </entry>
   <entry>
-    <title>随笔·栏目介绍</title>
-    <url>/2026/03/09/%E9%9A%8F%E7%AC%94%E5%BC%80%E7%AF%87/</url>
+    <title>数组</title>
+    <url>/2026/03/10/%E6%95%B0%E7%BB%84/</url>
+    <content><![CDATA[<h1 id="第一讲–一维数组"><a href="#第一讲–一维数组" class="headerlink" title="第一讲–一维数组"></a>第一讲–一维数组</h1> <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">一维数组是相同类型元素的连续存储集合。 </span><br><span class="line"></span><br><span class="line">声明方式：    int a[10];          // 声明一个长度为10的整型数组   </span><br><span class="line"></span><br><span class="line"> int a[] = &#123;1,2,3&#125;;  // 声明并初始化，长度自动推断为3    </span><br><span class="line"></span><br><span class="line">int a[5] = &#123;0&#125;;     // 全部初始化为0 </span><br><span class="line"></span><br><span class="line">关键点： 1. 数组下标从 0 开始，a[0] 是第一个元素 </span><br><span class="line"></span><br><span class="line">2. 数组名 a 代表首元素地址（与指针密切相关） </span><br><span class="line">3. 数组越界访问是未定义行为（不会报错但很危险） </span><br><span class="line">4. 数组作为函数参数时，退化为指针，不携带长度信息</span><br></pre></td></tr></table></figure>
+
+<h3 id="✏️-练习题1：数组元素逆序"><a href="#✏️-练习题1：数组元素逆序" class="headerlink" title="✏️ 练习题1：数组元素逆序"></a>✏️ 练习题1：数组元素逆序</h3><blockquote>
+<p><strong>题目</strong>：输入 n 个整数存入数组，将数组元素逆序后输出。</p>
+<p><strong>输入示例</strong>：<code>5</code> → <code>1 2 3 4 5</code><br><strong>输出示例</strong>：<code>5 4 3 2 1</code></p>
+</blockquote>
+<p>   <strong>思路分析</strong>：</p>
+<ul>
+<li>用两个指针（下标）<code>i</code> 和 <code>j</code>，分别指向头和尾</li>
+<li>交换 <code>a[i]</code> 和 <code>a[j]</code>，然后 <code>i++</code>，<code>j--</code></li>
+<li>直到 <code>i &gt;= j</code></li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">    int n;</span><br><span class="line">    scanf(&quot;%d&quot;, &amp;n);</span><br><span class="line">    </span><br><span class="line">    int a[100];</span><br><span class="line">    for (int i = 0; i &lt; n; i++) &#123;</span><br><span class="line">        scanf(&quot;%d&quot;, &amp;a[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    // 逆序：首尾交换</span><br><span class="line">    int i = 0, j = n - 1;</span><br><span class="line">    while (i &lt; j) &#123;</span><br><span class="line">        int temp = a[i];</span><br><span class="line">        a[i] = a[j];</span><br><span class="line">        a[j] = temp;</span><br><span class="line">        i++;</span><br><span class="line">        j--;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    // 输出</span><br><span class="line">    for (int i = 0; i &lt; n; i++) &#123;</span><br><span class="line">        printf(&quot;%d &quot;, a[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    printf(&quot;\n&quot;);</span><br><span class="line">    </span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>复杂度</strong>：时间 O(n)，空间 O(1)</p>
+<p><code>#include &lt;stdio.h&gt;</code><br><code>// 函数声明</code><br><code>void reverseeArr(int *arr, int n);</code><br><code>int main()</code><br><code>{</code><br>    <code>int n = 0;</code><br>    <code>printf(&quot;Enter the size of the array: &quot;);</code><br>    <code>scanf(&quot;%d&quot;, &amp;n);</code><br>    <code>int arr[n];</code><br>    <code>for (int i = 0; i &lt; n; i++)</code><br>    <code>{</code><br>        <code>scanf(&quot;%d&quot;, &amp;arr[i]);</code><br>    <code>}</code><br>    <code>reverseeArr(arr, n);</code><br>    <code>printf(&quot;Reversed array: &quot;);</code><br>    <code>for (int i = 0; i &lt; n; i++)</code><br>    <code>{</code><br>        <code>printf(&quot;%d &quot;, arr[i]);</code><br>    <code>}</code><br>    <code>printf(&quot;\n&quot;);</code><br><code>}</code></p>
+<p><code>void reverseeArr(int *arr, int n) {     //*arr是数组的第一个元素，arr是数组的地址，*的作用是解构数组地址，获取数组的第一个元素的值</code><br>    <code>printf(&quot;%d &quot;, *arr);</code><br>    <code>int i = 0, j = n - 1;</code><br>    <code>for (i = 0; i &lt; j; i++, j--)</code><br>    <code>{</code><br>        <code>int temp = arr[i];</code><br>        <code>arr[i] = arr[j];</code><br>        <code>arr[j] = temp;</code><br>    <code>}</code><br><code>}</code></p>
+<h1 id="第二讲–二维数组"><a href="#第二讲–二维数组" class="headerlink" title="第二讲–二维数组"></a>第二讲–二维数组</h1><h2 id="第2讲：二维数组"><a href="#第2讲：二维数组" class="headerlink" title="第2讲：二维数组"></a>第2讲：二维数组</h2><h3 id="🔑-知识点讲解"><a href="#🔑-知识点讲解" class="headerlink" title="🔑 知识点讲解"></a>🔑 知识点讲解</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">二维数组可看作&quot;数组的数组&quot;，即矩阵。</span><br><span class="line"></span><br><span class="line">声明方式：</span><br><span class="line">    int a[3][4];                     // 3行4列</span><br><span class="line">    int a[2][3] = &#123;&#123;1,2,3&#125;,&#123;4,5,6&#125;&#125;; // 初始化</span><br><span class="line"></span><br><span class="line">内存布局：</span><br><span class="line">    行优先存储（C语言），即 a[0][0], a[0][1], ..., a[0][3], a[1][0], ...</span><br><span class="line"></span><br><span class="line">访问：a[i][j] 表示第 i 行第 j 列</span><br><span class="line"></span><br><span class="line">作为函数参数时，第一维可以省略，第二维不能省略：</span><br><span class="line">    void func(int a[][4], int rows);</span><br></pre></td></tr></table></figure>
+
+<h3 id="✏️-练习题2：矩阵转置"><a href="#✏️-练习题2：矩阵转置" class="headerlink" title="✏️ 练习题2：矩阵转置"></a>✏️ 练习题2：矩阵转置</h3><blockquote>
+<p><strong>题目</strong>：输入一个 m×n 的矩阵，输出它的转置矩阵（n×m）。</p>
+<p><strong>输入示例</strong>：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">2 3</span><br><span class="line">1 2 3</span><br><span class="line">4 5 6</span><br></pre></td></tr></table></figure>
+
+<p><strong>输出示例</strong>：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">1 4</span><br><span class="line">2 5</span><br><span class="line">3 6</span><br></pre></td></tr></table></figure></blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">    int m, n;</span><br><span class="line">    scanf(&quot;%d %d&quot;, &amp;m, &amp;n);</span><br><span class="line">    </span><br><span class="line">    int a[100][100], b[100][100];</span><br><span class="line">    </span><br><span class="line">    // 读入矩阵</span><br><span class="line">    for (int i = 0; i &lt; m; i++)</span><br><span class="line">        for (int j = 0; j &lt; n; j++)</span><br><span class="line">            scanf(&quot;%d&quot;, &amp;a[i][j]);</span><br><span class="line">    </span><br><span class="line">    // 转置：b[j][i] = a[i][j]</span><br><span class="line">    for (int i = 0; i &lt; m; i++)</span><br><span class="line">        for (int j = 0; j &lt; n; j++)</span><br><span class="line">            b[j][i] = a[i][j];</span><br><span class="line">    </span><br><span class="line">    // 输出转置后的矩阵 (n行m列)</span><br><span class="line">    for (int i = 0; i &lt; n; i++) &#123;</span><br><span class="line">        for (int j = 0; j &lt; m; j++) &#123;</span><br><span class="line">            printf(&quot;%d &quot;, b[i][j]);</span><br><span class="line">        &#125;</span><br><span class="line">        printf(&quot;\n&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="第3讲：字符数组与字符串"><a href="#第3讲：字符数组与字符串" class="headerlink" title="第3讲：字符数组与字符串"></a>第3讲：字符数组与字符串</h2><h3 id="🔑-知识点讲解-1"><a href="#🔑-知识点讲解-1" class="headerlink" title="🔑 知识点讲解"></a><strong>🔑</strong> 知识点讲解</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">C 无 string 类型，字符串 = 字符数组 + \0 结尾</span><br><span class="line">char s[20];</span><br><span class="line">char s[]=&quot;hello&quot;;      // 自动带 \0</span><br><span class="line">char s[]=&#123;&#x27;h&#x27;,&#x27;e&#x27;,&#x27;l&#x27;,&#x27;l&#x27;,&#x27;o&#x27;,&#x27;\0&#x27;&#125;;</span><br><span class="line"></span><br><span class="line">常用函数（#include &lt;string.h&gt;）</span><br><span class="line">strlen(s) 长度（不含 \0）→ s：字符串</span><br><span class="line">strcpy(dst,src) 复制 src 到 dst → dst：目标数组，src：源字符串</span><br><span class="line">strcmp(s1,s2) 比较 s1/s2 → 返回 0 = 相等</span><br><span class="line">strcat(dst,src) 拼接 src 到 dst 后 → dst：目标数组，src：源字符串</span><br><span class="line">输入</span><br><span class="line">scanf(&quot;%s&quot;,s) 遇空格 / 换行停止 → s：字符数组</span><br><span class="line">fgets(s,n,stdin) 安全读整行 → s：数组，n：最大长度，stdin：标准输入</span><br><span class="line">输出</span><br><span class="line">printf(&quot;%s&quot;,s) 输出字符串 → s：数组</span><br><span class="line">puts(s) 输出 + 自动换行 → s：数组</span><br></pre></td></tr></table></figure>
+
+<h3 id="✏️-练习题3：统计字符串中各类字符个数"><a href="#✏️-练习题3：统计字符串中各类字符个数" class="headerlink" title="✏️ 练习题3：统计字符串中各类字符个数"></a>✏️ 练习题3：统计字符串中各类字符个数</h3><blockquote>
+<p><strong>题目</strong>：输入一行字符串，统计其中字母、数字、空格和其他字符的个数。</p>
+<p><strong>输入</strong>：<code>Hello World! 123</code><br><strong>输出</strong>：<code>字母:10 数字:3 空格:2 其他:1</code></p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">#include &lt;ctype.h&gt;</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">    char s[200];</span><br><span class="line">    fgets(s, 200, stdin);  // 读取一行</span><br><span class="line">    </span><br><span class="line">    int letter = 0, digit = 0, space = 0, other = 0;</span><br><span class="line">    </span><br><span class="line">    for (int i = 0; s[i] != &#x27;\0&#x27; &amp;&amp; s[i] != &#x27;\n&#x27;; i++) &#123;</span><br><span class="line">        if (isalpha(s[i]))      letter++;</span><br><span class="line">        else if (isdigit(s[i])) digit++;</span><br><span class="line">        else if (s[i] == &#x27; &#x27;)   space++;</span><br><span class="line">        else                    other++;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    printf(&quot;字母:%d 数字:%d 空格:%d 其他:%d\n&quot;, </span><br><span class="line">           letter, digit, space, other);</span><br><span class="line">    </span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 输入一行字符串，计算其中的空格，数字，字母的个数，并输出结果。</span><br><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">#include &lt;string.h&gt;</span><br><span class="line">int main()</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">    char str[100];</span><br><span class="line">    int space_count = 0, digit_count = 0, letter_count = 0; int others_count = 0;</span><br><span class="line">    printf(&quot;请输入一行字符串：&quot;);</span><br><span class="line">    // 使用fgets函数读取输入，避免缓冲区溢出,sizeof(str)==strlen(str)吗？不一定，sizeof(str)是数组的总大小，而strlen(str)是字符串的实际长度，可能小于sizeof(str)。因此，使用fgets可以确保不会超过数组的大小，避免缓冲区溢出。</span><br><span class="line">    fgets(str, sizeof(str), stdin);</span><br><span class="line">    for (int i = 0; str[i] != &#x27;\0&#x27;; i++) &#123;</span><br><span class="line">        printf(&quot;%c &quot;, str[i]);</span><br><span class="line">        if (str[i] == &#x27; &#x27;) &#123;</span><br><span class="line">            space_count++;</span><br><span class="line">        &#125; else if (str[i] &gt;= &#x27;0&#x27; &amp;&amp; str[i] &lt;= &#x27;9&#x27;) &#123;</span><br><span class="line">            digit_count++;</span><br><span class="line">        &#125; else if ((str[i] &gt;= &#x27;A&#x27; &amp;&amp; str[i] &lt;= &#x27;Z&#x27;) || (str[i] &gt;= &#x27;a&#x27; &amp;&amp; str[i] &lt;= &#x27;z&#x27;)) &#123;</span><br><span class="line">            letter_count++;</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            others_count++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    printf(&quot;空格的个数：%d\n&quot;, space_count);</span><br><span class="line">    printf(&quot;数字的个数：%d\n&quot;, digit_count);</span><br><span class="line">    printf(&quot;字母的个数：%d\n&quot;, letter_count);</span><br><span class="line">    printf(&quot;其他字符的个数：%d\n&quot;, others_count);</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>算法</category>
+      </categories>
+      <tags>
+        <tag>算法</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>数据库·栏目介绍</title>
+    <url>/2026/03/09/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%BC%80%E7%AF%87/</url>
     <content><![CDATA[<blockquote>
-<p>技术之外，也要好好生活。这里是我的文字角落。</p>
+<p>这里记录数据库相关的学习笔记与实战经验。</p>
 </blockquote>
 <span id="more"></span>
 
-<h2 id="📌-本栏目内容"><a href="#📌-本栏目内容" class="headerlink" title="📌 本栏目内容"></a>📌 本栏目内容</h2><p>不谈技术，只聊生活：</p>
+<h2 id="📌-本栏目内容"><a href="#📌-本栏目内容" class="headerlink" title="📌 本栏目内容"></a>📌 本栏目内容</h2><p>本栏目将持续更新以下方向的技术文章：</p>
 <ul>
-<li>校园日常与成长感悟</li>
-<li>竞赛备赛的心路历程</li>
-<li>读书笔记与思考随录</li>
-<li>生活中值得记录的小事</li>
+<li><strong>MySQL</strong> 基础与进阶</li>
+<li><strong>数据库设计</strong> 范式与 ER 图</li>
+<li><strong>SQL 优化</strong> 索引与查询性能</li>
+<li><strong>数据库原理</strong> 课程学习笔记</li>
 </ul>
 <blockquote>
-<p>慢慢更新，随心而写 ✍️</p>
+<p>持续更新中，敬请期待 🚀</p>
 </blockquote>
 ]]></content>
       <categories>
-        <category>随笔</category>
+        <category>数据库</category>
       </categories>
       <tags>
-        <tag>随笔</tag>
-        <tag>生活</tag>
+        <tag>数据库</tag>
+        <tag>MySQL</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>查找算法</title>
+    <url>/2026/03/11/%E6%9F%A5%E6%89%BE/</url>
+    <content><![CDATA[<h1 id="📕-第三部分：查找算法"><a href="#📕-第三部分：查找算法" class="headerlink" title="📕 第三部分：查找算法"></a>📕 第三部分：查找算法</h1><hr>
+<h2 id="第14讲：顺序查找与二分查找"><a href="#第14讲：顺序查找与二分查找" class="headerlink" title="第14讲：顺序查找与二分查找"></a>第14讲：顺序查找与二分查找</h2><h3 id="🔑-知识点讲解"><a href="#🔑-知识点讲解" class="headerlink" title="🔑 知识点讲解"></a>🔑 知识点讲解</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">1. 顺序查找（线性查找）</span><br><span class="line">   从头到尾逐个比较</span><br><span class="line">   时间：O(n)</span><br><span class="line">   适用：无序数组</span><br><span class="line"></span><br><span class="line">2. 二分查找（折半查找）⭐</span><br><span class="line">   前提：数组必须有序</span><br><span class="line">   每次取中间元素比较，将搜索范围缩小一半</span><br><span class="line">   时间：O(logn)</span><br><span class="line"></span><br><span class="line">   关键细节（面试爱问）：</span><br><span class="line">   - mid = left + (right - left) / 2  （防溢出，不用 (left+right)/2）</span><br><span class="line">   - 循环条件：left &lt;= right</span><br><span class="line">   - 找到返回下标，找不到返回 -1</span><br><span class="line"></span><br><span class="line">二分查找的变体（重点）：</span><br><span class="line">   - 查找第一个等于target的位置</span><br><span class="line">   - 查找最后一个等于target的位置</span><br><span class="line">   - 查找第一个大于等于target的位置</span><br><span class="line">   - 查找最后一个小于等于target的位置</span><br></pre></td></tr></table></figure>
+
+<h3 id="✏️-练习题9：二分查找及其变体"><a href="#✏️-练习题9：二分查找及其变体" class="headerlink" title="✏️ 练习题9：二分查找及其变体"></a>✏️ 练习题9：二分查找及其变体</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line"></span><br><span class="line">// 标准二分查找</span><br><span class="line">int binarySearch(int a[], int n, int target) &#123;</span><br><span class="line">    int left = 0, right = n - 1;</span><br><span class="line">    while (left &lt;= right) &#123;</span><br><span class="line">        int mid = left + (right - left) / 2;</span><br><span class="line">        if (a[mid] == target) return mid;</span><br><span class="line">        else if (a[mid] &lt; target) left = mid + 1;</span><br><span class="line">        else right = mid - 1;</span><br><span class="line">    &#125;</span><br><span class="line">    return -1;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 查找第一个等于target的位置</span><br><span class="line">int findFirst(int a[], int n, int target) &#123;</span><br><span class="line">    int left = 0, right = n - 1, result = -1;</span><br><span class="line">    while (left &lt;= right) &#123;</span><br><span class="line">        int mid = left + (right - left) / 2;</span><br><span class="line">        if (a[mid] == target) &#123;</span><br><span class="line">            result = mid;</span><br><span class="line">            right = mid - 1;  // 继续往左找</span><br><span class="line">        &#125; else if (a[mid] &lt; target) &#123;</span><br><span class="line">            left = mid + 1;</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            right = mid - 1;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return result;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 查找最后一个等于target的位置</span><br><span class="line">int findLast(int a[], int n, int target) &#123;</span><br><span class="line">    int left = 0, right = n - 1, result = -1;</span><br><span class="line">    while (left &lt;= right) &#123;</span><br><span class="line">        int mid = left + (right - left) / 2;</span><br><span class="line">        if (a[mid] == target) &#123;</span><br><span class="line">            result = mid;</span><br><span class="line">            left = mid + 1;  // 继续往右找</span><br><span class="line">        &#125; else if (a[mid] &lt; target) &#123;</span><br><span class="line">            left = mid + 1;</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            right = mid - 1;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return result;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">    int a[] = &#123;1, 3, 3, 3, 5, 7, 9&#125;;</span><br><span class="line">    int n = 7;</span><br><span class="line">    </span><br><span class="line">    printf(&quot;查找3的位置: %d\n&quot;, binarySearch(a, n, 3));</span><br><span class="line">    printf(&quot;第一个3的位置: %d\n&quot;, findFirst(a, n, 3));</span><br><span class="line">    printf(&quot;最后一个3的位置: %d\n&quot;, findLast(a, n, 3));</span><br><span class="line">    </span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>输出</strong>：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">查找3的位置: 2</span><br><span class="line">第一个3的位置: 1</span><br><span class="line">最后一个3的位置: 3</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>算法</category>
+      </categories>
+      <tags>
+        <tag>算法</tag>
       </tags>
   </entry>
   <entry>
@@ -659,5 +632,78 @@
       <tags>
         <tag>算法</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>随笔·栏目介绍</title>
+    <url>/2026/03/09/%E9%9A%8F%E7%AC%94%E5%BC%80%E7%AF%87/</url>
+    <content><![CDATA[<blockquote>
+<p>技术之外，也要好好生活。这里是我的文字角落。</p>
+</blockquote>
+<span id="more"></span>
+
+<h2 id="📌-本栏目内容"><a href="#📌-本栏目内容" class="headerlink" title="📌 本栏目内容"></a>📌 本栏目内容</h2><p>不谈技术，只聊生活：</p>
+<ul>
+<li>校园日常与成长感悟</li>
+<li>竞赛备赛的心路历程</li>
+<li>读书笔记与思考随录</li>
+<li>生活中值得记录的小事</li>
+</ul>
+<blockquote>
+<p>慢慢更新，随心而写 ✍️</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>随笔</category>
+      </categories>
+      <tags>
+        <tag>随笔</tag>
+        <tag>生活</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>队列与栈</title>
+    <url>/2026/03/11/%E9%98%9F%E5%88%97%E4%B8%8E%E6%A0%88/</url>
+    <content><![CDATA[<h1 id="📒-第五部分：栈和队列"><a href="#📒-第五部分：栈和队列" class="headerlink" title="📒 第五部分：栈和队列"></a>📒 第五部分：栈和队列</h1><hr>
+<h2 id="第17讲：栈（Stack）⭐"><a href="#第17讲：栈（Stack）⭐" class="headerlink" title="第17讲：栈（Stack）⭐"></a>第17讲：栈（Stack）⭐</h2><h3 id="🔑-知识点讲解"><a href="#🔑-知识点讲解" class="headerlink" title="🔑 知识点讲解"></a>🔑 知识点讲解</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">栈：后进先出（LIFO, Last In First Out）</span><br><span class="line"></span><br><span class="line">操作：</span><br><span class="line">    push(x)  — 入栈</span><br><span class="line">    pop()    — 出栈</span><br><span class="line">    top()    — 查看栈顶</span><br><span class="line">    isEmpty()— 判空</span><br><span class="line"></span><br><span class="line">实现方式：</span><br><span class="line">    1. 数组实现（顺序栈）</span><br><span class="line">    2. 链表实现（链栈）</span><br><span class="line"></span><br><span class="line">应用场景：</span><br><span class="line">    - 括号匹配 ⭐</span><br><span class="line">    - 表达式求值（中缀→后缀）⭐</span><br><span class="line">    - 递归的模拟</span><br><span class="line">    - 浏览器前进后退</span><br><span class="line">    - DFS深度优先搜索</span><br></pre></td></tr></table></figure>
+
+<h3 id="数组实现栈"><a href="#数组实现栈" class="headerlink" title="数组实现栈"></a>数组实现栈</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">#define MAXSIZE 1000</span><br><span class="line"></span><br><span class="line">typedef struct &#123;</span><br><span class="line">    int data[MAXSIZE];</span><br><span class="line">    int top;  // 栈顶指针，-1表示空</span><br><span class="line">&#125; Stack;</span><br><span class="line"></span><br><span class="line">void initStack(Stack *s) &#123;</span><br><span class="line">    s-&gt;top = -1;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int isEmpty(Stack *s) &#123;</span><br><span class="line">    return s-&gt;top == -1;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int isFull(Stack *s) &#123;</span><br><span class="line">    return s-&gt;top == MAXSIZE - 1;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int push(Stack *s, int val) &#123;</span><br><span class="line">    if (isFull(s)) return 0;</span><br><span class="line">    s-&gt;data[++(s-&gt;top)] = val;</span><br><span class="line">    return 1;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int pop(Stack *s, int *val) &#123;</span><br><span class="line">    if (isEmpty(s)) return 0;</span><br><span class="line">    *val = s-&gt;data[(s-&gt;top)--];</span><br><span class="line">    return 1;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int top(Stack *s) &#123;</span><br><span class="line">    if (isEmpty(s)) return -1;</span><br><span class="line">    return s-&gt;data[s-&gt;top];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="✏️-练习题11：括号匹配"><a href="#✏️-练习题11：括号匹配" class="headerlink" title="✏️ 练习题11：括号匹配"></a>✏️ 练习题11：括号匹配</h3><blockquote>
+<p><strong>题目</strong>：判断一个字符串中的括号 <code>()</code>, <code>[]</code>, <code>{}</code> 是否匹配。</p>
+<p><strong>输入</strong>：<code>{[()]}</code> → <strong>输出</strong>：<code>匹配</code><br><strong>输入</strong>：<code>{[(])}</code> → <strong>输出</strong>：<code>不匹配</code></p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">#include &lt;string.h&gt;</span><br><span class="line"></span><br><span class="line">#define MAXSIZE 1000</span><br><span class="line"></span><br><span class="line">typedef struct &#123;</span><br><span class="line">    char data[MAXSIZE];</span><br><span class="line">    int top;</span><br><span class="line">&#125; CharStack;</span><br><span class="line"></span><br><span class="line">void init(CharStack *s) &#123; s-&gt;top = -1; &#125;</span><br><span class="line">int isEmpty(CharStack *s) &#123; return s-&gt;top == -1; &#125;</span><br><span class="line">void push(CharStack *s, char c) &#123; s-&gt;data[++(s-&gt;top)] = c; &#125;</span><br><span class="line">char pop_val(CharStack *s) &#123; return s-&gt;data[(s-&gt;top)--]; &#125;</span><br><span class="line"></span><br><span class="line">int isMatch(char left, char right) &#123;</span><br><span class="line">    return (left == &#x27;(&#x27; &amp;&amp; right == &#x27;)&#x27;) ||</span><br><span class="line">           (left == &#x27;[&#x27; &amp;&amp; right == &#x27;]&#x27;) ||</span><br><span class="line">           (left == &#x27;&#123;&#x27; &amp;&amp; right == &#x27;&#125;&#x27;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int checkBrackets(char *s) &#123;</span><br><span class="line">    CharStack stack;</span><br><span class="line">    init(&amp;stack);</span><br><span class="line">    </span><br><span class="line">    for (int i = 0; s[i]; i++) &#123;</span><br><span class="line">        char c = s[i];</span><br><span class="line">        if (c == &#x27;(&#x27; || c == &#x27;[&#x27; || c == &#x27;&#123;&#x27;) &#123;</span><br><span class="line">            push(&amp;stack, c);</span><br><span class="line">        &#125; else if (c == &#x27;)&#x27; || c == &#x27;]&#x27; || c == &#x27;&#125;&#x27;) &#123;</span><br><span class="line">            if (isEmpty(&amp;stack)) return 0;</span><br><span class="line">            char top = pop_val(&amp;stack);</span><br><span class="line">            if (!isMatch(top, c)) return 0;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return isEmpty(&amp;stack);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">    char s[200];</span><br><span class="line">    scanf(&quot;%s&quot;, s);</span><br><span class="line">    printf(&quot;%s\n&quot;, checkBrackets(s) ? &quot;匹配&quot; : &quot;不匹配&quot;);</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="第18讲：队列（Queue）⭐"><a href="#第18讲：队列（Queue）⭐" class="headerlink" title="第18讲：队列（Queue）⭐"></a>第18讲：队列（Queue）⭐</h2><h3 id="🔑-知识点讲解-1"><a href="#🔑-知识点讲解-1" class="headerlink" title="🔑 知识点讲解"></a>🔑 知识点讲解</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">队列：先进先出（FIFO, First In First Out）</span><br><span class="line"></span><br><span class="line">操作：</span><br><span class="line">    enqueue(x) — 入队（队尾）</span><br><span class="line">    dequeue()  — 出队（队头）</span><br><span class="line">    front()    — 查看队头</span><br><span class="line">    isEmpty()  — 判空</span><br><span class="line"></span><br><span class="line">实现方式：</span><br><span class="line">    1. 数组实现（顺序队列）→ 容易&quot;假溢出&quot;</span><br><span class="line">    2. 循环队列 ⭐ → 解决假溢出</span><br><span class="line">    3. 链队列</span><br><span class="line"></span><br><span class="line">循环队列关键公式：</span><br><span class="line">    队尾指针前进：rear = (rear + 1) % MAXSIZE</span><br><span class="line">    队头指针前进：front = (front + 1) % MAXSIZE</span><br><span class="line">    判空：front == rear</span><br><span class="line">    判满：(rear + 1) % MAXSIZE == front  （牺牲一个空间）</span><br><span class="line">    元素个数：(rear - front + MAXSIZE) % MAXSIZE</span><br><span class="line"></span><br><span class="line">应用场景：</span><br><span class="line">    - BFS广度优先搜索 ⭐</span><br><span class="line">    - 操作系统任务调度</span><br><span class="line">    - 缓冲区</span><br></pre></td></tr></table></figure>
+
+<h3 id="循环队列实现"><a href="#循环队列实现" class="headerlink" title="循环队列实现"></a>循环队列实现</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">#define MAXSIZE 100</span><br><span class="line"></span><br><span class="line">typedef struct &#123;</span><br><span class="line">    int data[MAXSIZE];</span><br><span class="line">    int front;</span><br><span class="line">    int rear;</span><br><span class="line">&#125; Queue;</span><br><span class="line"></span><br><span class="line">void initQueue(Queue *q) &#123;</span><br><span class="line">    q-&gt;front = 0;</span><br><span class="line">    q-&gt;rear = 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int isEmpty(Queue *q) &#123;</span><br><span class="line">    return q-&gt;front == q-&gt;rear;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int isFull(Queue *q) &#123;</span><br><span class="line">    return (q-&gt;rear + 1) % MAXSIZE == q-&gt;front;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int enqueue(Queue *q, int val) &#123;</span><br><span class="line">    if (isFull(q)) return 0;</span><br><span class="line">    q-&gt;data[q-&gt;rear] = val;</span><br><span class="line">    q-&gt;rear = (q-&gt;rear + 1) % MAXSIZE;</span><br><span class="line">    return 1;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int dequeue(Queue *q, int *val) &#123;</span><br><span class="line">    if (isEmpty(q)) return 0;</span><br><span class="line">    *val = q-&gt;data[q-&gt;front];</span><br><span class="line">    q-&gt;front = (q-&gt;front + 1) % MAXSIZE;</span><br><span class="line">    return 1;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int size(Queue *q) &#123;</span><br><span class="line">    return (q-&gt;rear - q-&gt;front + MAXSIZE) % MAXSIZE;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="✏️-练习题12：用两个栈实现队列"><a href="#✏️-练习题12：用两个栈实现队列" class="headerlink" title="✏️ 练习题12：用两个栈实现队列"></a>✏️ 练习题12：用两个栈实现队列</h3><blockquote>
+<p><strong>题目</strong>：用两个栈模拟队列的入队和出队操作。</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">#define MAXSIZE 1000</span><br><span class="line"></span><br><span class="line">typedef struct &#123;</span><br><span class="line">    int data[MAXSIZE];</span><br><span class="line">    int top;</span><br><span class="line">&#125; Stack;</span><br><span class="line"></span><br><span class="line">void init(Stack *s) &#123; s-&gt;top = -1; &#125;</span><br><span class="line">int isEmpty(Stack *s) &#123; return s-&gt;top == -1; &#125;</span><br><span class="line">void push(Stack *s, int x) &#123; s-&gt;data[++(s-&gt;top)] = x; &#125;</span><br><span class="line">int pop(Stack *s) &#123; return s-&gt;data[(s-&gt;top)--]; &#125;</span><br><span class="line"></span><br><span class="line">typedef struct &#123;</span><br><span class="line">    Stack s1;  // 用于入队</span><br><span class="line">    Stack s2;  // 用于出队</span><br><span class="line">&#125; MyQueue;</span><br><span class="line"></span><br><span class="line">void initQueue(MyQueue *q) &#123;</span><br><span class="line">    init(&amp;q-&gt;s1);</span><br><span class="line">    init(&amp;q-&gt;s2);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void enqueue(MyQueue *q, int x) &#123;</span><br><span class="line">    push(&amp;q-&gt;s1, x);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int dequeue(MyQueue *q) &#123;</span><br><span class="line">    if (isEmpty(&amp;q-&gt;s2)) &#123;</span><br><span class="line">        // 把 s1 的全部倒入 s2</span><br><span class="line">        while (!isEmpty(&amp;q-&gt;s1)) &#123;</span><br><span class="line">            push(&amp;q-&gt;s2, pop(&amp;q-&gt;s1));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    if (isEmpty(&amp;q-&gt;s2)) return -1;  // 队列为空</span><br><span class="line">    return pop(&amp;q-&gt;s2);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">    MyQueue q;</span><br><span class="line">    initQueue(&amp;q);</span><br><span class="line">    </span><br><span class="line">    enqueue(&amp;q, 1);</span><br><span class="line">    enqueue(&amp;q, 2);</span><br><span class="line">    enqueue(&amp;q, 3);</span><br><span class="line">    </span><br><span class="line">    printf(&quot;%d\n&quot;, dequeue(&amp;q));  // 1</span><br><span class="line">    printf(&quot;%d\n&quot;, dequeue(&amp;q));  // 2</span><br><span class="line">    </span><br><span class="line">    enqueue(&amp;q, 4);</span><br><span class="line">    printf(&quot;%d\n&quot;, dequeue(&amp;q));  // 3</span><br><span class="line">    printf(&quot;%d\n&quot;, dequeue(&amp;q));  // 4</span><br><span class="line">    </span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>算法</category>
+      </categories>
+      <tags>
+        <tag>算法</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title></title>
+    <url>/2026/03/11/%E8%B4%AA%E5%BF%83/</url>
+    <content><![CDATA[<hr>
+<h2 id="title-“贪心算法”date-2026-03-11tags-算法-categories-算法-description-记录c语言数据结构与算法的学习历程，涵盖数组、链表、栈、队列等数据结构的实现与应用。cover-https-img-mianfeiwendang-com-pic-f751ba96f78bf2509a9c3034-1-437-jpg-6-0-680-0-0-680-jpg"><a href="#title-“贪心算法”date-2026-03-11tags-算法-categories-算法-description-记录c语言数据结构与算法的学习历程，涵盖数组、链表、栈、队列等数据结构的实现与应用。cover-https-img-mianfeiwendang-com-pic-f751ba96f78bf2509a9c3034-1-437-jpg-6-0-680-0-0-680-jpg" class="headerlink" title="title: “贪心算法”date: 2026-03-11tags: [算法]categories: [算法]description: 记录c语言数据结构与算法的学习历程，涵盖数组、链表、栈、队列等数据结构的实现与应用。cover: https://img.mianfeiwendang.com/pic/f751ba96f78bf2509a9c3034/1-437-jpg_6_0_______-680-0-0-680.jpg"></a>title: “贪心算法”<br>date: 2026-03-11<br>tags: [算法]<br>categories: [算法]<br>description: 记录c语言数据结构与算法的学习历程，涵盖数组、链表、栈、队列等数据结构的实现与应用。<br>cover: <a href="https://img.mianfeiwendang.com/pic/f751ba96f78bf2509a9c3034/1-437-jpg_6_0_______-680-0-0-680.jpg">https://img.mianfeiwendang.com/pic/f751ba96f78bf2509a9c3034/1-437-jpg_6_0_______-680-0-0-680.jpg</a></h2><h1 id="📘-第八部分：贪心算法"><a href="#📘-第八部分：贪心算法" class="headerlink" title="📘 第八部分：贪心算法"></a>📘 第八部分：贪心算法</h1><h2 id="第30讲：贪心算法-⭐⭐"><a href="#第30讲：贪心算法-⭐⭐" class="headerlink" title="第30讲：贪心算法 ⭐⭐"></a>第30讲：贪心算法 ⭐⭐</h2><h3 id="🔑-知识点讲解"><a href="#🔑-知识点讲解" class="headerlink" title="🔑 知识点讲解"></a>🔑 知识点讲解</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">贪心策略：每一步都选择当前最优解，希望最终得到全局最优。</span><br><span class="line"></span><br><span class="line">适用条件：</span><br><span class="line">1. 贪心选择性质：局部最优能导致全局最优</span><br><span class="line">2. 最优子结构：问题的最优解包含子问题的最优解</span><br><span class="line"></span><br><span class="line">经典贪心问题：</span><br><span class="line">1. 活动选择（区间调度）</span><br><span class="line">2. 分数背包</span><br><span class="line">3. 哈夫曼编码</span><br><span class="line">4. Dijkstra最短路径</span><br><span class="line">5. Prim/Kruskal最小生成树</span><br><span class="line">6. 找零钱问题</span><br><span class="line"></span><br><span class="line">⚠️ 贪心不一定能得到最优解！</span><br><span class="line">   如0-1背包问题，贪心不行，需要动态规划。</span><br></pre></td></tr></table></figure>
+
+<h3 id="✏️-练习题14：活动选择问题"><a href="#✏️-练习题14：活动选择问题" class="headerlink" title="✏️ 练习题14：活动选择问题"></a>✏️ 练习题14：活动选择问题</h3><blockquote>
+<p><strong>题目</strong>：有 n 个活动，每个活动有开始时间和结束时间。同一时间只能参加一个活动，求最多能参加多少个活动。</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">#include &lt;stdlib.h&gt;</span><br><span class="line"></span><br><span class="line">typedef struct &#123;</span><br><span class="line">    int start, end;</span><br><span class="line">&#125; Activity;</span><br><span class="line"></span><br><span class="line">int cmp(const void *a, const void *b) &#123;</span><br><span class="line">    return ((Activity *)a)-&gt;end - ((Activity *)b)-&gt;end;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">    int n;</span><br><span class="line">    scanf(&quot;%d&quot;, &amp;n);</span><br><span class="line">    </span><br><span class="line">    Activity act[100];</span><br><span class="line">    for (int i = 0; i &lt; n; i++)</span><br><span class="line">        scanf(&quot;%d %d&quot;, &amp;act[i].start, &amp;act[i].end);</span><br><span class="line">    </span><br><span class="line">    // 贪心：按结束时间排序</span><br><span class="line">    qsort(act, n, sizeof(Activity), cmp);</span><br><span class="line">    </span><br><span class="line">    int count = 1;</span><br><span class="line">    int lastEnd = act[0].end;</span><br><span class="line">    </span><br><span class="line">    printf(&quot;选择活动: [%d,%d]&quot;, act[0].start, act[0].end);</span><br><span class="line">    </span><br><span class="line">    for (int i = 1; i &lt; n; i++) &#123;</span><br><span class="line">        if (act[i].start &gt;= lastEnd) &#123;</span><br><span class="line">            count++;</span><br><span class="line">            lastEnd = act[i].end;</span><br><span class="line">            printf(&quot; [%d,%d]&quot;, act[i].start, act[i].end);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    printf(&quot;\n最多参加 %d 个活动\n&quot;, count);</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="✏️-练习题15：分数背包问题"><a href="#✏️-练习题15：分数背包问题" class="headerlink" title="✏️ 练习题15：分数背包问题"></a>✏️ 练习题15：分数背包问题</h3><blockquote>
+<p><strong>题目</strong>：有 n 个物品，每个有重量和价值。背包容量为 W，物品可以分割。求最大价值。</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">#include &lt;stdlib.h&gt;</span><br><span class="line"></span><br><span class="line">typedef struct &#123;</span><br><span class="line">    double weight, value;</span><br><span class="line">    double ratio;  // 性价比</span><br><span class="line">&#125; Item;</span><br><span class="line"></span><br><span class="line">int cmp(const void *a, const void *b) &#123;</span><br><span class="line">    double diff = ((Item *)b)-&gt;ratio - ((Item *)a)-&gt;ratio;</span><br><span class="line">    return diff &gt; 0 ? 1 : (diff &lt; 0 ? -1 : 0);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">    int n;</span><br><span class="line">    double W;</span><br><span class="line">    scanf(&quot;%d %lf&quot;, &amp;n, &amp;W);</span><br><span class="line">    </span><br><span class="line">    Item items[100];</span><br><span class="line">    for (int i = 0; i &lt; n; i++) &#123;</span><br><span class="line">        scanf(&quot;%lf %lf&quot;, &amp;items[i].weight, &amp;items[i].value);</span><br><span class="line">        items[i].ratio = items[i].value / items[i].weight;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    // 按性价比降序排序</span><br><span class="line">    qsort(items, n, sizeof(Item), cmp);</span><br><span class="line">    </span><br><span class="line">    double totalValue = 0;</span><br><span class="line">    double remain = W;</span><br><span class="line">    </span><br><span class="line">    for (int i = 0; i &lt; n &amp;&amp; remain &gt; 0; i++) &#123;</span><br><span class="line">        if (items[i].weight &lt;= remain) &#123;</span><br><span class="line">            // 整个物品装入</span><br><span class="line">            totalValue += items[i].value;</span><br><span class="line">            remain -= items[i].weight;</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            // 装入部分</span><br><span class="line">            totalValue += remain * items[i].ratio;</span><br><span class="line">            remain = 0;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    printf(&quot;最大价值: %.2f\n&quot;, totalValue);</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
   </entry>
 </search>
