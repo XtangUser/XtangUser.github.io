@@ -73,6 +73,87 @@
       </tags>
   </entry>
   <entry>
+    <title>前端开发·栏目介绍</title>
+    <url>/2026/03/09/%E5%89%8D%E7%AB%AF%E5%BC%80%E7%AF%87/</url>
+    <content><![CDATA[<blockquote>
+<p>这里记录我在前端开发路上的学习成果与实践经验。</p>
+</blockquote>
+<span id="more"></span>
+
+<h2 id="📌-本栏目内容"><a href="#📌-本栏目内容" class="headerlink" title="📌 本栏目内容"></a>📌 本栏目内容</h2><p>本栏目将持续更新以下方向的技术文章：</p>
+<ul>
+<li><strong>Vue3</strong> 组件开发、状态管理、性能优化</li>
+<li><strong>HTML &#x2F; CSS &#x2F; JavaScript</strong> 基础与进阶</li>
+<li><strong>Three.js</strong> 3D 场景搭建与交互</li>
+<li><strong>uniapp</strong> 小程序跨端开发</li>
+<li><strong>AI 辅助编程</strong> 效率提升实践</li>
+</ul>
+<blockquote>
+<p>持续更新中，敬请期待 🚀</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>前端</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>嵌入式开发·栏目介绍</title>
+    <url>/2026/03/09/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%BC%80%E7%AF%87/</url>
+    <content><![CDATA[<blockquote>
+<p>这里记录我在嵌入式开发领域的学习积累与项目实践。</p>
+</blockquote>
+<span id="more"></span>
+
+<h2 id="📌-本栏目内容"><a href="#📌-本栏目内容" class="headerlink" title="📌 本栏目内容"></a>📌 本栏目内容</h2><p>本栏目将持续更新以下方向的技术文章：</p>
+<ul>
+<li><strong>STM32</strong> F1&#x2F;F4 系列开发与外设驱动</li>
+<li><strong>FreeRTOS</strong> 实时操作系统应用</li>
+<li><strong>传感器</strong> 选型、校准与数据采集</li>
+<li><strong>PCB 拓展板</strong> 设计与硬件调试</li>
+<li><strong>MQTT &#x2F; WiFi</strong> 物联网通信实践</li>
+</ul>
+<blockquote>
+<p>持续更新中，敬请期待 🚀</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>嵌入式</category>
+      </categories>
+      <tags>
+        <tag>嵌入式</tag>
+        <tag>STM32</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>后端开发·栏目介绍</title>
+    <url>/2026/03/09/%E5%90%8E%E7%AB%AF%E5%BC%80%E7%AF%87/</url>
+    <content><![CDATA[<blockquote>
+<p>这里记录我在后端开发路上的学习成果与项目经验。</p>
+</blockquote>
+<span id="more"></span>
+
+<h2 id="📌-本栏目内容"><a href="#📌-本栏目内容" class="headerlink" title="📌 本栏目内容"></a>📌 本栏目内容</h2><p>本栏目将持续更新以下方向的技术文章：</p>
+<ul>
+<li><strong>Java &#x2F; SpringBoot</strong> 后端开发与接口设计</li>
+<li><strong>Node.js</strong> 服务端开发</li>
+<li><strong>Docker &#x2F; Linux &#x2F; Nginx</strong> 部署与运维</li>
+<li><strong>数据库交互</strong> 与接口对接实践</li>
+</ul>
+<blockquote>
+<p>持续更新中，敬请期待 🚀</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>后端</category>
+      </categories>
+      <tags>
+        <tag>后端</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>嵌入式开发·基于stm32便携式污水监测船技术细节详解</title>
     <url>/2026/03/09/%E5%9F%BA%E4%BA%8Estm32%E4%BE%BF%E6%90%BA%E5%BC%8F%E6%B1%A1%E6%B0%B4%E7%9B%91%E6%B5%8B%E8%88%B9%E6%8A%80%E6%9C%AF%E7%BB%86%E8%8A%82%E8%AF%A6%E8%A7%A3/</url>
     <content><![CDATA[<h1 id="基于stm32便携式污水监测船技术细节详解"><a href="#基于stm32便携式污水监测船技术细节详解" class="headerlink" title="基于stm32便携式污水监测船技术细节详解"></a>基于stm32便携式污水监测船技术细节详解</h1><p>1.为什么选这款核心控制器：STM32F103C8T6</p>
@@ -242,115 +323,6 @@
       </tags>
   </entry>
   <entry>
-    <title>后端开发·栏目介绍</title>
-    <url>/2026/03/09/%E5%90%8E%E7%AB%AF%E5%BC%80%E7%AF%87/</url>
-    <content><![CDATA[<blockquote>
-<p>这里记录我在后端开发路上的学习成果与项目经验。</p>
-</blockquote>
-<span id="more"></span>
-
-<h2 id="📌-本栏目内容"><a href="#📌-本栏目内容" class="headerlink" title="📌 本栏目内容"></a>📌 本栏目内容</h2><p>本栏目将持续更新以下方向的技术文章：</p>
-<ul>
-<li><strong>Java &#x2F; SpringBoot</strong> 后端开发与接口设计</li>
-<li><strong>Node.js</strong> 服务端开发</li>
-<li><strong>Docker &#x2F; Linux &#x2F; Nginx</strong> 部署与运维</li>
-<li><strong>数据库交互</strong> 与接口对接实践</li>
-</ul>
-<blockquote>
-<p>持续更新中，敬请期待 🚀</p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>后端</category>
-      </categories>
-      <tags>
-        <tag>后端</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>嵌入式开发·栏目介绍</title>
-    <url>/2026/03/09/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%BC%80%E7%AF%87/</url>
-    <content><![CDATA[<blockquote>
-<p>这里记录我在嵌入式开发领域的学习积累与项目实践。</p>
-</blockquote>
-<span id="more"></span>
-
-<h2 id="📌-本栏目内容"><a href="#📌-本栏目内容" class="headerlink" title="📌 本栏目内容"></a>📌 本栏目内容</h2><p>本栏目将持续更新以下方向的技术文章：</p>
-<ul>
-<li><strong>STM32</strong> F1&#x2F;F4 系列开发与外设驱动</li>
-<li><strong>FreeRTOS</strong> 实时操作系统应用</li>
-<li><strong>传感器</strong> 选型、校准与数据采集</li>
-<li><strong>PCB 拓展板</strong> 设计与硬件调试</li>
-<li><strong>MQTT &#x2F; WiFi</strong> 物联网通信实践</li>
-</ul>
-<blockquote>
-<p>持续更新中，敬请期待 🚀</p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>嵌入式</category>
-      </categories>
-      <tags>
-        <tag>嵌入式</tag>
-        <tag>STM32</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>前端开发·栏目介绍</title>
-    <url>/2026/03/09/%E5%89%8D%E7%AB%AF%E5%BC%80%E7%AF%87/</url>
-    <content><![CDATA[<blockquote>
-<p>这里记录我在前端开发路上的学习成果与实践经验。</p>
-</blockquote>
-<span id="more"></span>
-
-<h2 id="📌-本栏目内容"><a href="#📌-本栏目内容" class="headerlink" title="📌 本栏目内容"></a>📌 本栏目内容</h2><p>本栏目将持续更新以下方向的技术文章：</p>
-<ul>
-<li><strong>Vue3</strong> 组件开发、状态管理、性能优化</li>
-<li><strong>HTML &#x2F; CSS &#x2F; JavaScript</strong> 基础与进阶</li>
-<li><strong>Three.js</strong> 3D 场景搭建与交互</li>
-<li><strong>uniapp</strong> 小程序跨端开发</li>
-<li><strong>AI 辅助编程</strong> 效率提升实践</li>
-</ul>
-<blockquote>
-<p>持续更新中，敬请期待 🚀</p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>前端</category>
-      </categories>
-      <tags>
-        <tag>前端</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>工具箱·栏目介绍</title>
-    <url>/2026/03/09/%E5%B7%A5%E5%85%B7%E7%AE%B1%E5%BC%80%E7%AF%87/</url>
-    <content><![CDATA[<blockquote>
-<p>好的工具能让开发事半功倍，这里收录我日常使用的效率神器。</p>
-</blockquote>
-<span id="more"></span>
-
-<h2 id="📌-本栏目内容"><a href="#📌-本栏目内容" class="headerlink" title="📌 本栏目内容"></a>📌 本栏目内容</h2><p>本栏目将持续更新以下内容：</p>
-<ul>
-<li><strong>开发工具</strong> 配置与使用技巧（VS Code、Git 等）</li>
-<li><strong>AI 辅助编程</strong> 工具实践</li>
-<li><strong>实用脚本</strong> 与自动化工作流</li>
-<li><strong>好用插件</strong> 推荐与评测</li>
-<li><strong>效率提升</strong> 技巧与方法分享</li>
-</ul>
-<blockquote>
-<p>持续更新中，敬请期待 🚀</p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>工具箱</category>
-      </categories>
-      <tags>
-        <tag>工具</tag>
-        <tag>效率</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>指针基础</title>
     <url>/2026/03/10/%E6%8C%87%E9%92%88%E5%9F%BA%E7%A1%80/</url>
     <content><![CDATA[<h2 id="第5讲：指针基础"><a href="#第5讲：指针基础" class="headerlink" title="第5讲：指针基础"></a>第5讲：指针基础</h2><h3 id="🔑-知识点讲解"><a href="#🔑-知识点讲解" class="headerlink" title="🔑 知识点讲解"></a>🔑 知识点讲解</h3><figure class="highlight cpp"><table><tr><td class="code"><pre><code class="hljs cpp">指针是存放地址的变量。<br><br>声明：<br>    <span class="hljs-type">int</span> a = <span class="hljs-number">10</span>;<br>    <span class="hljs-type">int</span> *p = &amp;a;    <span class="hljs-comment">// p 存储 a 的地址</span><br>    <br>操作符：<br>    &amp;  — 取地址运算符<br>    *  — 解引用运算符（取指针指向的值）<br>    <br>    *p = <span class="hljs-number">20</span>;        <span class="hljs-comment">// 通过指针修改 a 的值，现在 a = 20</span><br><br>指针与数组：<br>    <span class="hljs-type">int</span> a[<span class="hljs-number">5</span>] = &#123;<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>&#125;;<br>    <span class="hljs-type">int</span> *p = a;     <span class="hljs-comment">// p 指向 a[0]</span><br>    *(p<span class="hljs-number">+2</span>) == a[<span class="hljs-number">2</span>]  <span class="hljs-comment">// 指针算术</span><br><br>指针作为函数参数（地址传递）：<br>    <span class="hljs-type">void</span> <span class="hljs-built_in">swap</span>(<span class="hljs-type">int</span> *a, <span class="hljs-type">int</span> *b) &#123;<br>        <span class="hljs-type">int</span> temp = *a;<br>        *a = *b;<br>        *b = temp;<br>    &#125;<br>    调用: <span class="hljs-built_in">swap</span>(&amp;x, &amp;y);<br><br>指针的大小：<br>    <span class="hljs-number">32</span>位系统：<span class="hljs-number">4</span>字节<br>    <span class="hljs-number">64</span>位系统：<span class="hljs-number">8</span>字节（与指向的类型无关）<br></code></pre></td></tr></table></figure>
@@ -365,38 +337,6 @@
       <tags>
         <tag>C语言</tag>
         <tag>指针</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>指针进阶</title>
-    <url>/2026/03/10/%E6%8C%87%E9%92%88%E8%BF%9B%E9%98%B6/</url>
-    <content><![CDATA[<h2 id="第6讲：指针进阶（指针与动态内存）"><a href="#第6讲：指针进阶（指针与动态内存）" class="headerlink" title="第6讲：指针进阶（指针与动态内存）"></a>第6讲：指针进阶（指针与动态内存）</h2><h3 id="🔑-知识点讲解"><a href="#🔑-知识点讲解" class="headerlink" title="🔑 知识点讲解"></a>🔑 知识点讲解</h3><figure class="highlight cpp"><table><tr><td class="code"><pre><code class="hljs cpp">动态内存分配（需 <span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdlib.h&gt;</span>）：</span><br><br>malloc：分配内存<br>    <span class="hljs-type">int</span> *p = (<span class="hljs-type">int</span> *)<span class="hljs-built_in">malloc</span>(n * <span class="hljs-built_in">sizeof</span>(<span class="hljs-type">int</span>));<br>    <br>calloc：分配并初始化为<span class="hljs-number">0</span><br>    <span class="hljs-type">int</span> *p = (<span class="hljs-type">int</span> *)<span class="hljs-built_in">calloc</span>(n, <span class="hljs-built_in">sizeof</span>(<span class="hljs-type">int</span>));<br>    <br>realloc：重新调整大小<br>    p = (<span class="hljs-type">int</span> *)<span class="hljs-built_in">realloc</span>(p, new_size * <span class="hljs-built_in">sizeof</span>(<span class="hljs-type">int</span>));<br>    <br>free：释放内存<br>    <span class="hljs-built_in">free</span>(p);<br>    p = <span class="hljs-literal">NULL</span>;  <span class="hljs-comment">// 避免野指针</span><br><br>⚠️ 常见错误：<br><span class="hljs-number">1.</span> 忘记 free → 内存泄漏<br><span class="hljs-number">2.</span> free 后继续使用 → 野指针（悬挂指针）<br><span class="hljs-number">3.</span> 重复 free → 未定义行为<br><span class="hljs-number">4.</span> malloc 返回 <span class="hljs-literal">NULL</span> 未检查<br><br>指针的指针（二级指针）：<br>    <span class="hljs-type">int</span> a = <span class="hljs-number">10</span>;<br>    <span class="hljs-type">int</span> *p = &amp;a;<br>    <span class="hljs-type">int</span> **pp = &amp;p;<br>    **pp == <span class="hljs-number">10</span>  <span class="hljs-comment">// true</span><br></code></pre></td></tr></table></figure>
-
-<h3 id="✏️-练习题6：动态创建数组并排序"><a href="#✏️-练习题6：动态创建数组并排序" class="headerlink" title="✏️ 练习题6：动态创建数组并排序"></a>✏️ 练习题6：动态创建数组并排序</h3><blockquote>
-<p><strong>题目</strong>：动态分配一个长度为 n 的数组，输入数据后排序输出。</p>
-</blockquote>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdio.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdlib.h&gt;</span></span><br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">cmp</span><span class="hljs-params">(<span class="hljs-type">const</span> <span class="hljs-type">void</span> *a, <span class="hljs-type">const</span> <span class="hljs-type">void</span> *b)</span> </span>&#123;<br>    <span class="hljs-keyword">return</span> (*(<span class="hljs-type">int</span> *)a) - (*(<span class="hljs-type">int</span> *)b);<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br>    <span class="hljs-type">int</span> n;<br>    <span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d&quot;</span>, &amp;n);<br>    <br>    <span class="hljs-comment">// 动态分配</span><br>    <span class="hljs-type">int</span> *arr = (<span class="hljs-type">int</span> *)<span class="hljs-built_in">malloc</span>(n * <span class="hljs-built_in">sizeof</span>(<span class="hljs-type">int</span>));<br>    <span class="hljs-keyword">if</span> (arr == <span class="hljs-literal">NULL</span>) &#123;<br>        <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;内存分配失败\n&quot;</span>);<br>        <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;<br>    &#125;<br>    <br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i++)<br>        <span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d&quot;</span>, &amp;arr[i]);<br>    <br>    <span class="hljs-comment">// 排序（使用库函数 qsort）</span><br>    <span class="hljs-built_in">qsort</span>(arr, n, <span class="hljs-built_in">sizeof</span>(<span class="hljs-type">int</span>), cmp);<br>    <br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i++)<br>        <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d &quot;</span>, arr[i]);<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;\n&quot;</span>);<br>    <br>    <span class="hljs-comment">// 释放内存</span><br>    <span class="hljs-built_in">free</span>(arr);<br>    arr = <span class="hljs-literal">NULL</span>;<br>    <br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
-
-<hr>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><code class="hljs cpp"><span class="hljs-comment">// 动态分配一个长度为 n 的数组，输入数据后排序输出。</span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdio.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;stdlib.h&gt;</span></span><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>&#123;<br>    <span class="hljs-type">int</span> n=<span class="hljs-number">0</span>;<span class="hljs-comment">//用于分配数组大小</span><br>   <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;请输入数组大小：\n&quot;</span>);<br>   <span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d&quot;</span>,&amp;n);<br>   <span class="hljs-type">int</span> *arr=(<span class="hljs-type">int</span> *)<span class="hljs-built_in">malloc</span>(<span class="hljs-built_in">sizeof</span>(<span class="hljs-type">int</span>) * n);<br>   <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;请输入数据：\n&quot;</span>);<br>   <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">0</span>;i&lt;n;i++)&#123;<br>    <span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d&quot;</span>,arr+i);<br>   &#125;<br>   <span class="hljs-comment">//冒泡排序</span><br>   <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> k=<span class="hljs-number">0</span>;k&lt;n;k++)<br>   &#123;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; n<span class="hljs-number">-1</span>-k; i++)<br>    &#123;<br>       <span class="hljs-keyword">if</span>(arr[i]&gt;arr[i<span class="hljs-number">+1</span>])&#123;<br>        <span class="hljs-type">int</span> temp=arr[i];<br>        arr[i]=arr[i<span class="hljs-number">+1</span>];<br>        arr[i<span class="hljs-number">+1</span>]=temp;<br>       &#125;<br>    &#125;<br>    <br>   &#125;<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;排序后的数组为：\n&quot;</span>);<br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">0</span>;i&lt;n;i++)&#123;<br>        <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d &quot;</span>,arr[i]);<br>    &#125;<br>    <span class="hljs-built_in">free</span>(arr);<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
-
-<h2 id="第7讲：结构体"><a href="#第7讲：结构体" class="headerlink" title="第7讲：结构体"></a>第7讲：结构体</h2><h3 id="🔑-知识点讲解-1"><a href="#🔑-知识点讲解-1" class="headerlink" title="🔑 知识点讲解"></a>🔑 知识点讲解</h3><figure class="highlight cpp"><table><tr><td class="code"><pre><code class="hljs cpp">结构体可以将不同类型的数据组合在一起。<br><br>定义：<br>    <span class="hljs-keyword">struct</span> <span class="hljs-title class_">Student</span> &#123;<br>        <span class="hljs-type">int</span> id;<br>        <span class="hljs-type">char</span> name[<span class="hljs-number">20</span>];<br>        <span class="hljs-type">float</span> score;<br>    &#125;;<br><br>使用：<br>    <span class="hljs-keyword">struct</span> <span class="hljs-title class_">Student</span> s1 = &#123;<span class="hljs-number">1</span>, <span class="hljs-string">&quot;张三&quot;</span>, <span class="hljs-number">90.5</span>&#125;;<br>    <span class="hljs-keyword">struct</span> <span class="hljs-title class_">Student</span> s2;<br>    s<span class="hljs-number">2.</span>id = <span class="hljs-number">2</span>;<br>    <span class="hljs-built_in">strcpy</span>(s<span class="hljs-number">2.</span>name, <span class="hljs-string">&quot;李四&quot;</span>);  <span class="hljs-comment">// 字符串不能直接 =</span><br>    s<span class="hljs-number">2.</span>score = <span class="hljs-number">85.0</span>;<br><br>结构体指针：<br>    <span class="hljs-keyword">struct</span> <span class="hljs-title class_">Student</span> *p = &amp;s1;<br>    p-&gt;id        <span class="hljs-comment">// 等价于 (*p).id</span><br>    p-&gt;score     <span class="hljs-comment">// 箭头运算符</span><br><br>结构体数组：<br>    <span class="hljs-keyword">struct</span> <span class="hljs-title class_">Student</span> <span class="hljs-keyword">class</span>[<span class="hljs-number">50</span>];<br>    <span class="hljs-keyword">class</span>[<span class="hljs-number">0</span>].id = <span class="hljs-number">1</span>;<br><br><span class="hljs-keyword">typedef</span> 简化：<br>    <span class="hljs-keyword">typedef</span> <span class="hljs-keyword">struct</span> &#123;<br>        <span class="hljs-type">int</span> id;<br>        <span class="hljs-type">char</span> name[<span class="hljs-number">20</span>];<br>        <span class="hljs-type">float</span> score;<br>    &#125; Student;<br>    <br>    Student s1;  <span class="hljs-comment">// 不需要写 struct 了</span><br></code></pre></td></tr></table></figure>
-
-<h3 id="✏️-练习题7：学生成绩管理"><a href="#✏️-练习题7：学生成绩管理" class="headerlink" title="✏️ 练习题7：学生成绩管理"></a>✏️ 练习题7：学生成绩管理</h3><blockquote>
-<p><strong>题目</strong>：定义学生结构体（学号、姓名、成绩），输入 n 个学生信息，按成绩从高到低排序输出。</p>
-</blockquote>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdio.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;string.h&gt;</span></span><br><br><span class="hljs-keyword">typedef</span> <span class="hljs-keyword">struct</span> &#123;<br>    <span class="hljs-type">int</span> id;<br>    <span class="hljs-type">char</span> name[<span class="hljs-number">20</span>];<br>    <span class="hljs-type">float</span> score;<br>&#125; Student;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br>    <span class="hljs-type">int</span> n;<br>    <span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d&quot;</span>, &amp;n);<br>    <br>    Student stu[<span class="hljs-number">100</span>];<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i++) &#123;<br>        <span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d %s %f&quot;</span>, &amp;stu[i].id, stu[i].name, &amp;stu[i].score);<br>    &#125;<br>    <br>    <span class="hljs-comment">// 冒泡排序，按成绩降序</span><br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; n - <span class="hljs-number">1</span>; i++) &#123;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j = <span class="hljs-number">0</span>; j &lt; n - <span class="hljs-number">1</span> - i; j++) &#123;<br>            <span class="hljs-keyword">if</span> (stu[j].score &lt; stu[j + <span class="hljs-number">1</span>].score) &#123;<br>                Student temp = stu[j];<br>                stu[j] = stu[j + <span class="hljs-number">1</span>];<br>                stu[j + <span class="hljs-number">1</span>] = temp;<br>            &#125;<br>        &#125;<br>    &#125;<br>    <br>    <span class="hljs-comment">// 输出</span><br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%-5s %-10s %-6s\n&quot;</span>, <span class="hljs-string">&quot;学号&quot;</span>, <span class="hljs-string">&quot;姓名&quot;</span>, <span class="hljs-string">&quot;成绩&quot;</span>);<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i++) &#123;<br>        <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%-5d %-10s %-6.1f\n&quot;</span>, <br>               stu[i].id, stu[i].name, stu[i].score);<br>    &#125;<br>    <br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
-
-<figure class="highlight cpp"><table><tr><td class="code"><pre><code class="hljs cpp"><span class="hljs-comment">// 定义学生结构体（学号、姓名、成绩），输入 n 个学生信息，按成绩从高到低排序输出。</span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;stdio.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;stdlib.h&gt;</span></span><br><span class="hljs-keyword">typedef</span> <span class="hljs-keyword">struct</span> <span class="hljs-title class_">student</span>&#123;<br><span class="hljs-type">int</span> id;<br><span class="hljs-type">char</span> name[<span class="hljs-number">100</span>];<br><span class="hljs-type">float</span> score;<br>&#125; students;<br><br><span class="hljs-comment">//定义返回参数</span><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">cmp</span><span class="hljs-params">(<span class="hljs-type">const</span> <span class="hljs-type">void</span> *a,<span class="hljs-type">const</span> <span class="hljs-type">void</span> *b)</span></span>&#123;<br>    students *s1=(students *)a;<span class="hljs-comment">//强制类型转换</span><br>    students *s2=(students *)b;<br>    <span class="hljs-comment">//按照成绩从高到低排序</span><br>    <span class="hljs-keyword">if</span>(s1-&gt;score&lt;s2-&gt;score)&#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;<br>        <span class="hljs-comment">//返回1表示s1应该排在s2后面</span><br>    &#125;<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(s1-&gt;score&gt;s2-&gt;score)&#123;<br>        <span class="hljs-comment">//返回-1表示s1应该排在s2前面</span><br>        <span class="hljs-keyword">return</span> <span class="hljs-number">-1</span>;<br>    &#125;<span class="hljs-keyword">else</span>&#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>    &#125;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>&#123;<br>    <span class="hljs-type">int</span> n=<span class="hljs-number">0</span>;<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;请输入学生人数：\n&quot;</span>);<br>    <span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d&quot;</span>,&amp;n);<br>    <span class="hljs-comment">//动态分配一个长度为 n 的学生数组，输入数据后排序输出。</span><br>    students *arr=(students *)<span class="hljs-built_in">malloc</span>(<span class="hljs-built_in">sizeof</span>(students)*n);<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;请输入学生信息（学号 姓名 成绩）：\n&quot;</span>);<br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">0</span>;i&lt;n;i++)&#123;<br>        <span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d %s %f&quot;</span>,&amp;arr[i].id,arr[i].name,&amp;arr[i].score);<br>    &#125;<br>    <span class="hljs-built_in">qsort</span>(arr,n,<span class="hljs-built_in">sizeof</span>(students),cmp);<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;排序后的学生信息为：\n&quot;</span>);<br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">0</span>;i&lt;n;i++)&#123;<br>        <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d %s %.2f\n&quot;</span>,arr[i].id,arr[i].name,arr[i].score);<br>    &#125;<br>    <span class="hljs-built_in">free</span>(arr);<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br><br><span class="hljs-comment">//实例输入：</span><br><span class="hljs-comment">//请输入学生人数：</span><br><span class="hljs-comment">//3</span><br><span class="hljs-comment">//请输入学生信息（学号 姓名 成绩）：</span><br><span class="hljs-comment">//1001 Alice 85.5</span><br><span class="hljs-comment">//1002 Bob 92.0</span><br><span class="hljs-comment">//1003 Charlie 78.0</span><br><span class="hljs-comment">//实例输出：</span><br><span class="hljs-comment">//排序后的学生信息为：</span><br><span class="hljs-comment">//1002 Bob 92.00</span><br><span class="hljs-comment">//1001 Alice 85.50</span><br><span class="hljs-comment">//1003 Charlie 78.00</span><br></code></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>算法</category>
-      </categories>
-      <tags>
-        <tag>指针</tag>
-        <tag>动态内存</tag>
-        <tag>结构体</tag>
       </tags>
   </entry>
   <entry>
@@ -510,6 +450,66 @@
       </tags>
   </entry>
   <entry>
+    <title>工具箱·栏目介绍</title>
+    <url>/2026/03/09/%E5%B7%A5%E5%85%B7%E7%AE%B1%E5%BC%80%E7%AF%87/</url>
+    <content><![CDATA[<blockquote>
+<p>好的工具能让开发事半功倍，这里收录我日常使用的效率神器。</p>
+</blockquote>
+<span id="more"></span>
+
+<h2 id="📌-本栏目内容"><a href="#📌-本栏目内容" class="headerlink" title="📌 本栏目内容"></a>📌 本栏目内容</h2><p>本栏目将持续更新以下内容：</p>
+<ul>
+<li><strong>开发工具</strong> 配置与使用技巧（VS Code、Git 等）</li>
+<li><strong>AI 辅助编程</strong> 工具实践</li>
+<li><strong>实用脚本</strong> 与自动化工作流</li>
+<li><strong>好用插件</strong> 推荐与评测</li>
+<li><strong>效率提升</strong> 技巧与方法分享</li>
+</ul>
+<blockquote>
+<p>持续更新中，敬请期待 🚀</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>工具箱</category>
+      </categories>
+      <tags>
+        <tag>工具</tag>
+        <tag>效率</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>指针进阶</title>
+    <url>/2026/03/10/%E6%8C%87%E9%92%88%E8%BF%9B%E9%98%B6/</url>
+    <content><![CDATA[<h2 id="第6讲：指针进阶（指针与动态内存）"><a href="#第6讲：指针进阶（指针与动态内存）" class="headerlink" title="第6讲：指针进阶（指针与动态内存）"></a>第6讲：指针进阶（指针与动态内存）</h2><h3 id="🔑-知识点讲解"><a href="#🔑-知识点讲解" class="headerlink" title="🔑 知识点讲解"></a>🔑 知识点讲解</h3><figure class="highlight cpp"><table><tr><td class="code"><pre><code class="hljs cpp">动态内存分配（需 <span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdlib.h&gt;</span>）：</span><br><br>malloc：分配内存<br>    <span class="hljs-type">int</span> *p = (<span class="hljs-type">int</span> *)<span class="hljs-built_in">malloc</span>(n * <span class="hljs-built_in">sizeof</span>(<span class="hljs-type">int</span>));<br>    <br>calloc：分配并初始化为<span class="hljs-number">0</span><br>    <span class="hljs-type">int</span> *p = (<span class="hljs-type">int</span> *)<span class="hljs-built_in">calloc</span>(n, <span class="hljs-built_in">sizeof</span>(<span class="hljs-type">int</span>));<br>    <br>realloc：重新调整大小<br>    p = (<span class="hljs-type">int</span> *)<span class="hljs-built_in">realloc</span>(p, new_size * <span class="hljs-built_in">sizeof</span>(<span class="hljs-type">int</span>));<br>    <br>free：释放内存<br>    <span class="hljs-built_in">free</span>(p);<br>    p = <span class="hljs-literal">NULL</span>;  <span class="hljs-comment">// 避免野指针</span><br><br>⚠️ 常见错误：<br><span class="hljs-number">1.</span> 忘记 free → 内存泄漏<br><span class="hljs-number">2.</span> free 后继续使用 → 野指针（悬挂指针）<br><span class="hljs-number">3.</span> 重复 free → 未定义行为<br><span class="hljs-number">4.</span> malloc 返回 <span class="hljs-literal">NULL</span> 未检查<br><br>指针的指针（二级指针）：<br>    <span class="hljs-type">int</span> a = <span class="hljs-number">10</span>;<br>    <span class="hljs-type">int</span> *p = &amp;a;<br>    <span class="hljs-type">int</span> **pp = &amp;p;<br>    **pp == <span class="hljs-number">10</span>  <span class="hljs-comment">// true</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="✏️-练习题6：动态创建数组并排序"><a href="#✏️-练习题6：动态创建数组并排序" class="headerlink" title="✏️ 练习题6：动态创建数组并排序"></a>✏️ 练习题6：动态创建数组并排序</h3><blockquote>
+<p><strong>题目</strong>：动态分配一个长度为 n 的数组，输入数据后排序输出。</p>
+</blockquote>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdio.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdlib.h&gt;</span></span><br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">cmp</span><span class="hljs-params">(<span class="hljs-type">const</span> <span class="hljs-type">void</span> *a, <span class="hljs-type">const</span> <span class="hljs-type">void</span> *b)</span> </span>&#123;<br>    <span class="hljs-keyword">return</span> (*(<span class="hljs-type">int</span> *)a) - (*(<span class="hljs-type">int</span> *)b);<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br>    <span class="hljs-type">int</span> n;<br>    <span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d&quot;</span>, &amp;n);<br>    <br>    <span class="hljs-comment">// 动态分配</span><br>    <span class="hljs-type">int</span> *arr = (<span class="hljs-type">int</span> *)<span class="hljs-built_in">malloc</span>(n * <span class="hljs-built_in">sizeof</span>(<span class="hljs-type">int</span>));<br>    <span class="hljs-keyword">if</span> (arr == <span class="hljs-literal">NULL</span>) &#123;<br>        <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;内存分配失败\n&quot;</span>);<br>        <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;<br>    &#125;<br>    <br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i++)<br>        <span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d&quot;</span>, &amp;arr[i]);<br>    <br>    <span class="hljs-comment">// 排序（使用库函数 qsort）</span><br>    <span class="hljs-built_in">qsort</span>(arr, n, <span class="hljs-built_in">sizeof</span>(<span class="hljs-type">int</span>), cmp);<br>    <br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i++)<br>        <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d &quot;</span>, arr[i]);<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;\n&quot;</span>);<br>    <br>    <span class="hljs-comment">// 释放内存</span><br>    <span class="hljs-built_in">free</span>(arr);<br>    arr = <span class="hljs-literal">NULL</span>;<br>    <br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<hr>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><code class="hljs cpp"><span class="hljs-comment">// 动态分配一个长度为 n 的数组，输入数据后排序输出。</span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdio.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;stdlib.h&gt;</span></span><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>&#123;<br>    <span class="hljs-type">int</span> n=<span class="hljs-number">0</span>;<span class="hljs-comment">//用于分配数组大小</span><br>   <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;请输入数组大小：\n&quot;</span>);<br>   <span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d&quot;</span>,&amp;n);<br>   <span class="hljs-type">int</span> *arr=(<span class="hljs-type">int</span> *)<span class="hljs-built_in">malloc</span>(<span class="hljs-built_in">sizeof</span>(<span class="hljs-type">int</span>) * n);<br>   <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;请输入数据：\n&quot;</span>);<br>   <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">0</span>;i&lt;n;i++)&#123;<br>    <span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d&quot;</span>,arr+i);<br>   &#125;<br>   <span class="hljs-comment">//冒泡排序</span><br>   <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> k=<span class="hljs-number">0</span>;k&lt;n;k++)<br>   &#123;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; n<span class="hljs-number">-1</span>-k; i++)<br>    &#123;<br>       <span class="hljs-keyword">if</span>(arr[i]&gt;arr[i<span class="hljs-number">+1</span>])&#123;<br>        <span class="hljs-type">int</span> temp=arr[i];<br>        arr[i]=arr[i<span class="hljs-number">+1</span>];<br>        arr[i<span class="hljs-number">+1</span>]=temp;<br>       &#125;<br>    &#125;<br>    <br>   &#125;<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;排序后的数组为：\n&quot;</span>);<br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">0</span>;i&lt;n;i++)&#123;<br>        <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d &quot;</span>,arr[i]);<br>    &#125;<br>    <span class="hljs-built_in">free</span>(arr);<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="第7讲：结构体"><a href="#第7讲：结构体" class="headerlink" title="第7讲：结构体"></a>第7讲：结构体</h2><h3 id="🔑-知识点讲解-1"><a href="#🔑-知识点讲解-1" class="headerlink" title="🔑 知识点讲解"></a>🔑 知识点讲解</h3><figure class="highlight cpp"><table><tr><td class="code"><pre><code class="hljs cpp">结构体可以将不同类型的数据组合在一起。<br><br>定义：<br>    <span class="hljs-keyword">struct</span> <span class="hljs-title class_">Student</span> &#123;<br>        <span class="hljs-type">int</span> id;<br>        <span class="hljs-type">char</span> name[<span class="hljs-number">20</span>];<br>        <span class="hljs-type">float</span> score;<br>    &#125;;<br><br>使用：<br>    <span class="hljs-keyword">struct</span> <span class="hljs-title class_">Student</span> s1 = &#123;<span class="hljs-number">1</span>, <span class="hljs-string">&quot;张三&quot;</span>, <span class="hljs-number">90.5</span>&#125;;<br>    <span class="hljs-keyword">struct</span> <span class="hljs-title class_">Student</span> s2;<br>    s<span class="hljs-number">2.</span>id = <span class="hljs-number">2</span>;<br>    <span class="hljs-built_in">strcpy</span>(s<span class="hljs-number">2.</span>name, <span class="hljs-string">&quot;李四&quot;</span>);  <span class="hljs-comment">// 字符串不能直接 =</span><br>    s<span class="hljs-number">2.</span>score = <span class="hljs-number">85.0</span>;<br><br>结构体指针：<br>    <span class="hljs-keyword">struct</span> <span class="hljs-title class_">Student</span> *p = &amp;s1;<br>    p-&gt;id        <span class="hljs-comment">// 等价于 (*p).id</span><br>    p-&gt;score     <span class="hljs-comment">// 箭头运算符</span><br><br>结构体数组：<br>    <span class="hljs-keyword">struct</span> <span class="hljs-title class_">Student</span> <span class="hljs-keyword">class</span>[<span class="hljs-number">50</span>];<br>    <span class="hljs-keyword">class</span>[<span class="hljs-number">0</span>].id = <span class="hljs-number">1</span>;<br><br><span class="hljs-keyword">typedef</span> 简化：<br>    <span class="hljs-keyword">typedef</span> <span class="hljs-keyword">struct</span> &#123;<br>        <span class="hljs-type">int</span> id;<br>        <span class="hljs-type">char</span> name[<span class="hljs-number">20</span>];<br>        <span class="hljs-type">float</span> score;<br>    &#125; Student;<br>    <br>    Student s1;  <span class="hljs-comment">// 不需要写 struct 了</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="✏️-练习题7：学生成绩管理"><a href="#✏️-练习题7：学生成绩管理" class="headerlink" title="✏️ 练习题7：学生成绩管理"></a>✏️ 练习题7：学生成绩管理</h3><blockquote>
+<p><strong>题目</strong>：定义学生结构体（学号、姓名、成绩），输入 n 个学生信息，按成绩从高到低排序输出。</p>
+</blockquote>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdio.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;string.h&gt;</span></span><br><br><span class="hljs-keyword">typedef</span> <span class="hljs-keyword">struct</span> &#123;<br>    <span class="hljs-type">int</span> id;<br>    <span class="hljs-type">char</span> name[<span class="hljs-number">20</span>];<br>    <span class="hljs-type">float</span> score;<br>&#125; Student;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br>    <span class="hljs-type">int</span> n;<br>    <span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d&quot;</span>, &amp;n);<br>    <br>    Student stu[<span class="hljs-number">100</span>];<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i++) &#123;<br>        <span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d %s %f&quot;</span>, &amp;stu[i].id, stu[i].name, &amp;stu[i].score);<br>    &#125;<br>    <br>    <span class="hljs-comment">// 冒泡排序，按成绩降序</span><br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; n - <span class="hljs-number">1</span>; i++) &#123;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j = <span class="hljs-number">0</span>; j &lt; n - <span class="hljs-number">1</span> - i; j++) &#123;<br>            <span class="hljs-keyword">if</span> (stu[j].score &lt; stu[j + <span class="hljs-number">1</span>].score) &#123;<br>                Student temp = stu[j];<br>                stu[j] = stu[j + <span class="hljs-number">1</span>];<br>                stu[j + <span class="hljs-number">1</span>] = temp;<br>            &#125;<br>        &#125;<br>    &#125;<br>    <br>    <span class="hljs-comment">// 输出</span><br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%-5s %-10s %-6s\n&quot;</span>, <span class="hljs-string">&quot;学号&quot;</span>, <span class="hljs-string">&quot;姓名&quot;</span>, <span class="hljs-string">&quot;成绩&quot;</span>);<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i++) &#123;<br>        <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%-5d %-10s %-6.1f\n&quot;</span>, <br>               stu[i].id, stu[i].name, stu[i].score);<br>    &#125;<br>    <br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight cpp"><table><tr><td class="code"><pre><code class="hljs cpp"><span class="hljs-comment">// 定义学生结构体（学号、姓名、成绩），输入 n 个学生信息，按成绩从高到低排序输出。</span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;stdio.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;stdlib.h&gt;</span></span><br><span class="hljs-keyword">typedef</span> <span class="hljs-keyword">struct</span> <span class="hljs-title class_">student</span>&#123;<br><span class="hljs-type">int</span> id;<br><span class="hljs-type">char</span> name[<span class="hljs-number">100</span>];<br><span class="hljs-type">float</span> score;<br>&#125; students;<br><br><span class="hljs-comment">//定义返回参数</span><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">cmp</span><span class="hljs-params">(<span class="hljs-type">const</span> <span class="hljs-type">void</span> *a,<span class="hljs-type">const</span> <span class="hljs-type">void</span> *b)</span></span>&#123;<br>    students *s1=(students *)a;<span class="hljs-comment">//强制类型转换</span><br>    students *s2=(students *)b;<br>    <span class="hljs-comment">//按照成绩从高到低排序</span><br>    <span class="hljs-keyword">if</span>(s1-&gt;score&lt;s2-&gt;score)&#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;<br>        <span class="hljs-comment">//返回1表示s1应该排在s2后面</span><br>    &#125;<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(s1-&gt;score&gt;s2-&gt;score)&#123;<br>        <span class="hljs-comment">//返回-1表示s1应该排在s2前面</span><br>        <span class="hljs-keyword">return</span> <span class="hljs-number">-1</span>;<br>    &#125;<span class="hljs-keyword">else</span>&#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>    &#125;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>&#123;<br>    <span class="hljs-type">int</span> n=<span class="hljs-number">0</span>;<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;请输入学生人数：\n&quot;</span>);<br>    <span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d&quot;</span>,&amp;n);<br>    <span class="hljs-comment">//动态分配一个长度为 n 的学生数组，输入数据后排序输出。</span><br>    students *arr=(students *)<span class="hljs-built_in">malloc</span>(<span class="hljs-built_in">sizeof</span>(students)*n);<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;请输入学生信息（学号 姓名 成绩）：\n&quot;</span>);<br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">0</span>;i&lt;n;i++)&#123;<br>        <span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d %s %f&quot;</span>,&amp;arr[i].id,arr[i].name,&amp;arr[i].score);<br>    &#125;<br>    <span class="hljs-built_in">qsort</span>(arr,n,<span class="hljs-built_in">sizeof</span>(students),cmp);<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;排序后的学生信息为：\n&quot;</span>);<br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">0</span>;i&lt;n;i++)&#123;<br>        <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d %s %.2f\n&quot;</span>,arr[i].id,arr[i].name,arr[i].score);<br>    &#125;<br>    <span class="hljs-built_in">free</span>(arr);<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br><br><span class="hljs-comment">//实例输入：</span><br><span class="hljs-comment">//请输入学生人数：</span><br><span class="hljs-comment">//3</span><br><span class="hljs-comment">//请输入学生信息（学号 姓名 成绩）：</span><br><span class="hljs-comment">//1001 Alice 85.5</span><br><span class="hljs-comment">//1002 Bob 92.0</span><br><span class="hljs-comment">//1003 Charlie 78.0</span><br><span class="hljs-comment">//实例输出：</span><br><span class="hljs-comment">//排序后的学生信息为：</span><br><span class="hljs-comment">//1002 Bob 92.00</span><br><span class="hljs-comment">//1001 Alice 85.50</span><br><span class="hljs-comment">//1003 Charlie 78.00</span><br></code></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>算法</category>
+      </categories>
+      <tags>
+        <tag>指针</tag>
+        <tag>动态内存</tag>
+        <tag>结构体</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>数据库·栏目介绍</title>
     <url>/2026/03/09/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%BC%80%E7%AF%87/</url>
     <content><![CDATA[<blockquote>
@@ -534,23 +534,6 @@
       <tags>
         <tag>数据库</tag>
         <tag>MySQL</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>查找算法</title>
-    <url>/2026/03/11/%E6%9F%A5%E6%89%BE/</url>
-    <content><![CDATA[<h1 id="📕-第三部分：查找算法"><a href="#📕-第三部分：查找算法" class="headerlink" title="📕 第三部分：查找算法"></a>📕 第三部分：查找算法</h1><hr>
-<h2 id="第14讲：顺序查找与二分查找"><a href="#第14讲：顺序查找与二分查找" class="headerlink" title="第14讲：顺序查找与二分查找"></a>第14讲：顺序查找与二分查找</h2><h3 id="🔑-知识点讲解"><a href="#🔑-知识点讲解" class="headerlink" title="🔑 知识点讲解"></a>🔑 知识点讲解</h3><figure class="highlight markdown"><table><tr><td class="code"><pre><code class="hljs markdown"><span class="hljs-bullet">1.</span> 顺序查找（线性查找）<br>   从头到尾逐个比较<br>   时间：O(n)<br>   适用：无序数组<br><br><span class="hljs-bullet">2.</span> 二分查找（折半查找）⭐<br>   前提：数组必须有序<br>   每次取中间元素比较，将搜索范围缩小一半<br>   时间：O(logn)<br><br>   关键细节（面试爱问）：<br><span class="hljs-bullet">   -</span> mid = left + (right - left) / 2  （防溢出，不用 (left+right)/2）<br><span class="hljs-bullet">   -</span> 循环条件：left &lt;= right<br><span class="hljs-bullet">   -</span> 找到返回下标，找不到返回 -1<br><br>二分查找的变体（重点）：<br><span class="hljs-bullet">   -</span> 查找第一个等于target的位置<br><span class="hljs-bullet">   -</span> 查找最后一个等于target的位置<br><span class="hljs-bullet">   -</span> 查找第一个大于等于target的位置<br><span class="hljs-bullet">   -</span> 查找最后一个小于等于target的位置<br></code></pre></td></tr></table></figure>
-
-<h3 id="✏️-练习题9：二分查找及其变体"><a href="#✏️-练习题9：二分查找及其变体" class="headerlink" title="✏️ 练习题9：二分查找及其变体"></a>✏️ 练习题9：二分查找及其变体</h3><figure class="highlight angelscript"><table><tr><td class="code"><pre><code class="hljs angelscript">#include &lt;stdio.h&gt;<br><br><span class="hljs-comment">// 标准二分查找</span><br><span class="hljs-built_in">int</span> binarySearch(<span class="hljs-built_in">int</span> a[], <span class="hljs-built_in">int</span> n, <span class="hljs-built_in">int</span> target) &#123;<br>    <span class="hljs-built_in">int</span> left = <span class="hljs-number">0</span>, right = n - <span class="hljs-number">1</span>;<br>    <span class="hljs-keyword">while</span> (left &lt;= right) &#123;<br>        <span class="hljs-built_in">int</span> mid = left + (right - left) / <span class="hljs-number">2</span>;<br>        <span class="hljs-keyword">if</span> (a[mid] == target) <span class="hljs-keyword">return</span> mid;<br>        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (a[mid] &lt; target) left = mid + <span class="hljs-number">1</span>;<br>        <span class="hljs-keyword">else</span> right = mid - <span class="hljs-number">1</span>;<br>    &#125;<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">-1</span>;<br>&#125;<br><br><span class="hljs-comment">// 查找第一个等于target的位置</span><br><span class="hljs-built_in">int</span> findFirst(<span class="hljs-built_in">int</span> a[], <span class="hljs-built_in">int</span> n, <span class="hljs-built_in">int</span> target) &#123;<br>    <span class="hljs-built_in">int</span> left = <span class="hljs-number">0</span>, right = n - <span class="hljs-number">1</span>, result = <span class="hljs-number">-1</span>;<br>    <span class="hljs-keyword">while</span> (left &lt;= right) &#123;<br>        <span class="hljs-built_in">int</span> mid = left + (right - left) / <span class="hljs-number">2</span>;<br>        <span class="hljs-keyword">if</span> (a[mid] == target) &#123;<br>            result = mid;<br>            right = mid - <span class="hljs-number">1</span>;  <span class="hljs-comment">// 继续往左找</span><br>        &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (a[mid] &lt; target) &#123;<br>            left = mid + <span class="hljs-number">1</span>;<br>        &#125; <span class="hljs-keyword">else</span> &#123;<br>            right = mid - <span class="hljs-number">1</span>;<br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">return</span> result;<br>&#125;<br><br><span class="hljs-comment">// 查找最后一个等于target的位置</span><br><span class="hljs-built_in">int</span> findLast(<span class="hljs-built_in">int</span> a[], <span class="hljs-built_in">int</span> n, <span class="hljs-built_in">int</span> target) &#123;<br>    <span class="hljs-built_in">int</span> left = <span class="hljs-number">0</span>, right = n - <span class="hljs-number">1</span>, result = <span class="hljs-number">-1</span>;<br>    <span class="hljs-keyword">while</span> (left &lt;= right) &#123;<br>        <span class="hljs-built_in">int</span> mid = left + (right - left) / <span class="hljs-number">2</span>;<br>        <span class="hljs-keyword">if</span> (a[mid] == target) &#123;<br>            result = mid;<br>            left = mid + <span class="hljs-number">1</span>;  <span class="hljs-comment">// 继续往右找</span><br>        &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (a[mid] &lt; target) &#123;<br>            left = mid + <span class="hljs-number">1</span>;<br>        &#125; <span class="hljs-keyword">else</span> &#123;<br>            right = mid - <span class="hljs-number">1</span>;<br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">return</span> result;<br>&#125;<br><br><span class="hljs-built_in">int</span> main() &#123;<br>    <span class="hljs-built_in">int</span> a[] = &#123;<span class="hljs-number">1</span>, <span class="hljs-number">3</span>, <span class="hljs-number">3</span>, <span class="hljs-number">3</span>, <span class="hljs-number">5</span>, <span class="hljs-number">7</span>, <span class="hljs-number">9</span>&#125;;<br>    <span class="hljs-built_in">int</span> n = <span class="hljs-number">7</span>;<br>    <br>    printf(<span class="hljs-string">&quot;查找3的位置: %d\n&quot;</span>, binarySearch(a, n, <span class="hljs-number">3</span>));<br>    printf(<span class="hljs-string">&quot;第一个3的位置: %d\n&quot;</span>, findFirst(a, n, <span class="hljs-number">3</span>));<br>    printf(<span class="hljs-string">&quot;最后一个3的位置: %d\n&quot;</span>, findLast(a, n, <span class="hljs-number">3</span>));<br>    <br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
-
-<p><strong>输出</strong>：</p>
-<figure class="highlight makefile"><table><tr><td class="code"><pre><code class="hljs makefile"><span class="hljs-section">查找3的位置: 2</span><br><span class="hljs-section">第一个3的位置: 1</span><br><span class="hljs-section">最后一个3的位置: 3</span><br></code></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>算法</category>
-      </categories>
-      <tags>
-        <tag>算法</tag>
       </tags>
   </entry>
   <entry>
@@ -603,6 +586,23 @@
       </tags>
   </entry>
   <entry>
+    <title>查找算法</title>
+    <url>/2026/03/11/%E6%9F%A5%E6%89%BE/</url>
+    <content><![CDATA[<h1 id="📕-第三部分：查找算法"><a href="#📕-第三部分：查找算法" class="headerlink" title="📕 第三部分：查找算法"></a>📕 第三部分：查找算法</h1><hr>
+<h2 id="第14讲：顺序查找与二分查找"><a href="#第14讲：顺序查找与二分查找" class="headerlink" title="第14讲：顺序查找与二分查找"></a>第14讲：顺序查找与二分查找</h2><h3 id="🔑-知识点讲解"><a href="#🔑-知识点讲解" class="headerlink" title="🔑 知识点讲解"></a>🔑 知识点讲解</h3><figure class="highlight markdown"><table><tr><td class="code"><pre><code class="hljs markdown"><span class="hljs-bullet">1.</span> 顺序查找（线性查找）<br>   从头到尾逐个比较<br>   时间：O(n)<br>   适用：无序数组<br><br><span class="hljs-bullet">2.</span> 二分查找（折半查找）⭐<br>   前提：数组必须有序<br>   每次取中间元素比较，将搜索范围缩小一半<br>   时间：O(logn)<br><br>   关键细节（面试爱问）：<br><span class="hljs-bullet">   -</span> mid = left + (right - left) / 2  （防溢出，不用 (left+right)/2）<br><span class="hljs-bullet">   -</span> 循环条件：left &lt;= right<br><span class="hljs-bullet">   -</span> 找到返回下标，找不到返回 -1<br><br>二分查找的变体（重点）：<br><span class="hljs-bullet">   -</span> 查找第一个等于target的位置<br><span class="hljs-bullet">   -</span> 查找最后一个等于target的位置<br><span class="hljs-bullet">   -</span> 查找第一个大于等于target的位置<br><span class="hljs-bullet">   -</span> 查找最后一个小于等于target的位置<br></code></pre></td></tr></table></figure>
+
+<h3 id="✏️-练习题9：二分查找及其变体"><a href="#✏️-练习题9：二分查找及其变体" class="headerlink" title="✏️ 练习题9：二分查找及其变体"></a>✏️ 练习题9：二分查找及其变体</h3><figure class="highlight angelscript"><table><tr><td class="code"><pre><code class="hljs angelscript">#include &lt;stdio.h&gt;<br><br><span class="hljs-comment">// 标准二分查找</span><br><span class="hljs-built_in">int</span> binarySearch(<span class="hljs-built_in">int</span> a[], <span class="hljs-built_in">int</span> n, <span class="hljs-built_in">int</span> target) &#123;<br>    <span class="hljs-built_in">int</span> left = <span class="hljs-number">0</span>, right = n - <span class="hljs-number">1</span>;<br>    <span class="hljs-keyword">while</span> (left &lt;= right) &#123;<br>        <span class="hljs-built_in">int</span> mid = left + (right - left) / <span class="hljs-number">2</span>;<br>        <span class="hljs-keyword">if</span> (a[mid] == target) <span class="hljs-keyword">return</span> mid;<br>        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (a[mid] &lt; target) left = mid + <span class="hljs-number">1</span>;<br>        <span class="hljs-keyword">else</span> right = mid - <span class="hljs-number">1</span>;<br>    &#125;<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">-1</span>;<br>&#125;<br><br><span class="hljs-comment">// 查找第一个等于target的位置</span><br><span class="hljs-built_in">int</span> findFirst(<span class="hljs-built_in">int</span> a[], <span class="hljs-built_in">int</span> n, <span class="hljs-built_in">int</span> target) &#123;<br>    <span class="hljs-built_in">int</span> left = <span class="hljs-number">0</span>, right = n - <span class="hljs-number">1</span>, result = <span class="hljs-number">-1</span>;<br>    <span class="hljs-keyword">while</span> (left &lt;= right) &#123;<br>        <span class="hljs-built_in">int</span> mid = left + (right - left) / <span class="hljs-number">2</span>;<br>        <span class="hljs-keyword">if</span> (a[mid] == target) &#123;<br>            result = mid;<br>            right = mid - <span class="hljs-number">1</span>;  <span class="hljs-comment">// 继续往左找</span><br>        &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (a[mid] &lt; target) &#123;<br>            left = mid + <span class="hljs-number">1</span>;<br>        &#125; <span class="hljs-keyword">else</span> &#123;<br>            right = mid - <span class="hljs-number">1</span>;<br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">return</span> result;<br>&#125;<br><br><span class="hljs-comment">// 查找最后一个等于target的位置</span><br><span class="hljs-built_in">int</span> findLast(<span class="hljs-built_in">int</span> a[], <span class="hljs-built_in">int</span> n, <span class="hljs-built_in">int</span> target) &#123;<br>    <span class="hljs-built_in">int</span> left = <span class="hljs-number">0</span>, right = n - <span class="hljs-number">1</span>, result = <span class="hljs-number">-1</span>;<br>    <span class="hljs-keyword">while</span> (left &lt;= right) &#123;<br>        <span class="hljs-built_in">int</span> mid = left + (right - left) / <span class="hljs-number">2</span>;<br>        <span class="hljs-keyword">if</span> (a[mid] == target) &#123;<br>            result = mid;<br>            left = mid + <span class="hljs-number">1</span>;  <span class="hljs-comment">// 继续往右找</span><br>        &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (a[mid] &lt; target) &#123;<br>            left = mid + <span class="hljs-number">1</span>;<br>        &#125; <span class="hljs-keyword">else</span> &#123;<br>            right = mid - <span class="hljs-number">1</span>;<br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">return</span> result;<br>&#125;<br><br><span class="hljs-built_in">int</span> main() &#123;<br>    <span class="hljs-built_in">int</span> a[] = &#123;<span class="hljs-number">1</span>, <span class="hljs-number">3</span>, <span class="hljs-number">3</span>, <span class="hljs-number">3</span>, <span class="hljs-number">5</span>, <span class="hljs-number">7</span>, <span class="hljs-number">9</span>&#125;;<br>    <span class="hljs-built_in">int</span> n = <span class="hljs-number">7</span>;<br>    <br>    printf(<span class="hljs-string">&quot;查找3的位置: %d\n&quot;</span>, binarySearch(a, n, <span class="hljs-number">3</span>));<br>    printf(<span class="hljs-string">&quot;第一个3的位置: %d\n&quot;</span>, findFirst(a, n, <span class="hljs-number">3</span>));<br>    printf(<span class="hljs-string">&quot;最后一个3的位置: %d\n&quot;</span>, findLast(a, n, <span class="hljs-number">3</span>));<br>    <br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p><strong>输出</strong>：</p>
+<figure class="highlight makefile"><table><tr><td class="code"><pre><code class="hljs makefile"><span class="hljs-section">查找3的位置: 2</span><br><span class="hljs-section">第一个3的位置: 1</span><br><span class="hljs-section">最后一个3的位置: 3</span><br></code></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>算法</category>
+      </categories>
+      <tags>
+        <tag>算法</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>贪心算法</title>
     <url>/2026/03/11/%E8%B4%AA%E5%BF%83/</url>
     <content><![CDATA[<h1 id="📘-第八部分：贪心算法"><a href="#📘-第八部分：贪心算法" class="headerlink" title="📘 第八部分：贪心算法"></a>📘 第八部分：贪心算法</h1><h2 id="第30讲：贪心算法-⭐⭐"><a href="#第30讲：贪心算法-⭐⭐" class="headerlink" title="第30讲：贪心算法 ⭐⭐"></a>第30讲：贪心算法 ⭐⭐</h2><h3 id="🔑-知识点讲解"><a href="#🔑-知识点讲解" class="headerlink" title="🔑 知识点讲解"></a>🔑 知识点讲解</h3><figure class="highlight markdown"><table><tr><td class="code"><pre><code class="hljs markdown">贪心策略：每一步都选择当前最优解，希望最终得到全局最优。<br><br>适用条件：<br><span class="hljs-bullet">1.</span> 贪心选择性质：局部最优能导致全局最优<br><span class="hljs-bullet">2.</span> 最优子结构：问题的最优解包含子问题的最优解<br><br>经典贪心问题：<br><span class="hljs-bullet">1.</span> 活动选择（区间调度）<br><span class="hljs-bullet">2.</span> 分数背包<br><span class="hljs-bullet">3.</span> 哈夫曼编码<br><span class="hljs-bullet">4.</span> Dijkstra最短路径<br><span class="hljs-bullet">5.</span> Prim/Kruskal最小生成树<br><span class="hljs-bullet">6.</span> 找零钱问题<br><br>⚠️ 贪心不一定能得到最优解！<br>   如0-1背包问题，贪心不行，需要动态规划。<br></code></pre></td></tr></table></figure>
@@ -624,57 +624,30 @@
       </tags>
   </entry>
   <entry>
-    <title>资源分享·栏目介绍</title>
-    <url>/2026/03/09/%E8%B5%84%E6%BA%90%E5%88%86%E4%BA%AB%E5%BC%80%E7%AF%87/</url>
-    <content><![CDATA[<blockquote>
-<p>好东西要一起分享，这里收录我认为有价值的学习资源。</p>
-</blockquote>
-<span id="more"></span>
+    <title>链表</title>
+    <url>/2026/03/11/%E9%93%BE%E8%A1%A8/</url>
+    <content><![CDATA[<h1 id="📙-第四部分：链表"><a href="#📙-第四部分：链表" class="headerlink" title="📙 第四部分：链表"></a>📙 第四部分：链表</h1><hr>
+<h2 id="第15讲：单链表-⭐⭐"><a href="#第15讲：单链表-⭐⭐" class="headerlink" title="第15讲：单链表 ⭐⭐"></a>第15讲：单链表 ⭐⭐</h2><h3 id="🔑-知识点讲解"><a href="#🔑-知识点讲解" class="headerlink" title="🔑 知识点讲解"></a>🔑 知识点讲解</h3><figure class="highlight crmsh"><table><tr><td class="code"><pre><code class="hljs crmsh">链表是动态数据结构，不需要连续内存。<br><br>单链表节点：<br>    typedef struct <span class="hljs-keyword">Node</span> <span class="hljs-title">&#123;</span><br><span class="hljs-title">        int</span> data;           // 数据域<br>        struct <span class="hljs-keyword">Node</span> <span class="hljs-title">*next</span>;  // 指针域，指向下一个节点<br>    &#125; <span class="hljs-keyword">Node</span><span class="hljs-title">;</span><br><span class="hljs-title"></span><br><span class="hljs-title">头指针 vs</span> 头节点：<br>    头指针：指向第一个节点的指针<br>    头节点：在第一个数据节点前加一个空节点（简化操作）<br>基本操作：<br>    <span class="hljs-number">1</span>. 创建链表<br>    <span class="hljs-number">2</span>. 头插法 / 尾插法<br>    <span class="hljs-number">3</span>. 插入节点<br>    <span class="hljs-number">4</span>. 删除节点<br>    <span class="hljs-number">5</span>. 查找节点<br>    <span class="hljs-number">6</span>. 链表反转 ⭐（高频考题）<br>    <span class="hljs-number">7</span>. 求链表长度<br></code></pre></td></tr></table></figure>
 
-<h2 id="📌-本栏目内容"><a href="#📌-本栏目内容" class="headerlink" title="📌 本栏目内容"></a>📌 本栏目内容</h2><p>本栏目将持续整理以下资源：</p>
-<ul>
-<li><strong>技术书单</strong> 嵌入式 &#x2F; Web &#x2F; 物联网方向推荐</li>
-<li><strong>开源项目</strong> 值得学习的优质仓库</li>
-<li><strong>学习网站</strong> 免费教程与文档资源</li>
-<li><strong>竞赛资料</strong> 备赛经验与参考资料整理</li>
-</ul>
-<blockquote>
-<p>持续更新，欢迎互相交流 📚</p>
+<h3 id="完整单链表实现"><a href="#完整单链表实现" class="headerlink" title="完整单链表实现"></a>完整单链表实现</h3><figure class="highlight cpp"><table><tr><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdio.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdlib.h&gt;</span></span><br><br><span class="hljs-keyword">typedef</span> <span class="hljs-keyword">struct</span> <span class="hljs-title class_">Node</span> &#123;<br>    <span class="hljs-type">int</span> data;<br>    <span class="hljs-keyword">struct</span> <span class="hljs-title class_">Node</span> *next;<br>&#125; Node;<br><br><span class="hljs-comment">// 创建头节点</span><br><span class="hljs-function">Node* <span class="hljs-title">createList</span><span class="hljs-params">()</span> </span>&#123;<br>    Node *head = (Node *)<span class="hljs-built_in">malloc</span>(<span class="hljs-built_in">sizeof</span>(Node));<br>    head-&gt;data = <span class="hljs-number">0</span>;    <span class="hljs-comment">// 头节点data可以存链表长度</span><br>    head-&gt;next = <span class="hljs-literal">NULL</span>;<br>    <span class="hljs-keyword">return</span> head;<br>&#125;<br><br><span class="hljs-comment">// 尾插法建表</span><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">insertTail</span><span class="hljs-params">(Node *head, <span class="hljs-type">int</span> val)</span> </span>&#123;<br>    Node *newNode = (Node *)<span class="hljs-built_in">malloc</span>(<span class="hljs-built_in">sizeof</span>(Node));<br>    newNode-&gt;data = val;<br>    newNode-&gt;next = <span class="hljs-literal">NULL</span>;<br>    <br>    Node *p = head;<br>    <span class="hljs-keyword">while</span> (p-&gt;next != <span class="hljs-literal">NULL</span>)<br>        p = p-&gt;next;<br>    p-&gt;next = newNode;<br>&#125;<br><br><span class="hljs-comment">// 头插法建表（结果与输入顺序相反）</span><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">insertHead</span><span class="hljs-params">(Node *head, <span class="hljs-type">int</span> val)</span> </span>&#123;<br>    Node *newNode = (Node *)<span class="hljs-built_in">malloc</span>(<span class="hljs-built_in">sizeof</span>(Node));<br>    newNode-&gt;data = val;<br>    newNode-&gt;next = head-&gt;next;<br>    head-&gt;next = newNode;<br>&#125;<br><br><span class="hljs-comment">// 在第pos个位置后插入</span><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">insertAt</span><span class="hljs-params">(Node *head, <span class="hljs-type">int</span> pos, <span class="hljs-type">int</span> val)</span> </span>&#123;<br>    Node *p = head;<br>    <span class="hljs-type">int</span> i = <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">while</span> (p != <span class="hljs-literal">NULL</span> &amp;&amp; i &lt; pos) &#123;<br>        p = p-&gt;next;<br>        i++;<br>    &#125;<br>    <span class="hljs-keyword">if</span> (p == <span class="hljs-literal">NULL</span>) <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;  <span class="hljs-comment">// 位置无效</span><br>    <br>    Node *newNode = (Node *)<span class="hljs-built_in">malloc</span>(<span class="hljs-built_in">sizeof</span>(Node));<br>    newNode-&gt;data = val;<br>    newNode-&gt;next = p-&gt;next;<br>    p-&gt;next = newNode;<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;<br>&#125;<br><br><span class="hljs-comment">// 删除值为val的第一个节点</span><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">deleteNode</span><span class="hljs-params">(Node *head, <span class="hljs-type">int</span> val)</span> </span>&#123;<br>    Node *p = head;<br>    <span class="hljs-keyword">while</span> (p-&gt;next != <span class="hljs-literal">NULL</span>) &#123;<br>        <span class="hljs-keyword">if</span> (p-&gt;next-&gt;data == val) &#123;<br>            Node *temp = p-&gt;next;<br>            p-&gt;next = temp-&gt;next;<br>            <span class="hljs-built_in">free</span>(temp);<br>            <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;<br>        &#125;<br>        p = p-&gt;next;<br>    &#125;<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;  <span class="hljs-comment">// 未找到</span><br>&#125;<br><br><span class="hljs-comment">// 反转【带头结点】的单链表，head 是头节点指针</span><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">reverseList</span><span class="hljs-params">(Node *head)</span> </span>&#123;<br>    <span class="hljs-comment">// 定义三个辅助指针：前一个、当前、下一个</span><br>    Node *prev = <span class="hljs-literal">NULL</span>;   <span class="hljs-comment">// 前驱指针，一开始指向空</span><br>    Node *curr = head-&gt;next;  <span class="hljs-comment">// 当前指针，从【第一个有效节点】开始</span><br>    Node *next;   <span class="hljs-comment">// 临时保存下一个节点</span><br>    <br>    <span class="hljs-comment">// 遍历整个链表，直到当前节点为空（遍历结束）</span><br>    <span class="hljs-keyword">while</span> (curr != <span class="hljs-literal">NULL</span>) &#123;<br>        next = curr-&gt;next;    <span class="hljs-comment">// 第一步：先保存下一个节点（不然后面找不到了）</span><br>        curr-&gt;next = prev;    <span class="hljs-comment">// 第二步：反转！当前节点指向前一个节点</span><br>        prev = curr;          <span class="hljs-comment">// 第三步：前驱指针向后移动</span><br>        curr = next;          <span class="hljs-comment">// 第四步：当前指针向后移动</span><br>    &#125;<br>    <br>    <span class="hljs-comment">// 循环结束后，prev 就是反转后的第一个有效节点</span><br>    head-&gt;next = prev;        <span class="hljs-comment">// 让头节点重新指向新的链表头部</span><br>&#125;<br><br><span class="hljs-comment">// 打印链表</span><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">printList</span><span class="hljs-params">(Node *head)</span> </span>&#123;<br>    Node *p = head-&gt;next;<br>    <span class="hljs-keyword">while</span> (p != <span class="hljs-literal">NULL</span>) &#123;<br>        <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d -&gt; &quot;</span>, p-&gt;data);<br>        p = p-&gt;next;<br>    &#125;<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;NULL\n&quot;</span>);<br>&#125;<br><br><span class="hljs-comment">// 释放链表</span><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">freeList</span><span class="hljs-params">(Node *head)</span> </span>&#123;<br>    Node *p = head, *temp;<br>    <span class="hljs-keyword">while</span> (p != <span class="hljs-literal">NULL</span>) &#123;<br>        temp = p;<br>        p = p-&gt;next;<br>        <span class="hljs-built_in">free</span>(temp);<br>    &#125;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br>    Node *list = <span class="hljs-built_in">createList</span>();<br>    <br>    <span class="hljs-comment">// 尾插法：1 2 3 4 5</span><br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= <span class="hljs-number">5</span>; i++)<br>        <span class="hljs-built_in">insertTail</span>(list, i);<br>    <br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;原链表: &quot;</span>);<br>    <span class="hljs-built_in">printList</span>(list);<br>    <br>    <span class="hljs-comment">// 反转</span><br>    <span class="hljs-built_in">reverseList</span>(list);<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;反转后: &quot;</span>);<br>    <span class="hljs-built_in">printList</span>(list);<br>    <br>    <span class="hljs-comment">// 删除值为3的节点</span><br>    <span class="hljs-built_in">deleteNode</span>(list, <span class="hljs-number">3</span>);<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;删除3: &quot;</span>);<br>    <span class="hljs-built_in">printList</span>(list);<br>    <br>    <span class="hljs-built_in">freeList</span>(list);<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p><strong>输出</strong>：</p>
+<figure class="highlight clean"><table><tr><td class="code"><pre><code class="hljs clean">原链表: <span class="hljs-number">1</span> -&gt; <span class="hljs-number">2</span> -&gt; <span class="hljs-number">3</span> -&gt; <span class="hljs-number">4</span> -&gt; <span class="hljs-number">5</span> -&gt; NULL<br>反转后: <span class="hljs-number">5</span> -&gt; <span class="hljs-number">4</span> -&gt; <span class="hljs-number">3</span> -&gt; <span class="hljs-number">2</span> -&gt; <span class="hljs-number">1</span> -&gt; NULL<br>删除<span class="hljs-number">3</span>: <span class="hljs-number">5</span> -&gt; <span class="hljs-number">4</span> -&gt; <span class="hljs-number">2</span> -&gt; <span class="hljs-number">1</span> -&gt; NULL<br></code></pre></td></tr></table></figure>
+
+<h3 id="✏️-练习题10：合并两个有序链表"><a href="#✏️-练习题10：合并两个有序链表" class="headerlink" title="✏️ 练习题10：合并两个有序链表"></a>✏️ 练习题10：合并两个有序链表</h3><blockquote>
+<p><strong>题目</strong>：将两个升序链表合并为一个升序链表。</p>
 </blockquote>
-]]></content>
+<figure class="highlight xl"><table><tr><td class="code"><pre><code class="hljs xl">Node* mergeSortedLists(Node *h1, Node *h2) &#123;<br>    Node *result = createList();<br>    N<span class="hljs-function"><span class="hljs-title">ode</span> *p1 = h1-&gt;</span><span class="hljs-function"><span class="hljs-title">next</span>, *p2 = h2-&gt;</span>next;<br>    Node *tail = result;<br>    <br>    <span class="hljs-keyword">while</span> (p1 != NULL &amp;&amp; p2 != NULL) &#123;<br>        Node *newNode = (Node *)malloc(sizeof(Node));<br>        <span class="hljs-function"><span class="hljs-title">if</span> (p1-&gt;</span><span class="hljs-function"><span class="hljs-title">data</span> &lt;= p2-&gt;</span><span class="hljs-keyword">data</span>) &#123;<br>            <span class="hljs-function"><span class="hljs-title">newNode</span>-&gt;</span><span class="hljs-function"><span class="hljs-title">data</span> = p1-&gt;</span><span class="hljs-keyword">data</span>;<br>            <span class="hljs-function"><span class="hljs-title">p1</span> = p1-&gt;</span>next;<br>        &#125; <span class="hljs-keyword">else</span> &#123;<br>            <span class="hljs-function"><span class="hljs-title">newNode</span>-&gt;</span><span class="hljs-function"><span class="hljs-title">data</span> = p2-&gt;</span><span class="hljs-keyword">data</span>;<br>            <span class="hljs-function"><span class="hljs-title">p2</span> = p2-&gt;</span>next;<br>        &#125;<br>        <span class="hljs-function"><span class="hljs-title">newNode</span>-&gt;</span>next = NULL;<br>        <span class="hljs-function"><span class="hljs-title">tail</span>-&gt;</span>next = newNode;<br>        tail = newNode;<br>    &#125;<br>    <br>    <span class="hljs-comment">// 处理剩余节点</span><br>    Node *remaining = (p1 != NULL) ? p1 : p2;<br>    <span class="hljs-keyword">while</span> (remaining != NULL) &#123;<br>        Node *newNode = (Node *)malloc(sizeof(Node));<br>        <span class="hljs-function"><span class="hljs-title">newNode</span>-&gt;</span><span class="hljs-function"><span class="hljs-title">data</span> = remaining-&gt;</span><span class="hljs-keyword">data</span>;<br>        <span class="hljs-function"><span class="hljs-title">newNode</span>-&gt;</span>next = NULL;<br>        <span class="hljs-function"><span class="hljs-title">tail</span>-&gt;</span>next = newNode;<br>        tail = newNode;<br>        <span class="hljs-function"><span class="hljs-title">remaining</span> = remaining-&gt;</span>next;<br>    &#125;<br>    <br>    return result;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="第16讲：双链表"><a href="#第16讲：双链表" class="headerlink" title="第16讲：双链表"></a>第16讲：双链表</h2><h3 id="🔑-知识点讲解-1"><a href="#🔑-知识点讲解-1" class="headerlink" title="🔑 知识点讲解"></a>🔑 知识点讲解</h3><figure class="highlight xl"><table><tr><td class="code"><pre><code class="hljs xl">双链表每个节点有两个指针：前驱和后继。<br><br>typedef struct DNode &#123;<br>    int <span class="hljs-keyword">data</span>;<br>    struct DNode *prev;<br>    struct DNode *next;<br>&#125; DNode;<br><br>优点：可以双向遍历，删除给定节点时间O(<span class="hljs-number">1</span>)（单链表需要知道前驱）<br>缺点：额外的空间开销<br><br>插入操作（在 p 节点后插入 s）：<br>    <span class="hljs-function"><span class="hljs-title">s</span>-&gt;</span><span class="hljs-function"><span class="hljs-title">next</span> = p-&gt;</span>next;<br>    <span class="hljs-function"><span class="hljs-title">s</span>-&gt;</span>prev = p;<br>    <span class="hljs-function"><span class="hljs-title">if</span> (p-&gt;</span><span class="hljs-function"><span class="hljs-title">next</span>) p-&gt;</span><span class="hljs-function"><span class="hljs-title">next</span>-&gt;</span>prev = s;<br>    <span class="hljs-function"><span class="hljs-title">p</span>-&gt;</span>next = s;<br><br>删除操作（删除 p 节点）：<br>    <span class="hljs-function"><span class="hljs-title">p</span>-&gt;</span><span class="hljs-function"><span class="hljs-title">prev</span>-&gt;</span><span class="hljs-function"><span class="hljs-title">next</span> = p-&gt;</span>next;<br>    <span class="hljs-function"><span class="hljs-title">if</span> (p-&gt;</span><span class="hljs-function"><span class="hljs-title">next</span>) p-&gt;</span><span class="hljs-function"><span class="hljs-title">next</span>-&gt;</span><span class="hljs-function"><span class="hljs-title">prev</span> = p-&gt;</span>prev;<br>    free(p);<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight cpp"><table><tr><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdio.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdlib.h&gt;</span></span><br><br><span class="hljs-keyword">typedef</span> <span class="hljs-keyword">struct</span> <span class="hljs-title class_">DNode</span> &#123;<br>    <span class="hljs-type">int</span> data;<br>    <span class="hljs-keyword">struct</span> <span class="hljs-title class_">DNode</span> *prev;<br>    <span class="hljs-keyword">struct</span> <span class="hljs-title class_">DNode</span> *next;<br>&#125; DNode;<br><br><span class="hljs-function">DNode* <span class="hljs-title">createDList</span><span class="hljs-params">()</span> </span>&#123;<br>    DNode *head = (DNode *)<span class="hljs-built_in">malloc</span>(<span class="hljs-built_in">sizeof</span>(DNode));<br>    head-&gt;data = <span class="hljs-number">0</span>;<br>    head-&gt;prev = <span class="hljs-literal">NULL</span>;<br>    head-&gt;next = <span class="hljs-literal">NULL</span>;<br>    <span class="hljs-keyword">return</span> head;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">insertTailD</span><span class="hljs-params">(DNode *head, <span class="hljs-type">int</span> val)</span> </span>&#123;<br>    DNode *newNode = (DNode *)<span class="hljs-built_in">malloc</span>(<span class="hljs-built_in">sizeof</span>(DNode));<br>    newNode-&gt;data = val;<br>    newNode-&gt;next = <span class="hljs-literal">NULL</span>;<br>    <br>    DNode *p = head;<br>    <span class="hljs-keyword">while</span> (p-&gt;next) p = p-&gt;next;<br>    <br>    newNode-&gt;prev = p;<br>    p-&gt;next = newNode;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">printDList</span><span class="hljs-params">(DNode *head)</span> </span>&#123;<br>    DNode *p = head-&gt;next;<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;正向: &quot;</span>);<br>    DNode *tail = <span class="hljs-literal">NULL</span>;<br>    <span class="hljs-keyword">while</span> (p) &#123;<br>        <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d &lt;-&gt; &quot;</span>, p-&gt;data);<br>        tail = p;<br>        p = p-&gt;next;<br>    &#125;<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;NULL\n&quot;</span>);<br>    <br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;反向: &quot;</span>);<br>    <span class="hljs-keyword">while</span> (tail &amp;&amp; tail != head) &#123;<br>        <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d &lt;-&gt; &quot;</span>, tail-&gt;data);<br>        tail = tail-&gt;prev;<br>    &#125;<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;HEAD\n&quot;</span>);<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br>    DNode *list = <span class="hljs-built_in">createDList</span>();<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= <span class="hljs-number">5</span>; i++)<br>        <span class="hljs-built_in">insertTailD</span>(list, i);<br>    <span class="hljs-built_in">printDList</span>(list);<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>]]></content>
       <categories>
-        <category>资源</category>
+        <category>算法</category>
       </categories>
       <tags>
-        <tag>资源</tag>
-        <tag>分享</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>随笔·栏目介绍</title>
-    <url>/2026/03/09/%E9%9A%8F%E7%AC%94%E5%BC%80%E7%AF%87/</url>
-    <content><![CDATA[<blockquote>
-<p>技术之外，也要好好生活。这里是我的文字角落。</p>
-</blockquote>
-<span id="more"></span>
-
-<h2 id="📌-本栏目内容"><a href="#📌-本栏目内容" class="headerlink" title="📌 本栏目内容"></a>📌 本栏目内容</h2><p>不谈技术，只聊生活：</p>
-<ul>
-<li>校园日常与成长感悟</li>
-<li>竞赛备赛的心路历程</li>
-<li>读书笔记与思考随录</li>
-<li>生活中值得记录的小事</li>
-</ul>
-<blockquote>
-<p>慢慢更新，随心而写 ✍️</p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>随笔</category>
-      </categories>
-      <tags>
-        <tag>随笔</tag>
-        <tag>生活</tag>
+        <tag>算法</tag>
       </tags>
   </entry>
   <entry>
@@ -708,30 +681,57 @@
       </tags>
   </entry>
   <entry>
-    <title>链表</title>
-    <url>/2026/03/11/%E9%93%BE%E8%A1%A8/</url>
-    <content><![CDATA[<h1 id="📙-第四部分：链表"><a href="#📙-第四部分：链表" class="headerlink" title="📙 第四部分：链表"></a>📙 第四部分：链表</h1><hr>
-<h2 id="第15讲：单链表-⭐⭐"><a href="#第15讲：单链表-⭐⭐" class="headerlink" title="第15讲：单链表 ⭐⭐"></a>第15讲：单链表 ⭐⭐</h2><h3 id="🔑-知识点讲解"><a href="#🔑-知识点讲解" class="headerlink" title="🔑 知识点讲解"></a>🔑 知识点讲解</h3><figure class="highlight crmsh"><table><tr><td class="code"><pre><code class="hljs crmsh">链表是动态数据结构，不需要连续内存。<br><br>单链表节点：<br>    typedef struct <span class="hljs-keyword">Node</span> <span class="hljs-title">&#123;</span><br><span class="hljs-title">        int</span> data;           // 数据域<br>        struct <span class="hljs-keyword">Node</span> <span class="hljs-title">*next</span>;  // 指针域，指向下一个节点<br>    &#125; <span class="hljs-keyword">Node</span><span class="hljs-title">;</span><br><span class="hljs-title"></span><br><span class="hljs-title">头指针 vs</span> 头节点：<br>    头指针：指向第一个节点的指针<br>    头节点：在第一个数据节点前加一个空节点（简化操作）<br>基本操作：<br>    <span class="hljs-number">1</span>. 创建链表<br>    <span class="hljs-number">2</span>. 头插法 / 尾插法<br>    <span class="hljs-number">3</span>. 插入节点<br>    <span class="hljs-number">4</span>. 删除节点<br>    <span class="hljs-number">5</span>. 查找节点<br>    <span class="hljs-number">6</span>. 链表反转 ⭐（高频考题）<br>    <span class="hljs-number">7</span>. 求链表长度<br></code></pre></td></tr></table></figure>
-
-<h3 id="完整单链表实现"><a href="#完整单链表实现" class="headerlink" title="完整单链表实现"></a>完整单链表实现</h3><figure class="highlight cpp"><table><tr><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdio.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdlib.h&gt;</span></span><br><br><span class="hljs-keyword">typedef</span> <span class="hljs-keyword">struct</span> <span class="hljs-title class_">Node</span> &#123;<br>    <span class="hljs-type">int</span> data;<br>    <span class="hljs-keyword">struct</span> <span class="hljs-title class_">Node</span> *next;<br>&#125; Node;<br><br><span class="hljs-comment">// 创建头节点</span><br><span class="hljs-function">Node* <span class="hljs-title">createList</span><span class="hljs-params">()</span> </span>&#123;<br>    Node *head = (Node *)<span class="hljs-built_in">malloc</span>(<span class="hljs-built_in">sizeof</span>(Node));<br>    head-&gt;data = <span class="hljs-number">0</span>;    <span class="hljs-comment">// 头节点data可以存链表长度</span><br>    head-&gt;next = <span class="hljs-literal">NULL</span>;<br>    <span class="hljs-keyword">return</span> head;<br>&#125;<br><br><span class="hljs-comment">// 尾插法建表</span><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">insertTail</span><span class="hljs-params">(Node *head, <span class="hljs-type">int</span> val)</span> </span>&#123;<br>    Node *newNode = (Node *)<span class="hljs-built_in">malloc</span>(<span class="hljs-built_in">sizeof</span>(Node));<br>    newNode-&gt;data = val;<br>    newNode-&gt;next = <span class="hljs-literal">NULL</span>;<br>    <br>    Node *p = head;<br>    <span class="hljs-keyword">while</span> (p-&gt;next != <span class="hljs-literal">NULL</span>)<br>        p = p-&gt;next;<br>    p-&gt;next = newNode;<br>&#125;<br><br><span class="hljs-comment">// 头插法建表（结果与输入顺序相反）</span><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">insertHead</span><span class="hljs-params">(Node *head, <span class="hljs-type">int</span> val)</span> </span>&#123;<br>    Node *newNode = (Node *)<span class="hljs-built_in">malloc</span>(<span class="hljs-built_in">sizeof</span>(Node));<br>    newNode-&gt;data = val;<br>    newNode-&gt;next = head-&gt;next;<br>    head-&gt;next = newNode;<br>&#125;<br><br><span class="hljs-comment">// 在第pos个位置后插入</span><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">insertAt</span><span class="hljs-params">(Node *head, <span class="hljs-type">int</span> pos, <span class="hljs-type">int</span> val)</span> </span>&#123;<br>    Node *p = head;<br>    <span class="hljs-type">int</span> i = <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">while</span> (p != <span class="hljs-literal">NULL</span> &amp;&amp; i &lt; pos) &#123;<br>        p = p-&gt;next;<br>        i++;<br>    &#125;<br>    <span class="hljs-keyword">if</span> (p == <span class="hljs-literal">NULL</span>) <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;  <span class="hljs-comment">// 位置无效</span><br>    <br>    Node *newNode = (Node *)<span class="hljs-built_in">malloc</span>(<span class="hljs-built_in">sizeof</span>(Node));<br>    newNode-&gt;data = val;<br>    newNode-&gt;next = p-&gt;next;<br>    p-&gt;next = newNode;<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;<br>&#125;<br><br><span class="hljs-comment">// 删除值为val的第一个节点</span><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">deleteNode</span><span class="hljs-params">(Node *head, <span class="hljs-type">int</span> val)</span> </span>&#123;<br>    Node *p = head;<br>    <span class="hljs-keyword">while</span> (p-&gt;next != <span class="hljs-literal">NULL</span>) &#123;<br>        <span class="hljs-keyword">if</span> (p-&gt;next-&gt;data == val) &#123;<br>            Node *temp = p-&gt;next;<br>            p-&gt;next = temp-&gt;next;<br>            <span class="hljs-built_in">free</span>(temp);<br>            <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;<br>        &#125;<br>        p = p-&gt;next;<br>    &#125;<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;  <span class="hljs-comment">// 未找到</span><br>&#125;<br><br><span class="hljs-comment">// 反转【带头结点】的单链表，head 是头节点指针</span><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">reverseList</span><span class="hljs-params">(Node *head)</span> </span>&#123;<br>    <span class="hljs-comment">// 定义三个辅助指针：前一个、当前、下一个</span><br>    Node *prev = <span class="hljs-literal">NULL</span>;   <span class="hljs-comment">// 前驱指针，一开始指向空</span><br>    Node *curr = head-&gt;next;  <span class="hljs-comment">// 当前指针，从【第一个有效节点】开始</span><br>    Node *next;   <span class="hljs-comment">// 临时保存下一个节点</span><br>    <br>    <span class="hljs-comment">// 遍历整个链表，直到当前节点为空（遍历结束）</span><br>    <span class="hljs-keyword">while</span> (curr != <span class="hljs-literal">NULL</span>) &#123;<br>        next = curr-&gt;next;    <span class="hljs-comment">// 第一步：先保存下一个节点（不然后面找不到了）</span><br>        curr-&gt;next = prev;    <span class="hljs-comment">// 第二步：反转！当前节点指向前一个节点</span><br>        prev = curr;          <span class="hljs-comment">// 第三步：前驱指针向后移动</span><br>        curr = next;          <span class="hljs-comment">// 第四步：当前指针向后移动</span><br>    &#125;<br>    <br>    <span class="hljs-comment">// 循环结束后，prev 就是反转后的第一个有效节点</span><br>    head-&gt;next = prev;        <span class="hljs-comment">// 让头节点重新指向新的链表头部</span><br>&#125;<br><br><span class="hljs-comment">// 打印链表</span><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">printList</span><span class="hljs-params">(Node *head)</span> </span>&#123;<br>    Node *p = head-&gt;next;<br>    <span class="hljs-keyword">while</span> (p != <span class="hljs-literal">NULL</span>) &#123;<br>        <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d -&gt; &quot;</span>, p-&gt;data);<br>        p = p-&gt;next;<br>    &#125;<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;NULL\n&quot;</span>);<br>&#125;<br><br><span class="hljs-comment">// 释放链表</span><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">freeList</span><span class="hljs-params">(Node *head)</span> </span>&#123;<br>    Node *p = head, *temp;<br>    <span class="hljs-keyword">while</span> (p != <span class="hljs-literal">NULL</span>) &#123;<br>        temp = p;<br>        p = p-&gt;next;<br>        <span class="hljs-built_in">free</span>(temp);<br>    &#125;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br>    Node *list = <span class="hljs-built_in">createList</span>();<br>    <br>    <span class="hljs-comment">// 尾插法：1 2 3 4 5</span><br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= <span class="hljs-number">5</span>; i++)<br>        <span class="hljs-built_in">insertTail</span>(list, i);<br>    <br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;原链表: &quot;</span>);<br>    <span class="hljs-built_in">printList</span>(list);<br>    <br>    <span class="hljs-comment">// 反转</span><br>    <span class="hljs-built_in">reverseList</span>(list);<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;反转后: &quot;</span>);<br>    <span class="hljs-built_in">printList</span>(list);<br>    <br>    <span class="hljs-comment">// 删除值为3的节点</span><br>    <span class="hljs-built_in">deleteNode</span>(list, <span class="hljs-number">3</span>);<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;删除3: &quot;</span>);<br>    <span class="hljs-built_in">printList</span>(list);<br>    <br>    <span class="hljs-built_in">freeList</span>(list);<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
-
-<p><strong>输出</strong>：</p>
-<figure class="highlight clean"><table><tr><td class="code"><pre><code class="hljs clean">原链表: <span class="hljs-number">1</span> -&gt; <span class="hljs-number">2</span> -&gt; <span class="hljs-number">3</span> -&gt; <span class="hljs-number">4</span> -&gt; <span class="hljs-number">5</span> -&gt; NULL<br>反转后: <span class="hljs-number">5</span> -&gt; <span class="hljs-number">4</span> -&gt; <span class="hljs-number">3</span> -&gt; <span class="hljs-number">2</span> -&gt; <span class="hljs-number">1</span> -&gt; NULL<br>删除<span class="hljs-number">3</span>: <span class="hljs-number">5</span> -&gt; <span class="hljs-number">4</span> -&gt; <span class="hljs-number">2</span> -&gt; <span class="hljs-number">1</span> -&gt; NULL<br></code></pre></td></tr></table></figure>
-
-<h3 id="✏️-练习题10：合并两个有序链表"><a href="#✏️-练习题10：合并两个有序链表" class="headerlink" title="✏️ 练习题10：合并两个有序链表"></a>✏️ 练习题10：合并两个有序链表</h3><blockquote>
-<p><strong>题目</strong>：将两个升序链表合并为一个升序链表。</p>
+    <title>随笔·栏目介绍</title>
+    <url>/2026/03/09/%E9%9A%8F%E7%AC%94%E5%BC%80%E7%AF%87/</url>
+    <content><![CDATA[<blockquote>
+<p>技术之外，也要好好生活。这里是我的文字角落。</p>
 </blockquote>
-<figure class="highlight xl"><table><tr><td class="code"><pre><code class="hljs xl">Node* mergeSortedLists(Node *h1, Node *h2) &#123;<br>    Node *result = createList();<br>    N<span class="hljs-function"><span class="hljs-title">ode</span> *p1 = h1-&gt;</span><span class="hljs-function"><span class="hljs-title">next</span>, *p2 = h2-&gt;</span>next;<br>    Node *tail = result;<br>    <br>    <span class="hljs-keyword">while</span> (p1 != NULL &amp;&amp; p2 != NULL) &#123;<br>        Node *newNode = (Node *)malloc(sizeof(Node));<br>        <span class="hljs-function"><span class="hljs-title">if</span> (p1-&gt;</span><span class="hljs-function"><span class="hljs-title">data</span> &lt;= p2-&gt;</span><span class="hljs-keyword">data</span>) &#123;<br>            <span class="hljs-function"><span class="hljs-title">newNode</span>-&gt;</span><span class="hljs-function"><span class="hljs-title">data</span> = p1-&gt;</span><span class="hljs-keyword">data</span>;<br>            <span class="hljs-function"><span class="hljs-title">p1</span> = p1-&gt;</span>next;<br>        &#125; <span class="hljs-keyword">else</span> &#123;<br>            <span class="hljs-function"><span class="hljs-title">newNode</span>-&gt;</span><span class="hljs-function"><span class="hljs-title">data</span> = p2-&gt;</span><span class="hljs-keyword">data</span>;<br>            <span class="hljs-function"><span class="hljs-title">p2</span> = p2-&gt;</span>next;<br>        &#125;<br>        <span class="hljs-function"><span class="hljs-title">newNode</span>-&gt;</span>next = NULL;<br>        <span class="hljs-function"><span class="hljs-title">tail</span>-&gt;</span>next = newNode;<br>        tail = newNode;<br>    &#125;<br>    <br>    <span class="hljs-comment">// 处理剩余节点</span><br>    Node *remaining = (p1 != NULL) ? p1 : p2;<br>    <span class="hljs-keyword">while</span> (remaining != NULL) &#123;<br>        Node *newNode = (Node *)malloc(sizeof(Node));<br>        <span class="hljs-function"><span class="hljs-title">newNode</span>-&gt;</span><span class="hljs-function"><span class="hljs-title">data</span> = remaining-&gt;</span><span class="hljs-keyword">data</span>;<br>        <span class="hljs-function"><span class="hljs-title">newNode</span>-&gt;</span>next = NULL;<br>        <span class="hljs-function"><span class="hljs-title">tail</span>-&gt;</span>next = newNode;<br>        tail = newNode;<br>        <span class="hljs-function"><span class="hljs-title">remaining</span> = remaining-&gt;</span>next;<br>    &#125;<br>    <br>    return result;<br>&#125;<br></code></pre></td></tr></table></figure>
+<span id="more"></span>
 
-<hr>
-<h2 id="第16讲：双链表"><a href="#第16讲：双链表" class="headerlink" title="第16讲：双链表"></a>第16讲：双链表</h2><h3 id="🔑-知识点讲解-1"><a href="#🔑-知识点讲解-1" class="headerlink" title="🔑 知识点讲解"></a>🔑 知识点讲解</h3><figure class="highlight xl"><table><tr><td class="code"><pre><code class="hljs xl">双链表每个节点有两个指针：前驱和后继。<br><br>typedef struct DNode &#123;<br>    int <span class="hljs-keyword">data</span>;<br>    struct DNode *prev;<br>    struct DNode *next;<br>&#125; DNode;<br><br>优点：可以双向遍历，删除给定节点时间O(<span class="hljs-number">1</span>)（单链表需要知道前驱）<br>缺点：额外的空间开销<br><br>插入操作（在 p 节点后插入 s）：<br>    <span class="hljs-function"><span class="hljs-title">s</span>-&gt;</span><span class="hljs-function"><span class="hljs-title">next</span> = p-&gt;</span>next;<br>    <span class="hljs-function"><span class="hljs-title">s</span>-&gt;</span>prev = p;<br>    <span class="hljs-function"><span class="hljs-title">if</span> (p-&gt;</span><span class="hljs-function"><span class="hljs-title">next</span>) p-&gt;</span><span class="hljs-function"><span class="hljs-title">next</span>-&gt;</span>prev = s;<br>    <span class="hljs-function"><span class="hljs-title">p</span>-&gt;</span>next = s;<br><br>删除操作（删除 p 节点）：<br>    <span class="hljs-function"><span class="hljs-title">p</span>-&gt;</span><span class="hljs-function"><span class="hljs-title">prev</span>-&gt;</span><span class="hljs-function"><span class="hljs-title">next</span> = p-&gt;</span>next;<br>    <span class="hljs-function"><span class="hljs-title">if</span> (p-&gt;</span><span class="hljs-function"><span class="hljs-title">next</span>) p-&gt;</span><span class="hljs-function"><span class="hljs-title">next</span>-&gt;</span><span class="hljs-function"><span class="hljs-title">prev</span> = p-&gt;</span>prev;<br>    free(p);<br></code></pre></td></tr></table></figure>
-
-<figure class="highlight cpp"><table><tr><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdio.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdlib.h&gt;</span></span><br><br><span class="hljs-keyword">typedef</span> <span class="hljs-keyword">struct</span> <span class="hljs-title class_">DNode</span> &#123;<br>    <span class="hljs-type">int</span> data;<br>    <span class="hljs-keyword">struct</span> <span class="hljs-title class_">DNode</span> *prev;<br>    <span class="hljs-keyword">struct</span> <span class="hljs-title class_">DNode</span> *next;<br>&#125; DNode;<br><br><span class="hljs-function">DNode* <span class="hljs-title">createDList</span><span class="hljs-params">()</span> </span>&#123;<br>    DNode *head = (DNode *)<span class="hljs-built_in">malloc</span>(<span class="hljs-built_in">sizeof</span>(DNode));<br>    head-&gt;data = <span class="hljs-number">0</span>;<br>    head-&gt;prev = <span class="hljs-literal">NULL</span>;<br>    head-&gt;next = <span class="hljs-literal">NULL</span>;<br>    <span class="hljs-keyword">return</span> head;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">insertTailD</span><span class="hljs-params">(DNode *head, <span class="hljs-type">int</span> val)</span> </span>&#123;<br>    DNode *newNode = (DNode *)<span class="hljs-built_in">malloc</span>(<span class="hljs-built_in">sizeof</span>(DNode));<br>    newNode-&gt;data = val;<br>    newNode-&gt;next = <span class="hljs-literal">NULL</span>;<br>    <br>    DNode *p = head;<br>    <span class="hljs-keyword">while</span> (p-&gt;next) p = p-&gt;next;<br>    <br>    newNode-&gt;prev = p;<br>    p-&gt;next = newNode;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">printDList</span><span class="hljs-params">(DNode *head)</span> </span>&#123;<br>    DNode *p = head-&gt;next;<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;正向: &quot;</span>);<br>    DNode *tail = <span class="hljs-literal">NULL</span>;<br>    <span class="hljs-keyword">while</span> (p) &#123;<br>        <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d &lt;-&gt; &quot;</span>, p-&gt;data);<br>        tail = p;<br>        p = p-&gt;next;<br>    &#125;<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;NULL\n&quot;</span>);<br>    <br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;反向: &quot;</span>);<br>    <span class="hljs-keyword">while</span> (tail &amp;&amp; tail != head) &#123;<br>        <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d &lt;-&gt; &quot;</span>, tail-&gt;data);<br>        tail = tail-&gt;prev;<br>    &#125;<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;HEAD\n&quot;</span>);<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br>    DNode *list = <span class="hljs-built_in">createDList</span>();<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= <span class="hljs-number">5</span>; i++)<br>        <span class="hljs-built_in">insertTailD</span>(list, i);<br>    <span class="hljs-built_in">printDList</span>(list);<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>]]></content>
+<h2 id="📌-本栏目内容"><a href="#📌-本栏目内容" class="headerlink" title="📌 本栏目内容"></a>📌 本栏目内容</h2><p>不谈技术，只聊生活：</p>
+<ul>
+<li>校园日常与成长感悟</li>
+<li>竞赛备赛的心路历程</li>
+<li>读书笔记与思考随录</li>
+<li>生活中值得记录的小事</li>
+</ul>
+<blockquote>
+<p>慢慢更新，随心而写 ✍️</p>
+</blockquote>
+]]></content>
       <categories>
-        <category>算法</category>
+        <category>随笔</category>
       </categories>
       <tags>
-        <tag>算法</tag>
+        <tag>随笔</tag>
+        <tag>生活</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>资源分享·栏目介绍</title>
+    <url>/2026/03/09/%E8%B5%84%E6%BA%90%E5%88%86%E4%BA%AB%E5%BC%80%E7%AF%87/</url>
+    <content><![CDATA[<blockquote>
+<p>好东西要一起分享，这里收录我认为有价值的学习资源。</p>
+</blockquote>
+<span id="more"></span>
+
+<h2 id="📌-本栏目内容"><a href="#📌-本栏目内容" class="headerlink" title="📌 本栏目内容"></a>📌 本栏目内容</h2><p>本栏目将持续整理以下资源：</p>
+<ul>
+<li><strong>技术书单</strong> 嵌入式 &#x2F; Web &#x2F; 物联网方向推荐</li>
+<li><strong>开源项目</strong> 值得学习的优质仓库</li>
+<li><strong>学习网站</strong> 免费教程与文档资源</li>
+<li><strong>竞赛资料</strong> 备赛经验与参考资料整理</li>
+</ul>
+<blockquote>
+<p>持续更新，欢迎互相交流 📚</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>资源</category>
+      </categories>
+      <tags>
+        <tag>资源</tag>
+        <tag>分享</tag>
       </tags>
   </entry>
 </search>
