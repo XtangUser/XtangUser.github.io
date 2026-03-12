@@ -3,8 +3,8 @@
 (function(window, document) {
   'use strict';
 
-  // Get server URL from config
-  const API_SERVER = (CONFIG.web_analytics.openkounter && CONFIG.web_analytics.openkounter.server_url) || '';
+  const analyticsConfig = (CONFIG.web_analytics && CONFIG.web_analytics.openkounter) || {};
+  const API_SERVER = analyticsConfig.server_url || '';
 
   if (!API_SERVER) {
     console.warn('OpenKounter: server_url is not configured');
@@ -13,26 +13,27 @@
 
   function getRecord(target) {
     return fetch(`${API_SERVER}/api/counter?target=${encodeURIComponent(target)}`)
-      .then(resp => {
+      .then(function(resp) {
         if (!resp.ok) {
           throw new Error(`HTTP ${resp.status}: ${resp.statusText}`);
         }
         return resp.json();
       })
-      .then(({ data, code, message }) => {
-        if (code !== 0) {
-          throw new Error(message || 'Unknown error');
+      .then(function(payload) {
+        const data = payload.data || {};
+        if (payload.code !== 0) {
+          throw new Error(payload.message || 'Unknown error');
         }
-        return { time: data.time || 0, objectId: data.target };
+        return { time: data.time || 0, objectId: data.target || target };
       })
-      .catch(error => {
+      .catch(function(error) {
         console.error('OpenKounter fetch error:', error);
         return { time: 0, objectId: target };
       });
   }
 
-  function increment(incrArr) {
-    if (!incrArr || incrArr.length === 0) {
+  function increment(requests) {
+    if (!requests || requests.length === 0) {
       return Promise.resolve([]);
     }
 
@@ -41,133 +42,138 @@
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         action: 'batch_inc',
-        requests: incrArr
+        requests: requests
       })
     })
-      .then(res => {
-        if (!res.ok) {
-          throw new Error(`HTTP ${res.status}: ${res.statusText}`);
+      .then(function(resp) {
+        if (!resp.ok) {
+          throw new Error(`HTTP ${resp.status}: ${resp.statusText}`);
         }
-        return res.json();
+        return resp.json();
       })
-      .then(res => {
-        if (res.code !== 0) {
-          throw new Error(res.message || 'Failed to increment counter');
+      .then(function(payload) {
+        if (payload.code !== 0) {
+          throw new Error(payload.message || 'Failed to increment counter');
         }
-        return res.data;
+        return payload.data;
       })
-      .catch(error => {
+      .catch(function(error) {
         console.error('OpenKounter increment error:', error);
       });
   }
 
-  function buildIncrement(objectId) {
-    return { target: objectId };
+  function buildIncrement(target) {
+    return { target: target };
   }
 
-  // 校验是否为有效的主机（排除本地开发环境）
   function validHost() {
-    const ignoreLocal = CONFIG.web_analytics.openkounter && CONFIG.web_analytics.openkounter.ignore_local;
-    if (ignoreLocal !== false) {
-      const hostname = window.location.hostname;
-      if (hostname === 'localhost' || hostname === '127.0.0.1' || hostname === '[::1]') {
-        return false;
+    if (analyticsConfig.ignore_local === false) {
+      return true;
+    }
+
+    const hostname = window.location.hostname;
+    return hostname !== 'localhost' && hostname !== '127.0.0.1' && hostname !== '[::1]';
+  }
+
+  function getSiteNamespace() {
+    return window.location.hostname || 'unknown-host';
+  }
+
+  function getSiteTarget(name) {
+    return `${getSiteNamespace()}:${name}`;
+  }
+
+  function getPageTarget() {
+    let rawPath = window.location.pathname;
+
+    if (analyticsConfig.path) {
+      try {
+        rawPath = eval(analyticsConfig.path);
+      } catch (error) {
+        console.warn('OpenKounter: failed to evaluate path config, fallback to pathname', error);
       }
     }
-    return true;
+
+    const normalizedPath = decodeURI(String(rawPath || '/').replace(/\/*(index.html)?$/, '/'));
+    return `${getSiteNamespace()}:${normalizedPath}`;
   }
 
-  // 校验是否为有效的独立访客（24小时内只计一次）
   function validUV() {
-    const key = 'OpenKounter_UV_Flag';
+    const key = `OpenKounter_UV_Flag:${getSiteNamespace()}`;
     const now = Date.now();
 
     try {
       const flag = localStorage.getItem(key);
       if (flag) {
         const lastVisit = parseInt(flag, 10);
-        // 距离上次访问小于 24 小时则不计为新 UV
-        if (now - lastVisit <= 86400000) {
+        if (!Number.isNaN(lastVisit) && now - lastVisit <= 86400000) {
           return false;
         }
       }
       localStorage.setItem(key, now.toString());
-    } catch (e) {
-      // localStorage 不可用时默认计为 UV
+    } catch (error) {
       console.warn('OpenKounter: localStorage is not available');
     }
+
     return true;
   }
 
-  function addCount() {
-    const enableIncr = CONFIG.web_analytics.enable && (!window.Fluid || !Fluid.ctx.dnt) && validHost();
-    const getterArr = [];
-    const incrArr = [];
-
-    // 请求站点 PV 并自增
-    const pvCtn = document.querySelector('#openkounter-site-pv-container');
-    if (pvCtn) {
-      const pvGetter = getRecord('site-pv').then((record) => {
-        if (enableIncr) {
-          incrArr.push(buildIncrement(record.objectId));
-        }
-        const ele = document.querySelector('#openkounter-site-pv');
-        if (ele) {
-          ele.innerText = (record.time || 0) + (enableIncr ? 1 : 0);
-          pvCtn.style.display = 'inline';
-        }
-      });
-      getterArr.push(pvGetter);
+  function renderCounter(containerSelector, valueSelector, target, shouldIncrement, requests) {
+    const container = document.querySelector(containerSelector);
+    if (!container) {
+      return null;
     }
 
-    // 请求站点 UV 并自增
-    const uvCtn = document.querySelector('#openkounter-site-uv-container');
-    if (uvCtn) {
-      const uvGetter = getRecord('site-uv').then((record) => {
-        const incrUV = validUV() && enableIncr;
-        if (incrUV) {
-          incrArr.push(buildIncrement(record.objectId));
-        }
-        const ele = document.querySelector('#openkounter-site-uv');
-        if (ele) {
-          ele.innerText = (record.time || 0) + (incrUV ? 1 : 0);
-          uvCtn.style.display = 'inline';
-        }
-      });
-      getterArr.push(uvGetter);
-    }
-
-    // 请求页面浏览数并自增
-    const viewCtn = document.querySelector('#openkounter-page-views-container');
-    if (viewCtn) {
-      const pathConfig = CONFIG.web_analytics.openkounter.path || 'window.location.pathname';
-      const path = eval(pathConfig);
-      const target = decodeURI(path.replace(/\/*(index.html)?$/, '/'));
-
-      const viewGetter = getRecord(target).then((record) => {
-        if (enableIncr) {
-          incrArr.push(buildIncrement(record.objectId));
-        }
-        const ele = document.querySelector('#openkounter-page-views');
-        if (ele) {
-          ele.innerText = (record.time || 0) + (enableIncr ? 1 : 0);
-          viewCtn.style.display = 'inline';
-        }
-      });
-      getterArr.push(viewGetter);
-    }
-
-    // 批量发起统计请求
-    Promise.all(getterArr).then(() => {
-      if (enableIncr && incrArr.length > 0) {
-        increment(incrArr);
+    return getRecord(target).then(function(record) {
+      if (shouldIncrement) {
+        requests.push(buildIncrement(record.objectId));
       }
-    }).catch(error => {
+
+      const element = document.querySelector(valueSelector);
+      if (element) {
+        element.innerText = (record.time || 0) + (shouldIncrement ? 1 : 0);
+        container.style.display = 'inline';
+      }
+    });
+  }
+
+  function addCount() {
+    const enableIncrement = CONFIG.web_analytics.enable && (!window.Fluid || !Fluid.ctx.dnt) && validHost();
+    const requests = [];
+    const jobs = [];
+
+    jobs.push(renderCounter(
+      '#openkounter-site-pv-container',
+      '#openkounter-site-pv',
+      getSiteTarget('site-pv'),
+      enableIncrement,
+      requests
+    ));
+
+    jobs.push(renderCounter(
+      '#openkounter-site-uv-container',
+      '#openkounter-site-uv',
+      getSiteTarget('site-uv'),
+      enableIncrement && validUV(),
+      requests
+    ));
+
+    jobs.push(renderCounter(
+      '#openkounter-page-views-container',
+      '#openkounter-page-views',
+      getPageTarget(),
+      enableIncrement,
+      requests
+    ));
+
+    Promise.all(jobs.filter(Boolean)).then(function() {
+      if (enableIncrement && requests.length > 0) {
+        increment(requests);
+      }
+    }).catch(function(error) {
       console.error('OpenKounter error:', error);
     });
   }
 
   addCount();
-
 })(window, document);
-
