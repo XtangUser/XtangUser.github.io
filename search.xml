@@ -631,6 +631,164 @@
 <blockquote>
 <p>💡 <strong>小贴士：</strong> 对于初学者来说，PyCharm 仍是不二的选择。<a href="https://zhuanlan.zhihu.com/p/1892991790744854614">3</a> 而 VSCode 作为轻量级且功能强大的代码编辑器，占用系统资源少，启动速度快，即便是配置较低的计算机也能轻松驾驭。<a href="https://blog.csdn.net/weishan_bo/article/details/152133322">12</a> 建议根据个人需求选择合适的工具！</p>
 </blockquote>
+<h1 id="三、Python-字符串拼接与格式化"><a href="#三、Python-字符串拼接与格式化" class="headerlink" title="三、Python 字符串拼接与格式化"></a>三、Python 字符串拼接与格式化</h1><hr>
+<h2 id="3-1-字符串拼接"><a href="#3-1-字符串拼接" class="headerlink" title="3.1 字符串拼接"></a>3.1 字符串拼接</h2><h3 id="1-使用-号拼接"><a href="#1-使用-号拼接" class="headerlink" title="1. 使用 + 号拼接"></a>1. 使用 <code>+</code> 号拼接</h3><p>最基础的方式，将两个字符串直接相连：</p>
+<figure class="highlight makefile"><table><tr><td class="code"><pre><code class="hljs makefile">name = <span class="hljs-string">&quot;张三&quot;</span><br>greeting = <span class="hljs-string">&quot;你好，&quot;</span> + name + <span class="hljs-string">&quot;！&quot;</span><br>print(greeting)  <span class="hljs-comment"># 你好，张三！</span><br></code></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/XtangUser/blog-images@main/images/20260312213409118.png" alt="image-20260312213355881"></p>
+<blockquote>
+<p>⚠️ <strong>注意：</strong> <code>+</code> 号不能直接拼接字符串和数字，需要先用 <code>str()</code> 转换。</p>
+</blockquote>
+<figure class="highlight hsp"><table><tr><td class="code"><pre><code class="hljs hsp">age = <span class="hljs-number">18</span><br><span class="hljs-meta"># print(<span class="hljs-string">&quot;我今年&quot;</span> + age + <span class="hljs-string">&quot;岁&quot;</span>)  ❌ 报错</span><br><span class="hljs-keyword">print</span>(<span class="hljs-string">&quot;我今年&quot;</span> + <span class="hljs-keyword">str</span>(age) + <span class="hljs-string">&quot;岁&quot;</span>)  <span class="hljs-meta"># ✅ 我今年<span class="hljs-number">18</span>岁</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="2-使用逗号（print-中直接传多个参数）"><a href="#2-使用逗号（print-中直接传多个参数）" class="headerlink" title="2. 使用逗号（print 中直接传多个参数）"></a>2. 使用逗号（<code>print</code> 中直接传多个参数）</h3><figure class="highlight routeros"><table><tr><td class="code"><pre><code class="hljs routeros"><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;我叫&quot;</span>, <span class="hljs-string">&quot;张三&quot;</span>, <span class="hljs-string">&quot;今年&quot;</span>, 18, <span class="hljs-string">&quot;岁&quot;</span>)<br><span class="hljs-comment"># 输出：我叫 张三 今年 18 岁（自动加空格）</span><br></code></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="3-2-占位符格式化（-）"><a href="#3-2-占位符格式化（-）" class="headerlink" title="3.2 占位符格式化（%）"></a>3.2 占位符格式化（<code>%</code>）</h2><p>使用 <code>%</code> 进行格式化是 Python 中较经典的方式：</p>
+<table>
+<thead>
+<tr>
+<th>占位符</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>%s</code></td>
+<td>字符串</td>
+</tr>
+<tr>
+<td><code>%d</code></td>
+<td>整数</td>
+</tr>
+<tr>
+<td><code>%f</code></td>
+<td>浮点数</td>
+</tr>
+</tbody></table>
+<figure class="highlight perl"><table><tr><td class="code"><pre><code class="hljs perl">name = <span class="hljs-string">&quot;张三&quot;</span><br>age = <span class="hljs-number">18</span><br>score = <span class="hljs-number">95.5</span><br><br><span class="hljs-keyword">print</span>(<span class="hljs-string">&quot;姓名：<span class="hljs-variable">%s</span>，年龄：<span class="hljs-variable">%d</span>，成绩：<span class="hljs-variable">%f</span>&quot;</span> % (name, age, score))<br><span class="hljs-comment"># 输出：姓名：张三，年龄：18，成绩：95.500000</span><br></code></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="3-3-精度控制"><a href="#3-3-精度控制" class="headerlink" title="3.3 精度控制"></a>3.3 精度控制</h2><p><code>%f</code> 默认保留 6 位小数，可以通过 <code>%.nf</code> 控制小数位数：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/XtangUser/blog-images@main/images/20260312213635964.png" alt="image-20260312213635834"></p>
+<figure class="highlight apache"><table><tr><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">pi</span> = <span class="hljs-number">3</span>.<span class="hljs-number">14159265</span><br><br><span class="hljs-attribute">print</span>(<span class="hljs-string">&quot;保留2位：%.2f&quot;</span> % pi)   # 保留<span class="hljs-number">2</span>位：<span class="hljs-number">3</span>.<span class="hljs-number">14</span><br><span class="hljs-attribute">print</span>(<span class="hljs-string">&quot;保留4位：%.4f&quot;</span> % pi)   # 保留<span class="hljs-number">4</span>位：<span class="hljs-number">3</span>.<span class="hljs-number">1416</span>（四舍五入）<br></code></pre></td></tr></table></figure>
+
+<p>也可以控制<strong>整体宽度</strong>，格式为 <code>%m.nf</code>（m 为总宽度，n 为小数位数）：</p>
+<figure class="highlight apache"><table><tr><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">num</span> = <span class="hljs-number">3</span>.<span class="hljs-number">14</span><br><br><span class="hljs-attribute">print</span>(<span class="hljs-string">&quot;结果：%8.2f&quot;</span> % num)   # 结果：    <span class="hljs-number">3</span>.<span class="hljs-number">14</span>（总宽度<span class="hljs-number">8</span>，右对齐，不足补空格）<br><span class="hljs-attribute">print</span>(<span class="hljs-string">&quot;结果：%08.2f&quot;</span> % num)  # 结果：<span class="hljs-number">00003</span>.<span class="hljs-number">14</span>（不足补<span class="hljs-number">0</span>）<br></code></pre></td></tr></table></figure>
+
+<p>对整数也可以控制宽度：</p>
+<figure class="highlight perl"><table><tr><td class="code"><pre><code class="hljs perl"><span class="hljs-keyword">print</span>(<span class="hljs-string">&quot;编号：<span class="hljs-variable">%05d</span>&quot;</span> % <span class="hljs-number">42</span>)     <span class="hljs-comment"># 编号：00042</span><br></code></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="3-4-更推荐的方式：f-string（Python-3-6-）"><a href="#3-4-更推荐的方式：f-string（Python-3-6-）" class="headerlink" title="3.4 更推荐的方式：f-string（Python 3.6+）"></a>3.4 更推荐的方式：<code>f-string</code>（Python 3.6+）</h2><p><code>f-string</code> 写法更简洁直观，是目前<strong>最推荐</strong>的格式化方式：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><code class="hljs python">name = <span class="hljs-string">&quot;张三&quot;</span><br>age = <span class="hljs-number">18</span><br>score = <span class="hljs-number">95.678</span><br><br><span class="hljs-built_in">print</span>(<span class="hljs-string">f&quot;姓名：<span class="hljs-subst">&#123;name&#125;</span>，年龄：<span class="hljs-subst">&#123;age&#125;</span>，成绩：<span class="hljs-subst">&#123;score:<span class="hljs-number">.2</span>f&#125;</span>&quot;</span>)<br><span class="hljs-comment"># 输出：姓名：张三，年龄：18，成绩：95.68</span><br></code></pre></td></tr></table></figure>
+
+<p>精度控制同样适用：</p>
+<figure class="highlight apache"><table><tr><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">pi</span> = <span class="hljs-number">3</span>.<span class="hljs-number">14159265</span><br><br><span class="hljs-attribute">print</span>(f<span class="hljs-string">&quot;圆周率：&#123;pi:.2f&#125;&quot;</span>)       # 圆周率：<span class="hljs-number">3</span>.<span class="hljs-number">14</span><br><span class="hljs-attribute">print</span>(f<span class="hljs-string">&quot;圆周率：&#123;pi:10.3f&#125;&quot;</span>)     # 圆周率：     <span class="hljs-number">3</span>.<span class="hljs-number">142</span>（总宽度<span class="hljs-number">10</span>）<br><span class="hljs-attribute">print</span>(f<span class="hljs-string">&quot;百分比：&#123;0.856:.1%&#125;&quot;</span>)    # 百分比：<span class="hljs-number">85</span>.<span class="hljs-number">6</span>%<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/XtangUser/blog-images@main/images/20260312214035820.png" alt="image-20260312214035684"></p>
+<hr>
+<h2 id="3-5-小结对比"><a href="#3-5-小结对比" class="headerlink" title="3.5 小结对比"></a>3.5 小结对比</h2><figure class="highlight python"><table><tr><td class="code"><pre><code class="hljs python">name = <span class="hljs-string">&quot;张三&quot;</span><br>score = <span class="hljs-number">95.5</span><br><br><span class="hljs-comment"># 方式一：+ 拼接</span><br><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;姓名：&quot;</span> + name + <span class="hljs-string">&quot;，成绩：&quot;</span> + <span class="hljs-built_in">str</span>(score))<br><br><span class="hljs-comment"># 方式二：% 占位符</span><br><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;姓名：%s，成绩：%.1f&quot;</span> % (name, score))<br><br><span class="hljs-comment"># 方式三：f-string ✅ 推荐</span><br><span class="hljs-built_in">print</span>(<span class="hljs-string">f&quot;姓名：<span class="hljs-subst">&#123;name&#125;</span>，成绩：<span class="hljs-subst">&#123;score:<span class="hljs-number">.1</span>f&#125;</span>&quot;</span>)<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>💡 <strong>建议：</strong> 日常开发优先使用 <code>f-string</code>，简洁易读，功能强大。</p>
+</blockquote>
+<h1 id="四、Python-转义字符"><a href="#四、Python-转义字符" class="headerlink" title="四、Python 转义字符"></a>四、Python 转义字符</h1><hr>
+<h2 id="4-1-什么是转义字符"><a href="#4-1-什么是转义字符" class="headerlink" title="4.1 什么是转义字符"></a>4.1 什么是转义字符</h2><p>转义字符是以<strong>反斜杠 <code>\</code></strong> 开头的特殊字符组合，用于表示一些无法直接输入或有特殊含义的字符。</p>
+<hr>
+<h2 id="4-2-常用转义字符"><a href="#4-2-常用转义字符" class="headerlink" title="4.2 常用转义字符"></a>4.2 常用转义字符</h2><table>
+<thead>
+<tr>
+<th>转义字符</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>\n</code></td>
+<td>换行</td>
+</tr>
+<tr>
+<td><code>\t</code></td>
+<td>制表符（Tab）</td>
+</tr>
+<tr>
+<td><code>\\</code></td>
+<td>反斜杠本身</td>
+</tr>
+<tr>
+<td><code>\&#39;</code></td>
+<td>单引号</td>
+</tr>
+<tr>
+<td><code>\&quot;</code></td>
+<td>双引号</td>
+</tr>
+<tr>
+<td><code>\r</code></td>
+<td>回车</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="4-3-使用示例"><a href="#4-3-使用示例" class="headerlink" title="4.3 使用示例"></a>4.3 使用示例</h2><h3 id="1-换行符-n"><a href="#1-换行符-n" class="headerlink" title="1. 换行符 \n"></a>1. 换行符 <code>\n</code></h3><figure class="highlight stylus"><table><tr><td class="code"><pre><code class="hljs stylus"><span class="hljs-function"><span class="hljs-title">print</span><span class="hljs-params">(<span class="hljs-string">&quot;第一行\n第二行\n第三行&quot;</span>)</span></span><br></code></pre></td></tr></table></figure>
+
+<p>输出：</p>
+<figure class="highlight"><table><tr><td class="code"><pre><code class="hljs">第一行<br>第二行<br>第三行<br></code></pre></td></tr></table></figure>
+
+<h3 id="2-制表符-t"><a href="#2-制表符-t" class="headerlink" title="2. 制表符 \t"></a>2. 制表符 <code>\t</code></h3><p>用于对齐输出，相当于按一次 Tab 键：</p>
+<figure class="highlight stylus"><table><tr><td class="code"><pre><code class="hljs stylus"><span class="hljs-function"><span class="hljs-title">print</span><span class="hljs-params">(<span class="hljs-string">&quot;姓名\t年龄\t成绩&quot;</span>)</span></span><br><span class="hljs-function"><span class="hljs-title">print</span><span class="hljs-params">(<span class="hljs-string">&quot;张三\t18\t95&quot;</span>)</span></span><br><span class="hljs-function"><span class="hljs-title">print</span><span class="hljs-params">(<span class="hljs-string">&quot;李四\t20\t88&quot;</span>)</span></span><br></code></pre></td></tr></table></figure>
+
+<p>输出：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/XtangUser/blog-images@main/images/20260312214555419.png" alt="image-20260312214555292"></p>
+<figure class="highlight tap"><table><tr><td class="code"><pre><code class="hljs tap">姓名    年龄    成绩<br>张三   <span class="hljs-number"> 18 </span>     95<br>李四   <span class="hljs-number"> 20 </span>     88<br></code></pre></td></tr></table></figure>
+
+<h3 id="3-输出引号"><a href="#3-输出引号" class="headerlink" title="3. 输出引号"></a>3. 输出引号</h3><p>当字符串中需要包含引号时：</p>
+<figure class="highlight routeros"><table><tr><td class="code"><pre><code class="hljs routeros"><span class="hljs-comment"># 方式一：使用转义字符</span><br><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;他说：\&quot;你好！\&quot;&quot;</span>)<br><br><span class="hljs-comment"># 方式二：单双引号混用</span><br><span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;他说：&quot;你好！&quot;&#x27;</span>)<br></code></pre></td></tr></table></figure>
+
+<p>输出：</p>
+<p>text</p>
+<figure class="highlight 1c"><table><tr><td class="code"><pre><code class="hljs 1c">他说：<span class="hljs-string">&quot;你好！&quot;</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="4-输出反斜杠"><a href="#4-输出反斜杠" class="headerlink" title="4. 输出反斜杠"></a>4. 输出反斜杠</h3><p>反斜杠本身需要转义：</p>
+<figure class="highlight stylus"><table><tr><td class="code"><pre><code class="hljs stylus"><span class="hljs-function"><span class="hljs-title">print</span><span class="hljs-params">(<span class="hljs-string">&quot;文件路径：C:\\Users\\Desktop&quot;</span>)</span></span><br></code></pre></td></tr></table></figure>
+
+<p>输出：</p>
+<p>text</p>
+<figure class="highlight livescript"><table><tr><td class="code"><pre><code class="hljs livescript">文件路径：C:<span class="hljs-string">\Users\Desktop</span><br></code></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="4-4-原始字符串（取消转义）"><a href="#4-4-原始字符串（取消转义）" class="headerlink" title="4.4 原始字符串（取消转义）"></a>4.4 原始字符串（取消转义）</h2><p>在字符串前加 <code>r</code> 或 <code>R</code>，表示<strong>原始字符串</strong>，所有转义字符失效：</p>
+<p>Python</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 普通字符串</span><br><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;C:\new\test&quot;</span>)     <span class="hljs-comment"># \n 被识别为换行</span><br><br><span class="hljs-comment"># 原始字符串</span><br><span class="hljs-built_in">print</span>(<span class="hljs-string">r&quot;C:\new\test&quot;</span>)    <span class="hljs-comment"># 原样输出</span><br></code></pre></td></tr></table></figure>
+
+<p>输出对比：</p>
+<p>text</p>
+<figure class="highlight vbnet"><table><tr><td class="code"><pre><code class="hljs vbnet"><span class="hljs-symbol">C:</span><br>ew	est<br><br><span class="hljs-symbol">C:</span>\<span class="hljs-built_in">new</span>\test<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>💡 <strong>应用场景：</strong> 写文件路径、正则表达式时常用原始字符串。</p>
+</blockquote>
+<p>Python</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><code class="hljs python">path = <span class="hljs-string">r&quot;D:\Python\project\data.txt&quot;</span><br><span class="hljs-built_in">print</span>(path)  <span class="hljs-comment"># D:\Python\project\data.txt</span><br></code></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="4-5-三引号保留格式"><a href="#4-5-三引号保留格式" class="headerlink" title="4.5 三引号保留格式"></a>4.5 三引号保留格式</h2><p>使用三引号 <code>&quot;&quot;&quot;</code> 或 <code>&#39;&#39;&#39;</code> 可以保留字符串的原始换行格式：</p>
+<p>Python</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><code class="hljs python">text = <span class="hljs-string">&quot;&quot;&quot;这是第一行</span><br><span class="hljs-string">这是第二行</span><br><span class="hljs-string">这是第三行&quot;&quot;&quot;</span><br><br><span class="hljs-built_in">print</span>(text)<br></code></pre></td></tr></table></figure>
+
+<p>输出：</p>
+<p>text</p>
+<figure class="highlight"><table><tr><td class="code"><pre><code class="hljs">这是第一行<br>这是第二行<br>这是第三行<br></code></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="4-6-小结"><a href="#4-6-小结" class="headerlink" title="4.6 小结"></a>4.6 小结</h2><p>Python</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 常用转义演示</span><br><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;换行：第一行\n第二行&quot;</span>)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;制表：A\tB\tC&quot;</span>)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;引号：\&#x27;单引号\&#x27; \&quot;双引号\&quot;&quot;</span>)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;反斜杠：\\&quot;</span>)<br><br><span class="hljs-comment"># 取消转义</span><br><span class="hljs-built_in">print</span>(<span class="hljs-string">r&quot;原始字符串：\n \t \\&quot;</span>)<br></code></pre></td></tr></table></figure>
+
+<p>输出：</p>
+<p>text</p>
+<figure class="highlight livescript"><table><tr><td class="code"><pre><code class="hljs livescript">换行：第一行<br>第二行<br>制表：A	B	C<br>引号：<span class="hljs-string">&#x27;单引号&#x27;</span> <span class="hljs-string">&quot;双引号&quot;</span><br>反斜杠：<span class="hljs-string">\</span><br>原始字符串：<span class="hljs-string">\n</span> <span class="hljs-string">\t</span> <span class="hljs-string">\\</span><br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>💡 <strong>记忆技巧：</strong> <code>\n</code> &#x3D; new line（新行），<code>\t</code> &#x3D; tab（制表），<code>\\</code> &#x3D; 一个 <code>\</code></p>
+</blockquote>
 ]]></content>
       <categories>
         <category>人工智能</category>

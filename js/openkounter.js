@@ -11,8 +11,34 @@
     return;
   }
 
+  function getCacheKey(target) {
+    return `OpenKounter_Cache:${target}`;
+  }
+
+  function readCachedCount(target) {
+    try {
+      const rawValue = localStorage.getItem(getCacheKey(target));
+      const value = parseInt(rawValue || '', 10);
+      return Number.isNaN(value) ? 0 : value;
+    } catch (error) {
+      return 0;
+    }
+  }
+
+  function writeCachedCount(target, value) {
+    try {
+      localStorage.setItem(getCacheKey(target), String(value));
+    } catch (error) {
+      console.warn('OpenKounter: failed to write local cache');
+    }
+  }
+
   function getRecord(target) {
-    return fetch(`${API_SERVER}/api/counter?target=${encodeURIComponent(target)}`)
+    const requestUrl = `${API_SERVER}/api/counter?target=${encodeURIComponent(target)}&_=${Date.now()}`;
+
+    return fetch(requestUrl, {
+      cache: 'no-store'
+    })
       .then(function(resp) {
         if (!resp.ok) {
           throw new Error(`HTTP ${resp.status}: ${resp.statusText}`);
@@ -125,14 +151,22 @@
     }
 
     return getRecord(target).then(function(record) {
+      const cachedCount = readCachedCount(target);
+      const remoteCount = record.time || 0;
+
       if (shouldIncrement) {
         requests.push(buildIncrement(record.objectId));
       }
 
       const element = document.querySelector(valueSelector);
       if (element) {
-        element.innerText = (record.time || 0) + (shouldIncrement ? 1 : 0);
+        const displayCount = shouldIncrement
+          ? Math.max(remoteCount + 1, cachedCount)
+          : Math.max(remoteCount, cachedCount);
+
+        element.innerText = displayCount;
         container.style.display = 'inline';
+        writeCachedCount(target, displayCount);
       }
     });
   }
