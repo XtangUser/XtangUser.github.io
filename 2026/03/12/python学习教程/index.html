@@ -28,7 +28,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/XtangUser/blog-images@main/images/20260312192805905.png">
 <meta property="article:published_time" content="2026-03-11T16:00:00.000Z">
-<meta property="article:modified_time" content="2026-03-12T13:46:04.026Z">
+<meta property="article:modified_time" content="2026-03-12T13:53:30.919Z">
 <meta property="article:author" content="小唐">
 <meta property="article:tag" content="Conda">
 <meta property="article:tag" content="Python">
@@ -950,46 +950,37 @@
 <figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs routeros"><span class="hljs-comment"># 方式一：使用转义字符</span><br><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;他说：\&quot;你好！\&quot;&quot;</span>)<br><br><span class="hljs-comment"># 方式二：单双引号混用</span><br><span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;他说：&quot;你好！&quot;&#x27;</span>)<br></code></pre></td></tr></table></figure>
 
 <p>输出：</p>
-<p>text</p>
 <figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs 1c">他说：<span class="hljs-string">&quot;你好！&quot;</span><br></code></pre></td></tr></table></figure>
 
 <h3 id="4-输出反斜杠"><a href="#4-输出反斜杠" class="headerlink" title="4. 输出反斜杠"></a>4. 输出反斜杠</h3><p>反斜杠本身需要转义：</p>
 <figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs stylus"><span class="hljs-function"><span class="hljs-title">print</span><span class="hljs-params">(<span class="hljs-string">&quot;文件路径：C:\\Users\\Desktop&quot;</span>)</span></span><br></code></pre></td></tr></table></figure>
 
 <p>输出：</p>
-<p>text</p>
 <figure class="highlight livescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs livescript">文件路径：C:<span class="hljs-string">\Users\Desktop</span><br></code></pre></td></tr></table></figure>
 
 <hr>
 <h2 id="4-4-原始字符串（取消转义）"><a href="#4-4-原始字符串（取消转义）" class="headerlink" title="4.4 原始字符串（取消转义）"></a>4.4 原始字符串（取消转义）</h2><p>在字符串前加 <code>r</code> 或 <code>R</code>，表示<strong>原始字符串</strong>，所有转义字符失效：</p>
-<p>Python</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 普通字符串</span><br><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;C:\new\test&quot;</span>)     <span class="hljs-comment"># \n 被识别为换行</span><br><br><span class="hljs-comment"># 原始字符串</span><br><span class="hljs-built_in">print</span>(<span class="hljs-string">r&quot;C:\new\test&quot;</span>)    <span class="hljs-comment"># 原样输出</span><br></code></pre></td></tr></table></figure>
 
 <p>输出对比：</p>
-<p>text</p>
 <figure class="highlight vbnet"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs vbnet"><span class="hljs-symbol">C:</span><br>ew	est<br><br><span class="hljs-symbol">C:</span>\<span class="hljs-built_in">new</span>\test<br></code></pre></td></tr></table></figure>
 
 <blockquote>
 <p>💡 <strong>应用场景：</strong> 写文件路径、正则表达式时常用原始字符串。</p>
 </blockquote>
-<p>Python</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python">path = <span class="hljs-string">r&quot;D:\Python\project\data.txt&quot;</span><br><span class="hljs-built_in">print</span>(path)  <span class="hljs-comment"># D:\Python\project\data.txt</span><br></code></pre></td></tr></table></figure>
 
 <hr>
 <h2 id="4-5-三引号保留格式"><a href="#4-5-三引号保留格式" class="headerlink" title="4.5 三引号保留格式"></a>4.5 三引号保留格式</h2><p>使用三引号 <code>&quot;&quot;&quot;</code> 或 <code>&#39;&#39;&#39;</code> 可以保留字符串的原始换行格式：</p>
-<p>Python</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python">text = <span class="hljs-string">&quot;&quot;&quot;这是第一行</span><br><span class="hljs-string">这是第二行</span><br><span class="hljs-string">这是第三行&quot;&quot;&quot;</span><br><br><span class="hljs-built_in">print</span>(text)<br></code></pre></td></tr></table></figure>
 
 <p>输出：</p>
-<p>text</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs">这是第一行<br>这是第二行<br>这是第三行<br></code></pre></td></tr></table></figure>
 
 <hr>
-<h2 id="4-6-小结"><a href="#4-6-小结" class="headerlink" title="4.6 小结"></a>4.6 小结</h2><p>Python</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 常用转义演示</span><br><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;换行：第一行\n第二行&quot;</span>)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;制表：A\tB\tC&quot;</span>)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;引号：\&#x27;单引号\&#x27; \&quot;双引号\&quot;&quot;</span>)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;反斜杠：\\&quot;</span>)<br><br><span class="hljs-comment"># 取消转义</span><br><span class="hljs-built_in">print</span>(<span class="hljs-string">r&quot;原始字符串：\n \t \\&quot;</span>)<br></code></pre></td></tr></table></figure>
+<h2 id="4-6-小结"><a href="#4-6-小结" class="headerlink" title="4.6 小结"></a>4.6 小结</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 常用转义演示</span><br><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;换行：第一行\n第二行&quot;</span>)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;制表：A\tB\tC&quot;</span>)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;引号：\&#x27;单引号\&#x27; \&quot;双引号\&quot;&quot;</span>)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;反斜杠：\\&quot;</span>)<br><br><span class="hljs-comment"># 取消转义</span><br><span class="hljs-built_in">print</span>(<span class="hljs-string">r&quot;原始字符串：\n \t \\&quot;</span>)<br></code></pre></td></tr></table></figure>
 
 <p>输出：</p>
-<p>text</p>
 <figure class="highlight livescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs livescript">换行：第一行<br>第二行<br>制表：A	B	C<br>引号：<span class="hljs-string">&#x27;单引号&#x27;</span> <span class="hljs-string">&quot;双引号&quot;</span><br>反斜杠：<span class="hljs-string">\</span><br>原始字符串：<span class="hljs-string">\n</span> <span class="hljs-string">\t</span> <span class="hljs-string">\\</span><br></code></pre></td></tr></table></figure>
 
 <blockquote>
@@ -1423,7 +1414,7 @@
 
   <script>Fluid.plugins.imageCaption();</script>
 
-  <script defer src="/js/openkounter.js" ></script>
+  <script defer src="/js/openkounter.js?v=1773323931841" ></script>
 
   <script  src="/js/local-search.js" ></script>
 
