@@ -245,3 +245,15 @@ html {
   width: 200px !important;
   height: 400px !important;
 }
+
+/* ============================================================
+   移动端隐藏 Live2D（避免遮挡页脚访问统计和正文内容）
+   ============================================================ */
+@media (max-width: 767px) {
+  #live2dcanvas,
+  #live2d-controls,
+  #live2d-talk,
+  #live2d-toggle {
+    display: none !important;
+  }
+}
