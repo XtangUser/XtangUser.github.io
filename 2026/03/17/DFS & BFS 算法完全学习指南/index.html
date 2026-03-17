@@ -1,0 +1,1100 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head><!-- hexo injector head_begin start --><meta name="referrer" content="no-referrer"><!-- hexo injector head_begin end -->
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/avatar.jpg">
+  <link rel="icon" href="/img/avatar.jpg">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#0891b2">
+  <meta name="author" content="小唐">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="C语言版 DFS &amp; BFS 完全学习指南 一、前置知识1.1 核心思想123456789想象你在一个迷宫里：DFS (深度优先)：    一条路走到黑，走不通了再回头    就像玩游戏时探索地图，一个方向走到底BFS (广度优先)：    像水波纹一样，一圈圈向外扩散    先把周围一圈都看完，再看下一圈  形象比喻： 123456789树的遍历示例：         1">
+<meta property="og:type" content="article">
+<meta property="og:title" content="DFS &amp; BFS 算法完全学习指南">
+<meta property="og:url" content="https://tsyangblog.site/2026/03/17/DFS%20&%20BFS%20%E7%AE%97%E6%B3%95%E5%AE%8C%E5%85%A8%E5%AD%A6%E4%B9%A0%E6%8C%87%E5%8D%97/index.html">
+<meta property="og:site_name" content="别催小唐敲代码">
+<meta property="og:description" content="C语言版 DFS &amp; BFS 完全学习指南 一、前置知识1.1 核心思想123456789想象你在一个迷宫里：DFS (深度优先)：    一条路走到黑，走不通了再回头    就像玩游戏时探索地图，一个方向走到底BFS (广度优先)：    像水波纹一样，一圈圈向外扩散    先把周围一圈都看完，再看下一圈  形象比喻： 123456789树的遍历示例：         1">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/XtangUser/blog-images@main/images/20260317204154121.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/XtangUser/blog-images@main/images/20260317213232780.png">
+<meta property="article:published_time" content="2026-03-16T16:00:00.000Z">
+<meta property="article:modified_time" content="2026-03-17T14:08:38.908Z">
+<meta property="article:author" content="小唐">
+<meta property="article:tag" content="BFS">
+<meta property="article:tag" content="C语言">
+<meta property="article:tag" content="DFS">
+<meta property="article:tag" content="图算法">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/XtangUser/blog-images@main/images/20260317204154121.png">
+  
+  
+  
+  <title>DFS &amp; BFS 算法完全学习指南 - 别催小唐敲代码</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"tsyangblog.site","root":"/","version":"1.9.9","typing":{"enable":true,"typeSpeed":100,"cursorChar":"|","loop":true,"scope":["home"]},"anchorjs":{"enable":true,"element":"h2,h3,h4","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#0ea5e9","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"expand_all":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0,"number":false,"scrollSmooth":true,"scrollSmoothOffset":-5},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":false,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"openkounter":{"server_url":"https://blog-counter.221036109.workers.dev","path":"window.location.pathname","ignore_local":true},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+
+  
+<!-- hexo injector head_end start --><link rel="stylesheet" href="/css/custom.css"><style>#live2dcanvas{position:fixed!important;left:0!important;bottom:0!important;z-index:999999!important;pointer-events:auto!important;width:200px!important;height:400px!important;}</style><!-- hexo injector head_end end --><meta name="generator" content="Hexo 8.1.1"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 55vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>别催小唐敲代码</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content (desktop) -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>主页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>时间轴</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile grid menu overlay -->
+<div id="mobile-grid-menu" class="d-lg-none">
+  <div class="mobile-grid-menu-inner">
+    <div class="container">
+      <div class="row">
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-home-fill"></i>
+                  <span>主页</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/archives/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-archive-fill"></i>
+                  <span>时间轴</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/tags/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-tags-fill"></i>
+                  <span>标签</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/categories/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-category-fill"></i>
+                  <span>分类</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/about/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-user-fill"></i>
+                  <span>关于</span>
+                </div>
+              </a>
+            </div>
+          
+        
+        
+          <div class="col-4 mobile-grid-cell" id="mobile-search-btn">
+            <a href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <div class="mobile-grid-item">
+                <i class="iconfont icon-search"></i>
+                <span>搜索</span>
+              </div>
+            </a>
+          </div>
+        
+        
+          <div class="col-4 mobile-grid-cell" id="mobile-color-toggle-btn"
+               data-label-light="开灯"
+               data-label-dark="关灯">
+            <a href="javascript:;" aria-label="Color Toggle">
+              <div class="mobile-grid-item">
+                <i class="iconfont icon-dark" id="mobile-color-toggle-icon"></i>
+                <span id="mobile-color-toggle-label">关灯</span>
+              </div>
+            </a>
+          </div>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('https://images.unsplash.com/photo-1519681393784-d120267933ba?w=1920&q=80') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.35)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle">DFS & BFS 算法完全学习指南</span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2026-03-17 00:00" pubdate>
+          2026年3月17日
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          <!-- compatible with older versions-->
+          25k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          <!-- compatible with older versions-->
+          50 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="openkounter-page-views-container" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="openkounter-page-views"></span> 次
+        </span>
+        
+
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">DFS &amp; BFS 算法完全学习指南</h1>
+            
+              <p id="updated-time" class="note note-info" style="">
+                
+                  
+                    <!-- compatible with older versions-->
+                    最后更新于：2026年3月17日 晚上
+                  
+                
+              </p>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="C语言版-DFS-BFS-完全学习指南"><a href="#C语言版-DFS-BFS-完全学习指南" class="headerlink" title="C语言版 DFS &amp; BFS 完全学习指南"></a>C语言版 DFS &amp; BFS 完全学习指南</h1><hr>
+<h2 id="一、前置知识"><a href="#一、前置知识" class="headerlink" title="一、前置知识"></a>一、前置知识</h2><h3 id="1-1-核心思想"><a href="#1-1-核心思想" class="headerlink" title="1.1 核心思想"></a>1.1 核心思想</h3><figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs scss">想象你在一个迷宫里：<br><br>DFS (深度优先)：<br>    一条路走到黑，走不通了再回头<br>    就像玩游戏时探索地图，一个方向走到底<br><br>BFS (广度优先)：<br>    像水波纹一样，一圈圈向外扩散<br>    先把周围一圈都看完，再看下一圈<br></code></pre></td></tr></table></figure>
+
+<p><strong>形象比喻：</strong></p>
+<figure class="highlight tap"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs tap">树的遍历示例：<br>         1<br>        / \<br>      <span class="hljs-number"> 2 </span>  3<br>      / \   \<br>    <span class="hljs-number"> 4 </span> <span class="hljs-number"> 5 </span>  6<br><br>DFS:<span class="hljs-number"> 1 </span>→<span class="hljs-number"> 2 </span>→<span class="hljs-number"> 4 </span>→<span class="hljs-number"> 5 </span>→<span class="hljs-number"> 3 </span>→<span class="hljs-number"> 6 </span> (深入到底)<br>BFS:<span class="hljs-number"> 1 </span>→<span class="hljs-number"> 2 </span>→<span class="hljs-number"> 3 </span>→<span class="hljs-number"> 4 </span>→<span class="hljs-number"> 5 </span>→<span class="hljs-number"> 6 </span> (一层层来)<br></code></pre></td></tr></table></figure>
+
+<h3 id="1-2-需要的数据结构"><a href="#1-2-需要的数据结构" class="headerlink" title="1.2 需要的数据结构"></a>1.2 需要的数据结构</h3><table>
+<thead>
+<tr>
+<th>算法</th>
+<th>核心数据结构</th>
+<th>C语言实现</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>DFS</td>
+<td><strong>栈</strong> (Stack)</td>
+<td>递归 或 数组模拟栈</td>
+</tr>
+<tr>
+<td>BFS</td>
+<td><strong>队列</strong> (Queue)</td>
+<td>数组模拟循环队列</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="二、图的表示方法"><a href="#二、图的表示方法" class="headerlink" title="二、图的表示方法"></a>二、图的表示方法</h2><h3 id="2-1-邻接矩阵（适合稠密图）"><a href="#2-1-邻接矩阵（适合稠密图）" class="headerlink" title="2.1 邻接矩阵（适合稠密图）"></a>2.1 邻接矩阵（适合稠密图）</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdio.h&gt;</span>  <span class="hljs-comment">// 引入标准输入输出头文件，用于printf打印</span></span><br><br><span class="hljs-comment">// 定义图的最大顶点数量，限制顶点个数不超过100</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> MAX_VERTICES 100</span><br><br><span class="hljs-comment">// 邻接矩阵存储图</span><br><span class="hljs-comment">// graph[i][j] = 1 表示顶点 i 到顶点 j 有边</span><br><span class="hljs-comment">// graph[i][j] = 0 表示顶点 i 到顶点 j 无边</span><br><span class="hljs-type">int</span> graph[MAX_VERTICES][MAX_VERTICES];<br><br><span class="hljs-comment">// 全局变量：记录当前图中实际的顶点个数</span><br><span class="hljs-type">int</span> n;<br><br><span class="hljs-comment">// 函数功能：初始化邻接矩阵，将所有元素置为0（表示初始无边）</span><br><span class="hljs-comment">// 入口参数：vertices - 当前要创建的图的顶点总数</span><br><span class="hljs-type">void</span> <span class="hljs-title function_">initGraph</span><span class="hljs-params">(<span class="hljs-type">int</span> vertices)</span> &#123;<br>    <span class="hljs-comment">// 把传入的顶点数赋值给全局变量n，方便其他函数使用</span><br>    n = vertices;<br><br>    <span class="hljs-comment">// 双层循环遍历整个邻接矩阵</span><br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i++) &#123;       <span class="hljs-comment">// i 代表行（起点顶点）</span><br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j = <span class="hljs-number">0</span>; j &lt; n; j++) &#123;   <span class="hljs-comment">// j 代表列（终点顶点）</span><br>            graph[i][j] = <span class="hljs-number">0</span>;            <span class="hljs-comment">// 初始化为0，表示所有顶点间都没有边</span><br>        &#125;<br>    &#125;<br>&#125;<br><br><span class="hljs-comment">// 函数功能：向无向图中添加一条边</span><br><span class="hljs-comment">// 入口参数：u - 边的一个顶点，v - 边的另一个顶点</span><br><span class="hljs-type">void</span> <span class="hljs-title function_">addEdge</span><span class="hljs-params">(<span class="hljs-type">int</span> u, <span class="hljs-type">int</span> v)</span> &#123;<br>    <span class="hljs-comment">// 无向图的边是双向的，所以需要同时设置两个方向</span><br>    graph[u][v] = <span class="hljs-number">1</span>;  <span class="hljs-comment">// 标记顶点 u 到顶点 v 有边</span><br>    graph[v][u] = <span class="hljs-number">1</span>;  <span class="hljs-comment">// 标记顶点 v 到顶点 u 有边（无向图核心：双向连通）</span><br>&#125;<br><br><span class="hljs-comment">// 函数功能：打印输出邻接矩阵，直观展示图的结构</span><br><span class="hljs-type">void</span> <span class="hljs-title function_">printGraph</span><span class="hljs-params">()</span> &#123;<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;邻接矩阵：\n&quot;</span>);<br>    <span class="hljs-comment">// 遍历每一行（每个顶点作为起点）</span><br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i++) &#123;<br>        <span class="hljs-comment">// 遍历每一列（每个顶点作为终点）</span><br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j = <span class="hljs-number">0</span>; j &lt; n; j++) &#123;<br>            <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d\t&quot;</span>, graph[i][j]);  <span class="hljs-comment">// 打印矩阵当前位置的值（0或1）</span><br>        &#125;<br>        <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;\n&quot;</span>);  <span class="hljs-comment">// 一行打印完后换行，保证矩阵格式</span><br>         <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;\n&quot;</span>); <br>    &#125;<br>&#125;<br><br><span class="hljs-comment">// 主函数：测试图的基本操作（可选，方便你直接运行）</span><br><span class="hljs-type">int</span> <span class="hljs-title function_">main</span><span class="hljs-params">()</span> &#123;<br>    <span class="hljs-comment">// 1. 初始化一个5个顶点的无向图</span><br>    initGraph(<span class="hljs-number">5</span>);<br><br>    <span class="hljs-comment">// 2. 添加若干条边</span><br>    addEdge(<span class="hljs-number">0</span>, <span class="hljs-number">1</span>);<br>    addEdge(<span class="hljs-number">0</span>, <span class="hljs-number">2</span>);<br>    addEdge(<span class="hljs-number">1</span>, <span class="hljs-number">3</span>);<br>    addEdge(<span class="hljs-number">2</span>, <span class="hljs-number">4</span>);<br><br>    <span class="hljs-comment">// 3. 打印邻接矩阵</span><br>    printGraph();<br><br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p><strong>示例使用：</strong></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-type">int</span> <span class="hljs-title function_">main</span><span class="hljs-params">()</span> &#123;<br>    initGraph(<span class="hljs-number">5</span>);  <span class="hljs-comment">// 5个顶点</span><br>    <br>    <span class="hljs-comment">// 构建图</span><br>    <span class="hljs-comment">//   0 --- 1</span><br>    <span class="hljs-comment">//   |     |</span><br>    <span class="hljs-comment">//   2 --- 3 --- 4</span><br>    <br>    addEdge(<span class="hljs-number">0</span>, <span class="hljs-number">1</span>);<br>    addEdge(<span class="hljs-number">0</span>, <span class="hljs-number">2</span>);<br>    addEdge(<span class="hljs-number">1</span>, <span class="hljs-number">3</span>);<br>    addEdge(<span class="hljs-number">2</span>, <span class="hljs-number">3</span>);<br>    addEdge(<span class="hljs-number">3</span>, <span class="hljs-number">4</span>);<br>    <br>    printGraph();<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/XtangUser/blog-images@main/images/20260317204154121.png" srcset="/img/loading.gif" lazyload alt="image-20260317204153854"></p>
+<h3 id="2-2-邻接表（适合稀疏图，更省空间）"><a href="#2-2-邻接表（适合稀疏图，更省空间）" class="headerlink" title="2.2 邻接表（适合稀疏图，更省空间）"></a>2.2 邻接表（适合稀疏图，更省空间）</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdio.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdlib.h&gt;</span></span><br><br><span class="hljs-comment">// 定义图的最大顶点数量（最多支持100个顶点）</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> MAX_VERTICES 100</span><br><br><span class="hljs-comment">// ====================== 链表节点结构体 ======================</span><br><span class="hljs-comment">// 邻接表的核心：每个顶点的邻接点都用链表存储</span><br><span class="hljs-keyword">typedef</span> <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Node</span> &#123;</span><br>    <span class="hljs-type">int</span> vertex;          <span class="hljs-comment">// 存储当前邻接顶点的编号（比如 0、1、2...）</span><br>    <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Node</span>* <span class="hljs-title">next</span>;</span>   <span class="hljs-comment">// 指针：指向【下一个邻接顶点】的节点（链表指针）</span><br>&#125; Node;<br><br><span class="hljs-comment">// ====================== 图结构体 ======================</span><br><span class="hljs-comment">// 用邻接表存储整个图：包含所有顶点的链表头 + 顶点总数</span><br><span class="hljs-keyword">typedef</span> <span class="hljs-class"><span class="hljs-keyword">struct</span> &#123;</span><br>    Node* head[MAX_VERTICES];  <span class="hljs-comment">// 数组：每个元素是一条链表的【头指针】</span><br>                                <span class="hljs-comment">// head[i] 表示 顶点i 的邻接链表开头</span><br>    <span class="hljs-type">int</span> n;                     <span class="hljs-comment">// 记录当前图中【实际的顶点总数】</span><br>&#125; Graph;<br><br><span class="hljs-comment">// ====================== 初始化图 ======================</span><br><span class="hljs-comment">// 功能：给图设置顶点数，并把所有顶点的邻接链表清空（置空）</span><br><span class="hljs-comment">// 参数：g - 指向要初始化的图；vertices - 顶点总数</span><br><span class="hljs-type">void</span> <span class="hljs-title function_">initGraph</span><span class="hljs-params">(Graph* g, <span class="hljs-type">int</span> vertices)</span> &#123;<br>    g-&gt;n = vertices;  <span class="hljs-comment">// 把顶点总数存入图结构</span><br>    <br>    <span class="hljs-comment">// 遍历所有顶点，将每个顶点的邻接链表头初始化为 NULL（表示没有邻接点）</span><br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; vertices; i++) &#123;<br>        g-&gt;head[i] = <span class="hljs-literal">NULL</span>;<br>    &#125;<br>&#125;<br><br><span class="hljs-comment">// ====================== 添加边（无向图） ======================</span><br><span class="hljs-comment">// 功能：给无向图添加一条边 u &lt;-&gt; v</span><br><span class="hljs-comment">// 无向图特点：边是双向的，u能到v，v也能到u</span><br><span class="hljs-type">void</span> <span class="hljs-title function_">addEdge</span><span class="hljs-params">(Graph* g, <span class="hljs-type">int</span> u, <span class="hljs-type">int</span> v)</span> &#123;<br>    <span class="hljs-comment">// ---------------- 第一步：添加 u → v 的边 ----------------</span><br>    <span class="hljs-comment">// 申请一个新节点的内存</span><br>    Node* newNode = (Node*)<span class="hljs-built_in">malloc</span>(<span class="hljs-keyword">sizeof</span>(Node));<br>    newNode-&gt;vertex = v;          <span class="hljs-comment">// 节点存储邻接点 v</span><br>    newNode-&gt;next = g-&gt;head[u];   <span class="hljs-comment">// 新节点指向原来的链表头（头插法）</span><br>    g-&gt;head[u] = newNode;         <span class="hljs-comment">// 更新链表头为新节点（把节点插到最前面）</span><br>    <br>    <span class="hljs-comment">// ---------------- 第二步：添加 v → u 的边（无向图必须双向） ----------------</span><br>    <span class="hljs-comment">// 再申请一个新节点</span><br>    newNode = (Node*)<span class="hljs-built_in">malloc</span>(<span class="hljs-keyword">sizeof</span>(Node));<br>    newNode-&gt;vertex = u;          <span class="hljs-comment">// 节点存储邻接点 u</span><br>    newNode-&gt;next = g-&gt;head[v];   <span class="hljs-comment">// 头插法插入</span><br>    g-&gt;head[v] = newNode;<br>&#125;<br><br><span class="hljs-comment">// ====================== 打印图 ======================</span><br><span class="hljs-comment">// 功能：遍历并打印每个顶点的所有邻接点，直观展示邻接表结构</span><br><span class="hljs-type">void</span> <span class="hljs-title function_">printGraph</span><span class="hljs-params">(Graph* g)</span> &#123;<br>    <span class="hljs-comment">// 遍历每一个顶点</span><br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; g-&gt;n; i++) &#123;<br>        <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;顶点 %d: &quot;</span>, i);   <span class="hljs-comment">// 打印当前顶点编号</span><br>        <br>        Node* temp = g-&gt;head[i];  <span class="hljs-comment">// 临时指针：遍历当前顶点的邻接链表</span><br>        <span class="hljs-keyword">while</span> (temp != <span class="hljs-literal">NULL</span>) &#123;   <span class="hljs-comment">// 只要没到链表末尾就继续</span><br>            <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;→ %d &quot;</span>, temp-&gt;vertex);  <span class="hljs-comment">// 打印邻接点</span><br>            temp = temp-&gt;next;               <span class="hljs-comment">// 指针后移</span><br>        &#125;<br>        <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;\n&quot;</span>);  <span class="hljs-comment">// 一个顶点打印完换行</span><br>    &#125;<br>&#125;<br><br><span class="hljs-comment">// ====================== 主函数（测试代码） ======================</span><br><span class="hljs-type">int</span> <span class="hljs-title function_">main</span><span class="hljs-params">()</span> &#123;<br>    Graph g;<br>    initGraph(&amp;g, <span class="hljs-number">5</span>);  <span class="hljs-comment">// 初始化 5 个顶点的图</span><br>    <br>    <span class="hljs-comment">// 添加边</span><br>    addEdge(&amp;g, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>);<br>    addEdge(&amp;g, <span class="hljs-number">0</span>, <span class="hljs-number">2</span>);<br>    addEdge(&amp;g, <span class="hljs-number">1</span>, <span class="hljs-number">3</span>);<br>    addEdge(&amp;g, <span class="hljs-number">2</span>, <span class="hljs-number">4</span>);<br>    <br>    <span class="hljs-comment">// 打印邻接表</span><br>    printGraph(&amp;g);<br>    <br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="三、DFS深度优先搜索"><a href="#三、DFS深度优先搜索" class="headerlink" title="三、DFS深度优先搜索"></a>三、DFS深度优先搜索</h2><h3 id="3-1-递归实现（最简单！）"><a href="#3-1-递归实现（最简单！）" class="headerlink" title="3.1 递归实现（最简单！）"></a>3.1 递归实现（最简单！）</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdio.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdbool.h&gt;</span>  <span class="hljs-comment">// 用于 bool 类型（true/false）</span></span><br><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> MAX 100  <span class="hljs-comment">// 图的最大顶点数</span></span><br><br><span class="hljs-comment">// 邻接矩阵：存储图的边关系</span><br><span class="hljs-comment">// graph[i][j] = 1 表示顶点 i 和 j 相连</span><br><span class="hljs-type">int</span> graph[MAX][MAX];<br><br><span class="hljs-comment">// 访问标记数组</span><br><span class="hljs-comment">// visited[i] = true 表示顶点 i 已经被访问过，避免重复访问</span><br><span class="hljs-type">bool</span> visited[MAX];<br><br><span class="hljs-comment">// 图的实际顶点数量（当前图有几个点）</span><br><span class="hljs-type">int</span> n;<br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * DFS 递归核心函数</span><br><span class="hljs-comment"> * @param v 当前正在访问的顶点编号</span><br><span class="hljs-comment"> * 功能：从顶点 v 开始，一直往深处递归遍历</span><br><span class="hljs-comment"> */</span><br><span class="hljs-type">void</span> <span class="hljs-title function_">dfs</span><span class="hljs-params">(<span class="hljs-type">int</span> v)</span> &#123;<br>    <span class="hljs-comment">// ===================== 第一步：标记 + 访问 =====================</span><br>    visited[v] = <span class="hljs-literal">true</span>;      <span class="hljs-comment">// 把当前顶点标记为【已访问】</span><br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d &quot;</span>, v);      <span class="hljs-comment">// 输出当前顶点（表示已经访问它）</span><br><br>    <span class="hljs-comment">// ===================== 第二步：找邻居 + 递归 =====================</span><br>    <span class="hljs-comment">// 遍历所有顶点，找当前顶点 v 的所有邻接点</span><br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i++) &#123;<br>        <span class="hljs-comment">// 判断条件：</span><br>        <span class="hljs-comment">// 1. graph[v][i] == 1 → v 和 i 之间有边（是邻居）</span><br>        <span class="hljs-comment">// 2.!visited[i]     → 顶点 i 还没有被访问过</span><br>        <span class="hljs-keyword">if</span> (graph[v][i] == <span class="hljs-number">1</span> &amp;&amp;!visited[i]) &#123;<br>            dfs(i);  <span class="hljs-comment">// 递归：深度优先继续访问这个邻居</span><br>        &#125;<br>    &#125;<br>&#125;<br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * DFS 遍历总控函数</span><br><span class="hljs-comment"> * 功能：处理整个图的遍历（包括非连通图，多个连通分量都能遍历）</span><br><span class="hljs-comment"> */</span><br><span class="hljs-type">void</span> <span class="hljs-title function_">dfsTraversal</span><span class="hljs-params">()</span> &#123;<br>    <span class="hljs-comment">// ===================== 初始化：所有顶点都设为未访问 =====================</span><br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i++) &#123;<br>        visited[i] = <span class="hljs-literal">false</span>;<br>    &#125;<br><br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;DFS遍历结果: &quot;</span>);<br><br>    <span class="hljs-comment">// ===================== 遍历所有顶点，启动DFS =====================</span><br>    <span class="hljs-comment">// 为什么要循环？因为图可能不连通（比如有孤立点）</span><br>    <span class="hljs-comment">// 只要顶点没被访问过，就从它开始新的DFS</span><br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i++) &#123;<br>        <span class="hljs-keyword">if</span> (!visited[i]) &#123;<br>            dfs(i);  <span class="hljs-comment">// 调用DFS递归函数</span><br>        &#125;<br>    &#125;<br><br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;\n&quot;</span>);<br>&#125;<br><br><span class="hljs-comment">// ===================== 主函数：测试代码 =====================</span><br><span class="hljs-type">int</span> <span class="hljs-title function_">main</span><span class="hljs-params">()</span> &#123;<br>    <span class="hljs-comment">// 设置当前图的顶点总数：5个顶点（0、1、2、3、4）</span><br>    n = <span class="hljs-number">5</span>;<br><br>    <span class="hljs-comment">// 初始化邻接矩阵：全部置0（最开始没有任何边）</span><br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i++) &#123;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j = <span class="hljs-number">0</span>; j &lt; n; j++) &#123;<br>            graph[i][j] = <span class="hljs-number">0</span>;<br>        &#125;<br>    &#125;<br><br>    <span class="hljs-comment">// ===================== 手动给图添加边（无向图） =====================</span><br>    <span class="hljs-comment">// 图结构：</span><br>    <span class="hljs-comment">//   0 --- 1</span><br>    <span class="hljs-comment">//   |     |</span><br>    <span class="hljs-comment">//   2 --- 3     4 (孤立点)</span><br>    graph[<span class="hljs-number">0</span>][<span class="hljs-number">1</span>] = graph[<span class="hljs-number">1</span>][<span class="hljs-number">0</span>] = <span class="hljs-number">1</span>;  <span class="hljs-comment">// 0 ←→ 1</span><br>    graph[<span class="hljs-number">0</span>][<span class="hljs-number">2</span>] = graph[<span class="hljs-number">2</span>][<span class="hljs-number">0</span>] = <span class="hljs-number">1</span>;  <span class="hljs-comment">// 0 ←→ 2</span><br>    graph[<span class="hljs-number">1</span>][<span class="hljs-number">3</span>] = graph[<span class="hljs-number">3</span>][<span class="hljs-number">1</span>] = <span class="hljs-number">1</span>;  <span class="hljs-comment">// 1 ←→ 3</span><br>    graph[<span class="hljs-number">2</span>][<span class="hljs-number">3</span>] = graph[<span class="hljs-number">3</span>][<span class="hljs-number">2</span>] = <span class="hljs-number">1</span>;  <span class="hljs-comment">// 2 ←→ 3</span><br>    <span class="hljs-comment">// 顶点4没有任何边，是孤立点</span><br><br>    <span class="hljs-comment">// 执行DFS遍历</span><br>    dfsTraversal();  <span class="hljs-comment">// 输出: 0 1 3 2 4</span><br><br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/XtangUser/blog-images@main/images/20260317213232780.png" srcset="/img/loading.gif" lazyload alt="image-20260317213232605"></p>
+<p><strong>执行过程动画：</strong></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs c">图：  <span class="hljs-number">0</span> --- <span class="hljs-number">1</span><br>      |     |<br>      <span class="hljs-number">2</span> --- <span class="hljs-number">3</span><br><br>执行过程：<br><span class="hljs-number">1.</span> 从<span class="hljs-number">0</span>开始  → visited[<span class="hljs-number">0</span>]=<span class="hljs-literal">true</span>, 打印<span class="hljs-number">0</span><br><span class="hljs-number">2.</span> 访问<span class="hljs-number">0</span>的邻居<span class="hljs-number">1</span> → visited[<span class="hljs-number">1</span>]=<span class="hljs-literal">true</span>, 打印<span class="hljs-number">1</span><br><span class="hljs-number">3.</span> 访问<span class="hljs-number">1</span>的邻居<span class="hljs-number">3</span> → visited[<span class="hljs-number">3</span>]=<span class="hljs-literal">true</span>, 打印<span class="hljs-number">3</span><br><span class="hljs-number">4.</span> 访问<span class="hljs-number">3</span>的邻居<span class="hljs-number">2</span> → visited[<span class="hljs-number">2</span>]=<span class="hljs-literal">true</span>, 打印<span class="hljs-number">2</span><br><span class="hljs-number">5.</span> 回溯，所有点都访问完毕<br><br>输出: <span class="hljs-number">0</span> <span class="hljs-number">1</span> <span class="hljs-number">3</span> <span class="hljs-number">2</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="3-2-非递归实现（手动栈）"><a href="#3-2-非递归实现（手动栈）" class="headerlink" title="3.2 非递归实现（手动栈）"></a>3.2 非递归实现（手动栈）</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdio.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdbool.h&gt;</span>  <span class="hljs-comment">// 使用 bool、true、false 必须的头文件</span></span><br><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> MAX 100  <span class="hljs-comment">// 定义图的最大顶点数</span></span><br><br><span class="hljs-comment">// 邻接矩阵存储图</span><br><span class="hljs-comment">// graph[i][j] = 1 表示顶点 i 与顶点 j 有边</span><br><span class="hljs-type">int</span> graph[MAX][MAX];<br><br><span class="hljs-comment">// 访问标记数组</span><br><span class="hljs-comment">// visited[i] = true 表示顶点 i 已经被访问过，防止重复访问</span><br><span class="hljs-type">bool</span> visited[MAX];<br><br><span class="hljs-comment">// 图的实际顶点个数（0、1、2 ... n-1）</span><br><span class="hljs-type">int</span> n;<br><br><span class="hljs-comment">// ===================== 手动实现栈（用于DFS非递归） =====================</span><br><span class="hljs-comment">// 栈数组：存储待访问的顶点编号</span><br><span class="hljs-type">int</span> <span class="hljs-built_in">stack</span>[MAX];<br><span class="hljs-comment">// 栈顶指针：top=-1 表示栈空，每入栈一个+1，出栈-1</span><br><span class="hljs-type">int</span> top = <span class="hljs-number">-1</span>;<br><br><span class="hljs-comment">// 入栈：将顶点v压入栈顶</span><br><span class="hljs-type">void</span> <span class="hljs-title function_">push</span><span class="hljs-params">(<span class="hljs-type">int</span> v)</span> &#123;<br>    <span class="hljs-built_in">stack</span>[++top] = v;  <span class="hljs-comment">// 先让栈顶+1，再存入数据</span><br>&#125;<br><br><span class="hljs-comment">// 出栈：取出并返回栈顶元素</span><br><span class="hljs-type">int</span> <span class="hljs-title function_">pop</span><span class="hljs-params">()</span> &#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-built_in">stack</span>[top--];  <span class="hljs-comment">// 先取出当前栈顶，再让栈顶-1</span><br>&#125;<br><br><span class="hljs-comment">// 判断栈是否为空：空返回true，非空返回false</span><br><span class="hljs-type">bool</span> <span class="hljs-title function_">isEmpty</span><span class="hljs-params">()</span> &#123;<br>    <span class="hljs-keyword">return</span> top == <span class="hljs-number">-1</span>;<br>&#125;<br><br><span class="hljs-comment">// ===================== DFS 非递归核心函数 =====================</span><br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * DFS 非递归版本（使用栈模拟递归过程）</span><br><span class="hljs-comment"> * @param start 遍历起始顶点</span><br><span class="hljs-comment"> */</span><br><span class="hljs-type">void</span> <span class="hljs-title function_">dfsIterative</span><span class="hljs-params">(<span class="hljs-type">int</span> start)</span> &#123;<br>    <span class="hljs-comment">// 1. 初始化：所有顶点先标记为【未访问】</span><br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i++) &#123;<br>        visited[i] = <span class="hljs-literal">false</span>;<br>    &#125;<br>    <br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;DFS非递归遍历: &quot;</span>);<br>    <br>    <span class="hljs-comment">// 2. 起始顶点入栈：从start开始遍历</span><br>    push(start);<br>    <br>    <span class="hljs-comment">// 3. 栈不为空就一直循环（栈空=所有可访问顶点遍历完毕）</span><br>    <span class="hljs-keyword">while</span> (!isEmpty()) &#123;<br>        <span class="hljs-comment">// 取出栈顶顶点 v</span><br>        <span class="hljs-type">int</span> v = pop();<br>        <br>        <span class="hljs-comment">// 关键：如果该顶点已经被访问过，直接跳过（避免重复处理）</span><br>        <span class="hljs-keyword">if</span> (visited[v]) <span class="hljs-keyword">continue</span>;<br>        <br>        <span class="hljs-comment">// 4. 标记当前顶点为已访问，并输出（真正访问该点）</span><br>        visited[v] = <span class="hljs-literal">true</span>;<br>        <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d &quot;</span>, v);<br>        <br>        <span class="hljs-comment">// 5. 把 v 的所有【未访问邻居】逆序入栈</span><br>        <span class="hljs-comment">// 为什么逆序？栈是后进先出，逆序入栈才能保证遍历顺序和递归版一致</span><br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = n - <span class="hljs-number">1</span>; i &gt;= <span class="hljs-number">0</span>; i--) &#123;<br>            <span class="hljs-comment">// 如果 v 和 i 有边，且 i 未被访问</span><br>            <span class="hljs-keyword">if</span> (graph[v][i] == <span class="hljs-number">1</span> &amp;&amp; !visited[i]) &#123;<br>                push(i);  <span class="hljs-comment">// 入栈，等待后续访问</span><br>            &#125;<br>        &#125;<br>    &#125;<br>    <br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;\n&quot;</span>);<br>&#125;<br><br><span class="hljs-comment">// ===================== 主函数：测试代码 =====================</span><br><span class="hljs-type">int</span> <span class="hljs-title function_">main</span><span class="hljs-params">()</span> &#123;<br>    <span class="hljs-comment">// 设置图有 5 个顶点：0、1、2、3、4</span><br>    n = <span class="hljs-number">5</span>;<br>    <br>    <span class="hljs-comment">// 初始化邻接矩阵：全部置0（最开始没有任何边）</span><br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i++) &#123;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j = <span class="hljs-number">0</span>; j &lt; n; j++) &#123;<br>            graph[i][j] = <span class="hljs-number">0</span>;<br>        &#125;<br>    &#125;<br>    <br>    <span class="hljs-comment">// 给无向图添加边（双向都要设为1）</span><br>    <span class="hljs-comment">// 图结构：</span><br>    <span class="hljs-comment">//   0 --- 1</span><br>    <span class="hljs-comment">//   |     |</span><br>    <span class="hljs-comment">//   2 --- 3    4(孤立点)</span><br>    graph[<span class="hljs-number">0</span>][<span class="hljs-number">1</span>] = graph[<span class="hljs-number">1</span>][<span class="hljs-number">0</span>] = <span class="hljs-number">1</span>;<br>    graph[<span class="hljs-number">0</span>][<span class="hljs-number">2</span>] = graph[<span class="hljs-number">2</span>][<span class="hljs-number">0</span>] = <span class="hljs-number">1</span>;<br>    graph[<span class="hljs-number">1</span>][<span class="hljs-number">3</span>] = graph[<span class="hljs-number">3</span>][<span class="hljs-number">1</span>] = <span class="hljs-number">1</span>;<br>    graph[<span class="hljs-number">2</span>][<span class="hljs-number">3</span>] = graph[<span class="hljs-number">3</span>][<span class="hljs-number">2</span>] = <span class="hljs-number">1</span>;<br>    <br>    <span class="hljs-comment">// 从顶点 0 开始 DFS 非递归遍历</span><br>    dfsIterative(<span class="hljs-number">0</span>);  <span class="hljs-comment">// 输出: 0 1 3 2</span><br>    <br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="3-3-二维网格上的DFS（超级常用！）"><a href="#3-3-二维网格上的DFS（超级常用！）" class="headerlink" title="3.3 二维网格上的DFS（超级常用！）"></a>3.3 二维网格上的DFS（超级常用！）</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-comment">//题目描述</span><br><span class="hljs-comment">//给你一个由 1（陆地）和 0（水）组成的二维网格，请你计算网格中岛屿的数量。</span><br><span class="hljs-comment">//岛屿被水包围，并且只能通过上下左右相邻的陆地连接而成。你可以假设网格的四个边都被水包围。</span><br><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdio.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdbool.h&gt;</span></span><br><br><span class="hljs-comment">// 定义网格的行数和列数（5行5列）</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> ROWS 5</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> COLS 5</span><br><br><span class="hljs-comment">// ===================== 网格地图 =====================</span><br><span class="hljs-comment">// 1 代表陆地</span><br><span class="hljs-comment">// 0 代表水域</span><br><span class="hljs-type">int</span> grid[ROWS][COLS] = &#123;<br>    &#123;<span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>&#125;,<br>    &#123;<span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>&#125;,<br>    &#123;<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>&#125;,<br>    &#123;<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>&#125;,<br>    &#123;<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>&#125;<br>&#125;;<br><br><span class="hljs-comment">// 访问标记数组：标记网格中的某个格子是否被DFS访问过</span><br><span class="hljs-type">bool</span> visited[ROWS][COLS];<br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * 检查坐标 (r, c) 是否在网格范围内</span><br><span class="hljs-comment"> * @param r 行号</span><br><span class="hljs-comment"> * @param c 列号</span><br><span class="hljs-comment"> * @return 有效返回true，越界返回false</span><br><span class="hljs-comment"> */</span><br><span class="hljs-type">bool</span> <span class="hljs-title function_">isValid</span><span class="hljs-params">(<span class="hljs-type">int</span> r, <span class="hljs-type">int</span> c)</span> &#123;<br>    <span class="hljs-comment">// 行 &gt;=0 且 &lt; 总行数，列 &gt;=0 且 &lt; 总列数</span><br>    <span class="hljs-keyword">return</span> r &gt;= <span class="hljs-number">0</span> &amp;&amp; r &lt; ROWS &amp;&amp; c &gt;= <span class="hljs-number">0</span> &amp;&amp; c &lt; COLS;<br>&#125;<br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * 网格DFS：从 (r,c) 出发，深度优先搜索整片陆地</span><br><span class="hljs-comment"> * @param r 当前行</span><br><span class="hljs-comment"> * @param c 当前列</span><br><span class="hljs-comment"> */</span><br><span class="hljs-type">void</span> <span class="hljs-title function_">dfsGrid</span><span class="hljs-params">(<span class="hljs-type">int</span> r, <span class="hljs-type">int</span> c)</span> &#123;<br>    <span class="hljs-comment">// 递归终止条件（只要满足任意一个就直接返回）：</span><br>    <span class="hljs-comment">// 1. 坐标越界 → 不是有效格子</span><br>    <span class="hljs-comment">// 2. 已经访问过 → 避免重复遍历</span><br>    <span class="hljs-comment">// 3. 是水域（0）→ 不是陆地，不用访问</span><br>    <span class="hljs-keyword">if</span> (!isValid(r, c) || visited[r][c] || grid[r][c] == <span class="hljs-number">0</span>) &#123;<br>        <span class="hljs-keyword">return</span>;<br>    &#125;<br><br>    <span class="hljs-comment">// 标记当前陆地为已访问</span><br>    visited[r][c] = <span class="hljs-literal">true</span>;<br>    <span class="hljs-comment">// 输出当前陆地坐标（查看遍历过程）</span><br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;(%d,%d) &quot;</span>, r, c);<br><br>    <span class="hljs-comment">// ===================== 四个方向DFS =====================</span><br>    <span class="hljs-comment">// 上下左右递归搜索，把一整块连在一起的陆地全部遍历完</span><br>    dfsGrid(r - <span class="hljs-number">1</span>, c);  <span class="hljs-comment">// 上</span><br>    dfsGrid(r + <span class="hljs-number">1</span>, c);  <span class="hljs-comment">// 下</span><br>    dfsGrid(r, c - <span class="hljs-number">1</span>);  <span class="hljs-comment">// 左</span><br>    dfsGrid(r, c + <span class="hljs-number">1</span>);  <span class="hljs-comment">// 右</span><br>&#125;<br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * 计算岛屿数量（主逻辑）</span><br><span class="hljs-comment"> * @return 岛屿总数</span><br><span class="hljs-comment"> */</span><br><span class="hljs-type">int</span> <span class="hljs-title function_">countIslands</span><span class="hljs-params">()</span> &#123;<br>    <span class="hljs-comment">// 初始化：所有格子都标记为未访问</span><br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; ROWS; i++) &#123;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j = <span class="hljs-number">0</span>; j &lt; COLS; j++) &#123;<br>            visited[i][j] = <span class="hljs-literal">false</span>;<br>        &#125;<br>    &#125;<br><br>    <span class="hljs-type">int</span> count = <span class="hljs-number">0</span>;  <span class="hljs-comment">// 岛屿数量计数器</span><br><br>    <span class="hljs-comment">// 遍历整个网格的每一个格子</span><br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; ROWS; i++) &#123;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j = <span class="hljs-number">0</span>; j &lt; COLS; j++) &#123;<br>            <span class="hljs-comment">// 如果当前格子是陆地 且 没被访问过 → 发现了一个新岛屿</span><br>            <span class="hljs-keyword">if</span> (grid[i][j] == <span class="hljs-number">1</span> &amp;&amp; !visited[i][j]) &#123;<br>                <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;发现岛屿 %d: &quot;</span>, count + <span class="hljs-number">1</span>);<br>                dfsGrid(i, j);  <span class="hljs-comment">// DFS 把整个岛屿遍历一遍</span><br>                <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;\n&quot;</span>);<br>                count++;  <span class="hljs-comment">// 岛屿数量 +1</span><br>            &#125;<br>        &#125;<br>    &#125;<br><br>    <span class="hljs-keyword">return</span> count;<br>&#125;<br><br><span class="hljs-comment">// ===================== 主函数：测试 =====================</span><br><span class="hljs-type">int</span> <span class="hljs-title function_">main</span><span class="hljs-params">()</span> &#123;<br>    <span class="hljs-comment">// 先打印原始网格</span><br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;网格：\n&quot;</span>);<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; ROWS; i++) &#123;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j = <span class="hljs-number">0</span>; j &lt; COLS; j++) &#123;<br>            <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d &quot;</span>, grid[i][j]);<br>        &#125;<br>        <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;\n&quot;</span>);<br>    &#125;<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;\n&quot;</span>);<br><br>    <span class="hljs-comment">// 计算岛屿数量</span><br>    <span class="hljs-type">int</span> islands = countIslands();<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;\n总共有 %d 个岛屿\n&quot;</span>, islands);<br><br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p><strong>输出示例：</strong></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs c">网格：<br><span class="hljs-number">1</span> <span class="hljs-number">1</span> <span class="hljs-number">0</span> <span class="hljs-number">0</span> <span class="hljs-number">0</span><br><span class="hljs-number">1</span> <span class="hljs-number">1</span> <span class="hljs-number">0</span> <span class="hljs-number">0</span> <span class="hljs-number">0</span><br><span class="hljs-number">0</span> <span class="hljs-number">0</span> <span class="hljs-number">1</span> <span class="hljs-number">0</span> <span class="hljs-number">0</span><br><span class="hljs-number">0</span> <span class="hljs-number">0</span> <span class="hljs-number">0</span> <span class="hljs-number">1</span> <span class="hljs-number">1</span><br><span class="hljs-number">0</span> <span class="hljs-number">0</span> <span class="hljs-number">0</span> <span class="hljs-number">1</span> <span class="hljs-number">1</span><br><br>发现岛屿 <span class="hljs-number">1</span>: (<span class="hljs-number">0</span>,<span class="hljs-number">0</span>) (<span class="hljs-number">1</span>,<span class="hljs-number">0</span>) (<span class="hljs-number">1</span>,<span class="hljs-number">1</span>) (<span class="hljs-number">0</span>,<span class="hljs-number">1</span>) <br>发现岛屿 <span class="hljs-number">2</span>: (<span class="hljs-number">2</span>,<span class="hljs-number">2</span>) <br>发现岛屿 <span class="hljs-number">3</span>: (<span class="hljs-number">3</span>,<span class="hljs-number">3</span>) (<span class="hljs-number">4</span>,<span class="hljs-number">3</span>) (<span class="hljs-number">4</span>,<span class="hljs-number">4</span>) (<span class="hljs-number">3</span>,<span class="hljs-number">4</span>) <br><br>总共有 <span class="hljs-number">3</span> 个岛屿<br></code></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="四、BFS广度优先搜索"><a href="#四、BFS广度优先搜索" class="headerlink" title="四、BFS广度优先搜索"></a>四、BFS广度优先搜索</h2><h3 id="4-1-基础BFS实现"><a href="#4-1-基础BFS实现" class="headerlink" title="4.1 基础BFS实现"></a>4.1 基础BFS实现</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdio.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdbool.h&gt;</span></span><br><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> MAX 100</span><br><br><span class="hljs-type">int</span> graph[MAX][MAX];<br><span class="hljs-type">bool</span> visited[MAX];<br><span class="hljs-type">int</span> n;<br><br><span class="hljs-comment">// 队列实现</span><br><span class="hljs-type">int</span> queue[MAX];<br><span class="hljs-type">int</span> front = <span class="hljs-number">0</span>, rear = <span class="hljs-number">0</span>;<br><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">enqueue</span><span class="hljs-params">(<span class="hljs-type">int</span> v)</span> </span>&#123;<br>    queue[rear++] = v;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">dequeue</span><span class="hljs-params">()</span> </span>&#123;<br>    <span class="hljs-keyword">return</span> queue[front++];<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">bool</span> <span class="hljs-title">isQueueEmpty</span><span class="hljs-params">()</span> </span>&#123;<br>    <span class="hljs-keyword">return</span> front == rear;<br>&#125;<br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * BFS 基础实现</span><br><span class="hljs-comment"> * @param start 起始顶点</span><br><span class="hljs-comment"> */</span><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">bfs</span><span class="hljs-params">(<span class="hljs-type">int</span> start)</span> </span>&#123;<br>    <span class="hljs-comment">// 初始化visited</span><br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i++) &#123;<br>        visited[i] = <span class="hljs-literal">false</span>;<br>    &#125;<br>    <br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;BFS遍历结果: &quot;</span>);<br>    <br>    <span class="hljs-comment">// 起始顶点入队</span><br>    <span class="hljs-built_in">enqueue</span>(start);<br>    visited[start] = <span class="hljs-literal">true</span>;  <span class="hljs-comment">// ⚠️ 入队时就标记！</span><br>    <br>    <span class="hljs-keyword">while</span> (!<span class="hljs-built_in">isQueueEmpty</span>()) &#123;<br>        <span class="hljs-type">int</span> v = <span class="hljs-built_in">dequeue</span>();<br>        <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d &quot;</span>, v);  <span class="hljs-comment">// 访问当前顶点</span><br>        <br>        <span class="hljs-comment">// 将所有未访问的邻居入队</span><br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i++) &#123;<br>            <span class="hljs-keyword">if</span> (graph[v][i] == <span class="hljs-number">1</span> &amp;&amp; !visited[i]) &#123;<br>                <span class="hljs-built_in">enqueue</span>(i);<br>                visited[i] = <span class="hljs-literal">true</span>;  <span class="hljs-comment">// ⚠️ 入队时标记，不要出队时标记！</span><br>            &#125;<br>        &#125;<br>    &#125;<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;\n&quot;</span>);<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br>    n = <span class="hljs-number">5</span>;<br>    <br>    <span class="hljs-comment">// 初始化图</span><br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i++) &#123;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j = <span class="hljs-number">0</span>; j &lt; n; j++) &#123;<br>            graph[i][j] = <span class="hljs-number">0</span>;<br>        &#125;<br>    &#125;<br>    <br>    <span class="hljs-comment">//   0 --- 1</span><br>    <span class="hljs-comment">//   |     |</span><br>    <span class="hljs-comment">//   2 --- 3     4</span><br>    graph[<span class="hljs-number">0</span>][<span class="hljs-number">1</span>] = graph[<span class="hljs-number">1</span>][<span class="hljs-number">0</span>] = <span class="hljs-number">1</span>;<br>    graph[<span class="hljs-number">0</span>][<span class="hljs-number">2</span>] = graph[<span class="hljs-number">2</span>][<span class="hljs-number">0</span>] = <span class="hljs-number">1</span>;<br>    graph[<span class="hljs-number">1</span>][<span class="hljs-number">3</span>] = graph[<span class="hljs-number">3</span>][<span class="hljs-number">1</span>] = <span class="hljs-number">1</span>;<br>    graph[<span class="hljs-number">2</span>][<span class="hljs-number">3</span>] = graph[<span class="hljs-number">3</span>][<span class="hljs-number">2</span>] = <span class="hljs-number">1</span>;<br>    <br>    <span class="hljs-built_in">bfs</span>(<span class="hljs-number">0</span>);  <span class="hljs-comment">// 输出: 0 1 2 3</span><br>    <br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p><strong>BFS执行过程：</strong></p>
+<figure class="highlight tap"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs tap">图： <span class="hljs-number"> 0 </span>--- 1<br>      |     |<br>     <span class="hljs-number"> 2 </span>--- 3<br><br>步骤：<br>1. 队列: [0]          访问0 → 输出: 0<br>2. 队列: [1, 2]       访问1 → 输出:<span class="hljs-number"> 0 </span>1<br>3. 队列: [2, 3]       访问2 → 输出:<span class="hljs-number"> 0 </span>1 2<br>4. 队列: [3]          访问3 → 输出:<span class="hljs-number"> 0 </span>1<span class="hljs-number"> 2 </span>3<br>5. 队列: []           结束<br><br>最终输出:<span class="hljs-number"> 0 </span>1<span class="hljs-number"> 2 </span>3 (按层次遍历)<br></code></pre></td></tr></table></figure>
+
+<h3 id="4-2-层序遍历（记录层数-距离）"><a href="#4-2-层序遍历（记录层数-距离）" class="headerlink" title="4.2 层序遍历（记录层数&#x2F;距离）"></a>4.2 层序遍历（记录层数&#x2F;距离）</h3><figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br></pre></td><td class="code"><pre><code class="hljs arduino"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdio.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdbool.h&gt;</span></span><br><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> MAX 100</span><br><br><span class="hljs-type">int</span> graph[MAX][MAX];<br><span class="hljs-type">bool</span> visited[MAX];<br><span class="hljs-type">int</span> n;<br><br><span class="hljs-type">int</span> queue[MAX];<br><span class="hljs-type">int</span> front = <span class="hljs-number">0</span>, rear = <span class="hljs-number">0</span>;<br><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">enqueue</span><span class="hljs-params">(<span class="hljs-type">int</span> v)</span> </span>&#123;<br>    queue[rear++] = v;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">dequeue</span><span class="hljs-params">()</span> </span>&#123;<br>    <span class="hljs-keyword">return</span> queue[front++];<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">bool</span> <span class="hljs-title">isQueueEmpty</span><span class="hljs-params">()</span> </span>&#123;<br>    <span class="hljs-keyword">return</span> front == rear;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">queueSize</span><span class="hljs-params">()</span> </span>&#123;<br>    <span class="hljs-keyword">return</span> rear - front;<br>&#125;<br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * BFS 层序遍历（记录每个节点的层数）</span><br><span class="hljs-comment"> */</span><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">bfsLevel</span><span class="hljs-params">(<span class="hljs-type">int</span> start)</span> </span>&#123;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i++) &#123;<br>        visited[i] = <span class="hljs-literal">false</span>;<br>    &#125;<br>    <br>    <span class="hljs-built_in">enqueue</span>(start);<br>    visited[start] = <span class="hljs-literal">true</span>;<br>    <br>    <span class="hljs-type">int</span> level = <span class="hljs-number">0</span>;  <span class="hljs-comment">// 当前层数</span><br>    <br>    <span class="hljs-keyword">while</span> (!<span class="hljs-built_in">isQueueEmpty</span>()) &#123;<br>        <span class="hljs-type">int</span> size = <span class="hljs-built_in">queueSize</span>();  <span class="hljs-comment">// ⭐ 当前层的节点数</span><br>        <br>        <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;第 %d 层: &quot;</span>, level);<br>        <br>        <span class="hljs-comment">// 只处理当前层的节点</span><br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; size; i++) &#123;<br>            <span class="hljs-type">int</span> v = <span class="hljs-built_in">dequeue</span>();<br>            <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d &quot;</span>, v);<br>            <br>            <span class="hljs-comment">// 将下一层的节点入队</span><br>            <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j = <span class="hljs-number">0</span>; j &lt; n; j++) &#123;<br>                <span class="hljs-keyword">if</span> (graph[v][j] == <span class="hljs-number">1</span> &amp;&amp; !visited[j]) &#123;<br>                    <span class="hljs-built_in">enqueue</span>(j);<br>                    visited[j] = <span class="hljs-literal">true</span>;<br>                &#125;<br>            &#125;<br>        &#125;<br>        <br>        <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;\n&quot;</span>);<br>        level++;<br>    &#125;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br>    n = <span class="hljs-number">7</span>;<br>    <br>    <span class="hljs-comment">// 初始化图</span><br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i++) &#123;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j = <span class="hljs-number">0</span>; j &lt; n; j++) &#123;<br>            graph[i][j] = <span class="hljs-number">0</span>;<br>        &#125;<br>    &#125;<br>    <br>    <span class="hljs-comment">// 构建树形图</span><br>    <span class="hljs-comment">//       0</span><br>    <span class="hljs-comment">//      / \</span><br><span class="hljs-comment">    //     1   2</span><br>    <span class="hljs-comment">//    / \   \</span><br><span class="hljs-comment">    //   3   4   5</span><br>    <span class="hljs-comment">//  /</span><br>    <span class="hljs-comment">// 6</span><br>    <br>    graph[<span class="hljs-number">0</span>][<span class="hljs-number">1</span>] = graph[<span class="hljs-number">1</span>][<span class="hljs-number">0</span>] = <span class="hljs-number">1</span>;<br>    graph[<span class="hljs-number">0</span>][<span class="hljs-number">2</span>] = graph[<span class="hljs-number">2</span>][<span class="hljs-number">0</span>] = <span class="hljs-number">1</span>;<br>    graph[<span class="hljs-number">1</span>][<span class="hljs-number">3</span>] = graph[<span class="hljs-number">3</span>][<span class="hljs-number">1</span>] = <span class="hljs-number">1</span>;<br>    graph[<span class="hljs-number">1</span>][<span class="hljs-number">4</span>] = graph[<span class="hljs-number">4</span>][<span class="hljs-number">1</span>] = <span class="hljs-number">1</span>;<br>    graph[<span class="hljs-number">2</span>][<span class="hljs-number">5</span>] = graph[<span class="hljs-number">5</span>][<span class="hljs-number">2</span>] = <span class="hljs-number">1</span>;<br>    graph[<span class="hljs-number">3</span>][<span class="hljs-number">6</span>] = graph[<span class="hljs-number">6</span>][<span class="hljs-number">3</span>] = <span class="hljs-number">1</span>;<br>    <br>    <span class="hljs-built_in">bfsLevel</span>(<span class="hljs-number">0</span>);<br>    <br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p><strong>输出：</strong></p>
+<figure class="highlight tap"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs tap">第<span class="hljs-number"> 0 </span>层:<span class="hljs-number"> 0 </span><br>第<span class="hljs-number"> 1 </span>层:<span class="hljs-number"> 1 </span>2 <br>第<span class="hljs-number"> 2 </span>层:<span class="hljs-number"> 3 </span>4<span class="hljs-number"> 5 </span><br>第<span class="hljs-number"> 3 </span>层: 6<br></code></pre></td></tr></table></figure>
+
+<h3 id="4-3-BFS求最短路径（核心应用！）"><a href="#4-3-BFS求最短路径（核心应用！）" class="headerlink" title="4.3 BFS求最短路径（核心应用！）"></a>4.3 BFS求最短路径（核心应用！）</h3><figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br></pre></td><td class="code"><pre><code class="hljs arduino"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdio.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdbool.h&gt;</span></span><br><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> MAX 100</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> INF 999999</span><br><br><span class="hljs-type">int</span> graph[MAX][MAX];<br><span class="hljs-type">int</span> n;<br><br><span class="hljs-type">int</span> queue[MAX];<br><span class="hljs-type">int</span> front = <span class="hljs-number">0</span>, rear = <span class="hljs-number">0</span>;<br><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">enqueue</span><span class="hljs-params">(<span class="hljs-type">int</span> v)</span> </span>&#123;<br>    queue[rear++] = v;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">dequeue</span><span class="hljs-params">()</span> </span>&#123;<br>    <span class="hljs-keyword">return</span> queue[front++];<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">bool</span> <span class="hljs-title">isQueueEmpty</span><span class="hljs-params">()</span> </span>&#123;<br>    <span class="hljs-keyword">return</span> front == rear;<br>&#125;<br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * BFS 求从start到end的最短路径长度</span><br><span class="hljs-comment"> * @return 最短距离，如果不可达返回-1</span><br><span class="hljs-comment"> */</span><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">shortestPath</span><span class="hljs-params">(<span class="hljs-type">int</span> start, <span class="hljs-type">int</span> end)</span> </span>&#123;<br>    <span class="hljs-type">bool</span> visited[MAX] = &#123;<span class="hljs-literal">false</span>&#125;;<br>    <span class="hljs-type">int</span> distance[MAX];  <span class="hljs-comment">// 距离数组</span><br>    <br>    <span class="hljs-comment">// 初始化距离</span><br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i++) &#123;<br>        distance[i] = INF;<br>    &#125;<br>    <br>    <span class="hljs-built_in">enqueue</span>(start);<br>    visited[start] = <span class="hljs-literal">true</span>;<br>    distance[start] = <span class="hljs-number">0</span>;<br>    <br>    <span class="hljs-keyword">while</span> (!<span class="hljs-built_in">isQueueEmpty</span>()) &#123;<br>        <span class="hljs-type">int</span> v = <span class="hljs-built_in">dequeue</span>();<br>        <br>        <span class="hljs-comment">// 找到目标</span><br>        <span class="hljs-keyword">if</span> (v == end) &#123;<br>            <span class="hljs-keyword">return</span> distance[end];<br>        &#125;<br>        <br>        <span class="hljs-comment">// 遍历邻居</span><br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i++) &#123;<br>            <span class="hljs-keyword">if</span> (graph[v][i] == <span class="hljs-number">1</span> &amp;&amp; !visited[i]) &#123;<br>                <span class="hljs-built_in">enqueue</span>(i);<br>                visited[i] = <span class="hljs-literal">true</span>;<br>                distance[i] = distance[v] + <span class="hljs-number">1</span>;  <span class="hljs-comment">// 距离 +1</span><br>            &#125;<br>        &#125;<br>    &#125;<br>    <br>    <span class="hljs-keyword">return</span> <span class="hljs-number">-1</span>;  <span class="hljs-comment">// 不可达</span><br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br>    n = <span class="hljs-number">6</span>;<br>    <br>    <span class="hljs-comment">// 初始化图</span><br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i++) &#123;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j = <span class="hljs-number">0</span>; j &lt; n; j++) &#123;<br>            graph[i][j] = <span class="hljs-number">0</span>;<br>        &#125;<br>    &#125;<br>    <br>    <span class="hljs-comment">// 构建图</span><br>    <span class="hljs-comment">//   0 --- 1 --- 3</span><br>    <span class="hljs-comment">//   |     |     |</span><br>    <span class="hljs-comment">//   2 --- 4 --- 5</span><br>    <br>    graph[<span class="hljs-number">0</span>][<span class="hljs-number">1</span>] = graph[<span class="hljs-number">1</span>][<span class="hljs-number">0</span>] = <span class="hljs-number">1</span>;<br>    graph[<span class="hljs-number">0</span>][<span class="hljs-number">2</span>] = graph[<span class="hljs-number">2</span>][<span class="hljs-number">0</span>] = <span class="hljs-number">1</span>;<br>    graph[<span class="hljs-number">1</span>][<span class="hljs-number">3</span>] = graph[<span class="hljs-number">3</span>][<span class="hljs-number">1</span>] = <span class="hljs-number">1</span>;<br>    graph[<span class="hljs-number">1</span>][<span class="hljs-number">4</span>] = graph[<span class="hljs-number">4</span>][<span class="hljs-number">1</span>] = <span class="hljs-number">1</span>;<br>    graph[<span class="hljs-number">2</span>][<span class="hljs-number">4</span>] = graph[<span class="hljs-number">4</span>][<span class="hljs-number">2</span>] = <span class="hljs-number">1</span>;<br>    graph[<span class="hljs-number">3</span>][<span class="hljs-number">5</span>] = graph[<span class="hljs-number">5</span>][<span class="hljs-number">3</span>] = <span class="hljs-number">1</span>;<br>    graph[<span class="hljs-number">4</span>][<span class="hljs-number">5</span>] = graph[<span class="hljs-number">5</span>][<span class="hljs-number">4</span>] = <span class="hljs-number">1</span>;<br>    <br>    <span class="hljs-type">int</span> dist = <span class="hljs-built_in">shortestPath</span>(<span class="hljs-number">0</span>, <span class="hljs-number">5</span>);<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;从顶点 0 到顶点 5 的最短距离: %d\n&quot;</span>, dist);<br>    <span class="hljs-comment">// 输出: 3 (路径: 0 → 1 → 3 → 5 或 0 → 2 → 4 → 5)</span><br>    <br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="4-4-二维网格上的BFS（求最短路径）"><a href="#4-4-二维网格上的BFS（求最短路径）" class="headerlink" title="4.4 二维网格上的BFS（求最短路径）"></a>4.4 二维网格上的BFS（求最短路径）</h3><figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br></pre></td><td class="code"><pre><code class="hljs arduino"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdio.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdbool.h&gt;</span></span><br><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> ROWS 5</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> COLS 5</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> MAX_QUEUE 1000</span><br><br><span class="hljs-comment">// 网格：1=可通行，0=障碍</span><br><span class="hljs-type">int</span> grid[ROWS][COLS] = &#123;<br>    &#123;<span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>&#125;,<br>    &#123;<span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>&#125;,<br>    &#123;<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>&#125;,<br>    &#123;<span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>&#125;,<br>    &#123;<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>&#125;<br>&#125;;<br><br><span class="hljs-type">bool</span> visited[ROWS][COLS];<br><br><span class="hljs-comment">// 坐标结构</span><br><span class="hljs-keyword">typedef</span> <span class="hljs-keyword">struct</span> &#123;<br>    <span class="hljs-type">int</span> r, c;<br>&#125; Point;<br><br>Point queue[MAX_QUEUE];<br><span class="hljs-type">int</span> front = <span class="hljs-number">0</span>, rear = <span class="hljs-number">0</span>;<br><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">enqueue</span><span class="hljs-params">(<span class="hljs-type">int</span> r, <span class="hljs-type">int</span> c)</span> </span>&#123;<br>    queue[rear].r = r;<br>    queue[rear].c = c;<br>    rear++;<br>&#125;<br><br><span class="hljs-function">Point <span class="hljs-title">dequeue</span><span class="hljs-params">()</span> </span>&#123;<br>    <span class="hljs-keyword">return</span> queue[front++];<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">bool</span> <span class="hljs-title">isQueueEmpty</span><span class="hljs-params">()</span> </span>&#123;<br>    <span class="hljs-keyword">return</span> front == rear;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">queueSize</span><span class="hljs-params">()</span> </span>&#123;<br>    <span class="hljs-keyword">return</span> rear - front;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">bool</span> <span class="hljs-title">isValid</span><span class="hljs-params">(<span class="hljs-type">int</span> r, <span class="hljs-type">int</span> c)</span> </span>&#123;<br>    <span class="hljs-keyword">return</span> r &gt;= <span class="hljs-number">0</span> &amp;&amp; r &lt; ROWS &amp;&amp; c &gt;= <span class="hljs-number">0</span> &amp;&amp; c &lt; COLS;<br>&#125;<br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * BFS求最短路径</span><br><span class="hljs-comment"> * @param sr, sc 起点坐标</span><br><span class="hljs-comment"> * @param er, ec 终点坐标</span><br><span class="hljs-comment"> * @return 最短距离，不可达返回-1</span><br><span class="hljs-comment"> */</span><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">shortestPathGrid</span><span class="hljs-params">(<span class="hljs-type">int</span> sr, <span class="hljs-type">int</span> sc, <span class="hljs-type">int</span> er, <span class="hljs-type">int</span> ec)</span> </span>&#123;<br>    <span class="hljs-comment">// 初始化visited</span><br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; ROWS; i++) &#123;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j = <span class="hljs-number">0</span>; j &lt; COLS; j++) &#123;<br>            visited[i][j] = <span class="hljs-literal">false</span>;<br>        &#125;<br>    &#125;<br>    <br>    <span class="hljs-comment">// 起点是障碍或终点是障碍</span><br>    <span class="hljs-keyword">if</span> (grid[sr][sc] == <span class="hljs-number">0</span> || grid[er][ec] == <span class="hljs-number">0</span>) &#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-number">-1</span>;<br>    &#125;<br>    <br>    <span class="hljs-comment">// 四个方向：上下左右</span><br>    <span class="hljs-type">int</span> dr[] = &#123;<span class="hljs-number">-1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>&#125;;<br>    <span class="hljs-type">int</span> dc[] = &#123;<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">-1</span>, <span class="hljs-number">1</span>&#125;;<br>    <br>    <span class="hljs-built_in">enqueue</span>(sr, sc);<br>    visited[sr][sc] = <span class="hljs-literal">true</span>;<br>    <br>    <span class="hljs-type">int</span> steps = <span class="hljs-number">0</span>;<br>    <br>    <span class="hljs-keyword">while</span> (!<span class="hljs-built_in">isQueueEmpty</span>()) &#123;<br>        <span class="hljs-type">int</span> size = <span class="hljs-built_in">queueSize</span>();<br>        <br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; size; i++) &#123;<br>            Point p = <span class="hljs-built_in">dequeue</span>();<br>            <br>            <span class="hljs-comment">// 到达终点</span><br>            <span class="hljs-keyword">if</span> (p.r == er &amp;&amp; p.c == ec) &#123;<br>                <span class="hljs-keyword">return</span> steps;<br>            &#125;<br>            <br>            <span class="hljs-comment">// 遍历四个方向</span><br>            <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> d = <span class="hljs-number">0</span>; d &lt; <span class="hljs-number">4</span>; d++) &#123;<br>                <span class="hljs-type">int</span> nr = p.r + dr[d];<br>                <span class="hljs-type">int</span> nc = p.c + dc[d];<br>                <br>                <span class="hljs-keyword">if</span> (<span class="hljs-built_in">isValid</span>(nr, nc) &amp;&amp; <br>                    !visited[nr][nc] &amp;&amp; <br>                    grid[nr][nc] == <span class="hljs-number">1</span>) &#123;<br>                    <br>                    <span class="hljs-built_in">enqueue</span>(nr, nc);<br>                    visited[nr][nc] = <span class="hljs-literal">true</span>;<br>                &#125;<br>            &#125;<br>        &#125;<br>        <br>        steps++;<br>    &#125;<br>    <br>    <span class="hljs-keyword">return</span> <span class="hljs-number">-1</span>;  <span class="hljs-comment">// 不可达</span><br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;网格地图 (1=可通行, 0=障碍):\n&quot;</span>);<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; ROWS; i++) &#123;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j = <span class="hljs-number">0</span>; j &lt; COLS; j++) &#123;<br>            <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d &quot;</span>, grid[i][j]);<br>        &#125;<br>        <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;\n&quot;</span>);<br>    &#125;<br>    <br>    <span class="hljs-type">int</span> dist = <span class="hljs-built_in">shortestPathGrid</span>(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">4</span>, <span class="hljs-number">4</span>);<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;\n从 (0,0) 到 (4,4) 的最短距离: %d\n&quot;</span>, dist);<br>    <span class="hljs-comment">// 输出: 7</span><br>    <br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="五、经典例题实战"><a href="#五、经典例题实战" class="headerlink" title="五、经典例题实战"></a>五、经典例题实战</h2><h3 id="例题1：岛屿数量（LeetCode-200）"><a href="#例题1：岛屿数量（LeetCode-200）" class="headerlink" title="例题1：岛屿数量（LeetCode 200）"></a>例题1：岛屿数量（LeetCode 200）</h3><p><strong>问题描述：</strong><br>给定一个由 ‘1’（陆地）和 ‘0’（水）组成的网格，计算岛屿的数量。岛屿由水平或垂直方向相连的陆地组成。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdio.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdbool.h&gt;</span></span><br><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> ROWS 4</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> COLS 5</span><br><br><span class="hljs-type">char</span> grid[ROWS][COLS] = &#123;<br>    &#123;<span class="hljs-string">&#x27;1&#x27;</span>, <span class="hljs-string">&#x27;1&#x27;</span>, <span class="hljs-string">&#x27;0&#x27;</span>, <span class="hljs-string">&#x27;0&#x27;</span>, <span class="hljs-string">&#x27;0&#x27;</span>&#125;,<br>    &#123;<span class="hljs-string">&#x27;1&#x27;</span>, <span class="hljs-string">&#x27;1&#x27;</span>, <span class="hljs-string">&#x27;0&#x27;</span>, <span class="hljs-string">&#x27;0&#x27;</span>, <span class="hljs-string">&#x27;0&#x27;</span>&#125;,<br>    &#123;<span class="hljs-string">&#x27;0&#x27;</span>, <span class="hljs-string">&#x27;0&#x27;</span>, <span class="hljs-string">&#x27;1&#x27;</span>, <span class="hljs-string">&#x27;0&#x27;</span>, <span class="hljs-string">&#x27;0&#x27;</span>&#125;,<br>    &#123;<span class="hljs-string">&#x27;0&#x27;</span>, <span class="hljs-string">&#x27;0&#x27;</span>, <span class="hljs-string">&#x27;0&#x27;</span>, <span class="hljs-string">&#x27;1&#x27;</span>, <span class="hljs-string">&#x27;1&#x27;</span>&#125;<br>&#125;;<br><br><span class="hljs-type">bool</span> visited[ROWS][COLS];<br><br><span class="hljs-function"><span class="hljs-type">bool</span> <span class="hljs-title">isValid</span><span class="hljs-params">(<span class="hljs-type">int</span> r, <span class="hljs-type">int</span> c)</span> </span>&#123;<br>    <span class="hljs-keyword">return</span> r &gt;= <span class="hljs-number">0</span> &amp;&amp; r &lt; ROWS &amp;&amp; c &gt;= <span class="hljs-number">0</span> &amp;&amp; c &lt; COLS;<br>&#125;<br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * DFS标记整个岛屿</span><br><span class="hljs-comment"> */</span><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">dfs</span><span class="hljs-params">(<span class="hljs-type">int</span> r, <span class="hljs-type">int</span> c)</span> </span>&#123;<br>    <span class="hljs-keyword">if</span> (!<span class="hljs-built_in">isValid</span>(r, c) || visited[r][c] || grid[r][c] == <span class="hljs-string">&#x27;0&#x27;</span>) &#123;<br>        <span class="hljs-keyword">return</span>;<br>    &#125;<br>    <br>    visited[r][c] = <span class="hljs-literal">true</span>;<br>    <br>    <span class="hljs-comment">// 四个方向</span><br>    <span class="hljs-built_in">dfs</span>(r - <span class="hljs-number">1</span>, c);  <span class="hljs-comment">// 上</span><br>    <span class="hljs-built_in">dfs</span>(r + <span class="hljs-number">1</span>, c);  <span class="hljs-comment">// 下</span><br>    <span class="hljs-built_in">dfs</span>(r, c - <span class="hljs-number">1</span>);  <span class="hljs-comment">// 左</span><br>    <span class="hljs-built_in">dfs</span>(r, c + <span class="hljs-number">1</span>);  <span class="hljs-comment">// 右</span><br>&#125;<br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * 计算岛屿数量</span><br><span class="hljs-comment"> */</span><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">numIslands</span><span class="hljs-params">()</span> </span>&#123;<br>    <span class="hljs-comment">// 初始化visited</span><br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; ROWS; i++) &#123;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j = <span class="hljs-number">0</span>; j &lt; COLS; j++) &#123;<br>            visited[i][j] = <span class="hljs-literal">false</span>;<br>        &#125;<br>    &#125;<br>    <br>    <span class="hljs-type">int</span> count = <span class="hljs-number">0</span>;<br>    <br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; ROWS; i++) &#123;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j = <span class="hljs-number">0</span>; j &lt; COLS; j++) &#123;<br>            <span class="hljs-keyword">if</span> (grid[i][j] == <span class="hljs-string">&#x27;1&#x27;</span> &amp;&amp; !visited[i][j]) &#123;<br>                <span class="hljs-built_in">dfs</span>(i, j);  <span class="hljs-comment">// 标记整个岛屿</span><br>                count++;<br>            &#125;<br>        &#125;<br>    &#125;<br>    <br>    <span class="hljs-keyword">return</span> count;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;网格:\n&quot;</span>);<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; ROWS; i++) &#123;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j = <span class="hljs-number">0</span>; j &lt; COLS; j++) &#123;<br>            <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%c &quot;</span>, grid[i][j]);<br>        &#125;<br>        <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;\n&quot;</span>);<br>    &#125;<br>    <br>    <span class="hljs-type">int</span> islands = <span class="hljs-built_in">numIslands</span>();<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;\n岛屿数量: %d\n&quot;</span>, islands);<br>    <span class="hljs-comment">// 输出: 3</span><br>    <br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="例题2：迷宫最短路径"><a href="#例题2：迷宫最短路径" class="headerlink" title="例题2：迷宫最短路径"></a>例题2：迷宫最短路径</h3><p><strong>问题描述：</strong><br>在一个迷宫中，从起点S到终点E，找到最短路径长度。</p>
+<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br></pre></td><td class="code"><pre><code class="hljs arduino"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdio.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdbool.h&gt;</span></span><br><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> ROWS 5</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> COLS 5</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> MAX_QUEUE 1000</span><br><br><span class="hljs-comment">// 迷宫：S=起点, E=终点, #=墙, .=路</span><br><span class="hljs-type">char</span> maze[ROWS][COLS] = &#123;<br>    &#123;<span class="hljs-string">&#x27;S&#x27;</span>, <span class="hljs-string">&#x27;.&#x27;</span>, <span class="hljs-string">&#x27;.&#x27;</span>, <span class="hljs-string">&#x27;#&#x27;</span>, <span class="hljs-string">&#x27;.&#x27;</span>&#125;,<br>    &#123;<span class="hljs-string">&#x27;#&#x27;</span>, <span class="hljs-string">&#x27;#&#x27;</span>, <span class="hljs-string">&#x27;.&#x27;</span>, <span class="hljs-string">&#x27;#&#x27;</span>, <span class="hljs-string">&#x27;.&#x27;</span>&#125;,<br>    &#123;<span class="hljs-string">&#x27;.&#x27;</span>, <span class="hljs-string">&#x27;.&#x27;</span>, <span class="hljs-string">&#x27;.&#x27;</span>, <span class="hljs-string">&#x27;.&#x27;</span>, <span class="hljs-string">&#x27;.&#x27;</span>&#125;,<br>    &#123;<span class="hljs-string">&#x27;.&#x27;</span>, <span class="hljs-string">&#x27;#&#x27;</span>, <span class="hljs-string">&#x27;#&#x27;</span>, <span class="hljs-string">&#x27;#&#x27;</span>, <span class="hljs-string">&#x27;.&#x27;</span>&#125;,<br>    &#123;<span class="hljs-string">&#x27;.&#x27;</span>, <span class="hljs-string">&#x27;.&#x27;</span>, <span class="hljs-string">&#x27;.&#x27;</span>, <span class="hljs-string">&#x27;.&#x27;</span>, <span class="hljs-string">&#x27;E&#x27;</span>&#125;<br>&#125;;<br><br><span class="hljs-type">bool</span> visited[ROWS][COLS];<br><br><span class="hljs-keyword">typedef</span> <span class="hljs-keyword">struct</span> &#123;<br>    <span class="hljs-type">int</span> r, c;<br>&#125; Point;<br><br>Point queue[MAX_QUEUE];<br><span class="hljs-type">int</span> front = <span class="hljs-number">0</span>, rear = <span class="hljs-number">0</span>;<br><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">enqueue</span><span class="hljs-params">(<span class="hljs-type">int</span> r, <span class="hljs-type">int</span> c)</span> </span>&#123;<br>    queue[rear].r = r;<br>    queue[rear].c = c;<br>    rear++;<br>&#125;<br><br><span class="hljs-function">Point <span class="hljs-title">dequeue</span><span class="hljs-params">()</span> </span>&#123;<br>    <span class="hljs-keyword">return</span> queue[front++];<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">bool</span> <span class="hljs-title">isQueueEmpty</span><span class="hljs-params">()</span> </span>&#123;<br>    <span class="hljs-keyword">return</span> front == rear;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">queueSize</span><span class="hljs-params">()</span> </span>&#123;<br>    <span class="hljs-keyword">return</span> rear - front;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">bool</span> <span class="hljs-title">isValid</span><span class="hljs-params">(<span class="hljs-type">int</span> r, <span class="hljs-type">int</span> c)</span> </span>&#123;<br>    <span class="hljs-keyword">return</span> r &gt;= <span class="hljs-number">0</span> &amp;&amp; r &lt; ROWS &amp;&amp; c &gt;= <span class="hljs-number">0</span> &amp;&amp; c &lt; COLS;<br>&#125;<br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * BFS求最短路径</span><br><span class="hljs-comment"> */</span><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">solveMaze</span><span class="hljs-params">()</span> </span>&#123;<br>    <span class="hljs-comment">// 找到起点和终点</span><br>    <span class="hljs-type">int</span> sr, sc, er, ec;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; ROWS; i++) &#123;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j = <span class="hljs-number">0</span>; j &lt; COLS; j++) &#123;<br>            <span class="hljs-keyword">if</span> (maze[i][j] == <span class="hljs-string">&#x27;S&#x27;</span>) &#123;<br>                sr = i; sc = j;<br>            &#125;<br>            <span class="hljs-keyword">if</span> (maze[i][j] == <span class="hljs-string">&#x27;E&#x27;</span>) &#123;<br>                er = i; ec = j;<br>            &#125;<br>            visited[i][j] = <span class="hljs-literal">false</span>;<br>        &#125;<br>    &#125;<br>    <br>    <span class="hljs-type">int</span> dr[] = &#123;<span class="hljs-number">-1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>&#125;;<br>    <span class="hljs-type">int</span> dc[] = &#123;<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">-1</span>, <span class="hljs-number">1</span>&#125;;<br>    <br>    <span class="hljs-built_in">enqueue</span>(sr, sc);<br>    visited[sr][sc] = <span class="hljs-literal">true</span>;<br>    <br>    <span class="hljs-type">int</span> steps = <span class="hljs-number">0</span>;<br>    <br>    <span class="hljs-keyword">while</span> (!<span class="hljs-built_in">isQueueEmpty</span>()) &#123;<br>        <span class="hljs-type">int</span> size = <span class="hljs-built_in">queueSize</span>();<br>        <br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; size; i++) &#123;<br>            Point p = <span class="hljs-built_in">dequeue</span>();<br>            <br>            <span class="hljs-keyword">if</span> (p.r == er &amp;&amp; p.c == ec) &#123;<br>                <span class="hljs-keyword">return</span> steps;<br>            &#125;<br>            <br>            <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> d = <span class="hljs-number">0</span>; d &lt; <span class="hljs-number">4</span>; d++) &#123;<br>                <span class="hljs-type">int</span> nr = p.r + dr[d];<br>                <span class="hljs-type">int</span> nc = p.c + dc[d];<br>                <br>                <span class="hljs-keyword">if</span> (<span class="hljs-built_in">isValid</span>(nr, nc) &amp;&amp; <br>                    !visited[nr][nc] &amp;&amp; <br>                    maze[nr][nc] != <span class="hljs-string">&#x27;#&#x27;</span>) &#123;<br>                    <br>                    <span class="hljs-built_in">enqueue</span>(nr, nc);<br>                    visited[nr][nc] = <span class="hljs-literal">true</span>;<br>                &#125;<br>            &#125;<br>        &#125;<br>        <br>        steps++;<br>    &#125;<br>    <br>    <span class="hljs-keyword">return</span> <span class="hljs-number">-1</span>;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;迷宫:\n&quot;</span>);<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; ROWS; i++) &#123;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j = <span class="hljs-number">0</span>; j &lt; COLS; j++) &#123;<br>            <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%c &quot;</span>, maze[i][j]);<br>        &#125;<br>        <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;\n&quot;</span>);<br>    &#125;<br>    <br>    <span class="hljs-type">int</span> dist = <span class="hljs-built_in">solveMaze</span>();<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;\n最短路径长度: %d\n&quot;</span>, dist);<br>    <span class="hljs-comment">// 输出: 8</span><br>    <br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="例题3：连通分量个数"><a href="#例题3：连通分量个数" class="headerlink" title="例题3：连通分量个数"></a>例题3：连通分量个数</h3><p><strong>问题描述：</strong><br>给定一个无向图，求有多少个连通分量。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdio.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdbool.h&gt;</span></span><br><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> MAX 100</span><br><br><span class="hljs-type">int</span> graph[MAX][MAX];<br><span class="hljs-type">bool</span> visited[MAX];<br><span class="hljs-type">int</span> n;<br><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">dfs</span><span class="hljs-params">(<span class="hljs-type">int</span> v)</span> </span>&#123;<br>    visited[v] = <span class="hljs-literal">true</span>;<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d &quot;</span>, v);<br>    <br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i++) &#123;<br>        <span class="hljs-keyword">if</span> (graph[v][i] == <span class="hljs-number">1</span> &amp;&amp; !visited[i]) &#123;<br>            <span class="hljs-built_in">dfs</span>(i);<br>        &#125;<br>    &#125;<br>&#125;<br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * 计算连通分量个数</span><br><span class="hljs-comment"> */</span><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">countConnectedComponents</span><span class="hljs-params">()</span> </span>&#123;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i++) &#123;<br>        visited[i] = <span class="hljs-literal">false</span>;<br>    &#125;<br>    <br>    <span class="hljs-type">int</span> count = <span class="hljs-number">0</span>;<br>    <br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i++) &#123;<br>        <span class="hljs-keyword">if</span> (!visited[i]) &#123;<br>            <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;连通分量 %d: &quot;</span>, count + <span class="hljs-number">1</span>);<br>            <span class="hljs-built_in">dfs</span>(i);<br>            <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;\n&quot;</span>);<br>            count++;<br>        &#125;<br>    &#125;<br>    <br>    <span class="hljs-keyword">return</span> count;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br>    n = <span class="hljs-number">7</span>;<br>    <br>    <span class="hljs-comment">// 初始化图</span><br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i++) &#123;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j = <span class="hljs-number">0</span>; j &lt; n; j++) &#123;<br>            graph[i][j] = <span class="hljs-number">0</span>;<br>        &#125;<br>    &#125;<br>    <br>    <span class="hljs-comment">// 构建图：有3个连通分量</span><br>    <span class="hljs-comment">// 分量1: 0-1-2</span><br>    <span class="hljs-comment">// 分量2: 3-4</span><br>    <span class="hljs-comment">// 分量3: 5-6</span><br>    <br>    graph[<span class="hljs-number">0</span>][<span class="hljs-number">1</span>] = graph[<span class="hljs-number">1</span>][<span class="hljs-number">0</span>] = <span class="hljs-number">1</span>;<br>    graph[<span class="hljs-number">1</span>][<span class="hljs-number">2</span>] = graph[<span class="hljs-number">2</span>][<span class="hljs-number">1</span>] = <span class="hljs-number">1</span>;<br>    <br>    graph[<span class="hljs-number">3</span>][<span class="hljs-number">4</span>] = graph[<span class="hljs-number">4</span>][<span class="hljs-number">3</span>] = <span class="hljs-number">1</span>;<br>    <br>    graph[<span class="hljs-number">5</span>][<span class="hljs-number">6</span>] = graph[<span class="hljs-number">6</span>][<span class="hljs-number">5</span>] = <span class="hljs-number">1</span>;<br>    <br>    <span class="hljs-type">int</span> components = <span class="hljs-built_in">countConnectedComponents</span>();<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;\n总共有 %d 个连通分量\n&quot;</span>, components);<br>    <br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p><strong>输出：</strong></p>
+<p>text</p>
+<figure class="highlight tap"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs tap">连通分量 1:<span class="hljs-number"> 0 </span>1<span class="hljs-number"> 2 </span><br>连通分量 2:<span class="hljs-number"> 3 </span>4 <br>连通分量 3:<span class="hljs-number"> 5 </span>6 <br><br>总共有<span class="hljs-number"> 3 </span>个连通分量<br></code></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="六、对比总结"><a href="#六、对比总结" class="headerlink" title="六、对比总结"></a>六、对比总结</h2><h3 id="6-1-核心区别"><a href="#6-1-核心区别" class="headerlink" title="6.1 核心区别"></a>6.1 核心区别</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-comment">// DFS - 用栈（递归）</span><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">dfs</span><span class="hljs-params">(<span class="hljs-type">int</span> v)</span> </span>&#123;<br>    visited[v] = <span class="hljs-literal">true</span>;<br>    <span class="hljs-comment">// 处理v</span><br>    <span class="hljs-keyword">for</span> (每个邻居 i) &#123;<br>        <span class="hljs-keyword">if</span> (!visited[i]) &#123;<br>            <span class="hljs-built_in">dfs</span>(i);  <span class="hljs-comment">// 递归深入</span><br>        &#125;<br>    &#125;<br>&#125;<br><br><span class="hljs-comment">// BFS - 用队列</span><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">bfs</span><span class="hljs-params">(<span class="hljs-type">int</span> start)</span> </span>&#123;<br>    queue[rear++] = start;<br>    visited[start] = <span class="hljs-literal">true</span>;<br>    <br>    <span class="hljs-keyword">while</span> (front &lt; rear) &#123;<br>        <span class="hljs-type">int</span> v = queue[front++];<br>        <span class="hljs-comment">// 处理v</span><br>        <span class="hljs-keyword">for</span> (每个邻居 i) &#123;<br>            <span class="hljs-keyword">if</span> (!visited[i]) &#123;<br>                queue[rear++] = i;  <span class="hljs-comment">// 加入队列</span><br>                visited[i] = <span class="hljs-literal">true</span>;<br>            &#125;<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="6-2-选择建议"><a href="#6-2-选择建议" class="headerlink" title="6.2 选择建议"></a>6.2 选择建议</h3><table>
+<thead>
+<tr>
+<th>场景</th>
+<th>推荐算法</th>
+<th>原因</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>🔍 求最短路径（无权图）</td>
+<td><strong>BFS</strong></td>
+<td>BFS天然保证最短</td>
+</tr>
+<tr>
+<td>🌳 树的层序遍历</td>
+<td><strong>BFS</strong></td>
+<td>一层层遍历</td>
+</tr>
+<tr>
+<td>🔄 所有路径&#x2F;排列组合</td>
+<td><strong>DFS + 回溯</strong></td>
+<td>需要深入探索</td>
+</tr>
+<tr>
+<td>🏝️ 连通分量&#x2F;岛屿</td>
+<td><strong>DFS 或 BFS</strong></td>
+<td>都可以</td>
+</tr>
+<tr>
+<td>🧮 拓扑排序</td>
+<td><strong>BFS 或 DFS</strong></td>
+<td>都可以</td>
+</tr>
+<tr>
+<td>💾 空间有限</td>
+<td><strong>DFS</strong></td>
+<td>空间复杂度O(h)</td>
+</tr>
+<tr>
+<td>🌐 图很宽</td>
+<td><strong>DFS</strong></td>
+<td>BFS需要存储整层</td>
+</tr>
+</tbody></table>
+<h3 id="6-3-时间和空间复杂度"><a href="#6-3-时间和空间复杂度" class="headerlink" title="6.3 时间和空间复杂度"></a>6.3 时间和空间复杂度</h3><table>
+<thead>
+<tr>
+<th>算法</th>
+<th>时间复杂度</th>
+<th>空间复杂度</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>DFS</td>
+<td>O(V + E)</td>
+<td>O(h) 递归深度</td>
+</tr>
+<tr>
+<td>BFS</td>
+<td>O(V + E)</td>
+<td>O(w) 最大宽度</td>
+</tr>
+</tbody></table>
+<ul>
+<li>V &#x3D; 顶点数</li>
+<li>E &#x3D; 边数</li>
+<li>h &#x3D; 树高&#x2F;图深度</li>
+<li>w &#x3D; 最大宽度</li>
+</ul>
+<hr>
+<h2 id="七、⚠️-常见错误"><a href="#七、⚠️-常见错误" class="headerlink" title="七、⚠️ 常见错误"></a>七、⚠️ 常见错误</h2><h3 id="错误1：BFS出队时才标记visited"><a href="#错误1：BFS出队时才标记visited" class="headerlink" title="错误1：BFS出队时才标记visited"></a>错误1：BFS出队时才标记visited</h3><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><code class="hljs angelscript"><span class="hljs-comment">// ❌ 错误写法</span><br><span class="hljs-keyword">while</span> (!isQueueEmpty()) &#123;<br>    <span class="hljs-built_in">int</span> v = dequeue();<br>    visited[v] = <span class="hljs-literal">true</span>;  <span class="hljs-comment">// ❌ 太晚了！会导致重复入队</span><br>    <br>    <span class="hljs-keyword">for</span> (<span class="hljs-built_in">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i++) &#123;<br>        <span class="hljs-keyword">if</span> (graph[v][i] &amp;&amp; !visited[i]) &#123;<br>            enqueue(i);<br>        &#125;<br>    &#125;<br>&#125;<br><br><span class="hljs-comment">// ✅ 正确写法</span><br>enqueue(start);<br>visited[start] = <span class="hljs-literal">true</span>;  <span class="hljs-comment">// ✅ 入队时就标记</span><br><br><span class="hljs-keyword">while</span> (!isQueueEmpty()) &#123;<br>    <span class="hljs-built_in">int</span> v = dequeue();<br>    <br>    <span class="hljs-keyword">for</span> (<span class="hljs-built_in">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i++) &#123;<br>        <span class="hljs-keyword">if</span> (graph[v][i] &amp;&amp; !visited[i]) &#123;<br>            enqueue(i);<br>            visited[i] = <span class="hljs-literal">true</span>;  <span class="hljs-comment">// ✅ 入队时标记</span><br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="错误2：忘记检查边界"><a href="#错误2：忘记检查边界" class="headerlink" title="错误2：忘记检查边界"></a>错误2：忘记检查边界</h3><p>C</p>
+<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs arduino"><span class="hljs-comment">// ❌ 错误</span><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">dfs</span><span class="hljs-params">(<span class="hljs-type">int</span> r, <span class="hljs-type">int</span> c)</span> </span>&#123;<br>    visited[r][c] = <span class="hljs-literal">true</span>;  <span class="hljs-comment">// ❌ 可能越界！</span><br>    <span class="hljs-comment">// ...</span><br>&#125;<br><br><span class="hljs-comment">// ✅ 正确</span><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">dfs</span><span class="hljs-params">(<span class="hljs-type">int</span> r, <span class="hljs-type">int</span> c)</span> </span>&#123;<br>    <span class="hljs-keyword">if</span> (r &lt; <span class="hljs-number">0</span> || r &gt;= ROWS || c &lt; <span class="hljs-number">0</span> || c &gt;= COLS) &#123;<br>        <span class="hljs-keyword">return</span>;  <span class="hljs-comment">// ✅ 先检查边界</span><br>    &#125;<br>    <span class="hljs-keyword">if</span> (visited[r][c]) <span class="hljs-keyword">return</span>;<br>    <br>    visited[r][c] = <span class="hljs-literal">true</span>;<br>    <span class="hljs-comment">// ...</span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="错误3：队列-栈溢出"><a href="#错误3：队列-栈溢出" class="headerlink" title="错误3：队列&#x2F;栈溢出"></a>错误3：队列&#x2F;栈溢出</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-comment">// ❌ 问题：固定大小可能不够</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> MAX 100</span><br><span class="hljs-type">int</span> queue[MAX];<br><br><span class="hljs-comment">// ✅ 解决：根据实际情况调整</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> MAX 10000  <span class="hljs-comment">// 或者使用动态分配</span></span><br></code></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="八、练习题推荐"><a href="#八、练习题推荐" class="headerlink" title="八、练习题推荐"></a>八、练习题推荐</h2><h3 id="🟢-入门级"><a href="#🟢-入门级" class="headerlink" title="🟢 入门级"></a>🟢 入门级</h3><ol>
+<li><strong>图的遍历</strong>：实现DFS和BFS遍历</li>
+<li><strong>岛屿数量</strong>：LeetCode 200</li>
+<li><strong>二叉树层序遍历</strong>：LeetCode 102</li>
+</ol>
+<h3 id="🟡-进阶级"><a href="#🟡-进阶级" class="headerlink" title="🟡 进阶级"></a>🟡 进阶级</h3><ol>
+<li><strong>迷宫问题</strong>：求最短路径</li>
+<li><strong>岛屿的最大面积</strong>：LeetCode 695</li>
+<li><strong>腐烂的橘子</strong>：LeetCode 994（多源BFS）</li>
+<li><strong>克隆图</strong>：LeetCode 133</li>
+</ol>
+<h3 id="🔴-挑战级"><a href="#🔴-挑战级" class="headerlink" title="🔴 挑战级"></a>🔴 挑战级</h3><ol>
+<li><strong>单词接龙</strong>：LeetCode 127</li>
+<li><strong>被围绕的区域</strong>：LeetCode 130</li>
+<li><strong>钥匙和房间</strong>：LeetCode 841</li>
+</ol>
+<hr>
+<h2 id="九、完整示例程序"><a href="#九、完整示例程序" class="headerlink" title="九、完整示例程序"></a>九、完整示例程序</h2><p>最后给你一个完整的、可以直接运行的综合示例：</p>
+<p>C</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdio.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdbool.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;string.h&gt;</span></span><br><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> MAX 100</span><br><br><span class="hljs-comment">// ============ 全局变量 ============</span><br><span class="hljs-type">int</span> graph[MAX][MAX];<br><span class="hljs-type">bool</span> visited[MAX];<br><span class="hljs-type">int</span> n;<br><br><span class="hljs-comment">// 队列</span><br><span class="hljs-type">int</span> queue[MAX];<br><span class="hljs-type">int</span> front, rear;<br><br><span class="hljs-comment">// ============ 辅助函数 ============</span><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">initGraph</span><span class="hljs-params">(<span class="hljs-type">int</span> vertices)</span> </span>&#123;<br>    n = vertices;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i++) &#123;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j = <span class="hljs-number">0</span>; j &lt; n; j++) &#123;<br>            graph[i][j] = <span class="hljs-number">0</span>;<br>        &#125;<br>        visited[i] = <span class="hljs-literal">false</span>;<br>    &#125;<br>    front = rear = <span class="hljs-number">0</span>;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">addEdge</span><span class="hljs-params">(<span class="hljs-type">int</span> u, <span class="hljs-type">int</span> v)</span> </span>&#123;<br>    graph[u][v] = <span class="hljs-number">1</span>;<br>    graph[v][u] = <span class="hljs-number">1</span>;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">resetVisited</span><span class="hljs-params">()</span> </span>&#123;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i++) &#123;<br>        visited[i] = <span class="hljs-literal">false</span>;<br>    &#125;<br>&#125;<br><br><span class="hljs-comment">// ============ DFS ============</span><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">dfs</span><span class="hljs-params">(<span class="hljs-type">int</span> v)</span> </span>&#123;<br>    visited[v] = <span class="hljs-literal">true</span>;<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d &quot;</span>, v);<br>    <br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i++) &#123;<br>        <span class="hljs-keyword">if</span> (graph[v][i] &amp;&amp; !visited[i]) &#123;<br>            <span class="hljs-built_in">dfs</span>(i);<br>        &#125;<br>    &#125;<br>&#125;<br><br><span class="hljs-comment">// ============ BFS ============</span><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">bfs</span><span class="hljs-params">(<span class="hljs-type">int</span> start)</span> </span>&#123;<br>    <span class="hljs-built_in">resetVisited</span>();<br>    front = rear = <span class="hljs-number">0</span>;<br>    <br>    queue[rear++] = start;<br>    visited[start] = <span class="hljs-literal">true</span>;<br>    <br>    <span class="hljs-keyword">while</span> (front &lt; rear) &#123;<br>        <span class="hljs-type">int</span> v = queue[front++];<br>        <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d &quot;</span>, v);<br>        <br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i++) &#123;<br>            <span class="hljs-keyword">if</span> (graph[v][i] &amp;&amp; !visited[i]) &#123;<br>                queue[rear++] = i;<br>                visited[i] = <span class="hljs-literal">true</span>;<br>            &#125;<br>        &#125;<br>    &#125;<br>&#125;<br><br><span class="hljs-comment">// ============ 主函数 ============</span><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;=== DFS &amp; BFS 演示程序 ===\n\n&quot;</span>);<br>    <br>    <span class="hljs-comment">// 初始化图</span><br>    <span class="hljs-built_in">initGraph</span>(<span class="hljs-number">7</span>);<br>    <br>    <span class="hljs-comment">// 构建图</span><br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;构建图:\n&quot;</span>);<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;       0\n&quot;</span>);<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;      /|\\\n&quot;</span>);<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;     1 2 3\n&quot;</span>);<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;    /|   |\n&quot;</span>);<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;   4 5   6\n\n&quot;</span>);<br>    <br>    <span class="hljs-built_in">addEdge</span>(<span class="hljs-number">0</span>, <span class="hljs-number">1</span>);<br>    <span class="hljs-built_in">addEdge</span>(<span class="hljs-number">0</span>, <span class="hljs-number">2</span>);<br>    <span class="hljs-built_in">addEdge</span>(<span class="hljs-number">0</span>, <span class="hljs-number">3</span>);<br>    <span class="hljs-built_in">addEdge</span>(<span class="hljs-number">1</span>, <span class="hljs-number">4</span>);<br>    <span class="hljs-built_in">addEdge</span>(<span class="hljs-number">1</span>, <span class="hljs-number">5</span>);<br>    <span class="hljs-built_in">addEdge</span>(<span class="hljs-number">3</span>, <span class="hljs-number">6</span>);<br>    <br>    <span class="hljs-comment">// DFS遍历</span><br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;DFS遍历结果: &quot;</span>);<br>    <span class="hljs-built_in">resetVisited</span>();<br>    <span class="hljs-built_in">dfs</span>(<span class="hljs-number">0</span>);<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;\n&quot;</span>);<br>    <br>    <span class="hljs-comment">// BFS遍历</span><br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;BFS遍历结果: &quot;</span>);<br>    <span class="hljs-built_in">bfs</span>(<span class="hljs-number">0</span>);<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;\n&quot;</span>);<br>    <br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p><strong>编译运行：</strong></p>
+<p>Bash</p>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs stata">gcc -o <span class="hljs-keyword">graph</span> <span class="hljs-keyword">graph</span>.c<br>./<span class="hljs-keyword">graph</span><br></code></pre></td></tr></table></figure>
+
+<p><strong>输出：</strong></p>
+<p>text</p>
+<figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs asciidoc"><span class="hljs-section">=== DFS &amp; BFS 演示程序 ===</span><br><br>构建图:<br><span class="hljs-code">       0</span><br><span class="hljs-code">      /|\</span><br><span class="hljs-code">     1 2 3</span><br><span class="hljs-code">    /|   |</span><br><span class="hljs-code">   4 5   6</span><br><br>DFS遍历结果: 0 1 4 5 2 3 6 <br>BFS遍历结果: 0 1 2 3 4 5 6<br></code></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="🎯-学习建议"><a href="#🎯-学习建议" class="headerlink" title="🎯 学习建议"></a>🎯 学习建议</h2><ol>
+<li><strong>先理解概念</strong>：画图理解DFS和BFS的执行过程</li>
+<li><strong>手写代码</strong>：不要复制粘贴，自己敲一遍</li>
+<li><strong>调试运行</strong>：加printf观察执行过程</li>
+<li><strong>做变体题</strong>：岛屿、迷宫、连通分量等</li>
+<li><strong>对比两者</strong>：同一题用DFS和BFS都做一遍</li>
+</ol>
+<p><strong>记住：</strong></p>
+<ul>
+<li>DFS &#x3D; 递归 + 深入到底</li>
+<li>BFS &#x3D; 队列 + 逐层扩展</li>
+<li>BFS保证最短路径（无权图）</li>
+</ul>
+<p>加油！有问题随时问我！💪</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E7%AE%97%E6%B3%95/" class="category-chain-item">算法</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/C%E8%AF%AD%E8%A8%80/" class="print-no-link">#C语言</a>
+      
+        <a href="/tags/DFS/" class="print-no-link">#DFS</a>
+      
+        <a href="/tags/BFS/" class="print-no-link">#BFS</a>
+      
+        <a href="/tags/%E5%9B%BE%E7%AE%97%E6%B3%95/" class="print-no-link">#图算法</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>DFS &amp; BFS 算法完全学习指南</div>
+      <div>https://tsyangblog.site/2026/03/17/DFS &amp; BFS 算法完全学习指南/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>小唐</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2026年3月17日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2026/03/17/FastAPI%20%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E5%AE%8C%E6%95%B4%E5%AD%A6%E4%B9%A0%E6%95%99%E7%A8%8B/" title="FastAPI 从零开始完整学习教程">
+                        <span class="hidden-mobile">FastAPI 从零开始完整学习教程</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div id="gitalk-container"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#gitalk-container', function() {
+      Fluid.utils.createCssLink('/css/gitalk.css')
+      Fluid.utils.createScript('https://lib.baomitu.com/gitalk/1.8.0/gitalk.min.js', function() {
+        var options = Object.assign(
+          {"clientID":"Ov23liZQDI8BrS44zUL7","clientSecret":"075fad544223a91a3529c013c644d5f341ff6e1d","repo":"blog_comments","owner":"XtangUser","admin":["XtangUser"],"language":"zh-CN","labels":["Gitalk","Comment"],"perPage":10,"pagerDirection":"last","distractionFreeMode":false,"createIssueManually":false,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token"},
+          {
+            id: '7b694e7851647aaebc7355a83d7544d0'
+          }
+        )
+        var gitalk = new Gitalk(options);
+        gitalk.render('gitalk-container');
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+      用代码记录生活，用文字传递温度
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="openkounter-site-pv-container" style="display: none">
+        总访问量 
+        <span id="openkounter-site-pv"></span>
+         次
+      </span>
+    
+    
+      <span id="openkounter-site-uv-container" style="display: none">
+        总访客数 
+        <span id="openkounter-site-uv"></span>
+         人
+      </span>
+    
+    
+
+  
+
+</div>
+
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    function isExpandAllEnabled() {
+      return CONFIG.toc && CONFIG.toc.expand_all === true;
+    }
+    function expandAllToc() {
+      if (!isExpandAllEnabled()) { return; }
+      jQuery('#toc-body .tocbot-is-collapsed').removeClass('tocbot-is-collapsed');
+    }
+    function updateTocToggle($li, $childList) {
+      var $toggle = $li.children('.toc-toggle');
+      if ($toggle.length === 0) { return; }
+      var collapsed = $childList.hasClass('tocbot-is-collapsed');
+      $toggle
+        .toggleClass('toc-toggle-collapsed', collapsed)
+        .toggleClass('toc-toggle-expanded', !collapsed);
+    }
+    function bindTocToggle() {
+      if (!isExpandAllEnabled()) { return; }
+      jQuery('#toc-body .toc-list-item').each(function() {
+        var $li = jQuery(this);
+        var $childList = $li.children('ol');
+        if ($childList.length === 0) {
+          if ($li.children('.toc-toggle').length === 0) {
+            $li.prepend('<span class="toc-toggle toc-toggle-placeholder" aria-hidden="true">›</span>');
+          }
+          return;
+        }
+
+        if ($li.children('.toc-toggle').length === 0) {
+          $li.prepend('<span class="toc-toggle toc-toggle-expanded" aria-hidden="true">›</span>');
+        }
+        updateTocToggle($li, $childList);
+      });
+      jQuery('#toc-body').off('click.tocToggle').on('click.tocToggle', '.toc-toggle', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        var $li = jQuery(this).parent('.toc-list-item');
+        var $childList = $li.children('ol');
+        if ($childList.length === 0) { return; }
+        $childList.toggleClass('tocbot-is-collapsed');
+        updateTocToggle($li, $childList);
+      });
+      if (!window.__tocToggleObserver) {
+        window.__tocToggleObserver = new MutationObserver(function(mutations) {
+          mutations.forEach(function(mutation) {
+            if (mutation.type !== 'attributes' || mutation.attributeName !== 'class') { return; }
+            var $list = jQuery(mutation.target);
+            var $li = $list.parent('.toc-list-item');
+            if ($li.length === 0) { return; }
+            updateTocToggle($li, $list);
+          });
+        });
+        jQuery('#toc-body ol').each(function() {
+          window.__tocToggleObserver.observe(this, { attributes: true });
+        });
+      }
+    }
+    var tocConfig = Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc);
+    if (isExpandAllEnabled()) {
+      tocConfig.collapseDepth = 6;
+    }
+    window.tocbot.init(tocConfig);
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+    expandAllToc();
+    bindTocToggle();
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+        expandAllToc();
+        bindTocToggle();
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script defer src="/js/openkounter.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+<!-- hexo injector body_end start --><script defer src="/js/mouse-particles.js"></script><script defer src="/js/live2d-helper.js"></script><script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "d25f7f4a1df0482f859f16ff4400fe43"}'></script><!-- hexo injector body_end end --><script src="https://cdn.jsdelivr.net/npm/live2d-widget@^3.1.3/lib/L2Dwidget.min.js"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"scale":1,"hHeadPos":0.5,"vHeadPos":0.618,"jsonPath":"https://cdn.jsdelivr.net/npm/live2d-widget-model-koharu@1.0.5/assets/koharu.model.json"},"display":{"superSample":2,"position":"left","width":200,"height":400,"hOffset":20,"vOffset":-20},"mobile":{"show":true,"scale":0.8},"react":{"opacityDefault":0.9,"opacityOnHover":0.3}});</script></body>
+</html>
