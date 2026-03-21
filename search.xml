@@ -8792,4 +8792,26 @@
         <tag>协程</tag>
       </tags>
   </entry>
+  <entry>
+    <title>VSCODE配置skills的详细教程</title>
+    <url>/2026/03/21/VSCODE%E9%85%8D%E7%BD%AEskills%E7%9A%84%E8%AF%A6%E7%BB%86%E6%95%99%E7%A8%8B/</url>
+    <content><![CDATA[<h1 id="VSCODE配置skills的详细教程"><a href="#VSCODE配置skills的详细教程" class="headerlink" title="VSCODE配置skills的详细教程"></a>VSCODE配置skills的详细教程</h1><h2 id="1-创建skills目录结构"><a href="#1-创建skills目录结构" class="headerlink" title="1.创建skills目录结构"></a>1.创建skills目录结构</h2><p>在c盘你的用户名下创建**.copilopt**文件夹，然后按照下面这个格式创建skills提示词</p>
+<p><img src="https://cdn.jsdelivr.net/gh/XtangUser/blog-images@main/images/20260321152828506.png" alt="image-20260321152828439"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/XtangUser/blog-images@main/images/20260321152424339.png" alt="image-20260321152424285"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/XtangUser/blog-images@main/images/20260321152517196.png" alt="image-20260321152517159"></p>
+<p><strong>在skills.md文件中，必须有下图格式</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/XtangUser/blog-images@main/images/20260321152630207.png" alt="image-20260321152630155"></p>
+<h2 id="2-在vscode设置中搜索skills，添加绝对路径"><a href="#2-在vscode设置中搜索skills，添加绝对路径" class="headerlink" title="2.在vscode设置中搜索skills，添加绝对路径"></a>2.在vscode设置中搜索skills，添加绝对路径</h2><p><img src="https://cdn.jsdelivr.net/gh/XtangUser/blog-images@main/images/20260321152750273.png" alt="image-20260321152750223"></p>
+<h2 id="3-最后重启vscode，在对话框中询问："><a href="#3-最后重启vscode，在对话框中询问：" class="headerlink" title="3.最后重启vscode，在对话框中询问："></a>3.最后重启vscode，在对话框中询问：</h2><p><img src="https://cdn.jsdelivr.net/gh/XtangUser/blog-images@main/images/20260321152916011.png" alt="image-20260321152915947"></p>
+<p><strong>最后大功告成！！！</strong></p>
+]]></content>
+      <categories>
+        <category>工具箱</category>
+      </categories>
+      <tags>
+        <tag>VSCODE</tag>
+        <tag>skills</tag>
+        <tag>配置</tag>
+      </tags>
+  </entry>
 </search>
