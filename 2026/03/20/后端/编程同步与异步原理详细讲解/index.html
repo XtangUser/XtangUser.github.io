@@ -1,0 +1,1002 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head><!-- hexo injector head_begin start --><meta name="referrer" content="no-referrer"><!-- hexo injector head_begin end -->
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/avatar.jpg">
+  <link rel="icon" href="/img/avatar.jpg">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#0891b2">
+  <meta name="author" content="小唐">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="编程同步与异步原理详细讲解一、核心概念对比1234567891011同步 (Synchronous)                    异步 (Asynchronous)┌──────────┐                         ┌──────────┐│  任务 A   │                         │  任务 A   ││ (执行中)  │">
+<meta property="og:type" content="article">
+<meta property="og:title" content="编程同步与异步原理详细讲解">
+<meta property="og:url" content="https://tsyangblog.site/2026/03/20/%E5%90%8E%E7%AB%AF/%E7%BC%96%E7%A8%8B%E5%90%8C%E6%AD%A5%E4%B8%8E%E5%BC%82%E6%AD%A5%E5%8E%9F%E7%90%86%E8%AF%A6%E7%BB%86%E8%AE%B2%E8%A7%A3/index.html">
+<meta property="og:site_name" content="别催小唐敲代码">
+<meta property="og:description" content="编程同步与异步原理详细讲解一、核心概念对比1234567891011同步 (Synchronous)                    异步 (Asynchronous)┌──────────┐                         ┌──────────┐│  任务 A   │                         │  任务 A   ││ (执行中)  │">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-03-19T16:00:00.000Z">
+<meta property="article:modified_time" content="2026-03-20T14:15:24.884Z">
+<meta property="article:author" content="小唐">
+<meta property="article:tag" content="事件循环">
+<meta property="article:tag" content="协程">
+<meta property="article:tag" content="同步">
+<meta property="article:tag" content="异步">
+<meta property="article:tag" content="编程原理">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>编程同步与异步原理详细讲解 - 别催小唐敲代码</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"tsyangblog.site","root":"/","version":"1.9.9","typing":{"enable":true,"typeSpeed":100,"cursorChar":"|","loop":true,"scope":["home"]},"anchorjs":{"enable":true,"element":"h2,h3,h4","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#0ea5e9","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"expand_all":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0,"number":false,"scrollSmooth":true,"scrollSmoothOffset":-5},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":false,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"openkounter":{"server_url":"https://blog-counter.221036109.workers.dev","path":"window.location.pathname","ignore_local":true},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+
+  
+<!-- hexo injector head_end start --><link rel="stylesheet" href="/css/custom.css"><style>#live2dcanvas{position:fixed!important;left:0!important;bottom:0!important;z-index:999999!important;pointer-events:auto!important;width:200px!important;height:400px!important;}</style><!-- hexo injector head_end end --><meta name="generator" content="Hexo 8.1.1"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 55vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>别催小唐敲代码</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content (desktop) -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>主页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>时间轴</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile grid menu overlay -->
+<div id="mobile-grid-menu" class="d-lg-none">
+  <div class="mobile-grid-menu-inner">
+    <div class="container">
+      <div class="row">
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-home-fill"></i>
+                  <span>主页</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/archives/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-archive-fill"></i>
+                  <span>时间轴</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/tags/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-tags-fill"></i>
+                  <span>标签</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/categories/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-category-fill"></i>
+                  <span>分类</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/about/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-user-fill"></i>
+                  <span>关于</span>
+                </div>
+              </a>
+            </div>
+          
+        
+        
+          <div class="col-4 mobile-grid-cell" id="mobile-search-btn">
+            <a href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <div class="mobile-grid-item">
+                <i class="iconfont icon-search"></i>
+                <span>搜索</span>
+              </div>
+            </a>
+          </div>
+        
+        
+          <div class="col-4 mobile-grid-cell" id="mobile-color-toggle-btn"
+               data-label-light="开灯"
+               data-label-dark="关灯">
+            <a href="javascript:;" aria-label="Color Toggle">
+              <div class="mobile-grid-item">
+                <i class="iconfont icon-dark" id="mobile-color-toggle-icon"></i>
+                <span id="mobile-color-toggle-label">关灯</span>
+              </div>
+            </a>
+          </div>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('https://images.unsplash.com/photo-1519681393784-d120267933ba?w=1920&q=80') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.35)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle">编程同步与异步原理详细讲解</span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2026-03-20 00:00" pubdate>
+          2026年3月20日
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          <!-- compatible with older versions-->
+          11k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          <!-- compatible with older versions-->
+          22 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="openkounter-page-views-container" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="openkounter-page-views"></span> 次
+        </span>
+        
+
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">编程同步与异步原理详细讲解</h1>
+            
+              <p id="updated-time" class="note note-info" style="">
+                
+                  
+                    <!-- compatible with older versions-->
+                    最后更新于：2026年3月20日 晚上
+                  
+                
+              </p>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="编程同步与异步原理详细讲解"><a href="#编程同步与异步原理详细讲解" class="headerlink" title="编程同步与异步原理详细讲解"></a>编程同步与异步原理详细讲解</h1><h2 id="一、核心概念对比"><a href="#一、核心概念对比" class="headerlink" title="一、核心概念对比"></a>一、核心概念对比</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs c">同步 (Synchronous)                    异步 (Asynchronous)<br>┌──────────┐                         ┌──────────┐<br>│  任务 A   │                         │  任务 A   │<br>│ (执行中)  │                         │ (执行中)  │<br>│  ......   │ ← 阻塞等待              │  发起任务B │──→ 任务B在后台执行<br>│  任务 B   │                         │  继续执行  │    ┌──────────┐<br>│ (执行中)  │                         │  其他工作  │    │ 任务B完成 │<br>│  ......   │                         │  ......   │    │  回调通知 │<br>│  任务 C   │                         │ ← 处理结果 │←───└──────────┘<br>└──────────┘                         └──────────┘<br>   串行执行                              并发执行<br></code></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="二、同步（Synchronous）"><a href="#二、同步（Synchronous）" class="headerlink" title="二、同步（Synchronous）"></a>二、同步（Synchronous）</h2><h3 id="2-1-基本原理"><a href="#2-1-基本原理" class="headerlink" title="2.1 基本原理"></a>2.1 基本原理</h3><blockquote>
+<p><strong>调用方发起请求后，必须等待结果返回才能继续执行下一步。</strong></p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> time<br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">task_a</span>():<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;任务A开始&quot;</span>)<br>    time.sleep(<span class="hljs-number">2</span>)  <span class="hljs-comment"># 模拟耗时操作</span><br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;任务A完成&quot;</span>)<br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">task_b</span>():<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;任务B开始&quot;</span>)<br>    time.sleep(<span class="hljs-number">3</span>)  <span class="hljs-comment"># 模拟耗时操作</span><br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;任务B完成&quot;</span>)<br><br><span class="hljs-comment"># 同步执行：总耗时 = 2 + 3 = 5秒</span><br>start = time.time()<br>task_a()  <span class="hljs-comment"># 必须等A完成</span><br>task_b()  <span class="hljs-comment"># 才能开始B</span><br><span class="hljs-built_in">print</span>(<span class="hljs-string">f&quot;总耗时: <span class="hljs-subst">&#123;time.time() - start:<span class="hljs-number">.1</span>f&#125;</span>秒&quot;</span>)  <span class="hljs-comment"># 约5秒</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="2-2-执行时间线"><a href="#2-2-执行时间线" class="headerlink" title="2.2 执行时间线"></a>2.2 执行时间线</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python">时间轴: 0s -------- 2s -------- 5s<br>        |← 任务A →|← 任务B  →|<br>        |  阻塞中  |  阻塞中   |<br>        <br>CPU状态: [忙][等待][等待][忙][等待][等待][等待]<br></code></pre></td></tr></table></figure>
+
+<h3 id="2-3-同步的特点"><a href="#2-3-同步的特点" class="headerlink" title="2.3 同步的特点"></a>2.3 同步的特点</h3><table>
+<thead>
+<tr>
+<th>特点</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>✅ 代码简单</td>
+<td>自上而下，逻辑清晰</td>
+</tr>
+<tr>
+<td>✅ 调试方便</td>
+<td>单步跟踪，容易排查</td>
+</tr>
+<tr>
+<td>✅ 顺序确定</td>
+<td>执行顺序可预测</td>
+</tr>
+<tr>
+<td>❌ 效率低下</td>
+<td>CPU在I&#x2F;O等待时空闲</td>
+</tr>
+<tr>
+<td>❌ 阻塞线程</td>
+<td>一个慢操作卡住整个流程</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="三、异步（Asynchronous）"><a href="#三、异步（Asynchronous）" class="headerlink" title="三、异步（Asynchronous）"></a>三、异步（Asynchronous）</h2><h3 id="3-1-基本原理"><a href="#3-1-基本原理" class="headerlink" title="3.1 基本原理"></a>3.1 基本原理</h3><blockquote>
+<p><strong>调用方发起请求后，不等待结果，继续执行后续操作。结果通过回调&#x2F;通知&#x2F;轮询获取。</strong></p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> asyncio<br><span class="hljs-keyword">import</span> time<br><br><span class="hljs-keyword">async</span> <span class="hljs-keyword">def</span> <span class="hljs-title function_">task_a</span>():<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;任务A开始&quot;</span>)<br>    <span class="hljs-keyword">await</span> asyncio.sleep(<span class="hljs-number">2</span>)  <span class="hljs-comment"># 非阻塞等待，让出控制权</span><br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;任务A完成&quot;</span>)<br><br><span class="hljs-keyword">async</span> <span class="hljs-keyword">def</span> <span class="hljs-title function_">task_b</span>():<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;任务B开始&quot;</span>)<br>    <span class="hljs-keyword">await</span> asyncio.sleep(<span class="hljs-number">3</span>)  <span class="hljs-comment"># 非阻塞等待，让出控制权</span><br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;任务B完成&quot;</span>)<br><br><span class="hljs-comment"># 异步执行：总耗时 = max(2, 3) = 3秒</span><br><span class="hljs-keyword">async</span> <span class="hljs-keyword">def</span> <span class="hljs-title function_">main</span>():<br>    start = time.time()<br>    <span class="hljs-keyword">await</span> asyncio.gather(task_a(), task_b())  <span class="hljs-comment"># 并发执行</span><br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">f&quot;总耗时: <span class="hljs-subst">&#123;time.time() - start:<span class="hljs-number">.1</span>f&#125;</span>秒&quot;</span>)  <span class="hljs-comment"># 约3秒</span><br><br>asyncio.run(main())<br></code></pre></td></tr></table></figure>
+
+<h3 id="3-2-执行时间线"><a href="#3-2-执行时间线" class="headerlink" title="3.2 执行时间线"></a>3.2 执行时间线</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python">时间轴: 0s -------- 2s --- 3s<br>        |←── 任务A ──→|<br>        |←──── 任务B ────→|<br>        <br>        任务A和B同时进行，总时间取最长的那个<br></code></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="四、异步的实现方式（由浅入深）"><a href="#四、异步的实现方式（由浅入深）" class="headerlink" title="四、异步的实现方式（由浅入深）"></a>四、异步的实现方式（由浅入深）</h2><h3 id="4-1-回调函数（Callback）"><a href="#4-1-回调函数（Callback）" class="headerlink" title="4.1 回调函数（Callback）"></a>4.1 回调函数（Callback）</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">// JavaScript 经典回调模式</span><br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&quot;1. 开始&quot;</span>);<br><br><span class="hljs-comment">// 异步读取文件</span><br>fs.<span class="hljs-title function_">readFile</span>(<span class="hljs-string">&#x27;data.txt&#x27;</span>, <span class="hljs-string">&#x27;utf8&#x27;</span>, <span class="hljs-keyword">function</span>(<span class="hljs-params">err, data</span>) &#123;<br>    <span class="hljs-keyword">if</span> (err) &#123;<br>        <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&quot;读取失败:&quot;</span>, err);<br>        <span class="hljs-keyword">return</span>;<br>    &#125;<br>    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&quot;3. 文件内容:&quot;</span>, data);<br>&#125;);<br><br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&quot;2. 继续执行，不等待文件读取&quot;</span>);<br><br><span class="hljs-comment">// 输出顺序: 1 → 2 → 3</span><br></code></pre></td></tr></table></figure>
+
+<p><strong>回调地狱问题：</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">// 😱 多层嵌套 —— &quot;回调地狱&quot;</span><br><span class="hljs-title function_">getUser</span>(userId, <span class="hljs-keyword">function</span>(<span class="hljs-params">user</span>) &#123;<br>    <span class="hljs-title function_">getOrders</span>(user.<span class="hljs-property">id</span>, <span class="hljs-keyword">function</span>(<span class="hljs-params">orders</span>) &#123;<br>        <span class="hljs-title function_">getOrderDetail</span>(orders[<span class="hljs-number">0</span>].<span class="hljs-property">id</span>, <span class="hljs-keyword">function</span>(<span class="hljs-params">detail</span>) &#123;<br>            <span class="hljs-title function_">getProduct</span>(detail.<span class="hljs-property">productId</span>, <span class="hljs-keyword">function</span>(<span class="hljs-params">product</span>) &#123;<br>                <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(product.<span class="hljs-property">name</span>);<br>                <span class="hljs-comment">// 越嵌越深...</span><br>            &#125;);<br>        &#125;);<br>    &#125;);<br>&#125;);<br></code></pre></td></tr></table></figure>
+
+<h3 id="4-2-Promise（承诺）"><a href="#4-2-Promise（承诺）" class="headerlink" title="4.2 Promise（承诺）"></a>4.2 Promise（承诺）</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">// Promise 链式调用 —— 解决回调地狱</span><br><span class="hljs-title function_">getUser</span>(userId)<br>    .<span class="hljs-title function_">then</span>(<span class="hljs-function"><span class="hljs-params">user</span> =&gt;</span> <span class="hljs-title function_">getOrders</span>(user.<span class="hljs-property">id</span>))<br>    .<span class="hljs-title function_">then</span>(<span class="hljs-function"><span class="hljs-params">orders</span> =&gt;</span> <span class="hljs-title function_">getOrderDetail</span>(orders[<span class="hljs-number">0</span>].<span class="hljs-property">id</span>))<br>    .<span class="hljs-title function_">then</span>(<span class="hljs-function"><span class="hljs-params">detail</span> =&gt;</span> <span class="hljs-title function_">getProduct</span>(detail.<span class="hljs-property">productId</span>))<br>    .<span class="hljs-title function_">then</span>(<span class="hljs-function"><span class="hljs-params">product</span> =&gt;</span> <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(product.<span class="hljs-property">name</span>))<br>    .<span class="hljs-title function_">catch</span>(<span class="hljs-function"><span class="hljs-params">err</span> =&gt;</span> <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">error</span>(<span class="hljs-string">&quot;出错了:&quot;</span>, err));<br></code></pre></td></tr></table></figure>
+
+<p><strong>Promise 原理图：</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-title class_">Promise</span> 三种状态:<br><br>     ┌─────────┐    <span class="hljs-title function_">resolve</span>(value)    ┌───────────┐<br>     │ <span class="hljs-title class_">Pending</span> │ ──────────────────→ │ <span class="hljs-title class_">Fulfilled</span> │ → .<span class="hljs-title function_">then</span>(onFulfilled)<br>     │ (等待中) │                      │  (已完成)   │<br>     └────┬────┘                      └───────────┘<br>          │<br>          │     <span class="hljs-title function_">reject</span>(reason)        ┌───────────┐<br>          └─────────────────────────→ │ <span class="hljs-title class_">Rejected</span>  │ → .<span class="hljs-title function_">catch</span>(onRejected)<br>                                      │  (已拒绝)   │<br>                                      └───────────┘<br>                                      <br>状态一旦改变，不可逆转！<br></code></pre></td></tr></table></figure>
+
+<h3 id="4-3-async-await（语法糖）"><a href="#4-3-async-await（语法糖）" class="headerlink" title="4.3 async&#x2F;await（语法糖）"></a>4.3 async&#x2F;await（语法糖）</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">// async/await —— 让异步代码看起来像同步</span><br><span class="hljs-keyword">async</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">fetchUserProduct</span>(<span class="hljs-params">userId</span>) &#123;<br>    <span class="hljs-keyword">try</span> &#123;<br>        <span class="hljs-keyword">const</span> user    = <span class="hljs-keyword">await</span> <span class="hljs-title function_">getUser</span>(userId);          <span class="hljs-comment">// 等待，但不阻塞线程</span><br>        <span class="hljs-keyword">const</span> orders  = <span class="hljs-keyword">await</span> <span class="hljs-title function_">getOrders</span>(user.<span class="hljs-property">id</span>);       <br>        <span class="hljs-keyword">const</span> detail  = <span class="hljs-keyword">await</span> <span class="hljs-title function_">getOrderDetail</span>(orders[<span class="hljs-number">0</span>].<span class="hljs-property">id</span>);<br>        <span class="hljs-keyword">const</span> product = <span class="hljs-keyword">await</span> <span class="hljs-title function_">getProduct</span>(detail.<span class="hljs-property">productId</span>);<br>        <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(product.<span class="hljs-property">name</span>);<br>    &#125; <span class="hljs-keyword">catch</span> (err) &#123;<br>        <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">error</span>(<span class="hljs-string">&quot;出错了:&quot;</span>, err);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="4-4-进化历程总结"><a href="#4-4-进化历程总结" class="headerlink" title="4.4 进化历程总结"></a>4.4 进化历程总结</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs js">回调函数 ──→ <span class="hljs-title class_">Promise</span> ──→ <span class="hljs-keyword">async</span>/<span class="hljs-keyword">await</span><br>  ↓              ↓              ↓<br>嵌套地狱      链式调用       同步写法<br>难以维护      较为清晰       最为直观<br></code></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="五、底层机制：事件循环（Event-Loop）"><a href="#五、底层机制：事件循环（Event-Loop）" class="headerlink" title="五、底层机制：事件循环（Event Loop）"></a>五、底层机制：事件循环（Event Loop）</h2><h3 id="5-1-JavaScript-事件循环"><a href="#5-1-JavaScript-事件循环" class="headerlink" title="5.1 JavaScript 事件循环"></a>5.1 JavaScript 事件循环</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><code class="hljs js">┌───────────────────────────────────────────┐<br>│              调用栈 (<span class="hljs-title class_">Call</span> <span class="hljs-title class_">Stack</span>)            │<br>│  ┌─────────────────────────────────────┐  │<br>│  │    同步代码在这里按顺序执行            │  │<br>│  └─────────────────────────────────────┘  │<br>└──────────────────┬────────────────────────┘<br>                   │ 遇到异步操作<br>                   ▼<br>┌───────────────────────────────────────────┐<br>│           <span class="hljs-title class_">Web</span> <span class="hljs-title class_">APIs</span> / <span class="hljs-title class_">Node</span> <span class="hljs-title class_">APIs</span>             │<br>│  ┌──────┐ ┌──────────┐ ┌───────────────┐ │<br>│  │<span class="hljs-title class_">Timer</span> │ │ <span class="hljs-variable constant_">HTTP</span>请求  │ │ 文件I/O       │ │<br>│  └──┬───┘ └────┬─────┘ └──────┬────────┘ │<br>│     │          │               │           │<br>└─────┼──────────┼───────────────┼───────────┘<br>      │          │               │<br>      ▼          ▼               ▼<br>┌───────────────────────────────────────────┐<br>│         任务队列 (<span class="hljs-title class_">Task</span> <span class="hljs-title class_">Queue</span>)              │<br>│  ┌─────────────────────────────────────┐  │<br>│  │ 微任务队列: <span class="hljs-title class_">Promise</span>.<span class="hljs-property">then</span>, <span class="hljs-keyword">async</span>/<span class="hljs-keyword">await</span>│  │  ← 优先级高<br>│  ├─────────────────────────────────────┤  │<br>│  │ 宏任务队列: <span class="hljs-built_in">setTimeout</span>, <span class="hljs-built_in">setInterval</span> │  │  ← 优先级低<br>│  └─────────────────────────────────────┘  │<br>└──────────────────┬────────────────────────┘<br>                   │ 调用栈空时<br>                   │ 事件循环取出任务<br>                   ▼<br>            ┌──────────────┐<br>            │  <span class="hljs-title class_">Event</span> <span class="hljs-title class_">Loop</span>  │ ←── 不断循环检查<br>            │  (事件循环)   │<br>            └──────────────┘<br></code></pre></td></tr></table></figure>
+
+<h3 id="5-2-事件循环执行示例"><a href="#5-2-事件循环执行示例" class="headerlink" title="5.2 事件循环执行示例"></a>5.2 事件循环执行示例</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;1&#x27;</span>);                          <span class="hljs-comment">// 同步</span><br><br><span class="hljs-built_in">setTimeout</span>(<span class="hljs-function">() =&gt;</span> <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;2&#x27;</span>), <span class="hljs-number">0</span>);     <span class="hljs-comment">// 宏任务</span><br><br><span class="hljs-title class_">Promise</span>.<span class="hljs-title function_">resolve</span>().<span class="hljs-title function_">then</span>(<span class="hljs-function">() =&gt;</span> <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;3&#x27;</span>)); <span class="hljs-comment">// 微任务</span><br><br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;4&#x27;</span>);                          <span class="hljs-comment">// 同步</span><br><br><span class="hljs-comment">// 输出顺序: 1 → 4 → 3 → 2</span><br></code></pre></td></tr></table></figure>
+
+<p><strong>执行过程分析：</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-title class_">Step</span> <span class="hljs-number">1</span>: 执行同步代码<br>  调用栈: <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;1&#x27;</span>)  → 输出 <span class="hljs-number">1</span><br>  <br><span class="hljs-title class_">Step</span> <span class="hljs-number">2</span>: 遇到 <span class="hljs-built_in">setTimeout</span><br>  调用栈: <span class="hljs-built_in">setTimeout</span>(...)   → 回调放入【宏任务队列】<br>  <br><span class="hljs-title class_">Step</span> <span class="hljs-number">3</span>: 遇到 <span class="hljs-title class_">Promise</span>.<span class="hljs-property">then</span><br>  调用栈: <span class="hljs-title class_">Promise</span>.<span class="hljs-title function_">then</span>(...) → 回调放入【微任务队列】<br>  <br><span class="hljs-title class_">Step</span> <span class="hljs-number">4</span>: 执行同步代码<br>  调用栈: <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;4&#x27;</span>)  → 输出 <span class="hljs-number">4</span><br>  <br><span class="hljs-title class_">Step</span> <span class="hljs-number">5</span>: 调用栈空，先清空微任务队列<br>  调用栈: <span class="hljs-function">() =&gt;</span> <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;3&#x27;</span>) → 输出 <span class="hljs-number">3</span><br>  <br><span class="hljs-title class_">Step</span> <span class="hljs-number">6</span>: 微任务清空，执行宏任务<br>  调用栈: <span class="hljs-function">() =&gt;</span> <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;2&#x27;</span>) → 输出 <span class="hljs-number">2</span><br></code></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="六、Python-异步详解"><a href="#六、Python-异步详解" class="headerlink" title="六、Python 异步详解"></a>六、Python 异步详解</h2><h3 id="6-1-协程（Coroutine）原理"><a href="#6-1-协程（Coroutine）原理" class="headerlink" title="6.1 协程（Coroutine）原理"></a>6.1 协程（Coroutine）原理</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">import</span> asyncio<br><br><span class="hljs-keyword">async</span> def <span class="hljs-title function_">cook_rice</span>():<br>    <span class="hljs-string">&quot;&quot;</span><span class="hljs-string">&quot;煮饭 - 耗时30分钟但不需要人盯着&quot;</span><span class="hljs-string">&quot;&quot;</span><br>    <span class="hljs-title function_">print</span>(<span class="hljs-string">&quot;🍚 开始煮饭...&quot;</span>)<br>    <span class="hljs-keyword">await</span> asyncio.<span class="hljs-title function_">sleep</span>(<span class="hljs-number">3</span>)  # 模拟<span class="hljs-number">30</span>分钟，让出控制权<br>    <span class="hljs-title function_">print</span>(<span class="hljs-string">&quot;🍚 饭煮好了!&quot;</span>)<br>    <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;米饭&quot;</span><br><br><span class="hljs-keyword">async</span> def <span class="hljs-title function_">cook_dish</span>():<br>    <span class="hljs-string">&quot;&quot;</span><span class="hljs-string">&quot;炒菜 - 耗时15分钟&quot;</span><span class="hljs-string">&quot;&quot;</span><br>    <span class="hljs-title function_">print</span>(<span class="hljs-string">&quot;🥘 开始炒菜...&quot;</span>)<br>    <span class="hljs-keyword">await</span> asyncio.<span class="hljs-title function_">sleep</span>(<span class="hljs-number">1.5</span>)  # 模拟<span class="hljs-number">15</span>分钟<br>    <span class="hljs-title function_">print</span>(<span class="hljs-string">&quot;🥘 菜炒好了!&quot;</span>)<br>    <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;红烧肉&quot;</span><br><br><span class="hljs-keyword">async</span> def <span class="hljs-title function_">make_soup</span>():<br>    <span class="hljs-string">&quot;&quot;</span><span class="hljs-string">&quot;煲汤 - 耗时20分钟&quot;</span><span class="hljs-string">&quot;&quot;</span><br>    <span class="hljs-title function_">print</span>(<span class="hljs-string">&quot;🍲 开始煲汤...&quot;</span>)<br>    <span class="hljs-keyword">await</span> asyncio.<span class="hljs-title function_">sleep</span>(<span class="hljs-number">2</span>)  # 模拟<span class="hljs-number">20</span>分钟<br>    <span class="hljs-title function_">print</span>(<span class="hljs-string">&quot;🍲 汤煲好了!&quot;</span>)<br>    <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;鸡汤&quot;</span><br><br><span class="hljs-keyword">async</span> def <span class="hljs-title function_">main</span>():<br>    <span class="hljs-string">&quot;&quot;</span><span class="hljs-string">&quot;</span><br><span class="hljs-string">    同步做法: 30 + 15 + 20 = 65分钟</span><br><span class="hljs-string">    异步做法: max(30, 15, 20) = 30分钟 (同时进行)</span><br><span class="hljs-string">    &quot;</span><span class="hljs-string">&quot;&quot;</span><br>    start = time.<span class="hljs-title function_">time</span>()<br>    <br>    # 三个任务并发执行<br>    results = <span class="hljs-keyword">await</span> asyncio.<span class="hljs-title function_">gather</span>(<br>        <span class="hljs-title function_">cook_rice</span>(),<br>        <span class="hljs-title function_">cook_dish</span>(),<br>        <span class="hljs-title function_">make_soup</span>()<br>    )<br>    <br>    <span class="hljs-title function_">print</span>(f<span class="hljs-string">&quot;\n晚餐准备好了: &#123;results&#125;&quot;</span>)<br>    <span class="hljs-title function_">print</span>(f<span class="hljs-string">&quot;总耗时: &#123;time.time() - start:.1f&#125;秒&quot;</span>)  # 约<span class="hljs-number">3</span>秒<br><br>asyncio.<span class="hljs-title function_">run</span>(<span class="hljs-title function_">main</span>())<br></code></pre></td></tr></table></figure>
+
+<h3 id="6-2-协程调度原理"><a href="#6-2-协程调度原理" class="headerlink" title="6.2 协程调度原理"></a>6.2 协程调度原理</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs python">事件循环 (Event Loop)<br>━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━<br>时间 <span class="hljs-number">0.0</span>s:<br>  ├── cook_rice()  开始 → 遇到 <span class="hljs-keyword">await</span> sleep(<span class="hljs-number">3</span>) → 挂起，注册<span class="hljs-number">3</span>秒后唤醒<br>  ├── cook_dish()  开始 → 遇到 <span class="hljs-keyword">await</span> sleep(<span class="hljs-number">1.5</span>) → 挂起，注册<span class="hljs-number">1.5</span>秒后唤醒<br>  └── make_soup()  开始 → 遇到 <span class="hljs-keyword">await</span> sleep(<span class="hljs-number">2</span>) → 挂起，注册<span class="hljs-number">2</span>秒后唤醒<br><br>时间 <span class="hljs-number">1.5</span>s:<br>  └── cook_dish()  被唤醒 → 继续执行 → 完成 ✓<br><br>时间 <span class="hljs-number">2.0</span>s:<br>  └── make_soup()  被唤醒 → 继续执行 → 完成 ✓<br><br>时间 <span class="hljs-number">3.0</span>s:<br>  └── cook_rice()  被唤醒 → 继续执行 → 完成 ✓<br>━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━<br></code></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="七、Java-异步编程"><a href="#七、Java-异步编程" class="headerlink" title="七、Java 异步编程"></a>七、Java 异步编程</h2><h3 id="7-1-多线程方式"><a href="#7-1-多线程方式" class="headerlink" title="7.1 多线程方式"></a>7.1 多线程方式</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">AsyncExample</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> <span class="hljs-keyword">throws</span> Exception &#123;<br>        <span class="hljs-type">long</span> <span class="hljs-variable">start</span> <span class="hljs-operator">=</span> System.currentTimeMillis();<br>        <br>        <span class="hljs-comment">// 创建异步任务</span><br>        CompletableFuture&lt;String&gt; future1 = CompletableFuture.supplyAsync(() -&gt; &#123;<br>            <span class="hljs-keyword">try</span> &#123; Thread.sleep(<span class="hljs-number">2000</span>); &#125; <span class="hljs-keyword">catch</span> (Exception e) &#123;&#125;<br>            <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;数据库查询结果&quot;</span>;<br>        &#125;);<br>        <br>        CompletableFuture&lt;String&gt; future2 = CompletableFuture.supplyAsync(() -&gt; &#123;<br>            <span class="hljs-keyword">try</span> &#123; Thread.sleep(<span class="hljs-number">3000</span>); &#125; <span class="hljs-keyword">catch</span> (Exception e) &#123;&#125;<br>            <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;API调用结果&quot;</span>;<br>        &#125;);<br>        <br>        <span class="hljs-comment">// 等待所有任务完成</span><br>        CompletableFuture.allOf(future1, future2).join();<br>        <br>        System.out.println(future1.get());  <span class="hljs-comment">// 数据库查询结果</span><br>        System.out.println(future2.get());  <span class="hljs-comment">// API调用结果</span><br>        <br>        <span class="hljs-type">long</span> <span class="hljs-variable">elapsed</span> <span class="hljs-operator">=</span> System.currentTimeMillis() - start;<br>        System.out.println(<span class="hljs-string">&quot;总耗时: &quot;</span> + elapsed + <span class="hljs-string">&quot;ms&quot;</span>);  <span class="hljs-comment">// 约3000ms</span><br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="7-2-CompletableFuture-链式调用"><a href="#7-2-CompletableFuture-链式调用" class="headerlink" title="7.2 CompletableFuture 链式调用"></a>7.2 CompletableFuture 链式调用</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs java">CompletableFuture<br>    .supplyAsync(() -&gt; getUser(userId))            <span class="hljs-comment">// 异步获取用户</span><br>    .thenApplyAsync(user -&gt; getOrders(user.getId()))  <span class="hljs-comment">// 异步获取订单</span><br>    .thenApplyAsync(orders -&gt; processOrders(orders))  <span class="hljs-comment">// 异步处理订单</span><br>    .thenAccept(result -&gt; System.out.println(result)) <span class="hljs-comment">// 消费结果</span><br>    .exceptionally(throwable -&gt; &#123;                      <span class="hljs-comment">// 异常处理</span><br>        System.err.println(<span class="hljs-string">&quot;Error: &quot;</span> + throwable.getMessage());<br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>;<br>    &#125;);<br></code></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="八、I-O-模型对比（操作系统层面）"><a href="#八、I-O-模型对比（操作系统层面）" class="headerlink" title="八、I&#x2F;O 模型对比（操作系统层面）"></a>八、I&#x2F;O 模型对比（操作系统层面）</h2><h3 id="8-1-五种-I-O-模型"><a href="#8-1-五种-I-O-模型" class="headerlink" title="8.1 五种 I&#x2F;O 模型"></a>8.1 五种 I&#x2F;O 模型</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-number">1.</span> 同步阻塞 I/<span class="hljs-title function_">O</span> (<span class="hljs-title class_">Blocking</span> I/O)<br>━━━━━━━━━━━━━━━━━━━━━━━━━━━━━<br>应用程序    │  系统调用  │    内核<br>           │──────────→│<br>           │  阻塞等待  │  准备数据...<br>           │           │  数据就绪<br>           │           │  拷贝数据到用户空间<br>           │←──────────│<br>           │  处理数据  │<br><br><span class="hljs-number">2.</span> 同步非阻塞 I/<span class="hljs-title function_">O</span> (<span class="hljs-title class_">Non</span>-blocking I/O)  <br>━━━━━━━━━━━━━━━━━━━━━━━━━━━━━<br>应用程序    │  系统调用  │    内核<br>           │──────────→│<br>           │←─ <span class="hljs-variable constant_">EAGAIN</span> ─│  数据没准备好<br>           │  做其他事  │<br>           │──────────→│  轮询<br>           │←─ <span class="hljs-variable constant_">EAGAIN</span> ─│  还没好<br>           │  做其他事  │<br>           │──────────→│<br>           │←──────────│  数据就绪，返回数据<br><br><span class="hljs-number">3.</span> I/O 多路复用 (select/poll/epoll)<br>━━━━━━━━━━━━━━━━━━━━━━━━━━━━━<br>应用程序    │  <span class="hljs-title function_">select</span>()  │    内核<br>           │──────────→│  监控多个fd<br>           │  阻塞等待  │  <br>           │←──────────│  某个fd就绪<br>           │  <span class="hljs-title function_">read</span>()   │<br>           │──────────→│<br>           │←──────────│  返回数据<br><br><span class="hljs-number">4.</span> 信号驱动 I/O<br>━━━━━━━━━━━━━━━━━━━━━━━━━━━━━<br>应用程序    │ 注册信号   │    内核<br>           │──────────→│<br>           │  做其他事  │  准备数据...<br>           │           │  数据就绪<br>           │←─ <span class="hljs-variable constant_">SIGIO</span> ──│  信号通知<br>           │  <span class="hljs-title function_">read</span>()   │<br>           │──────────→│<br>           │←──────────│  返回数据<br><br><span class="hljs-number">5.</span> 异步 I/<span class="hljs-title function_">O</span> (<span class="hljs-variable constant_">AIO</span>) — 真正的异步<br>━━━━━━━━━━━━━━━━━━━━━━━━━━━━━<br>应用程序    │ <span class="hljs-title function_">aio_read</span>() │    内核<br>           │───────────→│<br>           │  做其他事   │  准备数据...<br>           │  做其他事   │  拷贝数据到用户空间<br>           │←───────────│  完成通知 + 数据已就绪<br>           │  直接用数据 │<br></code></pre></td></tr></table></figure>
+
+<h3 id="8-2-对比总结"><a href="#8-2-对比总结" class="headerlink" title="8.2 对比总结"></a>8.2 对比总结</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs js">                 等待数据阶段    数据拷贝阶段<br>同步阻塞          阻塞            阻塞          最简单但最慢<br>同步非阻塞        非阻塞(轮询)     阻塞          <span class="hljs-variable constant_">CPU</span>浪费在轮询<br>I/O多路复用       阻塞(在select)   阻塞          可监控多个连接 ★<br>信号驱动          非阻塞           阻塞          较少使用<br>异步I/O           非阻塞          非阻塞         真正异步 ★<br></code></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="九、实际应用场景"><a href="#九、实际应用场景" class="headerlink" title="九、实际应用场景"></a>九、实际应用场景</h2><h3 id="9-1-Web-服务器处理请求"><a href="#9-1-Web-服务器处理请求" class="headerlink" title="9.1 Web 服务器处理请求"></a>9.1 Web 服务器处理请求</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># ❌ 同步处理 —— 一次只能处理一个请求</span><br><span class="hljs-keyword">from</span> flask <span class="hljs-keyword">import</span> Flask<br><span class="hljs-keyword">import</span> requests<br><br>app = Flask(__name__)<br><br><span class="hljs-meta">@app.route(<span class="hljs-params"><span class="hljs-string">&#x27;/user/&lt;id&gt;&#x27;</span></span>)</span><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">get_user_info</span>(<span class="hljs-params"><span class="hljs-built_in">id</span></span>):<br>    <span class="hljs-comment"># 每个请求都要等待，后面的请求排队</span><br>    user = requests.get(<span class="hljs-string">f&#x27;http://user-service/users/<span class="hljs-subst">&#123;<span class="hljs-built_in">id</span>&#125;</span>&#x27;</span>).json()       <span class="hljs-comment"># 等100ms</span><br>    orders = requests.get(<span class="hljs-string">f&#x27;http://order-service/orders?uid=<span class="hljs-subst">&#123;<span class="hljs-built_in">id</span>&#125;</span>&#x27;</span>).json()  <span class="hljs-comment"># 等200ms</span><br>    score = requests.get(<span class="hljs-string">f&#x27;http://score-service/scores/<span class="hljs-subst">&#123;<span class="hljs-built_in">id</span>&#125;</span>&#x27;</span>).json()    <span class="hljs-comment"># 等150ms</span><br>    <span class="hljs-comment"># 总计: 450ms</span><br>    <span class="hljs-keyword">return</span> &#123;<span class="hljs-string">&quot;user&quot;</span>: user, <span class="hljs-string">&quot;orders&quot;</span>: orders, <span class="hljs-string">&quot;score&quot;</span>: score&#125;<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs js"># ✅ 异步处理 —— 并发处理多个请求<br><span class="hljs-keyword">from</span> aiohttp <span class="hljs-keyword">import</span> web<br><span class="hljs-keyword">import</span> aiohttp<br><br><span class="hljs-keyword">async</span> def <span class="hljs-title function_">get_user_info</span>(request):<br>    id = request.<span class="hljs-property">match_info</span>[<span class="hljs-string">&#x27;id&#x27;</span>]<br>    <span class="hljs-keyword">async</span> <span class="hljs-keyword">with</span> aiohttp.<span class="hljs-title class_">ClientSession</span>() <span class="hljs-keyword">as</span> <span class="hljs-attr">session</span>:<br>        # 三个请求并发发出<br>        tasks = [<br>            session.<span class="hljs-title function_">get</span>(f<span class="hljs-string">&#x27;http://user-service/users/&#123;id&#125;&#x27;</span>),<br>            session.<span class="hljs-title function_">get</span>(f<span class="hljs-string">&#x27;http://order-service/orders?uid=&#123;id&#125;&#x27;</span>),<br>            session.<span class="hljs-title function_">get</span>(f<span class="hljs-string">&#x27;http://score-service/scores/&#123;id&#125;&#x27;</span>),<br>        ]<br>        responses = <span class="hljs-keyword">await</span> asyncio.<span class="hljs-title function_">gather</span>(*tasks)<br>        user, orders, score = [<span class="hljs-keyword">await</span> r.<span class="hljs-title function_">json</span>() <span class="hljs-keyword">for</span> r <span class="hljs-keyword">in</span> responses]<br>        # 总计: <span class="hljs-title function_">max</span>(<span class="hljs-number">100</span>, <span class="hljs-number">200</span>, <span class="hljs-number">150</span>) = 200ms  🚀 快了一倍多<br>        <span class="hljs-keyword">return</span> web.<span class="hljs-title function_">json_response</span>(&#123;<span class="hljs-string">&quot;user&quot;</span>: user, <span class="hljs-string">&quot;orders&quot;</span>: orders, <span class="hljs-string">&quot;score&quot;</span>: score&#125;)<br></code></pre></td></tr></table></figure>
+
+<h3 id="9-2-前端-UI-交互"><a href="#9-2-前端-UI-交互" class="headerlink" title="9.2 前端 UI 交互"></a>9.2 前端 UI 交互</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">// ❌ 同步请求 —— 页面卡死</span><br><span class="hljs-keyword">function</span> <span class="hljs-title function_">loadData</span>(<span class="hljs-params"></span>) &#123;<br>    <span class="hljs-keyword">const</span> xhr = <span class="hljs-keyword">new</span> <span class="hljs-title class_">XMLHttpRequest</span>();<br>    xhr.<span class="hljs-title function_">open</span>(<span class="hljs-string">&#x27;GET&#x27;</span>, <span class="hljs-string">&#x27;/api/data&#x27;</span>, <span class="hljs-literal">false</span>);  <span class="hljs-comment">// false = 同步</span><br>    xhr.<span class="hljs-title function_">send</span>();  <span class="hljs-comment">// 🔒 页面冻结，用户无法操作</span><br>    <span class="hljs-keyword">return</span> <span class="hljs-title class_">JSON</span>.<span class="hljs-title function_">parse</span>(xhr.<span class="hljs-property">responseText</span>);<br>&#125;<br><br><span class="hljs-comment">// ✅ 异步请求 —— 页面流畅</span><br><span class="hljs-keyword">async</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">loadData</span>(<span class="hljs-params"></span>) &#123;<br>    <span class="hljs-title function_">showLoading</span>();                          <span class="hljs-comment">// 显示加载动画</span><br>    <span class="hljs-keyword">try</span> &#123;<br>        <span class="hljs-keyword">const</span> response = <span class="hljs-keyword">await</span> <span class="hljs-title function_">fetch</span>(<span class="hljs-string">&#x27;/api/data&#x27;</span>);  <span class="hljs-comment">// 异步请求</span><br>        <span class="hljs-keyword">const</span> data = <span class="hljs-keyword">await</span> response.<span class="hljs-title function_">json</span>();<br>        <span class="hljs-title function_">renderTable</span>(data);                  <span class="hljs-comment">// 渲染数据</span><br>    &#125; <span class="hljs-keyword">catch</span> (error) &#123;<br>        <span class="hljs-title function_">showError</span>(error.<span class="hljs-property">message</span>);<br>    &#125; <span class="hljs-keyword">finally</span> &#123;<br>        <span class="hljs-title function_">hideLoading</span>();                      <span class="hljs-comment">// 隐藏加载动画</span><br>    &#125;<br>&#125;<br><span class="hljs-comment">// 页面始终可以响应用户操作 ✨</span><br></code></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="十、并发模型全景图"><a href="#十、并发模型全景图" class="headerlink" title="十、并发模型全景图"></a>十、并发模型全景图</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs js">                        并发编程<br>                    ┌───────┴───────┐<br>                  多线程            异步I/O<br>              ┌─────┴─────┐         │<br>           抢占式         协作式     事件驱动<br>           调度            调度      单线程<br>             │              │         │<br>        <span class="hljs-variable constant_">OS</span>线程/          协程       <span class="hljs-title class_">Event</span> <span class="hljs-title class_">Loop</span><br>        <span class="hljs-title class_">Java</span> <span class="hljs-title class_">Thread</span>     <span class="hljs-title class_">Goroutine</span>    + 回调/协程<br>                        <span class="hljs-title class_">Python</span> <span class="hljs-keyword">async</span><br>                        <br>┌─────────────────────────────────────────────────────┐<br>│  适用场景对比                                         │<br>├─────────────┬──────────────┬────────────────────────┤<br>│   多线程     │   多进程      │   异步 I/O             │<br>├─────────────┼──────────────┼────────────────────────┤<br>│ <span class="hljs-variable constant_">CPU</span>密集+I/O │ <span class="hljs-variable constant_">CPU</span>密集计算   │ I/O密集（网络/文件）     │<br>│ 共享内存     │ 进程隔离      │ 单线程高并发            │<br>│ 锁的复杂度   │ 内存开销大    │ 无需锁，无竞争          │<br>│ C++<span class="hljs-regexp">/Java    │ Python多核   │ Node.js/</span><span class="hljs-title class_">Python</span> asyncio │<br>└─────────────┴──────────────┴────────────────────────┘<br></code></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="十一、常见误区"><a href="#十一、常见误区" class="headerlink" title="十一、常见误区"></a>十一、常见误区</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs js">❌ 误区<span class="hljs-number">1</span>: <span class="hljs-string">&quot;异步一定比同步快&quot;</span><br>   → 如果是纯<span class="hljs-variable constant_">CPU</span>计算（没有I/O等待），异步没有优势，反而有调度开销<br><br>❌ 误区<span class="hljs-number">2</span>: <span class="hljs-string">&quot;异步 = 多线程&quot;</span><br>   → 异步可以在单线程上实现（如<span class="hljs-title class_">Node</span>.<span class="hljs-property">js</span>事件循环）<br><br>❌ 误区<span class="hljs-number">3</span>: <span class="hljs-string">&quot;async/await 会创建新线程&quot;</span><br>   → <span class="hljs-keyword">async</span>/<span class="hljs-keyword">await</span> 只是协程调度，通常在同一线程内切换<br><br>❌ 误区<span class="hljs-number">4</span>: <span class="hljs-string">&quot;用了异步就不会阻塞&quot;</span><br>   → 在异步代码中调用同步阻塞<span class="hljs-variable constant_">API</span>（如time.<span class="hljs-property">sleep</span>），<br>     仍然会阻塞整个事件循环！应使用 <span class="hljs-keyword">await</span> asyncio.<span class="hljs-title function_">sleep</span>()<br><br>✅ 关键认知:<br>   → 异步的核心价值: 在等待I/O时，<span class="hljs-variable constant_">CPU</span>去做其他事情<br>   → 适用场景: 高并发、I/O密集型任务<br>   → 不适用: 纯计算密集型任务<br></code></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="十二、一句话总结"><a href="#十二、一句话总结" class="headerlink" title="十二、一句话总结"></a>十二、一句话总结</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs js">┌─────────────────────────────────────────────────────────┐<br>│                                                         │<br>│  同步 = 排队买奶茶，你站在柜台前等做好才走              │<br>│                                                         │<br>│  异步 = 扫码下单买奶茶，拿个号去逛街，做好了微信通知你   │<br>│                                                         │<br>│  核心区别: 等待期间，你（<span class="hljs-variable constant_">CPU</span>）能不能去做别的事            │<br>│                                                         │<br>└─────────────────────────────────────────────────────────┘<br></code></pre></td></tr></table></figure>
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E5%90%8E%E7%AB%AF/" class="category-chain-item">后端</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E7%BC%96%E7%A8%8B%E5%8E%9F%E7%90%86/" class="print-no-link">#编程原理</a>
+      
+        <a href="/tags/%E5%90%8C%E6%AD%A5/" class="print-no-link">#同步</a>
+      
+        <a href="/tags/%E5%BC%82%E6%AD%A5/" class="print-no-link">#异步</a>
+      
+        <a href="/tags/%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF/" class="print-no-link">#事件循环</a>
+      
+        <a href="/tags/%E5%8D%8F%E7%A8%8B/" class="print-no-link">#协程</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>编程同步与异步原理详细讲解</div>
+      <div>https://tsyangblog.site/2026/03/20/后端/编程同步与异步原理详细讲解/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>小唐</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2026年3月20日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2026/03/21/%E5%B7%A5%E5%85%B7%E7%AE%B1/VSCODE%E9%85%8D%E7%BD%AEskills%E7%9A%84%E8%AF%A6%E7%BB%86%E6%95%99%E7%A8%8B/" title="VSCODE配置skills的详细教程">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">VSCODE配置skills的详细教程</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2026/03/18/%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/%E5%89%8D%E5%90%8E%E7%AB%AF%E4%BA%A4%E4%BA%92%E5%8E%9F%E7%90%86%E4%B8%8E%E6%9E%B6%E6%9E%84%E5%85%A8%E8%A7%A3/" title="前后端交互原理与架构全解">
+                        <span class="hidden-mobile">前后端交互原理与架构全解</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div id="gitalk-container"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#gitalk-container', function() {
+      Fluid.utils.createCssLink('/css/gitalk.css')
+      Fluid.utils.createScript('https://lib.baomitu.com/gitalk/1.8.0/gitalk.min.js', function() {
+        var options = Object.assign(
+          {"clientID":"Ov23liZQDI8BrS44zUL7","clientSecret":"075fad544223a91a3529c013c644d5f341ff6e1d","repo":"blog_comments","owner":"XtangUser","admin":["XtangUser"],"language":"zh-CN","labels":["Gitalk","Comment"],"perPage":10,"pagerDirection":"last","distractionFreeMode":false,"createIssueManually":false,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token"},
+          {
+            id: '33207e258d01575fcf3d44cf78fb9c49'
+          }
+        )
+        var gitalk = new Gitalk(options);
+        gitalk.render('gitalk-container');
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+      用代码记录生活，用文字传递温度
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="openkounter-site-pv-container" style="display: none">
+        总访问量 
+        <span id="openkounter-site-pv"></span>
+         次
+      </span>
+    
+    
+      <span id="openkounter-site-uv-container" style="display: none">
+        总访客数 
+        <span id="openkounter-site-uv"></span>
+         人
+      </span>
+    
+    
+
+  
+
+</div>
+
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    function isExpandAllEnabled() {
+      return CONFIG.toc && CONFIG.toc.expand_all === true;
+    }
+    function expandAllToc() {
+      if (!isExpandAllEnabled()) { return; }
+      jQuery('#toc-body .tocbot-is-collapsed').removeClass('tocbot-is-collapsed');
+    }
+    function updateTocToggle($li, $childList) {
+      var $toggle = $li.children('.toc-toggle');
+      if ($toggle.length === 0) { return; }
+      var collapsed = $childList.hasClass('tocbot-is-collapsed');
+      $toggle
+        .toggleClass('toc-toggle-collapsed', collapsed)
+        .toggleClass('toc-toggle-expanded', !collapsed);
+    }
+    function bindTocToggle() {
+      if (!isExpandAllEnabled()) { return; }
+      jQuery('#toc-body .toc-list-item').each(function() {
+        var $li = jQuery(this);
+        var $childList = $li.children('ol');
+        if ($childList.length === 0) {
+          if ($li.children('.toc-toggle').length === 0) {
+            $li.prepend('<span class="toc-toggle toc-toggle-placeholder" aria-hidden="true">›</span>');
+          }
+          return;
+        }
+
+        if ($li.children('.toc-toggle').length === 0) {
+          $li.prepend('<span class="toc-toggle toc-toggle-expanded" aria-hidden="true">›</span>');
+        }
+        updateTocToggle($li, $childList);
+      });
+      jQuery('#toc-body').off('click.tocToggle').on('click.tocToggle', '.toc-toggle', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        var $li = jQuery(this).parent('.toc-list-item');
+        var $childList = $li.children('ol');
+        if ($childList.length === 0) { return; }
+        $childList.toggleClass('tocbot-is-collapsed');
+        updateTocToggle($li, $childList);
+      });
+      if (!window.__tocToggleObserver) {
+        window.__tocToggleObserver = new MutationObserver(function(mutations) {
+          mutations.forEach(function(mutation) {
+            if (mutation.type !== 'attributes' || mutation.attributeName !== 'class') { return; }
+            var $list = jQuery(mutation.target);
+            var $li = $list.parent('.toc-list-item');
+            if ($li.length === 0) { return; }
+            updateTocToggle($li, $list);
+          });
+        });
+        jQuery('#toc-body ol').each(function() {
+          window.__tocToggleObserver.observe(this, { attributes: true });
+        });
+      }
+    }
+    var tocConfig = Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc);
+    if (isExpandAllEnabled()) {
+      tocConfig.collapseDepth = 6;
+    }
+    window.tocbot.init(tocConfig);
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+    expandAllToc();
+    bindTocToggle();
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+        expandAllToc();
+        bindTocToggle();
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script defer src="/js/openkounter.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+<!-- hexo injector body_end start --><script defer src="/js/mouse-particles.js"></script><script defer src="/js/live2d-helper.js"></script><script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "d25f7f4a1df0482f859f16ff4400fe43"}'></script><!-- hexo injector body_end end --><script src="https://cdn.jsdelivr.net/npm/live2d-widget@^3.1.3/lib/L2Dwidget.min.js"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"scale":1,"hHeadPos":0.5,"vHeadPos":0.618,"jsonPath":"https://cdn.jsdelivr.net/npm/live2d-widget-model-koharu@1.0.5/assets/koharu.model.json"},"display":{"superSample":2,"position":"left","width":200,"height":400,"hOffset":20,"vOffset":-20},"mobile":{"show":true,"scale":0.8},"react":{"opacityDefault":0.9,"opacityOnHover":0.3}});</script></body>
+</html>

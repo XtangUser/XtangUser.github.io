@@ -1,0 +1,1068 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head><!-- hexo injector head_begin start --><meta name="referrer" content="no-referrer"><!-- hexo injector head_begin end -->
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/avatar.jpg">
+  <link rel="icon" href="/img/avatar.jpg">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#0891b2">
+  <meta name="author" content="小唐">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="Ubuntu 安装 Nginx + Node.js + FastAPI 完整实战教程适用系统：Ubuntu 20.04 &#x2F; 22.04 &#x2F; 24.04 教程说明：一键搭建 Nginx 反向代理，部署 Node.js 服务 + FastAPI 服务，所有命令可直接复制执行 目录 环境准备 安装 Nginx 安装 Node.js 安装 Python + FastAPI 实战：运行">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Ubuntu 安装 Nginx + Node.js + FastAPI 完整实战教程">
+<meta property="og:url" content="https://tsyangblog.site/2026/03/22/%E8%BF%90%E7%BB%B4/Ubuntu%20%E5%AE%89%E8%A3%85%20Nginx%20+%20Node.js%20+%20FastAPI%20%E5%AE%8C%E6%95%B4%E5%AE%9E%E6%88%98%E6%95%99%E7%A8%8B/index.html">
+<meta property="og:site_name" content="别催小唐敲代码">
+<meta property="og:description" content="Ubuntu 安装 Nginx + Node.js + FastAPI 完整实战教程适用系统：Ubuntu 20.04 &#x2F; 22.04 &#x2F; 24.04 教程说明：一键搭建 Nginx 反向代理，部署 Node.js 服务 + FastAPI 服务，所有命令可直接复制执行 目录 环境准备 安装 Nginx 安装 Node.js 安装 Python + FastAPI 实战：运行">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/XtangUser/blog-images@main/images/20260322163849396.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/XtangUser/blog-images@main/images/20260322164313268.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/XtangUser/blog-images@main/images/20260322164858868.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/XtangUser/blog-images@main/images/20260322165515393.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/XtangUser/blog-images@main/images/20260322192041731.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/XtangUser/blog-images@main/images/20260322192250472.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/XtangUser/blog-images@main/images/20260322192608766.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/XtangUser/blog-images@main/images/20260322205109788.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/XtangUser/blog-images@main/images/20260322205123420.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/XtangUser/blog-images@main/images/20260322205137556.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/XtangUser/blog-images@main/images/20260322205640973.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/XtangUser/blog-images@main/images/20260322205657427.png">
+<meta property="article:published_time" content="2026-03-21T16:00:00.000Z">
+<meta property="article:modified_time" content="2026-03-22T13:06:37.653Z">
+<meta property="article:author" content="小唐">
+<meta property="article:tag" content="FastAPI">
+<meta property="article:tag" content="Nginx">
+<meta property="article:tag" content="Node.js">
+<meta property="article:tag" content="Ubuntu">
+<meta property="article:tag" content="反向代理">
+<meta property="article:tag" content="负载均衡">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/XtangUser/blog-images@main/images/20260322163849396.png">
+  
+  
+  
+  <title>Ubuntu 安装 Nginx + Node.js + FastAPI 完整实战教程 - 别催小唐敲代码</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"tsyangblog.site","root":"/","version":"1.9.9","typing":{"enable":true,"typeSpeed":100,"cursorChar":"|","loop":true,"scope":["home"]},"anchorjs":{"enable":true,"element":"h2,h3,h4","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#0ea5e9","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"expand_all":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0,"number":false,"scrollSmooth":true,"scrollSmoothOffset":-5},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":false,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"openkounter":{"server_url":"https://blog-counter.221036109.workers.dev","path":"window.location.pathname","ignore_local":true},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+
+  
+<!-- hexo injector head_end start --><link rel="stylesheet" href="/css/custom.css"><style>#live2dcanvas{position:fixed!important;left:0!important;bottom:0!important;z-index:999999!important;pointer-events:auto!important;width:200px!important;height:400px!important;}</style><!-- hexo injector head_end end --><meta name="generator" content="Hexo 8.1.1"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 55vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>别催小唐敲代码</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content (desktop) -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>主页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>时间轴</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile grid menu overlay -->
+<div id="mobile-grid-menu" class="d-lg-none">
+  <div class="mobile-grid-menu-inner">
+    <div class="container">
+      <div class="row">
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-home-fill"></i>
+                  <span>主页</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/archives/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-archive-fill"></i>
+                  <span>时间轴</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/tags/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-tags-fill"></i>
+                  <span>标签</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/categories/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-category-fill"></i>
+                  <span>分类</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/about/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-user-fill"></i>
+                  <span>关于</span>
+                </div>
+              </a>
+            </div>
+          
+        
+        
+          <div class="col-4 mobile-grid-cell" id="mobile-search-btn">
+            <a href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <div class="mobile-grid-item">
+                <i class="iconfont icon-search"></i>
+                <span>搜索</span>
+              </div>
+            </a>
+          </div>
+        
+        
+          <div class="col-4 mobile-grid-cell" id="mobile-color-toggle-btn"
+               data-label-light="开灯"
+               data-label-dark="关灯">
+            <a href="javascript:;" aria-label="Color Toggle">
+              <div class="mobile-grid-item">
+                <i class="iconfont icon-dark" id="mobile-color-toggle-icon"></i>
+                <span id="mobile-color-toggle-label">关灯</span>
+              </div>
+            </a>
+          </div>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('https://images.unsplash.com/photo-1519681393784-d120267933ba?w=1920&q=80') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.35)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle">Ubuntu 安装 Nginx + Node.js + FastAPI 完整实战教程</span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2026-03-22 00:00" pubdate>
+          2026年3月22日
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          <!-- compatible with older versions-->
+          5.8k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          <!-- compatible with older versions-->
+          12 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="openkounter-page-views-container" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="openkounter-page-views"></span> 次
+        </span>
+        
+
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">Ubuntu 安装 Nginx + Node.js + FastAPI 完整实战教程</h1>
+            
+              <p id="updated-time" class="note note-info" style="">
+                
+                  
+                    <!-- compatible with older versions-->
+                    最后更新于：2026年3月22日 晚上
+                  
+                
+              </p>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="Ubuntu-安装-Nginx-Node-js-FastAPI-完整实战教程"><a href="#Ubuntu-安装-Nginx-Node-js-FastAPI-完整实战教程" class="headerlink" title="Ubuntu 安装 Nginx + Node.js + FastAPI 完整实战教程"></a>Ubuntu 安装 Nginx + Node.js + FastAPI 完整实战教程</h1><p>适用系统：Ubuntu 20.04 &#x2F; 22.04 &#x2F; 24.04</p>
+<p>教程说明：一键搭建 Nginx 反向代理，部署 Node.js 服务 + FastAPI 服务，所有命令可直接复制执行</p>
+<h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><ol>
+<li>环境准备</li>
+<li>安装 Nginx</li>
+<li>安装 Node.js</li>
+<li>安装 Python + FastAPI</li>
+<li>实战：运行 Node.js 服务</li>
+<li>实战：运行 FastAPI 服务</li>
+<li>Nginx 反向代理配置（核心）</li>
+<li>服务验证与测试</li>
+<li>常用运维命令</li>
+</ol>
+<hr>
+<h2 id="一、环境准备"><a href="#一、环境准备" class="headerlink" title="一、环境准备"></a>一、环境准备</h2><p>所有操作需要 root 或 sudo 权限，先更新系统依赖：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js">sudo apt update &amp;&amp; sudo apt upgrade -y<br></code></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="二、安装-Nginx"><a href="#二、安装-Nginx" class="headerlink" title="二、安装 Nginx"></a>二、安装 Nginx</h2><h3 id="1-安装-Nginx"><a href="#1-安装-Nginx" class="headerlink" title="1. 安装 Nginx"></a>1. 安装 Nginx</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js">sudo apt install nginx -y<br></code></pre></td></tr></table></figure>
+
+<h3 id="2-启动并设置开机自启"><a href="#2-启动并设置开机自启" class="headerlink" title="2. 启动并设置开机自启"></a>2. 启动并设置开机自启</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs js">sudo systemctl start nginx<br>sudo systemctl enable nginx<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/XtangUser/blog-images@main/images/20260322163849396.png" srcset="/img/loading.gif" lazyload alt="image-20260322163849291"></p>
+<h3 id="3-验证安装"><a href="#3-验证安装" class="headerlink" title="3. 验证安装"></a>3. 验证安装</h3><p>查看 Nginx 运行状态：（前提是开启防火墙）</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js">sudo systemctl status nginx<br></code></pre></td></tr></table></figure>
+
+<p>浏览器访问服务器<strong>公网 IP</strong>&#x2F;虚拟级本地ip地址，出现 <code>Welcome to nginx!</code> 即为安装成功。</p>
+<p>打开 Ubuntu 终端，输入：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs css">hostname -<span class="hljs-selector-tag">I</span><br></code></pre></td></tr></table></figure>
+
+<p>你会得到类似这样的 IP：</p>
+<figure class="highlight accesslog"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs accesslog"><span class="hljs-number">192.168.1.105</span><br></code></pre></td></tr></table></figure>
+
+<p><strong>记下来！这就是你主机访问要用的地址！</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/XtangUser/blog-images@main/images/20260322164313268.png" srcset="/img/loading.gif" lazyload alt="image-20260322164313148"></p>
+<h3 id="4-防火墙放行（可选）"><a href="#4-防火墙放行（可选）" class="headerlink" title="4. 防火墙放行（可选）"></a>4. 防火墙放行（可选）</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs js">sudo ufw allow <span class="hljs-string">&#x27;Nginx Full&#x27;</span><br>sudo ufw enable<br></code></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="三、安装-Node-js"><a href="#三、安装-Node-js" class="headerlink" title="三、安装 Node.js"></a>三、安装 Node.js</h2><p>安装 Node.js 20 LTS 稳定版：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs js">curl -fsSL <span class="hljs-attr">https</span>:<span class="hljs-comment">//deb.nodesource.com/setup_20.x | sudo -E bash -</span><br>sudo apt install nodejs -y<br></code></pre></td></tr></table></figure>
+
+<h3 id="验证安装"><a href="#验证安装" class="headerlink" title="验证安装"></a>验证安装</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs js">node -v<br>npm -v<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/XtangUser/blog-images@main/images/20260322164858868.png" srcset="/img/loading.gif" lazyload alt="image-20260322164858808"></p>
+<hr>
+<h2 id="四、安装-Python-FastAPI"><a href="#四、安装-Python-FastAPI" class="headerlink" title="四、安装 Python + FastAPI"></a>四、安装 Python + FastAPI</h2><p>Ubuntu 自带 Python3，直接安装依赖即可：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><code class="hljs js"># 安装 pip<br>sudo apt install python3-pip python3-dev -y<br><br># 安装 fastapi 和运行服务的 uvicorn<br>pip3 install fastapi uvicorn[standard]<br><br><br>sudo apt install python3-pip python3-dev -y<br>作用：<br>给 <span class="hljs-title class_">Ubuntu</span> 安装 <span class="hljs-title class_">Python</span> 的包管理工具 pip就像手机的 “应用商店”，pip 就是 <span class="hljs-title class_">Python</span> 的应用商店。<br>python3-pip = 安装 pip 命令（用来装各种 <span class="hljs-title class_">Python</span> 库）<br>python3-dev = 安装 <span class="hljs-title class_">Python</span> 开发依赖（防止后面装库报错）<br>sudo apt install = <span class="hljs-title class_">Ubuntu</span> 系统官方安装工具<br><br>pip3 install fastapi uvicorn[standard]<br>作用：<br>用 pip 安装两个核心工具，用来跑 <span class="hljs-title class_">FastAPI</span> 网站<br><span class="hljs-number">1.</span> fastapi<br>一个 <span class="hljs-title class_">Python</span> 写后端接口、<span class="hljs-variable constant_">API</span> 的超级流行框架作用：<br>写接口<br>写网站后端<br>接收请求、返回数据<br>速度极快（比 <span class="hljs-title class_">Django</span>/<span class="hljs-title class_">Flask</span> 快很多）<br><span class="hljs-number">2.</span> uvicorn[standard]<br>一个能让 <span class="hljs-title class_">FastAPI</span> 运行起来的 “服务器”作用：<br>启动 <span class="hljs-title class_">FastAPI</span><br>让别人能访问你的接口<br>处理网络请求<br>没有 uvicorn，<span class="hljs-title class_">FastAPI</span> 只是代码，跑不起来、不能访问。<br><br></code></pre></td></tr></table></figure>
+
+<h3 id="验证安装-1"><a href="#验证安装-1" class="headerlink" title="验证安装"></a>验证安装</h3><p>编辑用户配置文件：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js">nano ~/.<span class="hljs-property">bashrc</span><br></code></pre></td></tr></table></figure>
+
+<p>在文件末尾添加一行：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">export</span> <span class="hljs-variable constant_">PATH</span>=<span class="hljs-string">&quot;$HOME/.local/bin:$PATH&quot;</span><br></code></pre></td></tr></table></figure>
+
+<p>保存退出后，执行：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js">source ~/.<span class="hljs-property">bashrc</span><br></code></pre></td></tr></table></figure>
+
+<p>之后新开的终端里就能直接用 <code>fastapi</code> 和 <code>uvicorn</code> 命令了。（记得重启终端）</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs js">fastapi --version<br>uvicorn --version<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/XtangUser/blog-images@main/images/20260322165515393.png" srcset="/img/loading.gif" lazyload alt="image-20260322165515315"></p>
+<hr>
+<h2 id="五、实战-1：创建并运行-Node-js-服务"><a href="#五、实战-1：创建并运行-Node-js-服务" class="headerlink" title="五、实战 1：创建并运行 Node.js 服务"></a>五、实战 1：创建并运行 Node.js 服务</h2><h3 id="1-创建项目目录"><a href="#1-创建项目目录" class="headerlink" title="1. 创建项目目录"></a>1. 创建项目目录</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs js">mkdir -p /opt/node-demo<br>cd /opt/node-demo<br></code></pre></td></tr></table></figure>
+
+<h3 id="2-初始化项目"><a href="#2-初始化项目" class="headerlink" title="2. 初始化项目"></a>2. 初始化项目</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs js">npm init -y<br>npm install express<br></code></pre></td></tr></table></figure>
+
+<h3 id="3-创建服务文件-app-js"><a href="#3-创建服务文件-app-js" class="headerlink" title="3. 创建服务文件 app.js"></a>3. 创建服务文件 <code>app.js</code></h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js">nano app.<span class="hljs-property">js</span><br></code></pre></td></tr></table></figure>
+
+<p>粘贴以下代码：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">const</span> express = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;express&#x27;</span>);<br><span class="hljs-keyword">const</span> app = <span class="hljs-title function_">express</span>();<br><span class="hljs-keyword">const</span> port = <span class="hljs-number">3000</span>;<br><br>app.<span class="hljs-title function_">get</span>(<span class="hljs-string">&#x27;/&#x27;</span>, <span class="hljs-function">(<span class="hljs-params">req, res</span>) =&gt;</span> &#123;<br>  res.<span class="hljs-title function_">send</span>(<span class="hljs-string">&#x27;✅ Node.js 服务运行成功 - 通过 Nginx 代理访问&#x27;</span>);<br>&#125;);<br><br>app.<span class="hljs-title function_">get</span>(<span class="hljs-string">&#x27;/api/node&#x27;</span>, <span class="hljs-function">(<span class="hljs-params">req, res</span>) =&gt;</span> &#123;<br>  res.<span class="hljs-title function_">json</span>(&#123;<br>    <span class="hljs-attr">service</span>: <span class="hljs-string">&quot;nodejs&quot;</span>,<br>    <span class="hljs-attr">status</span>: <span class="hljs-string">&quot;running&quot;</span>,<br>    <span class="hljs-attr">port</span>: <span class="hljs-number">3000</span><br>  &#125;);<br>&#125;);<br><br>app.<span class="hljs-title function_">listen</span>(port, <span class="hljs-function">() =&gt;</span> &#123;<br>  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">`Node 服务运行在 http://localhost:<span class="hljs-subst">$&#123;port&#125;</span>`</span>);<br>&#125;);<br></code></pre></td></tr></table></figure>
+
+<h3 id="4-后台常驻运行"><a href="#4-后台常驻运行" class="headerlink" title="4. 后台常驻运行"></a>4. 后台常驻运行</h3><figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs crmsh">nohup <span class="hljs-keyword">node</span> <span class="hljs-title">app</span>.js &gt; node.log <span class="hljs-number">2</span>&gt;&amp;<span class="hljs-number">1</span> &amp;<br></code></pre></td></tr></table></figure>
+
+<p>Node 本地服务地址：<code>http://localhost:3000</code></p>
+<p><img src="https://cdn.jsdelivr.net/gh/XtangUser/blog-images@main/images/20260322192041731.png" srcset="/img/loading.gif" lazyload alt="image-20260322192041616"></p>
+<h2 id="六、实战-2：创建并运行-FastAPI-服务"><a href="#六、实战-2：创建并运行-FastAPI-服务" class="headerlink" title="六、实战 2：创建并运行 FastAPI 服务"></a>六、实战 2：创建并运行 FastAPI 服务</h2><h3 id="1-创建项目目录-1"><a href="#1-创建项目目录-1" class="headerlink" title="1. 创建项目目录"></a>1. 创建项目目录</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">mkdir</span> -p /opt/fastapi-demo<br><span class="hljs-built_in">cd</span> /opt/fastapi-demo<br></code></pre></td></tr></table></figure>
+
+<h3 id="2-创建服务文件-main-py"><a href="#2-创建服务文件-main-py" class="headerlink" title="2. 创建服务文件 main.py"></a>2. 创建服务文件 <code>main.py</code></h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js">nano main.<span class="hljs-property">py</span><br></code></pre></td></tr></table></figure>
+
+<p>粘贴以下代码：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> fastapi <span class="hljs-keyword">import</span> FastAPI<br><br>app = FastAPI()<br><br><span class="hljs-meta">@app.get(<span class="hljs-params"><span class="hljs-string">&quot;/&quot;</span></span>)</span><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">read_root</span>():<br>    <span class="hljs-keyword">return</span> &#123;<span class="hljs-string">&quot;message&quot;</span>: <span class="hljs-string">&quot;✅ FastAPI 服务运行成功 - 通过 Nginx 代理访问&quot;</span>&#125;<br><br><span class="hljs-meta">@app.get(<span class="hljs-params"><span class="hljs-string">&quot;/api/fastapi&quot;</span></span>)</span><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">read_api</span>():<br>    <span class="hljs-keyword">return</span> &#123;<br>        <span class="hljs-string">&quot;service&quot;</span>: <span class="hljs-string">&quot;fastapi&quot;</span>,<br>        <span class="hljs-string">&quot;status&quot;</span>: <span class="hljs-string">&quot;running&quot;</span>,<br>        <span class="hljs-string">&quot;port&quot;</span>: <span class="hljs-number">8000</span><br>    &#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="3-后台常驻运行"><a href="#3-后台常驻运行" class="headerlink" title="3. 后台常驻运行"></a>3. 后台常驻运行</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js">nohup uvicorn <span class="hljs-attr">main</span>:app --host <span class="hljs-number">0.0</span><span class="hljs-number">.0</span><span class="hljs-number">.0</span> --port <span class="hljs-number">8000</span> &gt; fastapi.<span class="hljs-property">log</span> <span class="hljs-number">2</span>&gt;&amp;<span class="hljs-number">1</span> &amp;<br></code></pre></td></tr></table></figure>
+
+<p>FastAPI 本地服务地址：<code>http://localhost:8000</code></p>
+<p><img src="https://cdn.jsdelivr.net/gh/XtangUser/blog-images@main/images/20260322192250472.png" srcset="/img/loading.gif" lazyload alt="image-20260322192250383"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/XtangUser/blog-images@main/images/20260322192608766.png" srcset="/img/loading.gif" lazyload alt="image-20260322192608683"></p>
+<h2 id="七、Nginx-反向代理配置（核心）"><a href="#七、Nginx-反向代理配置（核心）" class="headerlink" title="七、Nginx 反向代理配置（核心）"></a>七、Nginx 反向代理配置（核心）</h2><h3 id="1-创建-Nginx-配置文件"><a href="#1-创建-Nginx-配置文件" class="headerlink" title="1. 创建 Nginx 配置文件"></a>1. 创建 Nginx 配置文件</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js">sudo nano /etc/nginx/sites-available/full-stack.<span class="hljs-property">conf</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="2-粘贴代理配置"><a href="#2-粘贴代理配置" class="headerlink" title="2. 粘贴代理配置"></a>2. 粘贴代理配置</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><code class="hljs js"># 定义一个 <span class="hljs-string">&quot;服务器&quot;</span> 配置块，核心配置都写在这里<br>server &#123;<br><br>    # 监听 <span class="hljs-number">80</span> 端口（<span class="hljs-variable constant_">HTTP</span> 默认端口，浏览器访问不用加端口号）<br>    listen <span class="hljs-number">80</span>;<br><br>    # 服务器名称（本地测试用 localhost 即可，不用改）<br>    server_name localhost;<br><br><br>    ###########################################################<br>    # <span class="hljs-number">1.</span> 访问 /node/  → 自动转发到本机 <span class="hljs-number">3000</span> 端口的 <span class="hljs-title class_">Node</span>.<span class="hljs-property">js</span> 服务<br>    ###########################################################<br>    location /node/ &#123;<br>        # 核心：反向代理目标地址<br>        # 把 /node/ 开头的请求，转发给 <span class="hljs-attr">http</span>:<span class="hljs-comment">//127.0.0.1:3000</span><br>        proxy_pass <span class="hljs-attr">http</span>:<span class="hljs-comment">//127.0.0.1:3000/;</span><br><br>        # 把真实的域名/<span class="hljs-variable constant_">IP</span>传给后端服务<br>        proxy_set_header <span class="hljs-title class_">Host</span> $host;<br><br>        # 把用户真实<span class="hljs-variable constant_">IP</span>传给后端（方便日志、安全校验）<br>        proxy_set_header X-<span class="hljs-title class_">Real</span>-<span class="hljs-variable constant_">IP</span> $remote_addr;<br>    &#125;<br><br><br>    ###########################################################<br>    # <span class="hljs-number">2.</span> 访问 /fastapi/ → 自动转发到本机 <span class="hljs-number">8000</span> 端口的 <span class="hljs-title class_">FastAPI</span> 服务<br>    ###########################################################<br>    location /fastapi/ &#123;<br>        # 核心：反向代理到 <span class="hljs-title class_">FastAPI</span><br>        proxy_pass <span class="hljs-attr">http</span>:<span class="hljs-comment">//127.0.0.1:8000/;</span><br><br>        # 传递主机名<br>        proxy_set_header <span class="hljs-title class_">Host</span> $host;<br><br>        # 传递真实<span class="hljs-variable constant_">IP</span><br>        proxy_set_header X-<span class="hljs-title class_">Real</span>-<span class="hljs-variable constant_">IP</span> $remote_addr;<br>    &#125;<br><br><br>    ###########################################################<br>    # <span class="hljs-number">3.</span> 默认首页（直接访问<span class="hljs-variable constant_">IP</span>/域名，显示 <span class="hljs-title class_">Nginx</span> 欢迎页）<br>    ###########################################################<br>    location / &#123;<br>        # 网页文件所在目录<br>        root /<span class="hljs-keyword">var</span>/www/html;<br><br>        # 默认首页文件<br>        index index.<span class="hljs-property">html</span>;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs js"># <span class="hljs-number">1.</span> 确保目录存在<br>sudo mkdir -p /<span class="hljs-keyword">var</span>/www/html<br><br># <span class="hljs-number">2.</span> 生成一个简单的 index.<span class="hljs-property">html</span> 首页（解决文件缺失）<br>sudo echo <span class="hljs-string">&quot;&lt;h1&gt;✅ Nginx 主页正常！&lt;/h1&gt;&quot;</span> | sudo tee /<span class="hljs-keyword">var</span>/www/html/index.<span class="hljs-property">html</span><br><br># <span class="hljs-number">3.</span> 把目录权限交给 <span class="hljs-title class_">Nginx</span> 运行用户 www-data（解决权限问题）<br>sudo chown -R www-<span class="hljs-attr">data</span>:www-data /<span class="hljs-keyword">var</span>/www/html<br>sudo chmod -R <span class="hljs-number">755</span> /<span class="hljs-keyword">var</span>/www/html<br><br># <span class="hljs-number">4.</span> 重启 <span class="hljs-title class_">Nginx</span> 生效<br>sudo systemctl restart nginx<br></code></pre></td></tr></table></figure>
+
+
+
+<h3 id="3-启用配置并重启-Nginx"><a href="#3-启用配置并重启-Nginx" class="headerlink" title="3. 启用配置并重启 Nginx"></a>3. 启用配置并重启 Nginx</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs js"># 启用配置<br>sudo ln -s /etc/nginx/sites-available/full-stack.<span class="hljs-property">conf</span> /etc/nginx/sites-enabled/<br><br># 测试配置是否正确<br>sudo nginx -t<br><br># 重启 <span class="hljs-title class_">Nginx</span> 生效<br>sudo systemctl restart nginx<br></code></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="八、服务验证与测试"><a href="#八、服务验证与测试" class="headerlink" title="八、服务验证与测试"></a>八、服务验证与测试</h2><p>浏览器或 curl 访问：</p>
+<ul>
+<li>Nginx 首页：<code>http://你的服务器IP/</code></li>
+<li>Node.js 服务：<code>http://你的服务器IP/node/</code></li>
+<li>FastAPI 服务：<code>http://你的服务器IP/fastapi/</code></li>
+<li>Node 接口：<code>http://你的服务器IP/node/api/node</code></li>
+<li>FastAPI 接口：<code>http://你的服务器IP/fastapi/api/fastapi</code></li>
+</ul>
+<p>全部能正常访问即部署成功！</p>
+<hr>
+<p><img src="https://cdn.jsdelivr.net/gh/XtangUser/blog-images@main/images/20260322205109788.png" srcset="/img/loading.gif" lazyload alt="image-20260322205109658"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/XtangUser/blog-images@main/images/20260322205123420.png" srcset="/img/loading.gif" lazyload alt="image-20260322205123332"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/XtangUser/blog-images@main/images/20260322205137556.png" srcset="/img/loading.gif" lazyload alt="image-20260322205137457"></p>
+<h2 id="九、常用运维命令"><a href="#九、常用运维命令" class="headerlink" title="九、常用运维命令"></a>九、常用运维命令</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs js"># 查看 <span class="hljs-title class_">Nginx</span> 状态<br>sudo systemctl status nginx<br><br># 重启 <span class="hljs-title class_">Nginx</span><br>sudo systemctl restart nginx<br><br># 查看 <span class="hljs-title class_">Node</span> 服务进程<br>ps -ef | grep node<br><br># 查看 <span class="hljs-title class_">FastAPI</span> 服务进程<br>ps -ef | grep uvicorn<br><br># 关闭 <span class="hljs-title class_">Node</span> 服务<br>pkill -f <span class="hljs-string">&quot;node app.js&quot;</span><br><br># 关闭 <span class="hljs-title class_">FastAPI</span> 服务<br>pkill -f <span class="hljs-string">&quot;uvicorn&quot;</span><br></code></pre></td></tr></table></figure>
+
+<p><strong>上面是反向代理的功能，下面演示负载均衡</strong></p>
+<h2 id="一、打开-Nginx-配置文件"><a href="#一、打开-Nginx-配置文件" class="headerlink" title="一、打开 Nginx 配置文件"></a>一、打开 Nginx 配置文件</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js">sudo nano /etc/nginx/sites-available/full-stack.<span class="hljs-property">conf</span><br></code></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="二、直接粘贴【负载均衡最终配置】"><a href="#二、直接粘贴【负载均衡最终配置】" class="headerlink" title="二、直接粘贴【负载均衡最终配置】"></a>二、直接粘贴【负载均衡最终配置】</h2><p><strong>把你原来的内容全部删除，替换成我这个！</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><code class="hljs js">#  upstream 名字随便取，这里定义 <span class="hljs-number">2</span> 个后端服务<br>#  这就是负载均衡池<br> upstream backend_servers &#123;<br>    server <span class="hljs-number">127.0</span><span class="hljs-number">.0</span><span class="hljs-number">.1</span>:<span class="hljs-number">3000</span>;  # <span class="hljs-title class_">Node</span>.<span class="hljs-property">js</span><br>    server <span class="hljs-number">127.0</span><span class="hljs-number">.0</span><span class="hljs-number">.1</span>:<span class="hljs-number">8000</span>;  # <span class="hljs-title class_">FastAPI</span><br>&#125;<br><br>server &#123;<br>    listen <span class="hljs-number">80</span>;<br>    server_name <span class="hljs-number">192.168</span><span class="hljs-number">.94</span><span class="hljs-number">.128</span>;<br><br>    # 访问根目录 / → 自动负载均衡到 <span class="hljs-number">3000</span> 和 <span class="hljs-number">8000</span><br>    location / &#123;<br>        proxy_pass <span class="hljs-attr">http</span>:<span class="hljs-comment">//backend_servers;  # 关键！转发给上面定义的池</span><br>        proxy_set_header <span class="hljs-title class_">Host</span> $host;<br>        proxy_set_header X-<span class="hljs-title class_">Real</span>-<span class="hljs-variable constant_">IP</span> $remote_addr;<br>    &#125;<br><br>    # 如果你还想单独访问 node → 保留<br>    location /node &#123;<br>        proxy_pass <span class="hljs-attr">http</span>:<span class="hljs-comment">//127.0.0.1:3000;</span><br>    &#125;<br><br>    # 单独访问 fastapi → 保留<br>    location /fastapi &#123;<br>        proxy_pass <span class="hljs-attr">http</span>:<span class="hljs-comment">//127.0.0.1:8000;</span><br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="三、保存退出"><a href="#三、保存退出" class="headerlink" title="三、保存退出"></a>三、保存退出</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-title class_">Ctrl</span> + O<br>回车<br><span class="hljs-title class_">Ctrl</span> + X<br></code></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="四、重启-Nginx-生效"><a href="#四、重启-Nginx-生效" class="headerlink" title="四、重启 Nginx 生效"></a>四、重启 Nginx 生效</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js">sudo systemctl restart nginx<br></code></pre></td></tr></table></figure>
+
+<hr>
+<p>✅ 负载均衡效果（你马上能看到）</p>
+<figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs dts"><span class="hljs-symbol">http:</span><span class="hljs-comment">//192.168.94.128</span><br></code></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>第 1 次访问 → Node.js</strong></li>
+<li><strong>第 2 次访问 → FastAPI</strong></li>
+<li><strong>第 3 次访问 → Node.js</strong></li>
+<li><strong>第 4 次访问 → FastAPI</strong></li>
+</ul>
+<p>Nginx <strong>自动轮流分发请求</strong> ✅</p>
+<p><img src="https://cdn.jsdelivr.net/gh/XtangUser/blog-images@main/images/20260322205640973.png" srcset="/img/loading.gif" lazyload alt="image-20260322205640875"></p>
+<hr>
+<p><img src="https://cdn.jsdelivr.net/gh/XtangUser/blog-images@main/images/20260322205657427.png" srcset="/img/loading.gif" lazyload alt="image-20260322205657325"></p>
+<h1 id="🔥-这就是-Nginx-负载均衡！"><a href="#🔥-这就是-Nginx-负载均衡！" class="headerlink" title="🔥 这就是 Nginx 负载均衡！"></a>🔥 这就是 Nginx 负载均衡！</h1><ul>
+<li>自动分发流量</li>
+<li>自动轮询（round-robin）</li>
+<li>自动容错</li>
+<li>支持无限加服务</li>
+</ul>
+<p>剩下的配置，你可以自己用ai配置</p>
+<p>包含你想要的全部高级功能：</p>
+<p>✅ <strong>权重负载均衡</strong></p>
+<p>✅ <strong>IP 哈希绑定</strong>（同一个 IP 永远访问同一个服务）</p>
+<p>✅ <strong>自动健康检查</strong>（服务挂了自动踢除）</p>
+<p>✅ <strong>超时、重试、高可用配置</strong></p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E8%BF%90%E7%BB%B4/" class="category-chain-item">运维</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Nginx/" class="print-no-link">#Nginx</a>
+      
+        <a href="/tags/FastAPI/" class="print-no-link">#FastAPI</a>
+      
+        <a href="/tags/Node-js/" class="print-no-link">#Node.js</a>
+      
+        <a href="/tags/Ubuntu/" class="print-no-link">#Ubuntu</a>
+      
+        <a href="/tags/%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/" class="print-no-link">#反向代理</a>
+      
+        <a href="/tags/%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1/" class="print-no-link">#负载均衡</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Ubuntu 安装 Nginx + Node.js + FastAPI 完整实战教程</div>
+      <div>https://tsyangblog.site/2026/03/22/运维/Ubuntu 安装 Nginx + Node.js + FastAPI 完整实战教程/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>小唐</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2026年3月22日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2026/03/21/%E5%B7%A5%E5%85%B7%E7%AE%B1/VSCODE%E9%85%8D%E7%BD%AEskills%E7%9A%84%E8%AF%A6%E7%BB%86%E6%95%99%E7%A8%8B/" title="VSCODE配置skills的详细教程">
+                        <span class="hidden-mobile">VSCODE配置skills的详细教程</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div id="gitalk-container"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#gitalk-container', function() {
+      Fluid.utils.createCssLink('/css/gitalk.css')
+      Fluid.utils.createScript('https://lib.baomitu.com/gitalk/1.8.0/gitalk.min.js', function() {
+        var options = Object.assign(
+          {"clientID":"Ov23liZQDI8BrS44zUL7","clientSecret":"075fad544223a91a3529c013c644d5f341ff6e1d","repo":"blog_comments","owner":"XtangUser","admin":["XtangUser"],"language":"zh-CN","labels":["Gitalk","Comment"],"perPage":10,"pagerDirection":"last","distractionFreeMode":false,"createIssueManually":false,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token"},
+          {
+            id: '53508871157c678e2f8c56577e902552'
+          }
+        )
+        var gitalk = new Gitalk(options);
+        gitalk.render('gitalk-container');
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+      用代码记录生活，用文字传递温度
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="openkounter-site-pv-container" style="display: none">
+        总访问量 
+        <span id="openkounter-site-pv"></span>
+         次
+      </span>
+    
+    
+      <span id="openkounter-site-uv-container" style="display: none">
+        总访客数 
+        <span id="openkounter-site-uv"></span>
+         人
+      </span>
+    
+    
+
+  
+
+</div>
+
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    function isExpandAllEnabled() {
+      return CONFIG.toc && CONFIG.toc.expand_all === true;
+    }
+    function expandAllToc() {
+      if (!isExpandAllEnabled()) { return; }
+      jQuery('#toc-body .tocbot-is-collapsed').removeClass('tocbot-is-collapsed');
+    }
+    function updateTocToggle($li, $childList) {
+      var $toggle = $li.children('.toc-toggle');
+      if ($toggle.length === 0) { return; }
+      var collapsed = $childList.hasClass('tocbot-is-collapsed');
+      $toggle
+        .toggleClass('toc-toggle-collapsed', collapsed)
+        .toggleClass('toc-toggle-expanded', !collapsed);
+    }
+    function bindTocToggle() {
+      if (!isExpandAllEnabled()) { return; }
+      jQuery('#toc-body .toc-list-item').each(function() {
+        var $li = jQuery(this);
+        var $childList = $li.children('ol');
+        if ($childList.length === 0) {
+          if ($li.children('.toc-toggle').length === 0) {
+            $li.prepend('<span class="toc-toggle toc-toggle-placeholder" aria-hidden="true">›</span>');
+          }
+          return;
+        }
+
+        if ($li.children('.toc-toggle').length === 0) {
+          $li.prepend('<span class="toc-toggle toc-toggle-expanded" aria-hidden="true">›</span>');
+        }
+        updateTocToggle($li, $childList);
+      });
+      jQuery('#toc-body').off('click.tocToggle').on('click.tocToggle', '.toc-toggle', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        var $li = jQuery(this).parent('.toc-list-item');
+        var $childList = $li.children('ol');
+        if ($childList.length === 0) { return; }
+        $childList.toggleClass('tocbot-is-collapsed');
+        updateTocToggle($li, $childList);
+      });
+      if (!window.__tocToggleObserver) {
+        window.__tocToggleObserver = new MutationObserver(function(mutations) {
+          mutations.forEach(function(mutation) {
+            if (mutation.type !== 'attributes' || mutation.attributeName !== 'class') { return; }
+            var $list = jQuery(mutation.target);
+            var $li = $list.parent('.toc-list-item');
+            if ($li.length === 0) { return; }
+            updateTocToggle($li, $list);
+          });
+        });
+        jQuery('#toc-body ol').each(function() {
+          window.__tocToggleObserver.observe(this, { attributes: true });
+        });
+      }
+    }
+    var tocConfig = Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc);
+    if (isExpandAllEnabled()) {
+      tocConfig.collapseDepth = 6;
+    }
+    window.tocbot.init(tocConfig);
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+    expandAllToc();
+    bindTocToggle();
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+        expandAllToc();
+        bindTocToggle();
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script defer src="/js/openkounter.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+<!-- hexo injector body_end start --><script defer src="/js/mouse-particles.js"></script><script defer src="/js/live2d-helper.js"></script><script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "d25f7f4a1df0482f859f16ff4400fe43"}'></script><!-- hexo injector body_end end --><script src="https://cdn.jsdelivr.net/npm/live2d-widget@^3.1.3/lib/L2Dwidget.min.js"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"scale":1,"hHeadPos":0.5,"vHeadPos":0.618,"jsonPath":"https://cdn.jsdelivr.net/npm/live2d-widget-model-koharu@1.0.5/assets/koharu.model.json"},"display":{"superSample":2,"position":"left","width":200,"height":400,"hOffset":20,"vOffset":-20},"mobile":{"show":true,"scale":0.8},"react":{"opacityDefault":0.9,"opacityOnHover":0.3}});</script></body>
+</html>

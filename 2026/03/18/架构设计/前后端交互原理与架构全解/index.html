@@ -1,0 +1,1556 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head><!-- hexo injector head_begin start --><meta name="referrer" content="no-referrer"><!-- hexo injector head_begin end -->
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/avatar.jpg">
+  <link rel="icon" href="/img/avatar.jpg">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#0891b2">
+  <meta name="author" content="小唐">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="前后端交互原理与架构全解 一、总体架构概览现代 Web 应用采用三层架构（Three-Tier Architecture）： 1用户（浏览器） ⟷ 前端（Client） ⟷ 后端（Server） ⟷ 数据库（Database）    二、前端部分2.1 前端是什么前端是用户直接看到和操作的部分，运行在用户的浏览器中。 核心三件套：    技术 职责    HTML 结构（骨架）   CSS 样式（">
+<meta property="og:type" content="article">
+<meta property="og:title" content="前后端交互原理与架构全解">
+<meta property="og:url" content="https://tsyangblog.site/2026/03/18/%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/%E5%89%8D%E5%90%8E%E7%AB%AF%E4%BA%A4%E4%BA%92%E5%8E%9F%E7%90%86%E4%B8%8E%E6%9E%B6%E6%9E%84%E5%85%A8%E8%A7%A3/index.html">
+<meta property="og:site_name" content="别催小唐敲代码">
+<meta property="og:description" content="前后端交互原理与架构全解 一、总体架构概览现代 Web 应用采用三层架构（Three-Tier Architecture）： 1用户（浏览器） ⟷ 前端（Client） ⟷ 后端（Server） ⟷ 数据库（Database）    二、前端部分2.1 前端是什么前端是用户直接看到和操作的部分，运行在用户的浏览器中。 核心三件套：    技术 职责    HTML 结构（骨架）   CSS 样式（">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/XtangUser/blog-images@main/images/20260318112904501.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/XtangUser/blog-images@main/images/20260318112859865.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/XtangUser/blog-images@main/images/20260318113038803.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/XtangUser/blog-images@main/images/20260318113145332.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/XtangUser/blog-images@main/images/20260318142128143.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/XtangUser/blog-images@main/images/20260318113357097.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/XtangUser/blog-images@main/images/20260318113448225.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/XtangUser/blog-images@main/images/20260318113555492.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/XtangUser/blog-images@main/images/20260318113808939.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/XtangUser/blog-images@main/images/20260318114009992.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/XtangUser/blog-images@main/images/20260318114152769.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/XtangUser/blog-images@main/images/20260318114332306.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/XtangUser/blog-images@main/images/20260318114445842.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/XtangUser/blog-images@main/images/20260318114603606.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/XtangUser/blog-images@main/images/20260318114901388.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/XtangUser/blog-images@main/images/20260318115055231.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/XtangUser/blog-images@main/images/20260318143139568.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/XtangUser/blog-images@main/images/20260318115235182.png">
+<meta property="article:published_time" content="2026-03-17T16:00:00.000Z">
+<meta property="article:modified_time" content="2026-03-18T07:07:13.917Z">
+<meta property="article:author" content="小唐">
+<meta property="article:tag" content="HTTP协议">
+<meta property="article:tag" content="前后端交互">
+<meta property="article:tag" content="数据库连接">
+<meta property="article:tag" content="架构设计">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/XtangUser/blog-images@main/images/20260318112904501.png">
+  
+  
+  
+  <title>前后端交互原理与架构全解 - 别催小唐敲代码</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"tsyangblog.site","root":"/","version":"1.9.9","typing":{"enable":true,"typeSpeed":100,"cursorChar":"|","loop":true,"scope":["home"]},"anchorjs":{"enable":true,"element":"h2,h3,h4","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#0ea5e9","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"expand_all":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0,"number":false,"scrollSmooth":true,"scrollSmoothOffset":-5},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":false,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"openkounter":{"server_url":"https://blog-counter.221036109.workers.dev","path":"window.location.pathname","ignore_local":true},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+
+  
+<!-- hexo injector head_end start --><link rel="stylesheet" href="/css/custom.css"><style>#live2dcanvas{position:fixed!important;left:0!important;bottom:0!important;z-index:999999!important;pointer-events:auto!important;width:200px!important;height:400px!important;}</style><!-- hexo injector head_end end --><meta name="generator" content="Hexo 8.1.1"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 55vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>别催小唐敲代码</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content (desktop) -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>主页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>时间轴</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile grid menu overlay -->
+<div id="mobile-grid-menu" class="d-lg-none">
+  <div class="mobile-grid-menu-inner">
+    <div class="container">
+      <div class="row">
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-home-fill"></i>
+                  <span>主页</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/archives/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-archive-fill"></i>
+                  <span>时间轴</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/tags/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-tags-fill"></i>
+                  <span>标签</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/categories/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-category-fill"></i>
+                  <span>分类</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/about/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-user-fill"></i>
+                  <span>关于</span>
+                </div>
+              </a>
+            </div>
+          
+        
+        
+          <div class="col-4 mobile-grid-cell" id="mobile-search-btn">
+            <a href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <div class="mobile-grid-item">
+                <i class="iconfont icon-search"></i>
+                <span>搜索</span>
+              </div>
+            </a>
+          </div>
+        
+        
+          <div class="col-4 mobile-grid-cell" id="mobile-color-toggle-btn"
+               data-label-light="开灯"
+               data-label-dark="关灯">
+            <a href="javascript:;" aria-label="Color Toggle">
+              <div class="mobile-grid-item">
+                <i class="iconfont icon-dark" id="mobile-color-toggle-icon"></i>
+                <span id="mobile-color-toggle-label">关灯</span>
+              </div>
+            </a>
+          </div>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('https://images.unsplash.com/photo-1519681393784-d120267933ba?w=1920&q=80') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.35)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle">前后端交互原理与架构全解</span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2026-03-18 00:00" pubdate>
+          2026年3月18日
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          <!-- compatible with older versions-->
+          10k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          <!-- compatible with older versions-->
+          21 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="openkounter-page-views-container" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="openkounter-page-views"></span> 次
+        </span>
+        
+
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">前后端交互原理与架构全解</h1>
+            
+              <p id="updated-time" class="note note-info" style="">
+                
+                  
+                    <!-- compatible with older versions-->
+                    最后更新于：2026年3月18日 下午
+                  
+                
+              </p>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="前后端交互原理与架构全解"><a href="#前后端交互原理与架构全解" class="headerlink" title="前后端交互原理与架构全解"></a>前后端交互原理与架构全解</h1><hr>
+<h2 id="一、总体架构概览"><a href="#一、总体架构概览" class="headerlink" title="一、总体架构概览"></a>一、总体架构概览</h2><p>现代 Web 应用采用<strong>三层架构</strong>（Three-Tier Architecture）：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js">用户（浏览器） ⟷ 前端（<span class="hljs-title class_">Client</span>） ⟷ 后端（<span class="hljs-title class_">Server</span>） ⟷ 数据库（<span class="hljs-title class_">Database</span>）<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/XtangUser/blog-images@main/images/20260318112904501.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<hr>
+<h2 id="二、前端部分"><a href="#二、前端部分" class="headerlink" title="二、前端部分"></a>二、前端部分</h2><h3 id="2-1-前端是什么"><a href="#2-1-前端是什么" class="headerlink" title="2.1 前端是什么"></a>2.1 前端是什么</h3><p>前端是用户直接看到和操作的部分，运行在<strong>用户的浏览器</strong>中。</p>
+<p>核心三件套：</p>
+<table>
+<thead>
+<tr>
+<th>技术</th>
+<th>职责</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>HTML</strong></td>
+<td>结构（骨架）</td>
+</tr>
+<tr>
+<td><strong>CSS</strong></td>
+<td>样式（皮肤）</td>
+</tr>
+<tr>
+<td><strong>JavaScript</strong></td>
+<td>行为（交互逻辑）</td>
+</tr>
+</tbody></table>
+<p>现代前端通常使用框架：React、Vue、Angular 等，它们最终都会被编译成 HTML + CSS + JS。</p>
+<h3 id="2-2-前端资源的加载过程"><a href="#2-2-前端资源的加载过程" class="headerlink" title="2.2 前端资源的加载过程"></a>2.2 前端资源的加载过程</h3><p>当用户在浏览器输入 URL 并回车：</p>
+<ol>
+<li><strong>DNS 解析</strong>：将域名（如 <code>www.example.com</code>）解析为 IP 地址（如 <code>93.184.216.34</code>）</li>
+<li><strong>TCP 三次握手</strong>：浏览器与服务器建立 TCP 连接</li>
+<li><strong>TLS 握手</strong>（若 HTTPS）：建立加密通道</li>
+<li><strong>发送 HTTP 请求</strong>：<code>GET / HTTP/1.1</code></li>
+<li><strong>服务器返回 HTML</strong>：浏览器开始解析</li>
+<li><strong>解析 HTML 时发现 CSS&#x2F;JS&#x2F;图片等资源</strong>：再次发起 HTTP 请求获取</li>
+<li><strong>渲染页面</strong>：构建 DOM 树 → CSSOM 树 → 合成渲染树 → 布局 → 绘制</li>
+</ol>
+<p><img src="https://cdn.jsdelivr.net/gh/XtangUser/blog-images@main/images/20260318112859865.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<hr>
+<h2 id="三、前后端交互"><a href="#三、前后端交互" class="headerlink" title="三、前后端交互"></a>三、前后端交互</h2><h3 id="3-1-核心协议：HTTP-HTTPS"><a href="#3-1-核心协议：HTTP-HTTPS" class="headerlink" title="3.1 核心协议：HTTP&#x2F;HTTPS"></a>3.1 核心协议：HTTP&#x2F;HTTPS</h3><p><strong>HTTP</strong>（HyperText Transfer Protocol）是前后端通信的基础协议，基于<strong>请求-响应</strong>模型。</p>
+<h4 id="HTTP-请求的结构"><a href="#HTTP-请求的结构" class="headerlink" title="HTTP 请求的结构"></a>HTTP 请求的结构</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-variable constant_">POST</span> /api/users <span class="hljs-variable constant_">HTTP</span>/<span class="hljs-number">1.1</span>          ← 请求行（方法 + 路径 + 协议版本）<br><span class="hljs-title class_">Host</span>: www.<span class="hljs-property">example</span>.<span class="hljs-property">com</span>              ← 请求头（<span class="hljs-title class_">Headers</span>）<br><span class="hljs-title class_">Content</span>-<span class="hljs-title class_">Type</span>: application/json<br><span class="hljs-title class_">Authorization</span>: <span class="hljs-title class_">Bearer</span> eyJhbGc...<br><br>&#123;                                  ← 请求体（<span class="hljs-title class_">Body</span>）<br>  <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;张三&quot;</span>,<br>  <span class="hljs-string">&quot;age&quot;</span>: <span class="hljs-number">25</span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h4 id="HTTP-响应的结构"><a href="#HTTP-响应的结构" class="headerlink" title="HTTP 响应的结构"></a>HTTP 响应的结构</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-variable constant_">HTTP</span>/<span class="hljs-number">1.1</span> <span class="hljs-number">200</span> <span class="hljs-variable constant_">OK</span>                    ← 状态行（协议版本 + 状态码 + 原因短语）<br><span class="hljs-title class_">Content</span>-<span class="hljs-title class_">Type</span>: application/json     ← 响应头<br><span class="hljs-title class_">Set</span>-<span class="hljs-title class_">Cookie</span>: session=abc123<br><br>&#123;                                  ← 响应体<br>  <span class="hljs-string">&quot;id&quot;</span>: <span class="hljs-number">1</span>,<br>  <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;张三&quot;</span>,<br>  <span class="hljs-string">&quot;age&quot;</span>: <span class="hljs-number">25</span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h4 id="常见-HTTP-方法"><a href="#常见-HTTP-方法" class="headerlink" title="常见 HTTP 方法"></a>常见 HTTP 方法</h4><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>语义</th>
+<th>典型用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>GET</code></td>
+<td>获取资源</td>
+<td>查询数据</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td>创建资源</td>
+<td>提交表单、新增数据</td>
+</tr>
+<tr>
+<td><code>PUT</code></td>
+<td>全量更新资源</td>
+<td>修改整条记录</td>
+</tr>
+<tr>
+<td><code>PATCH</code></td>
+<td>部分更新资源</td>
+<td>修改某个字段</td>
+</tr>
+<tr>
+<td><code>DELETE</code></td>
+<td>删除资源</td>
+<td>删除数据</td>
+</tr>
+</tbody></table>
+<h4 id="常见状态码"><a href="#常见状态码" class="headerlink" title="常见状态码"></a>常见状态码</h4><table>
+<thead>
+<tr>
+<th>状态码</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>200</code></td>
+<td>成功</td>
+</tr>
+<tr>
+<td><code>201</code></td>
+<td>创建成功</td>
+</tr>
+<tr>
+<td><code>301/302</code></td>
+<td>重定向</td>
+</tr>
+<tr>
+<td><code>400</code></td>
+<td>客户端请求错误</td>
+</tr>
+<tr>
+<td><code>401</code></td>
+<td>未认证</td>
+</tr>
+<tr>
+<td><code>403</code></td>
+<td>无权限</td>
+</tr>
+<tr>
+<td><code>404</code></td>
+<td>资源不存在</td>
+</tr>
+<tr>
+<td><code>500</code></td>
+<td>服务器内部错误</td>
+</tr>
+</tbody></table>
+<h4 id="HTTPS-HTTP-TLS-SSL"><a href="#HTTPS-HTTP-TLS-SSL" class="headerlink" title="HTTPS &#x3D; HTTP + TLS&#x2F;SSL"></a>HTTPS &#x3D; HTTP + TLS&#x2F;SSL</h4><p>HTTPS 在 HTTP 之下加了一层 <strong>TLS（Transport Layer Security）</strong> 加密层：</p>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs armasm">应用层：   HTTP<br>安全层：   TLS/SSL        ← HTTPS 加的这一层<br>传输层：   TCP<br>网络层：   <span class="hljs-built_in">IP</span><br></code></pre></td></tr></table></figure>
+
+<p>TLS 的作用：</p>
+<ul>
+<li><strong>加密</strong>：防止数据被窃听</li>
+<li><strong>完整性</strong>：防止数据被篡改</li>
+<li><strong>身份验证</strong>：通过证书确认服务器身份</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/XtangUser/blog-images@main/images/20260318113038803.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<h3 id="3-2-数据交换格式"><a href="#3-2-数据交换格式" class="headerlink" title="3.2 数据交换格式"></a>3.2 数据交换格式</h3><p>前后端之间传递的数据需要统一格式，最常用的是 <strong>JSON</strong>。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs js">&#123;<br>  <span class="hljs-string">&quot;code&quot;</span>: <span class="hljs-number">200</span>,<br>  <span class="hljs-string">&quot;message&quot;</span>: <span class="hljs-string">&quot;success&quot;</span>,<br>  <span class="hljs-string">&quot;data&quot;</span>: &#123;<br>    <span class="hljs-string">&quot;id&quot;</span>: <span class="hljs-number">1</span>,<br>    <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;张三&quot;</span>,<br>    <span class="hljs-string">&quot;email&quot;</span>: <span class="hljs-string">&quot;zhangsan@example.com&quot;</span><br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>其他格式还有：XML、FormData、Protocol Buffers 等。</p>
+<h3 id="3-3-API-设计风格：RESTful"><a href="#3-3-API-设计风格：RESTful" class="headerlink" title="3.3 API 设计风格：RESTful"></a>3.3 API 设计风格：RESTful</h3><p><strong>REST</strong>（Representational State Transfer）是一种 API 设计约定：</p>
+<ul>
+<li>用 <strong>URL 表示资源</strong>：<code>/api/users</code>、<code>/api/users/1</code></li>
+<li>用 <strong>HTTP 方法表示操作</strong>：GET（查）、POST（增）、PUT（改）、DELETE（删）</li>
+<li><strong>无状态</strong>：每次请求都携带完整信息，服务器不存储客户端状态</li>
+</ul>
+<p>示例：</p>
+<table>
+<thead>
+<tr>
+<th>操作</th>
+<th>HTTP 方法</th>
+<th>URL</th>
+<th>请求体</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>获取所有用户</td>
+<td><code>GET</code></td>
+<td><code>/api/users</code></td>
+<td>无</td>
+</tr>
+<tr>
+<td>获取单个用户</td>
+<td><code>GET</code></td>
+<td><code>/api/users/1</code></td>
+<td>无</td>
+</tr>
+<tr>
+<td>创建用户</td>
+<td><code>POST</code></td>
+<td><code>/api/users</code></td>
+<td><code>{&quot;name&quot;:&quot;张三&quot;}</code></td>
+</tr>
+<tr>
+<td>修改用户</td>
+<td><code>PUT</code></td>
+<td><code>/api/users/1</code></td>
+<td><code>{&quot;name&quot;:&quot;李四&quot;}</code></td>
+</tr>
+<tr>
+<td>删除用户</td>
+<td><code>DELETE</code></td>
+<td><code>/api/users/1</code></td>
+<td>无</td>
+</tr>
+</tbody></table>
+<p><img src="https://cdn.jsdelivr.net/gh/XtangUser/blog-images@main/images/20260318113145332.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<h3 id="3-4-前端发起请求的方式"><a href="#3-4-前端发起请求的方式" class="headerlink" title="3.4 前端发起请求的方式"></a>3.4 前端发起请求的方式</h3><h4 id="方式一：浏览器原生"><a href="#方式一：浏览器原生" class="headerlink" title="方式一：浏览器原生"></a>方式一：浏览器原生</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">// Fetch API（现代标准）</span><br><span class="hljs-title function_">fetch</span>(<span class="hljs-string">&#x27;/api/users&#x27;</span>, &#123;<br>  <span class="hljs-attr">method</span>: <span class="hljs-string">&#x27;POST&#x27;</span>,<br>  <span class="hljs-attr">headers</span>: &#123; <span class="hljs-string">&#x27;Content-Type&#x27;</span>: <span class="hljs-string">&#x27;application/json&#x27;</span> &#125;,<br>  <span class="hljs-attr">body</span>: <span class="hljs-title class_">JSON</span>.<span class="hljs-title function_">stringify</span>(&#123; <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;张三&#x27;</span> &#125;)<br>&#125;)<br>.<span class="hljs-title function_">then</span>(<span class="hljs-function"><span class="hljs-params">response</span> =&gt;</span> response.<span class="hljs-title function_">json</span>())<br>.<span class="hljs-title function_">then</span>(<span class="hljs-function"><span class="hljs-params">data</span> =&gt;</span> <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(data));<br></code></pre></td></tr></table></figure>
+
+<h4 id="方式二：第三方库（Axios）"><a href="#方式二：第三方库（Axios）" class="headerlink" title="方式二：第三方库（Axios）"></a>方式二：第三方库（Axios）</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs js">axios.<span class="hljs-title function_">post</span>(<span class="hljs-string">&#x27;/api/users&#x27;</span>, &#123; <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;张三&#x27;</span> &#125;)<br>  .<span class="hljs-title function_">then</span>(<span class="hljs-function"><span class="hljs-params">response</span> =&gt;</span> <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(response.<span class="hljs-property">data</span>));<br></code></pre></td></tr></table></figure>
+
+<h3 id="3-5-同步-vs-异步通信"><a href="#3-5-同步-vs-异步通信" class="headerlink" title="3.5 同步 vs 异步通信"></a>3.5 同步 vs 异步通信</h3><p>上面的 HTTP 请求-响应是<strong>同步的一次性通信</strong>。但有些场景需要<strong>实时推送</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>方式</th>
+<th>协议</th>
+<th>说明</th>
+<th>适用场景</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>轮询（Polling）</strong></td>
+<td>HTTP</td>
+<td>前端定时发请求</td>
+<td>简单场景</td>
+</tr>
+<tr>
+<td><strong>长轮询（Long Polling）</strong></td>
+<td>HTTP</td>
+<td>服务器hold住请求直到有新数据</td>
+<td>通知类</td>
+</tr>
+<tr>
+<td><strong>SSE</strong></td>
+<td>HTTP</td>
+<td>服务器单向推送</td>
+<td>实时日志、股票</td>
+</tr>
+<tr>
+<td><strong>WebSocket</strong></td>
+<td>WS&#x2F;WSS</td>
+<td>全双工双向通信</td>
+<td>聊天、游戏、协同编辑</td>
+</tr>
+</tbody></table>
+<h4 id="WebSocket-协议"><a href="#WebSocket-协议" class="headerlink" title="WebSocket 协议"></a>WebSocket 协议</h4><p>WebSocket 的建立过程：</p>
+<ol>
+<li>客户端发送一个特殊的 HTTP 请求（Upgrade 请求）</li>
+<li>服务器同意升级，返回 <code>101 Switching Protocols</code></li>
+<li>此后双方通过同一个 TCP 连接进行<strong>双向实时通信</strong></li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs js">客户端 → 服务器：<br><span class="hljs-variable constant_">GET</span> /chat <span class="hljs-variable constant_">HTTP</span>/<span class="hljs-number">1.1</span><br><span class="hljs-title class_">Upgrade</span>: websocket<br><span class="hljs-title class_">Connection</span>: <span class="hljs-title class_">Upgrade</span><br><span class="hljs-title class_">Sec</span>-<span class="hljs-title class_">WebSocket</span>-<span class="hljs-title class_">Key</span>: dGhlIHNhbXBsZSBub25jZQ==<br><br>服务器 → 客户端：<br><span class="hljs-variable constant_">HTTP</span>/<span class="hljs-number">1.1</span> <span class="hljs-number">101</span> <span class="hljs-title class_">Switching</span> <span class="hljs-title class_">Protocols</span><br><span class="hljs-title class_">Upgrade</span>: websocket<br><span class="hljs-title class_">Connection</span>: <span class="hljs-title class_">Upgrade</span><br><span class="hljs-title class_">Sec</span>-<span class="hljs-title class_">WebSocket</span>-<span class="hljs-title class_">Accept</span>: s3pPLMBiTxaQ9kYGzzhZRbK+xOo=<br><br>（之后就是 <span class="hljs-title class_">WebSocket</span> 帧，不再是 <span class="hljs-variable constant_">HTTP</span> 了）<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/XtangUser/blog-images@main/images/20260318142128143.png" srcset="/img/loading.gif" lazyload alt="019bc4a1-4d0a-7c50-a104-ed60ee59f99b&#x2F;1773804738433-019cff00-1a8a-7ab2-91fe-5aca660e8b88.png"></p>
+<hr>
+<h2 id="四、后端部分"><a href="#四、后端部分" class="headerlink" title="四、后端部分"></a>四、后端部分</h2><h3 id="4-1-后端的职责"><a href="#4-1-后端的职责" class="headerlink" title="4.1 后端的职责"></a>4.1 后端的职责</h3><p>后端（服务器端）负责：</p>
+<ul>
+<li><strong>接收请求</strong>：解析前端发来的 HTTP 请求</li>
+<li><strong>业务逻辑</strong>：验证、计算、权限判断等</li>
+<li><strong>数据存取</strong>：与数据库交互</li>
+<li><strong>返回响应</strong>：将结果序列化（通常为 JSON）返回前端</li>
+</ul>
+<h3 id="4-2-后端架构"><a href="#4-2-后端架构" class="headerlink" title="4.2 后端架构"></a>4.2 后端架构</h3><h4 id="单体架构（Monolithic）"><a href="#单体架构（Monolithic）" class="headerlink" title="单体架构（Monolithic）"></a>单体架构（Monolithic）</h4><p>所有功能模块打包在一个应用中：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs js">┌─────────────────────────────────────┐<br>│            后端应用（单体）            │<br>│  ┌──────┐ ┌──────┐ ┌──────┐        │<br>│  │用户模块│ │订单模块│ │支付模块│       │<br>│  └──────┘ └──────┘ └──────┘        │<br>│  ┌─────────────────────────────┐    │<br>│  │       数据访问层（<span class="hljs-variable constant_">DAO</span>/<span class="hljs-variable constant_">ORM</span>）     │    │<br>│  └─────────────────────────────┘    │<br>└─────────────────────────────────────┘<br>                  │<br>              ┌───┴───┐<br>              │ 数据库  │<br>              └───────┘<br></code></pre></td></tr></table></figure>
+
+<h4 id="微服务架构（Microservices）"><a href="#微服务架构（Microservices）" class="headerlink" title="微服务架构（Microservices）"></a>微服务架构（Microservices）</h4><p>每个功能拆分为独立的服务，通过网络通信：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs js">┌──────────┐  ┌──────────┐  ┌──────────┐<br>│ 用户服务   │  │ 订单服务   │  │ 支付服务   │<br>│  :<span class="hljs-number">8001</span>    │  │  :<span class="hljs-number">8002</span>    │  │  :<span class="hljs-number">8003</span>    │<br>└─────┬────┘  └─────┬────┘  └─────┬────┘<br>      │             │             │<br>   ┌──┴──┐      ┌──┴──┐      ┌──┴──┐<br>   │用户<span class="hljs-variable constant_">DB</span>│      │订单<span class="hljs-variable constant_">DB</span>│      │支付<span class="hljs-variable constant_">DB</span>│<br>   └─────┘      └─────┘      └─────┘<br></code></pre></td></tr></table></figure>
+
+<p>微服务之间的通信方式：</p>
+<ul>
+<li><strong>同步</strong>：HTTP&#x2F;REST、gRPC（基于 HTTP&#x2F;2 + Protocol Buffers）</li>
+<li><strong>异步</strong>：消息队列（RabbitMQ、Kafka）</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/XtangUser/blog-images@main/images/20260318113357097.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<h3 id="4-3-后端分层架构（MVC-三层架构）"><a href="#4-3-后端分层架构（MVC-三层架构）" class="headerlink" title="4.3 后端分层架构（MVC &#x2F; 三层架构）"></a>4.3 后端分层架构（MVC &#x2F; 三层架构）</h3><p>后端内部通常分为以下几层：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-variable constant_">HTTP</span> 请求进入<br>     ↓<br>┌─────────────────────┐<br>│  <span class="hljs-title class_">Controller</span> 层（控制器）│  ← 接收请求、参数校验、调用<span class="hljs-title class_">Service</span><br>└──────────┬──────────┘<br>           ↓<br>┌─────────────────────┐<br>│  <span class="hljs-title class_">Service</span> 层（业务逻辑）  │  ← 核心业务处理、事务管理<br>└──────────┬──────────┘<br>           ↓<br>┌─────────────────────┐<br>│  <span class="hljs-variable constant_">DAO</span>/<span class="hljs-title class_">Repository</span> 层    │  ← 数据库操作（<span class="hljs-variable constant_">CRUD</span>）<br>│  （数据访问层）         │<br>└──────────┬──────────┘<br>           ↓<br>┌─────────────────────┐<br>│  数据库（<span class="hljs-title class_">MySQL</span>等）      │<br>└─────────────────────┘<br></code></pre></td></tr></table></figure>
+
+<p>各层职责说明：</p>
+<table>
+<thead>
+<tr>
+<th>层</th>
+<th>职责</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Controller</strong></td>
+<td>路由分发、参数解析、调用 Service</td>
+<td><code>@GetMapping(&quot;/users&quot;)</code></td>
+</tr>
+<tr>
+<td><strong>Service</strong></td>
+<td>业务逻辑、事务管理</td>
+<td>判断用户是否存在、余额是否充足</td>
+</tr>
+<tr>
+<td><strong>DAO&#x2F;Repository</strong></td>
+<td>与数据库交互</td>
+<td><code>SELECT * FROM users WHERE id=1</code></td>
+</tr>
+<tr>
+<td><strong>Model&#x2F;Entity</strong></td>
+<td>数据实体定义</td>
+<td><code>User { id, name, email }</code></td>
+</tr>
+</tbody></table>
+<p><img src="https://cdn.jsdelivr.net/gh/XtangUser/blog-images@main/images/20260318113448225.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<h3 id="4-4-一次完整请求的处理流程"><a href="#4-4-一次完整请求的处理流程" class="headerlink" title="4.4 一次完整请求的处理流程"></a>4.4 一次完整请求的处理流程</h3><p>以”用户注册”为例：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-number">1.</span> 前端发送 <span class="hljs-variable constant_">POST</span> /api/register, <span class="hljs-attr">body</span>: &#123;<span class="hljs-attr">name</span>:<span class="hljs-string">&quot;张三&quot;</span>, <span class="hljs-attr">password</span>:<span class="hljs-string">&quot;123456&quot;</span>&#125;<br><span class="hljs-number">2.</span> 后端 <span class="hljs-title class_">Controller</span> 接收请求，解析参数<br><span class="hljs-number">3.</span> <span class="hljs-title class_">Controller</span> 调用 <span class="hljs-title class_">Service</span> 层的 <span class="hljs-title function_">register</span>() 方法<br><span class="hljs-number">4.</span> <span class="hljs-title class_">Service</span> 层：<br>   a. 校验用户名是否已存在（调用 <span class="hljs-variable constant_">DAO</span> 查询数据库）<br>   b. 密码加密（bcrypt）<br>   c. 调用 <span class="hljs-variable constant_">DAO</span> 层插入新用户记录<br><span class="hljs-number">5.</span> <span class="hljs-variable constant_">DAO</span> 层：拼接 <span class="hljs-variable constant_">SQL</span>，通过数据库驱动发送到数据库<br><span class="hljs-number">6.</span> 数据库执行 <span class="hljs-variable constant_">INSERT</span> 语句，返回结果<br><span class="hljs-number">7.</span> <span class="hljs-variable constant_">DAO</span> 层将结果封装为对象返回给 <span class="hljs-title class_">Service</span><br><span class="hljs-number">8.</span> <span class="hljs-title class_">Service</span> 返回给 <span class="hljs-title class_">Controller</span><br><span class="hljs-number">9.</span> <span class="hljs-title class_">Controller</span> 将结果序列化为 <span class="hljs-title class_">JSON</span>，返回 <span class="hljs-variable constant_">HTTP</span> 响应<br><span class="hljs-number">10.</span> 前端收到响应，显示<span class="hljs-string">&quot;注册成功&quot;</span><br></code></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/XtangUser/blog-images@main/images/20260318113555492.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<hr>
+<h2 id="五、后端连接数据库"><a href="#五、后端连接数据库" class="headerlink" title="五、后端连接数据库"></a>五、后端连接数据库</h2><h3 id="5-1-数据库分类"><a href="#5-1-数据库分类" class="headerlink" title="5.1 数据库分类"></a>5.1 数据库分类</h3><table>
+<thead>
+<tr>
+<th>类型</th>
+<th>代表产品</th>
+<th>数据模型</th>
+<th>适用场景</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>关系型数据库 (RDBMS)</strong></td>
+<td>MySQL、PostgreSQL、Oracle、SQL Server</td>
+<td>表（行和列）</td>
+<td>事务性业务、结构化数据</td>
+</tr>
+<tr>
+<td><strong>文档型数据库</strong></td>
+<td>MongoDB</td>
+<td>JSON 文档</td>
+<td>灵活 schema、内容管理</td>
+</tr>
+<tr>
+<td><strong>键值数据库</strong></td>
+<td>Redis</td>
+<td>Key-Value</td>
+<td>缓存、会话存储</td>
+</tr>
+<tr>
+<td><strong>列族数据库</strong></td>
+<td>Cassandra、HBase</td>
+<td>列族</td>
+<td>大数据、时序数据</td>
+</tr>
+<tr>
+<td><strong>图数据库</strong></td>
+<td>Neo4j</td>
+<td>节点+边</td>
+<td>社交关系、推荐系统</td>
+</tr>
+</tbody></table>
+<h3 id="5-2-后端连接数据库的原理"><a href="#5-2-后端连接数据库的原理" class="headerlink" title="5.2 后端连接数据库的原理"></a>5.2 后端连接数据库的原理</h3><h4 id="5-2-1-数据库驱动（Database-Driver）"><a href="#5-2-1-数据库驱动（Database-Driver）" class="headerlink" title="5.2.1 数据库驱动（Database Driver）"></a>5.2.1 数据库驱动（Database Driver）</h4><p>后端应用不能直接与数据库”对话”，需要通过<strong>数据库驱动</strong>（也叫数据库连接器&#x2F;客户端库）。</p>
+<p>驱动的作用：</p>
+<ul>
+<li>将应用层的操作（如 SQL 语句）<strong>翻译成数据库私有协议</strong></li>
+<li>管理与数据库的 <strong>TCP 连接</strong></li>
+<li>处理<strong>认证、加密、数据类型转换</strong>等</li>
+</ul>
+<p>不同数据库有不同的通信协议：</p>
+<table>
+<thead>
+<tr>
+<th>数据库</th>
+<th>协议</th>
+<th>默认端口</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>MySQL</td>
+<td>MySQL Protocol（基于 TCP）</td>
+<td>3306</td>
+</tr>
+<tr>
+<td>PostgreSQL</td>
+<td>PostgreSQL Protocol（基于 TCP）</td>
+<td>5432</td>
+</tr>
+<tr>
+<td>MongoDB</td>
+<td>MongoDB Wire Protocol（基于 TCP）</td>
+<td>27017</td>
+</tr>
+<tr>
+<td>Redis</td>
+<td>RESP（Redis Serialization Protocol，基于 TCP）</td>
+<td>6379</td>
+</tr>
+<tr>
+<td>SQL Server</td>
+<td>TDS（Tabular Data Stream，基于 TCP）</td>
+<td>1433</td>
+</tr>
+<tr>
+<td>Oracle</td>
+<td>Oracle Net &#x2F; TNS（基于 TCP）</td>
+<td>1521</td>
+</tr>
+</tbody></table>
+<h4 id="5-2-2-连接建立过程"><a href="#5-2-2-连接建立过程" class="headerlink" title="5.2.2 连接建立过程"></a>5.2.2 连接建立过程</h4><p>以 MySQL 为例：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-number">1.</span> 后端应用通过驱动向数据库服务器的 <span class="hljs-number">3306</span> 端口发起 <span class="hljs-variable constant_">TCP</span> 连接<br><span class="hljs-number">2.</span> <span class="hljs-variable constant_">TCP</span> 三次握手建立连接<br><span class="hljs-number">3.</span> <span class="hljs-title class_">MySQL</span> 服务器发送握手包（<span class="hljs-title class_">Handshake</span> <span class="hljs-title class_">Packet</span>），包含：<br>   - 协议版本<br>   - 服务器版本<br>   - 认证方式<br>   - 加密种子（<span class="hljs-title class_">Salt</span>）<br><span class="hljs-number">4.</span> 客户端（驱动）发送认证包：<br>   - 用户名<br>   - 加密后的密码（password + salt 经过 <span class="hljs-variable constant_">SHA</span> 运算）<br>   - 指定要使用的数据库<br><span class="hljs-number">5.</span> 服务器验证通过，返回 <span class="hljs-variable constant_">OK</span> 包<br><span class="hljs-number">6.</span> 连接建立完成，可以发送 <span class="hljs-variable constant_">SQL</span> 命令<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/XtangUser/blog-images@main/images/20260318113808939.png" srcset="/img/loading.gif" lazyload alt="019bc4a1-4d0a-7c50-a104-ed60ee59f99b&#x2F;1773804991664-019cff03-f859-755a-a326-0b53422c1b9d.png"></p>
+<h4 id="5-2-3-SQL-命令执行过程"><a href="#5-2-3-SQL-命令执行过程" class="headerlink" title="5.2.3 SQL 命令执行过程"></a>5.2.3 SQL 命令执行过程</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><code class="hljs js">后端应用<br>   │<br>   │ 调用: connection.<span class="hljs-title function_">query</span>(<span class="hljs-string">&quot;SELECT * FROM users WHERE id = 1&quot;</span>)<br>   ↓<br>数据库驱动<br>   │<br>   │ 将 <span class="hljs-variable constant_">SQL</span> 封装为 <span class="hljs-title class_">MySQL</span> 协议的 <span class="hljs-variable constant_">COM_QUERY</span> 包<br>   │ 通过 <span class="hljs-variable constant_">TCP</span> 发送给 <span class="hljs-title class_">MySQL</span> 服务器<br>   ↓<br><span class="hljs-title class_">MySQL</span> 服务器<br>   │<br>   │ <span class="hljs-number">1.</span> 解析 <span class="hljs-variable constant_">SQL</span>（<span class="hljs-title class_">Parser</span>）<br>   │ <span class="hljs-number">2.</span> 优化查询计划（<span class="hljs-title class_">Optimizer</span>）<br>   │ <span class="hljs-number">3.</span> 执行查询（<span class="hljs-title class_">Executor</span>）<br>   │ <span class="hljs-number">4.</span> 从存储引擎读取数据（如 <span class="hljs-title class_">InnoDB</span>）<br>   │ <span class="hljs-number">5.</span> 将结果封装为 <span class="hljs-title class_">Result</span> <span class="hljs-title class_">Set</span> 包<br>   │ <span class="hljs-number">6.</span> 通过 <span class="hljs-variable constant_">TCP</span> 返回<br>   ↓<br>数据库驱动<br>   │<br>   │ 解析 <span class="hljs-title class_">Result</span> <span class="hljs-title class_">Set</span> 包<br>   │ 转换为编程语言中的对象/数组<br>   ↓<br>后端应用<br>   │<br>   │ 得到 [&#123;<span class="hljs-attr">id</span>: <span class="hljs-number">1</span>, <span class="hljs-attr">name</span>: <span class="hljs-string">&quot;张三&quot;</span>, <span class="hljs-attr">email</span>: <span class="hljs-string">&quot;zhangsan@example.com&quot;</span>&#125;]<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/XtangUser/blog-images@main/images/20260318114009992.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<h3 id="5-3-连接池（Connection-Pool）"><a href="#5-3-连接池（Connection-Pool）" class="headerlink" title="5.3 连接池（Connection Pool）"></a>5.3 连接池（Connection Pool）</h3><h4 id="为什么需要连接池？"><a href="#为什么需要连接池？" class="headerlink" title="为什么需要连接池？"></a>为什么需要连接池？</h4><p>每次请求都新建数据库连接，开销很大：</p>
+<ul>
+<li>TCP 三次握手</li>
+<li>数据库认证</li>
+<li>分配资源</li>
+<li>用完后释放</li>
+</ul>
+<p><strong>连接池</strong>预先创建一批连接并复用：</p>
+<figure class="highlight nestedtext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs nestedtext"><span class="hljs-attribute">┌────────────────────────────────┐</span><br><span class="hljs-attribute">│         连接池（Connection Pool） │</span><br><span class="hljs-attribute">│                                │</span><br><span class="hljs-attribute">│   ┌────┐ ┌────┐ ┌────┐ ┌────┐ │</span><br><span class="hljs-attribute">│   │连接1│ │连接2│ │连接3│ │连接4│ │     ←  预先创建好的空闲连接</span><br><span class="hljs-attribute">│   │空闲 │ │使用中│ │空闲 │ │空闲 │ │</span><br><span class="hljs-attribute">│   └────┘ └────┘ └────┘ └────┘ │</span><br><span class="hljs-attribute">│                                │</span><br><span class="hljs-attribute">│  最小连接数</span><span class="hljs-punctuation">:</span> <span class="hljs-string">4    最大连接数: 20   │</span><br><span class="hljs-attribute">│  空闲超时</span><span class="hljs-punctuation">:</span> <span class="hljs-string">30min   最大等待: 5s  │</span><br>└────────────────────────────────┘<br>         │  │  │  │<br>         ↓  ↓  ↓  ↓<br>┌────────────────────────────────┐<br>│        MySQL 服务器              │<br>└────────────────────────────────┘<br></code></pre></td></tr></table></figure>
+
+<p>工作流程：</p>
+<ol>
+<li>应用请求数据库连接 → 从池中取一个空闲连接</li>
+<li>使用连接执行 SQL</li>
+<li>使用完毕 → <strong>归还</strong>连接到池中（不关闭）</li>
+<li>池满时 → 新请求排队等待或扩容（到最大连接数）</li>
+</ol>
+<p><img src="https://cdn.jsdelivr.net/gh/XtangUser/blog-images@main/images/20260318114152769.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<h3 id="5-4-ORM（对象关系映射）"><a href="#5-4-ORM（对象关系映射）" class="headerlink" title="5.4 ORM（对象关系映射）"></a>5.4 ORM（对象关系映射）</h3><p>ORM（Object-Relational Mapping）让开发者用<strong>面向对象</strong>的方式操作数据库，而不需要手写 SQL。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs js">数据库表：users<br>+----+--------+-----+<br>| id | name   | age |<br>+----+--------+-----+<br>| <span class="hljs-number">1</span>  | 张三   | <span class="hljs-number">25</span>  |<br>+----+--------+-----+<br><br>                ↕  <span class="hljs-variable constant_">ORM</span> 映射<br><br>编程语言对象：<br><span class="hljs-keyword">class</span> <span class="hljs-title class_">User</span> &#123;<br>    int id = <span class="hljs-number">1</span>;<br>    <span class="hljs-title class_">String</span> name = <span class="hljs-string">&quot;张三&quot;</span>;<br>    int age = <span class="hljs-number">25</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>ORM 的分层位置：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-title class_">Controller</span> → <span class="hljs-title class_">Service</span> → <span class="hljs-variable constant_">ORM</span>（<span class="hljs-title class_">Repository</span>/<span class="hljs-variable constant_">DAO</span>） → 数据库驱动 → 数据库<br>                        ↑<br>                   开发者写对象操作<br>                   <span class="hljs-variable constant_">ORM</span> 自动生成 <span class="hljs-variable constant_">SQL</span><br></code></pre></td></tr></table></figure>
+
+<p>各语言主流 ORM：</p>
+<table>
+<thead>
+<tr>
+<th>语言</th>
+<th>ORM 框架</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Java</td>
+<td>Hibernate、MyBatis、JPA</td>
+</tr>
+<tr>
+<td>Python</td>
+<td>SQLAlchemy、Django ORM</td>
+</tr>
+<tr>
+<td>Node.js</td>
+<td>Sequelize、TypeORM、Prisma</td>
+</tr>
+<tr>
+<td>Go</td>
+<td>GORM</td>
+</tr>
+<tr>
+<td>C#</td>
+<td>Entity Framework</td>
+</tr>
+</tbody></table>
+<p><img src="https://cdn.jsdelivr.net/gh/XtangUser/blog-images@main/images/20260318114332306.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<hr>
+<h2 id="六、认证与会话管理"><a href="#六、认证与会话管理" class="headerlink" title="六、认证与会话管理"></a>六、认证与会话管理</h2><p>前后端交互中的一大问题：<strong>HTTP 是无状态的</strong>。服务器不会记住”这个请求是谁发的”。</p>
+<h3 id="6-1-Cookie-Session-方式"><a href="#6-1-Cookie-Session-方式" class="headerlink" title="6.1 Cookie + Session 方式"></a>6.1 Cookie + Session 方式</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-number">1.</span> 用户登录：<span class="hljs-variable constant_">POST</span> /login &#123;username, password&#125;<br><span class="hljs-number">2.</span> 服务器验证通过，在服务端创建 <span class="hljs-title class_">Session</span> 对象（存在内存/<span class="hljs-title class_">Redis</span>中）<br>   <span class="hljs-title class_">Session</span>: &#123; <span class="hljs-attr">id</span>: <span class="hljs-string">&quot;abc123&quot;</span>, <span class="hljs-attr">userId</span>: <span class="hljs-number">1</span>, <span class="hljs-attr">role</span>: <span class="hljs-string">&quot;admin&quot;</span> &#125;<br><span class="hljs-number">3.</span> 服务器在响应头设置：<span class="hljs-title class_">Set</span>-<span class="hljs-title class_">Cookie</span>: sessionId=abc123<br><span class="hljs-number">4.</span> 浏览器自动保存 <span class="hljs-title class_">Cookie</span><br><span class="hljs-number">5.</span> 之后每次请求，浏览器自动携带：<span class="hljs-title class_">Cookie</span>: sessionId=abc123<br><span class="hljs-number">6.</span> 服务器通过 sessionId 查找 <span class="hljs-title class_">Session</span>，确认用户身份<br></code></pre></td></tr></table></figure>
+
+<h3 id="6-2-JWT（JSON-Web-Token）方式"><a href="#6-2-JWT（JSON-Web-Token）方式" class="headerlink" title="6.2 JWT（JSON Web Token）方式"></a>6.2 JWT（JSON Web Token）方式</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-number">1.</span> 用户登录：<span class="hljs-variable constant_">POST</span> /login &#123;username, password&#125;<br><span class="hljs-number">2.</span> 服务器验证通过，生成 <span class="hljs-variable constant_">JWT</span> <span class="hljs-title class_">Token</span>：<br>   <span class="hljs-title class_">Header</span>.<span class="hljs-property">Payload</span>.<span class="hljs-property">Signature</span><br>   eyJhbGc...  （<span class="hljs-title class_">Base64</span>编码的<span class="hljs-title class_">JSON</span>，包含用户信息+签名）<br><span class="hljs-number">3.</span> 返回 <span class="hljs-title class_">Token</span> 给前端<br><span class="hljs-number">4.</span> 前端将 <span class="hljs-title class_">Token</span> 存在 <span class="hljs-variable language_">localStorage</span> 或 <span class="hljs-title class_">Cookie</span> 中<br><span class="hljs-number">5.</span> 之后每次请求在 <span class="hljs-title class_">Header</span> 中携带：<br>   <span class="hljs-title class_">Authorization</span>: <span class="hljs-title class_">Bearer</span> eyJhbGc...<br><span class="hljs-number">6.</span> 服务器验证 <span class="hljs-title class_">Token</span> 签名，解析出用户信息（无需查数据库/<span class="hljs-title class_">Session</span>存储）<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/XtangUser/blog-images@main/images/20260318114445842.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<hr>
+<h2 id="七、中间件与反向代理"><a href="#七、中间件与反向代理" class="headerlink" title="七、中间件与反向代理"></a>七、中间件与反向代理</h2><h3 id="7-1-Nginx-反向代理"><a href="#7-1-Nginx-反向代理" class="headerlink" title="7.1 Nginx 反向代理"></a>7.1 Nginx 反向代理</h3><p>在实际部署中，用户的请求通常不会直接到达后端应用，而是先经过 <strong>Nginx</strong> 等反向代理：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs js">用户浏览器<br>     │<br>     ↓<br>┌─────────┐<br>│  <span class="hljs-title class_">Nginx</span>   │  ← 反向代理 + 负载均衡 + 静态资源服务 + <span class="hljs-variable constant_">HTTPS</span>终止<br>│ (端口<span class="hljs-number">80</span>/<span class="hljs-number">443</span>) │<br>└────┬────┘<br>     │<br>     ├────→ 后端实例<span class="hljs-number">1</span> (端口<span class="hljs-number">8080</span>)<br>     ├────→ 后端实例<span class="hljs-number">2</span> (端口<span class="hljs-number">8080</span>)<br>     └────→ 后端实例<span class="hljs-number">3</span> (端口<span class="hljs-number">8080</span>)<br></code></pre></td></tr></table></figure>
+
+<p>Nginx 的职责：</p>
+<table>
+<thead>
+<tr>
+<th>功能</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>反向代理</strong></td>
+<td>隐藏后端服务器，统一入口</td>
+</tr>
+<tr>
+<td><strong>负载均衡</strong></td>
+<td>将请求分发到多个后端实例（轮询、加权、IP Hash等）</td>
+</tr>
+<tr>
+<td><strong>静态资源服务</strong></td>
+<td>直接返回 HTML&#x2F;CSS&#x2F;JS&#x2F;图片，无需经过后端</td>
+</tr>
+<tr>
+<td><strong>HTTPS 终止</strong></td>
+<td>在 Nginx 层处理 TLS，后端只需处理 HTTP</td>
+</tr>
+<tr>
+<td><strong>缓存</strong></td>
+<td>缓存后端响应，减少后端压力</td>
+</tr>
+</tbody></table>
+<p><img src="https://cdn.jsdelivr.net/gh/XtangUser/blog-images@main/images/20260318114603606.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<hr>
+<h2 id="八、缓存架构"><a href="#八、缓存架构" class="headerlink" title="八、缓存架构"></a>八、缓存架构</h2><h3 id="8-1-多级缓存"><a href="#8-1-多级缓存" class="headerlink" title="8.1 多级缓存"></a>8.1 多级缓存</h3><p>为了提高性能，数据的读取通常经过多级缓存：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs js">浏览器缓存（<span class="hljs-variable constant_">HTTP</span> <span class="hljs-title class_">Cache</span>）<br>       ↓ 未命中<br><span class="hljs-variable constant_">CDN</span> 缓存（地理就近节点）<br>       ↓ 未命中<br><span class="hljs-title class_">Nginx</span> 缓存（反向代理层）<br>       ↓ 未命中<br>应用层缓存（如本地 <span class="hljs-title class_">HashMap</span>）<br>       ↓ 未命中<br>分布式缓存（<span class="hljs-title class_">Redis</span> / <span class="hljs-title class_">Memcached</span>）<br>       ↓ 未命中<br>数据库（<span class="hljs-title class_">MySQL</span>）<br></code></pre></td></tr></table></figure>
+
+<h3 id="8-2-Redis-缓存的典型用法"><a href="#8-2-Redis-缓存的典型用法" class="headerlink" title="8.2 Redis 缓存的典型用法"></a>8.2 Redis 缓存的典型用法</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs js">读取流程：<br><span class="hljs-number">1.</span> 先查 <span class="hljs-title class_">Redis</span> 缓存<br><span class="hljs-number">2.</span> 缓存命中 → 直接返回<br><span class="hljs-number">3.</span> 缓存未命中 → 查数据库 → 将结果写入 <span class="hljs-title class_">Redis</span> → 返回<br><br>后端代码伪逻辑：<br><span class="hljs-keyword">function</span> <span class="hljs-title function_">getUser</span>(<span class="hljs-params">id</span>) &#123;<br>    <span class="hljs-comment">// 1. 查缓存</span><br>    <span class="hljs-keyword">let</span> user = redis.<span class="hljs-title function_">get</span>(<span class="hljs-string">&quot;user:&quot;</span> + id);<br>    <span class="hljs-keyword">if</span> (user) <span class="hljs-keyword">return</span> user;<br>    <br>    <span class="hljs-comment">// 2. 查数据库</span><br>    user = db.<span class="hljs-title function_">query</span>(<span class="hljs-string">&quot;SELECT * FROM users WHERE id = ?&quot;</span>, id);<br>    <br>    <span class="hljs-comment">// 3. 写缓存（设置过期时间）</span><br>    redis.<span class="hljs-title function_">set</span>(<span class="hljs-string">&quot;user:&quot;</span> + id, user, expire=<span class="hljs-number">3600</span>);<br>    <br>    <span class="hljs-keyword">return</span> user;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/XtangUser/blog-images@main/images/20260318114901388.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<hr>
+<h2 id="九、完整架构总览"><a href="#九、完整架构总览" class="headerlink" title="九、完整架构总览"></a>九、完整架构总览</h2><p>把以上所有组件组合起来，一个典型的现代 Web 应用架构如下：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><code class="hljs js">                ┌─────────────┐<br>                │   用户浏览器   │<br>                └──────┬──────┘<br>                       │ <span class="hljs-variable constant_">HTTPS</span><br>                ┌──────┴──────┐<br>                │     <span class="hljs-variable constant_">CDN</span>      │  ← 静态资源加速<br>                └──────┬──────┘<br>                       │<br>                ┌──────┴──────┐<br>                │    <span class="hljs-title class_">Nginx</span>     │  ← 反向代理 / 负载均衡<br>                │  (端口 <span class="hljs-number">443</span>)   │     / <span class="hljs-variable constant_">HTTPS</span> 终止<br>                └──┬───┬───┬──┘<br>                   │   │   │<br>            ┌──────┘   │   └──────┐<br>            ↓          ↓          ↓<br>      ┌─────────┐ ┌────────┐ ┌─────────┐<br>      │ 后端实例<span class="hljs-number">1</span> │ │后端实例<span class="hljs-number">2</span>│ │ 后端实例<span class="hljs-number">3</span> │<br>      │ (<span class="hljs-number">8080</span>)   │ │(<span class="hljs-number">8080</span>)  │ │ (<span class="hljs-number">8080</span>)   │<br>      └────┬────┘ └───┬────┘ └────┬────┘<br>           │          │           │<br>      ┌────┴──────────┴───────────┴────┐<br>      │                                 │<br>┌─────┴─────┐                   ┌──────┴──────┐<br>│   <span class="hljs-title class_">Redis</span>     │                   │    <span class="hljs-title class_">MySQL</span>     │<br>│  (缓存)     │                   │  (主数据库)   │<br>│  端口 <span class="hljs-number">6379</span>   │                   │  端口 <span class="hljs-number">3306</span>    │<br>└────────────┘                   └──────┬──────┘<br>                                        │ 主从复制<br>                                 ┌──────┴──────┐<br>                                 │ <span class="hljs-title class_">MySQL</span> 从库    │<br>                                 │ (读库)        │<br>                                 └─────────────┘<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/XtangUser/blog-images@main/images/20260318115055231.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<hr>
+<h2 id="十、涉及的协议汇总"><a href="#十、涉及的协议汇总" class="headerlink" title="十、涉及的协议汇总"></a>十、涉及的协议汇总</h2><table>
+<thead>
+<tr>
+<th>层次</th>
+<th>协议</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>应用层</strong></td>
+<td>HTTP&#x2F;1.1、HTTP&#x2F;2、HTTP&#x2F;3</td>
+<td>前后端通信的基础协议</td>
+</tr>
+<tr>
+<td><strong>应用层</strong></td>
+<td>HTTPS（HTTP + TLS）</td>
+<td>加密的 HTTP 通信</td>
+</tr>
+<tr>
+<td><strong>应用层</strong></td>
+<td>WebSocket（WS&#x2F;WSS）</td>
+<td>全双工实时通信</td>
+</tr>
+<tr>
+<td><strong>应用层</strong></td>
+<td>DNS</td>
+<td>域名解析为 IP</td>
+</tr>
+<tr>
+<td><strong>应用层</strong></td>
+<td>gRPC（基于 HTTP&#x2F;2）</td>
+<td>微服务间高效通信</td>
+</tr>
+<tr>
+<td><strong>安全层</strong></td>
+<td>TLS 1.2 &#x2F; 1.3</td>
+<td>传输层安全加密</td>
+</tr>
+<tr>
+<td><strong>传输层</strong></td>
+<td>TCP</td>
+<td>可靠的字节流传输</td>
+</tr>
+<tr>
+<td><strong>传输层</strong></td>
+<td>UDP</td>
+<td>不可靠但快速传输（HTTP&#x2F;3 基于 QUIC&#x2F;UDP）</td>
+</tr>
+<tr>
+<td><strong>网络层</strong></td>
+<td>IP（IPv4&#x2F;IPv6）</td>
+<td>网络寻址和路由</td>
+</tr>
+<tr>
+<td><strong>数据库协议</strong></td>
+<td>MySQL Protocol</td>
+<td>MySQL 客户端-服务器通信</td>
+</tr>
+<tr>
+<td><strong>数据库协议</strong></td>
+<td>PostgreSQL Protocol</td>
+<td>PostgreSQL 通信</td>
+</tr>
+<tr>
+<td><strong>数据库协议</strong></td>
+<td>RESP</td>
+<td>Redis 通信</td>
+</tr>
+<tr>
+<td><strong>数据库协议</strong></td>
+<td>MongoDB Wire Protocol</td>
+<td>MongoDB 通信</td>
+</tr>
+<tr>
+<td><strong>序列化协议</strong></td>
+<td>JSON</td>
+<td>前后端数据交换格式</td>
+</tr>
+<tr>
+<td><strong>序列化协议</strong></td>
+<td>Protocol Buffers</td>
+<td>gRPC 数据序列化</td>
+</tr>
+</tbody></table>
+<p><img src="https://cdn.jsdelivr.net/gh/XtangUser/blog-images@main/images/20260318143139568.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<hr>
+<h2 id="十一、数据流动全景"><a href="#十一、数据流动全景" class="headerlink" title="十一、数据流动全景"></a>十一、数据流动全景</h2><p>一个用户点击”提交订单”按钮，数据的完整流动路径：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-number">1.</span>  用户点击按钮<br><span class="hljs-number">2.</span>  浏览器 <span class="hljs-title class_">JavaScript</span> 收集表单数据，构造 <span class="hljs-title class_">JSON</span><br><span class="hljs-number">3.</span>  <span class="hljs-title class_">JavaScript</span> 调用 fetch/axios 发起 <span class="hljs-variable constant_">HTTPS</span> <span class="hljs-variable constant_">POST</span> 请求<br><span class="hljs-number">4.</span>  浏览器进行 <span class="hljs-variable constant_">DNS</span> 解析，获取服务器 <span class="hljs-variable constant_">IP</span><br><span class="hljs-number">5.</span>  <span class="hljs-variable constant_">TCP</span> 三次握手建立连接<br><span class="hljs-number">6.</span>  <span class="hljs-variable constant_">TLS</span> 握手建立加密通道<br><span class="hljs-number">7.</span>  <span class="hljs-variable constant_">HTTP</span> 请求数据经 <span class="hljs-variable constant_">TLS</span> 加密后通过 <span class="hljs-variable constant_">TCP</span> 发送<br><span class="hljs-number">8.</span>  到达 <span class="hljs-variable constant_">CDN</span>（通常只处理静态资源，<span class="hljs-variable constant_">API</span> 请求直接转发）<br><span class="hljs-number">9.</span>  到达 <span class="hljs-title class_">Nginx</span> 反向代理<br><span class="hljs-number">10.</span> <span class="hljs-title class_">Nginx</span> 终止 <span class="hljs-variable constant_">TLS</span>（解密），按负载均衡策略选择一个后端实例<br><span class="hljs-number">11.</span> <span class="hljs-title class_">Nginx</span> 以 <span class="hljs-variable constant_">HTTP</span> 明文将请求转发给后端实例（内网通信）<br><span class="hljs-number">12.</span> 后端 <span class="hljs-title class_">Controller</span> 接收请求，解析 <span class="hljs-title class_">JSON</span><br><span class="hljs-number">13.</span> <span class="hljs-title class_">Controller</span> 调用 <span class="hljs-title class_">Service</span> 层<br><span class="hljs-number">14.</span> <span class="hljs-title class_">Service</span> 层处理业务逻辑：<br>    a. 调用 <span class="hljs-title class_">Redis</span> 检查库存缓存<br>    b. <span class="hljs-title class_">Redis</span> 通过 <span class="hljs-variable constant_">RESP</span> 协议返回缓存数据<br>    c. 调用 <span class="hljs-variable constant_">DAO</span> 层查询/写入 <span class="hljs-title class_">MySQL</span><br><span class="hljs-number">15.</span> <span class="hljs-variable constant_">DAO</span> 层通过连接池获取数据库连接<br><span class="hljs-number">16.</span> 数据库驱动将 <span class="hljs-variable constant_">SQL</span> 封装为 <span class="hljs-title class_">MySQL</span> <span class="hljs-title class_">Protocol</span> 包<br><span class="hljs-number">17.</span> 通过 <span class="hljs-variable constant_">TCP</span> 发送到 <span class="hljs-title class_">MySQL</span> 服务器（端口 <span class="hljs-number">3306</span>）<br><span class="hljs-number">18.</span> <span class="hljs-title class_">MySQL</span> 解析 <span class="hljs-variable constant_">SQL</span> → 优化 → 执行 → 写入 <span class="hljs-title class_">InnoDB</span> 存储引擎<br><span class="hljs-number">19.</span> <span class="hljs-title class_">MySQL</span> 返回执行结果<br><span class="hljs-number">20.</span> 数据沿原路层层返回<br><span class="hljs-number">21.</span> 后端返回 <span class="hljs-title class_">JSON</span> 响应给 <span class="hljs-title class_">Nginx</span><br><span class="hljs-number">22.</span> <span class="hljs-title class_">Nginx</span> 将响应通过 <span class="hljs-variable constant_">HTTPS</span> 返回给浏览器<br><span class="hljs-number">23.</span> 浏览器接收并解密响应<br><span class="hljs-number">24.</span> <span class="hljs-title class_">JavaScript</span> 解析 <span class="hljs-title class_">JSON</span><br><span class="hljs-number">25.</span> 更新页面 <span class="hljs-variable constant_">DOM</span>，显示<span class="hljs-string">&quot;下单成功&quot;</span><br></code></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/XtangUser/blog-images@main/images/20260318115235182.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<hr>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><table>
+<thead>
+<tr>
+<th>环节</th>
+<th>关键技术</th>
+<th>核心协议</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>域名解析</td>
+<td>DNS 服务器</td>
+<td>DNS（UDP&#x2F;TCP 53）</td>
+</tr>
+<tr>
+<td>前后端通信</td>
+<td>RESTful API &#x2F; GraphQL</td>
+<td>HTTP&#x2F;HTTPS（TCP 80&#x2F;443）</td>
+</tr>
+<tr>
+<td>实时通信</td>
+<td>WebSocket</td>
+<td>WS&#x2F;WSS（TCP）</td>
+</tr>
+<tr>
+<td>请求转发</td>
+<td>Nginx 反向代理</td>
+<td>HTTP</td>
+</tr>
+<tr>
+<td>后端处理</td>
+<td>MVC 分层架构</td>
+<td>—</td>
+</tr>
+<tr>
+<td>缓存</td>
+<td>Redis</td>
+<td>RESP（TCP 6379）</td>
+</tr>
+<tr>
+<td>数据库读写</td>
+<td>连接池 + ORM + SQL</td>
+<td>MySQL Protocol（TCP 3306）</td>
+</tr>
+<tr>
+<td>微服务通信</td>
+<td>gRPC &#x2F; 消息队列</td>
+<td>HTTP&#x2F;2 + Protobuf &#x2F; AMQP</td>
+</tr>
+<tr>
+<td>安全传输</td>
+<td>TLS 证书</td>
+<td>TLS 1.2&#x2F;1.3</td>
+</tr>
+</tbody></table>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/" class="category-chain-item">架构设计</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E5%89%8D%E5%90%8E%E7%AB%AF%E4%BA%A4%E4%BA%92/" class="print-no-link">#前后端交互</a>
+      
+        <a href="/tags/%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/" class="print-no-link">#架构设计</a>
+      
+        <a href="/tags/HTTP%E5%8D%8F%E8%AE%AE/" class="print-no-link">#HTTP协议</a>
+      
+        <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%9E%E6%8E%A5/" class="print-no-link">#数据库连接</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>前后端交互原理与架构全解</div>
+      <div>https://tsyangblog.site/2026/03/18/架构设计/前后端交互原理与架构全解/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>小唐</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2026年3月18日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2026/03/20/%E5%90%8E%E7%AB%AF/%E7%BC%96%E7%A8%8B%E5%90%8C%E6%AD%A5%E4%B8%8E%E5%BC%82%E6%AD%A5%E5%8E%9F%E7%90%86%E8%AF%A6%E7%BB%86%E8%AE%B2%E8%A7%A3/" title="编程同步与异步原理详细讲解">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">编程同步与异步原理详细讲解</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2026/03/17/%E5%90%8E%E7%AB%AF/FastAPI%20%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E5%AE%8C%E6%95%B4%E5%AD%A6%E4%B9%A0%E6%95%99%E7%A8%8B/" title="FastAPI 从零开始完整学习教程">
+                        <span class="hidden-mobile">FastAPI 从零开始完整学习教程</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div id="gitalk-container"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#gitalk-container', function() {
+      Fluid.utils.createCssLink('/css/gitalk.css')
+      Fluid.utils.createScript('https://lib.baomitu.com/gitalk/1.8.0/gitalk.min.js', function() {
+        var options = Object.assign(
+          {"clientID":"Ov23liZQDI8BrS44zUL7","clientSecret":"075fad544223a91a3529c013c644d5f341ff6e1d","repo":"blog_comments","owner":"XtangUser","admin":["XtangUser"],"language":"zh-CN","labels":["Gitalk","Comment"],"perPage":10,"pagerDirection":"last","distractionFreeMode":false,"createIssueManually":false,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token"},
+          {
+            id: 'e205d3942424c098a392ec77c952b1de'
+          }
+        )
+        var gitalk = new Gitalk(options);
+        gitalk.render('gitalk-container');
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+      用代码记录生活，用文字传递温度
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="openkounter-site-pv-container" style="display: none">
+        总访问量 
+        <span id="openkounter-site-pv"></span>
+         次
+      </span>
+    
+    
+      <span id="openkounter-site-uv-container" style="display: none">
+        总访客数 
+        <span id="openkounter-site-uv"></span>
+         人
+      </span>
+    
+    
+
+  
+
+</div>
+
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    function isExpandAllEnabled() {
+      return CONFIG.toc && CONFIG.toc.expand_all === true;
+    }
+    function expandAllToc() {
+      if (!isExpandAllEnabled()) { return; }
+      jQuery('#toc-body .tocbot-is-collapsed').removeClass('tocbot-is-collapsed');
+    }
+    function updateTocToggle($li, $childList) {
+      var $toggle = $li.children('.toc-toggle');
+      if ($toggle.length === 0) { return; }
+      var collapsed = $childList.hasClass('tocbot-is-collapsed');
+      $toggle
+        .toggleClass('toc-toggle-collapsed', collapsed)
+        .toggleClass('toc-toggle-expanded', !collapsed);
+    }
+    function bindTocToggle() {
+      if (!isExpandAllEnabled()) { return; }
+      jQuery('#toc-body .toc-list-item').each(function() {
+        var $li = jQuery(this);
+        var $childList = $li.children('ol');
+        if ($childList.length === 0) {
+          if ($li.children('.toc-toggle').length === 0) {
+            $li.prepend('<span class="toc-toggle toc-toggle-placeholder" aria-hidden="true">›</span>');
+          }
+          return;
+        }
+
+        if ($li.children('.toc-toggle').length === 0) {
+          $li.prepend('<span class="toc-toggle toc-toggle-expanded" aria-hidden="true">›</span>');
+        }
+        updateTocToggle($li, $childList);
+      });
+      jQuery('#toc-body').off('click.tocToggle').on('click.tocToggle', '.toc-toggle', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        var $li = jQuery(this).parent('.toc-list-item');
+        var $childList = $li.children('ol');
+        if ($childList.length === 0) { return; }
+        $childList.toggleClass('tocbot-is-collapsed');
+        updateTocToggle($li, $childList);
+      });
+      if (!window.__tocToggleObserver) {
+        window.__tocToggleObserver = new MutationObserver(function(mutations) {
+          mutations.forEach(function(mutation) {
+            if (mutation.type !== 'attributes' || mutation.attributeName !== 'class') { return; }
+            var $list = jQuery(mutation.target);
+            var $li = $list.parent('.toc-list-item');
+            if ($li.length === 0) { return; }
+            updateTocToggle($li, $list);
+          });
+        });
+        jQuery('#toc-body ol').each(function() {
+          window.__tocToggleObserver.observe(this, { attributes: true });
+        });
+      }
+    }
+    var tocConfig = Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc);
+    if (isExpandAllEnabled()) {
+      tocConfig.collapseDepth = 6;
+    }
+    window.tocbot.init(tocConfig);
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+    expandAllToc();
+    bindTocToggle();
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+        expandAllToc();
+        bindTocToggle();
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script defer src="/js/openkounter.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+<!-- hexo injector body_end start --><script defer src="/js/mouse-particles.js"></script><script defer src="/js/live2d-helper.js"></script><script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "d25f7f4a1df0482f859f16ff4400fe43"}'></script><!-- hexo injector body_end end --><script src="https://cdn.jsdelivr.net/npm/live2d-widget@^3.1.3/lib/L2Dwidget.min.js"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"scale":1,"hHeadPos":0.5,"vHeadPos":0.618,"jsonPath":"https://cdn.jsdelivr.net/npm/live2d-widget-model-koharu@1.0.5/assets/koharu.model.json"},"display":{"superSample":2,"position":"left","width":200,"height":400,"hOffset":20,"vOffset":-20},"mobile":{"show":true,"scale":0.8},"react":{"opacityDefault":0.9,"opacityOnHover":0.3}});</script></body>
+</html>

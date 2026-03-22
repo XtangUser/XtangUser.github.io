@@ -1,0 +1,917 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head><!-- hexo injector head_begin start --><meta name="referrer" content="no-referrer"><!-- hexo injector head_begin end -->
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/avatar.jpg">
+  <link rel="icon" href="/img/avatar.jpg">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#0891b2">
+  <meta name="author" content="小唐">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="深入理解指针与动态内存分配，掌握结构体的使用。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="指针进阶">
+<meta property="og:url" content="https://tsyangblog.site/2026/03/10/%E7%AE%97%E6%B3%95/%E6%8C%87%E9%92%88%E8%BF%9B%E9%98%B6/index.html">
+<meta property="og:site_name" content="别催小唐敲代码">
+<meta property="og:description" content="深入理解指针与动态内存分配，掌握结构体的使用。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-03-09T16:00:00.000Z">
+<meta property="article:modified_time" content="2026-03-11T08:58:37.489Z">
+<meta property="article:author" content="小唐">
+<meta property="article:tag" content="动态内存">
+<meta property="article:tag" content="指针">
+<meta property="article:tag" content="结构体">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>指针进阶 - 别催小唐敲代码</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"tsyangblog.site","root":"/","version":"1.9.9","typing":{"enable":true,"typeSpeed":100,"cursorChar":"|","loop":true,"scope":["home"]},"anchorjs":{"enable":true,"element":"h2,h3,h4","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#0ea5e9","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"expand_all":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0,"number":false,"scrollSmooth":true,"scrollSmoothOffset":-5},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":false,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"openkounter":{"server_url":"https://blog-counter.221036109.workers.dev","path":"window.location.pathname","ignore_local":true},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+
+  
+<!-- hexo injector head_end start --><link rel="stylesheet" href="/css/custom.css"><style>#live2dcanvas{position:fixed!important;left:0!important;bottom:0!important;z-index:999999!important;pointer-events:auto!important;width:200px!important;height:400px!important;}</style><!-- hexo injector head_end end --><meta name="generator" content="Hexo 8.1.1"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 55vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>别催小唐敲代码</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content (desktop) -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>主页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>时间轴</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile grid menu overlay -->
+<div id="mobile-grid-menu" class="d-lg-none">
+  <div class="mobile-grid-menu-inner">
+    <div class="container">
+      <div class="row">
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-home-fill"></i>
+                  <span>主页</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/archives/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-archive-fill"></i>
+                  <span>时间轴</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/tags/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-tags-fill"></i>
+                  <span>标签</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/categories/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-category-fill"></i>
+                  <span>分类</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/about/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-user-fill"></i>
+                  <span>关于</span>
+                </div>
+              </a>
+            </div>
+          
+        
+        
+          <div class="col-4 mobile-grid-cell" id="mobile-search-btn">
+            <a href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <div class="mobile-grid-item">
+                <i class="iconfont icon-search"></i>
+                <span>搜索</span>
+              </div>
+            </a>
+          </div>
+        
+        
+          <div class="col-4 mobile-grid-cell" id="mobile-color-toggle-btn"
+               data-label-light="开灯"
+               data-label-dark="关灯">
+            <a href="javascript:;" aria-label="Color Toggle">
+              <div class="mobile-grid-item">
+                <i class="iconfont icon-dark" id="mobile-color-toggle-icon"></i>
+                <span id="mobile-color-toggle-label">关灯</span>
+              </div>
+            </a>
+          </div>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('https://images.unsplash.com/photo-1519681393784-d120267933ba?w=1920&q=80') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.35)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle">指针进阶</span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2026-03-10 00:00" pubdate>
+          2026年3月10日
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          <!-- compatible with older versions-->
+          4.1k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          <!-- compatible with older versions-->
+          9 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="openkounter-page-views-container" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="openkounter-page-views"></span> 次
+        </span>
+        
+
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">指针进阶</h1>
+            
+              <p id="updated-time" class="note note-info" style="">
+                
+                  
+                    <!-- compatible with older versions-->
+                    最后更新于：2026年3月11日 下午
+                  
+                
+              </p>
+            
+            
+              <div class="markdown-body">
+                
+                <h2 id="第2讲：指针进阶（指针与动态内存）"><a href="#第2讲：指针进阶（指针与动态内存）" class="headerlink" title="第2讲：指针进阶（指针与动态内存）"></a>第2讲：指针进阶（指针与动态内存）</h2><h3 id="🔑-知识点讲解"><a href="#🔑-知识点讲解" class="headerlink" title="🔑 知识点讲解"></a>🔑 知识点讲解</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><code class="hljs cpp">动态内存分配（需 <span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdlib.h&gt;</span>）：</span><br><br>malloc：分配内存<br>    <span class="hljs-type">int</span> *p = (<span class="hljs-type">int</span> *)<span class="hljs-built_in">malloc</span>(n * <span class="hljs-built_in">sizeof</span>(<span class="hljs-type">int</span>));<br>    <br>calloc：分配并初始化为<span class="hljs-number">0</span><br>    <span class="hljs-type">int</span> *p = (<span class="hljs-type">int</span> *)<span class="hljs-built_in">calloc</span>(n, <span class="hljs-built_in">sizeof</span>(<span class="hljs-type">int</span>));<br>    <br>realloc：重新调整大小<br>    p = (<span class="hljs-type">int</span> *)<span class="hljs-built_in">realloc</span>(p, new_size * <span class="hljs-built_in">sizeof</span>(<span class="hljs-type">int</span>));<br>    <br>free：释放内存<br>    <span class="hljs-built_in">free</span>(p);<br>    p = <span class="hljs-literal">NULL</span>;  <span class="hljs-comment">// 避免野指针</span><br><br>⚠️ 常见错误：<br><span class="hljs-number">1.</span> 忘记 free -&gt; 内存泄漏<br><span class="hljs-number">2.</span> free 后继续使用 -&gt; 野指针（悬挂指针）<br><span class="hljs-number">3.</span> 重复 free -&gt; 未定义行为<br><span class="hljs-number">4.</span> malloc 返回 <span class="hljs-literal">NULL</span> 未检查<br><br>指针的指针（二级指针）：<br>    <span class="hljs-type">int</span> a = <span class="hljs-number">10</span>;<br>    <span class="hljs-type">int</span> *p = &amp;a;<br>    <span class="hljs-type">int</span> **pp = &amp;p;<br>    **pp == <span class="hljs-number">10</span>  <span class="hljs-comment">// true</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="✏️-练习：动态创建数组并排序"><a href="#✏️-练习：动态创建数组并排序" class="headerlink" title="✏️ 练习：动态创建数组并排序"></a>✏️ 练习：动态创建数组并排序</h3><blockquote>
+<p><strong>题目</strong>：动态分配一个长度为 n 的数组，输入数据后排序输出。</p>
+</blockquote>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdio.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdlib.h&gt;</span></span><br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">cmp</span><span class="hljs-params">(<span class="hljs-type">const</span> <span class="hljs-type">void</span> *a, <span class="hljs-type">const</span> <span class="hljs-type">void</span> *b)</span> </span>&#123;<br>    <span class="hljs-keyword">return</span> (*(<span class="hljs-type">int</span> *)a) - (*(<span class="hljs-type">int</span> *)b);<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br>    <span class="hljs-type">int</span> n;<br>    <span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d&quot;</span>, &amp;n);<br>    <br>    <span class="hljs-comment">// 动态分配</span><br>    <span class="hljs-type">int</span> *arr = (<span class="hljs-type">int</span> *)<span class="hljs-built_in">malloc</span>(n * <span class="hljs-built_in">sizeof</span>(<span class="hljs-type">int</span>));<br>    <span class="hljs-keyword">if</span> (arr == <span class="hljs-literal">NULL</span>) &#123;<br>        <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;内存分配失败\n&quot;</span>);<br>        <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;<br>    &#125;<br>    <br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i++)<br>        <span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d&quot;</span>, &amp;arr[i]);<br>    <br>    <span class="hljs-comment">// 排序（使用库函数 qsort）</span><br>    <span class="hljs-built_in">qsort</span>(arr, n, <span class="hljs-built_in">sizeof</span>(<span class="hljs-type">int</span>), cmp);<br>    <br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i++)<br>        <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d &quot;</span>, arr[i]);<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;\n&quot;</span>);<br>    <br>    <span class="hljs-comment">// 释放内存</span><br>    <span class="hljs-built_in">free</span>(arr);<br>    arr = <span class="hljs-literal">NULL</span>;<br>    <br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<hr>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-comment">// 动态分配一个长度为 n 的数组，输入数据后排序输出。</span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdio.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;stdlib.h&gt;</span></span><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>&#123;<br>    <span class="hljs-type">int</span> n=<span class="hljs-number">0</span>;<span class="hljs-comment">//用于分配数组大小</span><br>   <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;请输入数组大小：\n&quot;</span>);<br>   <span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d&quot;</span>,&amp;n);<br>   <span class="hljs-type">int</span> *arr=(<span class="hljs-type">int</span> *)<span class="hljs-built_in">malloc</span>(<span class="hljs-built_in">sizeof</span>(<span class="hljs-type">int</span>) * n);<br>   <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;请输入数据：\n&quot;</span>);<br>   <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">0</span>;i&lt;n;i++)&#123;<br>    <span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d&quot;</span>,arr+i);<br>   &#125;<br>   <span class="hljs-comment">//冒泡排序</span><br>   <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> k=<span class="hljs-number">0</span>;k&lt;n;k++)<br>   &#123;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; n<span class="hljs-number">-1</span>-k; i++)<br>    &#123;<br>       <span class="hljs-keyword">if</span>(arr[i]&gt;arr[i<span class="hljs-number">+1</span>])&#123;<br>        <span class="hljs-type">int</span> temp=arr[i];<br>        arr[i]=arr[i<span class="hljs-number">+1</span>];<br>        arr[i<span class="hljs-number">+1</span>]=temp;<br>       &#125;<br>    &#125;<br>    <br>   &#125;<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;排序后的数组为：\n&quot;</span>);<br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">0</span>;i&lt;n;i++)&#123;<br>        <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d &quot;</span>,arr[i]);<br>    &#125;<br>    <span class="hljs-built_in">free</span>(arr);<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="第3讲：结构体"><a href="#第3讲：结构体" class="headerlink" title="第3讲：结构体"></a>第3讲：结构体</h2><h3 id="🔑-知识点讲解-1"><a href="#🔑-知识点讲解-1" class="headerlink" title="🔑 知识点讲解"></a>🔑 知识点讲解</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><code class="hljs cpp">结构体可以将不同类型的数据组合在一起。<br><br>定义：<br>    <span class="hljs-keyword">struct</span> <span class="hljs-title class_">Student</span> &#123;<br>        <span class="hljs-type">int</span> id;<br>        <span class="hljs-type">char</span> name[<span class="hljs-number">20</span>];<br>        <span class="hljs-type">float</span> score;<br>    &#125;;<br><br>使用：<br>    <span class="hljs-keyword">struct</span> <span class="hljs-title class_">Student</span> s1 = &#123;<span class="hljs-number">1</span>, <span class="hljs-string">&quot;张三&quot;</span>, <span class="hljs-number">90.5</span>&#125;;<br>    <span class="hljs-keyword">struct</span> <span class="hljs-title class_">Student</span> s2;<br>    s<span class="hljs-number">2.</span>id = <span class="hljs-number">2</span>;<br>    <span class="hljs-built_in">strcpy</span>(s<span class="hljs-number">2.</span>name, <span class="hljs-string">&quot;李四&quot;</span>);  <span class="hljs-comment">// 字符串不能直接=</span><br>    s<span class="hljs-number">2.</span>score = <span class="hljs-number">85.0</span>;<br><br>结构体指针：<br>    <span class="hljs-keyword">struct</span> <span class="hljs-title class_">Student</span> *p = &amp;s1;<br>    p-&gt;id        <span class="hljs-comment">// 等价于 (*p).id</span><br>    p-&gt;score     <span class="hljs-comment">// 箭头运算符</span><br><br>结构体数组：<br>    <span class="hljs-keyword">struct</span> <span class="hljs-title class_">Student</span> <span class="hljs-keyword">class</span>[<span class="hljs-number">50</span>];<br>    <span class="hljs-keyword">class</span>[<span class="hljs-number">0</span>].id = <span class="hljs-number">1</span>;<br><br><span class="hljs-keyword">typedef</span> 简化：<br>    <span class="hljs-keyword">typedef</span> <span class="hljs-keyword">struct</span> &#123;<br>        <span class="hljs-type">int</span> id;<br>        <span class="hljs-type">char</span> name[<span class="hljs-number">20</span>];<br>        <span class="hljs-type">float</span> score;<br>    &#125; Student;<br>    <br>    Student s1;  <span class="hljs-comment">// 不需要写 struct 关键字</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="✏️-练习：学生成绩管理"><a href="#✏️-练习：学生成绩管理" class="headerlink" title="✏️ 练习：学生成绩管理"></a>✏️ 练习：学生成绩管理</h3><blockquote>
+<p><strong>题目</strong>：定义学生结构体（学号、姓名、成绩），输入 n 个学生信息，按成绩从高到低排序输出。</p>
+</blockquote>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdio.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;string.h&gt;</span></span><br><br><span class="hljs-keyword">typedef</span> <span class="hljs-keyword">struct</span> &#123;<br>    <span class="hljs-type">int</span> id;<br>    <span class="hljs-type">char</span> name[<span class="hljs-number">20</span>];<br>    <span class="hljs-type">float</span> score;<br>&#125; Student;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br>    <span class="hljs-type">int</span> n;<br>    <span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d&quot;</span>, &amp;n);<br>    <br>    Student stu[<span class="hljs-number">100</span>];<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i++) &#123;<br>        <span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d %s %f&quot;</span>, &amp;stu[i].id, stu[i].name, &amp;stu[i].score);<br>    &#125;<br>    <br>    <span class="hljs-comment">// 冒泡排序，按成绩降序</span><br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; n - <span class="hljs-number">1</span>; i++) &#123;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j = <span class="hljs-number">0</span>; j &lt; n - <span class="hljs-number">1</span> - i; j++) &#123;<br>            <span class="hljs-keyword">if</span> (stu[j].score &lt; stu[j + <span class="hljs-number">1</span>].score) &#123;<br>                Student temp = stu[j];<br>                stu[j] = stu[j + <span class="hljs-number">1</span>];<br>                stu[j + <span class="hljs-number">1</span>] = temp;<br>            &#125;<br>        &#125;<br>    &#125;<br>    <br>    <span class="hljs-comment">// 输出</span><br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%-5s %-10s %-6s\n&quot;</span>, <span class="hljs-string">&quot;学号&quot;</span>, <span class="hljs-string">&quot;姓名&quot;</span>, <span class="hljs-string">&quot;成绩&quot;</span>);<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i++) &#123;<br>        <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%-5d %-10s %-6.1f\n&quot;</span>, <br>               stu[i].id, stu[i].name, stu[i].score);<br>    &#125;<br>    <br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-comment">// 定义学生结构体（学号、姓名、成绩），输入 n 个学生信息，按成绩从高到低排序输出。</span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;stdio.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;stdlib.h&gt;</span></span><br><span class="hljs-keyword">typedef</span> <span class="hljs-keyword">struct</span> <span class="hljs-title class_">student</span>&#123;<br><span class="hljs-type">int</span> id;<br><span class="hljs-type">char</span> name[<span class="hljs-number">100</span>];<br><span class="hljs-type">float</span> score;<br>&#125; students;<br><br><span class="hljs-comment">//定义返回参数</span><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">cmp</span><span class="hljs-params">(<span class="hljs-type">const</span> <span class="hljs-type">void</span> *a,<span class="hljs-type">const</span> <span class="hljs-type">void</span> *b)</span></span>&#123;<br>    students *s1=(students *)a;<span class="hljs-comment">//强制类型转换</span><br>    students *s2=(students *)b;<br>    <span class="hljs-comment">//按照成绩从高到低排序</span><br>    <span class="hljs-keyword">if</span>(s1-&gt;score&lt;s2-&gt;score)&#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;<br>        <span class="hljs-comment">//返回1表示s1应该排在s2后面</span><br>    &#125;<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(s1-&gt;score&gt;s2-&gt;score)&#123;<br>        <span class="hljs-comment">//返回-1表示s1应该排在s2前面</span><br>        <span class="hljs-keyword">return</span> <span class="hljs-number">-1</span>;<br>    &#125;<span class="hljs-keyword">else</span>&#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>    &#125;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>&#123;<br>    <span class="hljs-type">int</span> n=<span class="hljs-number">0</span>;<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;请输入学生人数：\n&quot;</span>);<br>    <span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d&quot;</span>,&amp;n);<br>    <span class="hljs-comment">//动态分配一个长度为 n 的学生数组，输入数据后排序输出。</span><br>    students *arr=(students *)<span class="hljs-built_in">malloc</span>(<span class="hljs-built_in">sizeof</span>(students)*n);<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;请输入学生信息（学号 姓名 成绩）：\n&quot;</span>);<br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">0</span>;i&lt;n;i++)&#123;<br>        <span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d %s %f&quot;</span>,&amp;arr[i].id,arr[i].name,&amp;arr[i].score);<br>    &#125;<br>    <span class="hljs-built_in">qsort</span>(arr,n,<span class="hljs-built_in">sizeof</span>(students),cmp);<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;排序后的学生信息为：\n&quot;</span>);<br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">0</span>;i&lt;n;i++)&#123;<br>        <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d %s %.2f\n&quot;</span>,arr[i].id,arr[i].name,arr[i].score);<br>    &#125;<br>    <span class="hljs-built_in">free</span>(arr);<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br><br><span class="hljs-comment">//实例输入：</span><br><span class="hljs-comment">//请输入学生人数：</span><br><span class="hljs-comment">//3</span><br><span class="hljs-comment">//请输入学生信息（学号 姓名 成绩）：</span><br><span class="hljs-comment">//1001 Alice 85.5</span><br><span class="hljs-comment">//1002 Bob 92.0</span><br><span class="hljs-comment">//1003 Charlie 78.0</span><br><span class="hljs-comment">//实例输出：</span><br><span class="hljs-comment">//排序后的学生信息为：</span><br><span class="hljs-comment">//1002 Bob 92.00</span><br><span class="hljs-comment">//1001 Alice 85.50</span><br><span class="hljs-comment">//1003 Charlie 78.00</span><br></code></pre></td></tr></table></figure>
+
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E7%AE%97%E6%B3%95/" class="category-chain-item">算法</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E6%8C%87%E9%92%88/" class="print-no-link">#指针</a>
+      
+        <a href="/tags/%E5%8A%A8%E6%80%81%E5%86%85%E5%AD%98/" class="print-no-link">#动态内存</a>
+      
+        <a href="/tags/%E7%BB%93%E6%9E%84%E4%BD%93/" class="print-no-link">#结构体</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>指针进阶</div>
+      <div>https://tsyangblog.site/2026/03/10/算法/指针进阶/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>小唐</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2026年3月10日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2026/03/10/%E7%AE%97%E6%B3%95/%E6%8C%87%E9%92%88%E5%9F%BA%E7%A1%80/" title="指针基础">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">指针基础</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2026/03/10/%E7%AE%97%E6%B3%95/%E6%8E%92%E5%BA%8F/" title="排序算法">
+                        <span class="hidden-mobile">排序算法</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div id="gitalk-container"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#gitalk-container', function() {
+      Fluid.utils.createCssLink('/css/gitalk.css')
+      Fluid.utils.createScript('https://lib.baomitu.com/gitalk/1.8.0/gitalk.min.js', function() {
+        var options = Object.assign(
+          {"clientID":"Ov23liZQDI8BrS44zUL7","clientSecret":"075fad544223a91a3529c013c644d5f341ff6e1d","repo":"blog_comments","owner":"XtangUser","admin":["XtangUser"],"language":"zh-CN","labels":["Gitalk","Comment"],"perPage":10,"pagerDirection":"last","distractionFreeMode":false,"createIssueManually":false,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token"},
+          {
+            id: '7d927f58527ebf5ffa55800b86452d47'
+          }
+        )
+        var gitalk = new Gitalk(options);
+        gitalk.render('gitalk-container');
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+      用代码记录生活，用文字传递温度
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="openkounter-site-pv-container" style="display: none">
+        总访问量 
+        <span id="openkounter-site-pv"></span>
+         次
+      </span>
+    
+    
+      <span id="openkounter-site-uv-container" style="display: none">
+        总访客数 
+        <span id="openkounter-site-uv"></span>
+         人
+      </span>
+    
+    
+
+  
+
+</div>
+
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    function isExpandAllEnabled() {
+      return CONFIG.toc && CONFIG.toc.expand_all === true;
+    }
+    function expandAllToc() {
+      if (!isExpandAllEnabled()) { return; }
+      jQuery('#toc-body .tocbot-is-collapsed').removeClass('tocbot-is-collapsed');
+    }
+    function updateTocToggle($li, $childList) {
+      var $toggle = $li.children('.toc-toggle');
+      if ($toggle.length === 0) { return; }
+      var collapsed = $childList.hasClass('tocbot-is-collapsed');
+      $toggle
+        .toggleClass('toc-toggle-collapsed', collapsed)
+        .toggleClass('toc-toggle-expanded', !collapsed);
+    }
+    function bindTocToggle() {
+      if (!isExpandAllEnabled()) { return; }
+      jQuery('#toc-body .toc-list-item').each(function() {
+        var $li = jQuery(this);
+        var $childList = $li.children('ol');
+        if ($childList.length === 0) {
+          if ($li.children('.toc-toggle').length === 0) {
+            $li.prepend('<span class="toc-toggle toc-toggle-placeholder" aria-hidden="true">›</span>');
+          }
+          return;
+        }
+
+        if ($li.children('.toc-toggle').length === 0) {
+          $li.prepend('<span class="toc-toggle toc-toggle-expanded" aria-hidden="true">›</span>');
+        }
+        updateTocToggle($li, $childList);
+      });
+      jQuery('#toc-body').off('click.tocToggle').on('click.tocToggle', '.toc-toggle', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        var $li = jQuery(this).parent('.toc-list-item');
+        var $childList = $li.children('ol');
+        if ($childList.length === 0) { return; }
+        $childList.toggleClass('tocbot-is-collapsed');
+        updateTocToggle($li, $childList);
+      });
+      if (!window.__tocToggleObserver) {
+        window.__tocToggleObserver = new MutationObserver(function(mutations) {
+          mutations.forEach(function(mutation) {
+            if (mutation.type !== 'attributes' || mutation.attributeName !== 'class') { return; }
+            var $list = jQuery(mutation.target);
+            var $li = $list.parent('.toc-list-item');
+            if ($li.length === 0) { return; }
+            updateTocToggle($li, $list);
+          });
+        });
+        jQuery('#toc-body ol').each(function() {
+          window.__tocToggleObserver.observe(this, { attributes: true });
+        });
+      }
+    }
+    var tocConfig = Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc);
+    if (isExpandAllEnabled()) {
+      tocConfig.collapseDepth = 6;
+    }
+    window.tocbot.init(tocConfig);
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+    expandAllToc();
+    bindTocToggle();
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+        expandAllToc();
+        bindTocToggle();
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script defer src="/js/openkounter.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+<!-- hexo injector body_end start --><script defer src="/js/mouse-particles.js"></script><script defer src="/js/live2d-helper.js"></script><script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "d25f7f4a1df0482f859f16ff4400fe43"}'></script><!-- hexo injector body_end end --><script src="https://cdn.jsdelivr.net/npm/live2d-widget@^3.1.3/lib/L2Dwidget.min.js"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"scale":1,"hHeadPos":0.5,"vHeadPos":0.618,"jsonPath":"https://cdn.jsdelivr.net/npm/live2d-widget-model-koharu@1.0.5/assets/koharu.model.json"},"display":{"superSample":2,"position":"left","width":200,"height":400,"hOffset":20,"vOffset":-20},"mobile":{"show":true,"scale":0.8},"react":{"opacityDefault":0.9,"opacityOnHover":0.3}});</script></body>
+</html>

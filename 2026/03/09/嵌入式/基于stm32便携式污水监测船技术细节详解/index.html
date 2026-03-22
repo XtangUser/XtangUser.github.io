@@ -1,0 +1,1054 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head><!-- hexo injector head_begin start --><meta name="referrer" content="no-referrer"><!-- hexo injector head_begin end -->
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/avatar.jpg">
+  <link rel="icon" href="/img/avatar.jpg">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#0891b2">
+  <meta name="author" content="小唐">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="基于STM32的便携式污水监测船技术细节详解，涵盖核心控制器选择、GPIO&#x2F;ADC&#x2F;I2C&#x2F;SPI原理、传感器模块、物联网通信技术和AI应用等内容。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="嵌入式开发·基于stm32便携式污水监测船技术细节详解">
+<meta property="og:url" content="https://tsyangblog.site/2026/03/09/%E5%B5%8C%E5%85%A5%E5%BC%8F/%E5%9F%BA%E4%BA%8Estm32%E4%BE%BF%E6%90%BA%E5%BC%8F%E6%B1%A1%E6%B0%B4%E7%9B%91%E6%B5%8B%E8%88%B9%E6%8A%80%E6%9C%AF%E7%BB%86%E8%8A%82%E8%AF%A6%E8%A7%A3/index.html">
+<meta property="og:site_name" content="别催小唐敲代码">
+<meta property="og:description" content="基于STM32的便携式污水监测船技术细节详解，涵盖核心控制器选择、GPIO&#x2F;ADC&#x2F;I2C&#x2F;SPI原理、传感器模块、物联网通信技术和AI应用等内容。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://s3.imagency.cn/e/fa3b463dc229c7bf4a49e9050124c1d8.png">
+<meta property="article:published_time" content="2026-03-08T16:00:00.000Z">
+<meta property="article:modified_time" content="2026-03-14T11:18:22.492Z">
+<meta property="article:author" content="小唐">
+<meta property="article:tag" content="STM32">
+<meta property="article:tag" content="嵌入式">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://s3.imagency.cn/e/fa3b463dc229c7bf4a49e9050124c1d8.png">
+  
+  
+  
+  <title>嵌入式开发·基于stm32便携式污水监测船技术细节详解 - 别催小唐敲代码</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"tsyangblog.site","root":"/","version":"1.9.9","typing":{"enable":true,"typeSpeed":100,"cursorChar":"|","loop":true,"scope":["home"]},"anchorjs":{"enable":true,"element":"h2,h3,h4","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#0ea5e9","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"expand_all":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0,"number":false,"scrollSmooth":true,"scrollSmoothOffset":-5},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":false,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"openkounter":{"server_url":"https://blog-counter.221036109.workers.dev","path":"window.location.pathname","ignore_local":true},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+
+  
+<!-- hexo injector head_end start --><link rel="stylesheet" href="/css/custom.css"><style>#live2dcanvas{position:fixed!important;left:0!important;bottom:0!important;z-index:999999!important;pointer-events:auto!important;width:200px!important;height:400px!important;}</style><!-- hexo injector head_end end --><meta name="generator" content="Hexo 8.1.1"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 55vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>别催小唐敲代码</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content (desktop) -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>主页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>时间轴</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile grid menu overlay -->
+<div id="mobile-grid-menu" class="d-lg-none">
+  <div class="mobile-grid-menu-inner">
+    <div class="container">
+      <div class="row">
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-home-fill"></i>
+                  <span>主页</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/archives/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-archive-fill"></i>
+                  <span>时间轴</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/tags/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-tags-fill"></i>
+                  <span>标签</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/categories/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-category-fill"></i>
+                  <span>分类</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/about/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-user-fill"></i>
+                  <span>关于</span>
+                </div>
+              </a>
+            </div>
+          
+        
+        
+          <div class="col-4 mobile-grid-cell" id="mobile-search-btn">
+            <a href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <div class="mobile-grid-item">
+                <i class="iconfont icon-search"></i>
+                <span>搜索</span>
+              </div>
+            </a>
+          </div>
+        
+        
+          <div class="col-4 mobile-grid-cell" id="mobile-color-toggle-btn"
+               data-label-light="开灯"
+               data-label-dark="关灯">
+            <a href="javascript:;" aria-label="Color Toggle">
+              <div class="mobile-grid-item">
+                <i class="iconfont icon-dark" id="mobile-color-toggle-icon"></i>
+                <span id="mobile-color-toggle-label">关灯</span>
+              </div>
+            </a>
+          </div>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('https://images.unsplash.com/photo-1519681393784-d120267933ba?w=1920&q=80') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.35)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle">嵌入式开发·基于stm32便携式污水监测船技术细节详解</span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2026-03-09 00:00" pubdate>
+          2026年3月9日
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          <!-- compatible with older versions-->
+          2.8k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          <!-- compatible with older versions-->
+          6 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="openkounter-page-views-container" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="openkounter-page-views"></span> 次
+        </span>
+        
+
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">嵌入式开发·基于stm32便携式污水监测船技术细节详解</h1>
+            
+              <p id="updated-time" class="note note-info" style="">
+                
+                  
+                    <!-- compatible with older versions-->
+                    最后更新于：2026年3月14日 晚上
+                  
+                
+              </p>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="基于stm32便携式污水监测船技术细节详解"><a href="#基于stm32便携式污水监测船技术细节详解" class="headerlink" title="基于stm32便携式污水监测船技术细节详解"></a>基于stm32便携式污水监测船技术细节详解</h1><p>1.为什么选这款核心控制器：STM32F103C8T6</p>
+<p>性价比高、资源丰富（GPIO、ADC、定时器、UART接口够用）、生态成熟。对于本项目的数据采集和电机控制，F103的性能完全满足实时性要求。</p>
+<p><img src="https://s3.imagency.cn/e/fa3b463dc229c7bf4a49e9050124c1d8.png" srcset="/img/loading.gif" lazyload></p>
+<p>我选用的主控是STM32F103C8T6。它基于Cortex-M3内核，主频72MHz，拥有64K Flash（相当于固态硬盘）和20K SRAM（内存），对于这个便携式检测船项目来说性价比很高。</p>
+<p>在资源分配上，我充分利用了它的外设：</p>
+<ol>
+<li><strong>串口方面</strong>：它有3个USART。我用USART1打印调试日志，USART2对接ESP8266 Wi-Fi模块上传数据到OneNET云平台。</li>
+<li><strong>ADC方面</strong>：它有2个12位ADC。我开启了多通道扫描模式配合DMA，实时采集pH值、浊度和TDS传感器的模拟信号。</li>
+<li><strong>定时器方面</strong>：我使用通用定时器产生两路PWM，控制船体电机的差速转向。</li>
+</ol>
+<p>总体来说，C8T6的资源刚好满足项目需求，且引脚（48脚）体积小，适合便携式设备。</p>
+<h1 id="2-GPIO、ADC、I2C、SPI原理解释"><a href="#2-GPIO、ADC、I2C、SPI原理解释" class="headerlink" title="2.GPIO、ADC、I2C、SPI原理解释"></a>2.GPIO、ADC、I2C、SPI原理解释</h1><h3 id="GPIO-—-最简单的“引脚开关”"><a href="#GPIO-—-最简单的“引脚开关”" class="headerlink" title="GPIO — 最简单的“引脚开关”"></a>GPIO — 最简单的“引脚开关”</h3><p>全称：General Purpose Input Output，通用输入输出。</p>
+<p>就是单片机最普通的引脚，只有两种状态：</p>
+<ul>
+<li>高电平：3.3V &#x2F; 5V</li>
+<li>低电平：0V</li>
+</ul>
+<p>两种模式</p>
+<ol>
+<li>输出（Output）</li>
+</ol>
+<ul>
+<li>输出高：灯亮、继电器吸合</li>
+<li>输出低：灯灭、继电器断开</li>
+</ul>
+<ol start="2">
+<li>输入（Input）</li>
+</ol>
+<p>  单片机读取外部电平。</p>
+<ul>
+<li>读高 &#x2F; 读低，判断按键按下、传感器信号</li>
+</ul>
+<p>一句话理解</p>
+<p>GPIO &#x3D; 单片机的手和眼，能控制也能读取。</p>
+<hr>
+<h2 id="ADC-—-测量“模拟量”的转换器"><a href="#ADC-—-测量“模拟量”的转换器" class="headerlink" title="ADC — 测量“模拟量”的转换器"></a>ADC — 测量“模拟量”的转换器</h2><p>全称：Analog to Digital Converter，模拟转数字。</p>
+<p>现实世界很多量是连续变化的：</p>
+<ul>
+<li>电压 0~3.3V</li>
+<li>温度、光照、声音、电位器旋钮</li>
+</ul>
+<p>但单片机只认 0 和 1，所以需要 ADC。</p>
+<ol>
+<li>外部输入连续电压</li>
+<li>ADC 把它转成数字（比如 0~4095）</li>
+<li>单片机就能计算：电压 &#x3D; 多少、温度 &#x3D; 多少</li>
+</ol>
+<p>关键概念</p>
+<ul>
+<li>分辨率：12 位，即 0~4095</li>
+<li>参考电压：3.3V</li>
+<li>数字越大，电压越高</li>
+</ul>
+<p>ADC &#x3D; 把“连续电压”翻译成单片机能看懂的“数字”。</p>
+<h2 id="I2C-—-两根线的“低速简约通信”"><a href="#I2C-—-两根线的“低速简约通信”" class="headerlink" title="I2C — 两根线的“低速简约通信”"></a>I2C — 两根线的“低速简约通信”</h2><p>全称：Inter-Integrated Circuit</p>
+<ol>
+<li>SDA：数据线（发数据）</li>
+<li>SCL：时钟线（同步节奏）</li>
+</ol>
+<ul>
+<li>主机（单片机）发时钟信号，大家同步</li>
+<li>总线上可以挂多个设备</li>
+<li>每个设备有唯一地址</li>
+<li>主机喊地址，对应设备回应</li>
+</ul>
+<p>优点 &#x2F; 缺点</p>
+<ul>
+<li>优点：线少、简单、支持多设备</li>
+<li>缺点：速度不快</li>
+</ul>
+<p>典型设备</p>
+<p>OLED 屏、陀螺仪、温湿度传感器、EEPROM</p>
+<p>I2C &#x3D; 两根线，大家轮流说话，地址找人。</p>
+<h2 id="SPI-—-四根线的“高速通信”"><a href="#SPI-—-四根线的“高速通信”" class="headerlink" title="SPI — 四根线的“高速通信”"></a>SPI — 四根线的“高速通信”</h2><p>全称：Serial Peripheral Interface</p>
+<p>通常 4 根线</p>
+<ol>
+<li>SCLK：时钟</li>
+<li>MOSI：主机发 -&gt; 从机收</li>
+<li>MISO：从机发 -&gt; 主机收</li>
+<li>CS&#x2F;SS：片选（选谁通信）</li>
+</ol>
+<ul>
+<li>全双工：一边发一边收</li>
+<li>时钟一跳，数据就移一位</li>
+<li>用 CS 选中一个设备，只跟它说话</li>
+<li>速度可以非常快</li>
+</ul>
+<p>优点 &#x2F; 缺点</p>
+<ul>
+<li>优点：极快、全双工、稳定</li>
+<li>缺点：线多，每个设备要单独 CS</li>
+</ul>
+<p>典型设备</p>
+<p>Flash、屏、SD 卡、高速 ADC、射频模块</p>
+<p>SPI &#x3D; 高速专车，点对点，速度快到飞起。</p>
+<hr>
+<p>超简总结（最好记）</p>
+<ul>
+<li><strong>GPIO</strong>：控制高低电平、读开关</li>
+<li><strong>ADC</strong>：把模拟电压转成数字</li>
+<li><strong>I2C</strong>：2 根线，慢，省引脚，多设备</li>
+<li><strong>SPI</strong>：4 根线，快，全双工，高速设备</li>
+</ul>
+<h2 id="传感器模块"><a href="#传感器模块" class="headerlink" title="传感器模块"></a>传感器模块</h2><ul>
+<li><p><strong>pH 传感器（E-201 玻璃探头）：</strong></p>
+<ul>
+<li><strong>原理：</strong> 用于检测水体的酸碱度（0~14）。它输出的是微弱的电压模拟信号，需要主控芯片进行读取转换。</li>
+<li><strong>技术细节：</strong> pH 值的测量极易受水温影响，因此该模块在硬件设计上与下面的温度传感器（DS18B20）相连，<strong>实现了温度补偿</strong>，让酸碱度测得更准。</li>
+</ul>
+</li>
+<li><p><strong>2. 温度传感器（DS18B20）：</strong></p>
+<ul>
+<li><strong>原理：</strong> 采用防水型探头测量水温。这是一款高精度的数字温度传感器。</li>
+<li><strong>技术细节：</strong> 它采用单总线（1-Wire）技术，只需要一根数据线就能和主控芯片通信，大大节省了引脚资源。</li>
+</ul>
+</li>
+<li><p><strong>3. 浊度传感器（TWS）：</strong></p>
+<ul>
+<li><strong>原理：</strong> 检测水中有机物、无机物等悬浮颗粒的多少（即水的浑浊程度）。</li>
+<li><strong>技术细节：</strong> 光学原理，水越浑浊，透过的光越少，传感器将其转化为电压信号传入 STM32 的 ADC 接口。</li>
+</ul>
+</li>
+<li><p><strong>4. TDS 电导率传感器：</strong></p>
+<ul>
+<li><strong>原理：</strong> 检测水中溶解的固体总量（如重金属离子、可溶性盐等）。导电率越高，说明水中杂质可能越多。</li>
+</ul>
+</li>
+</ul>
+<h3 id="三、系统的“神经网络”：物联网通信技术（传输）"><a href="#三、系统的“神经网络”：物联网通信技术（传输）" class="headerlink" title="三、系统的“神经网络”：物联网通信技术（传输）"></a>三、系统的“神经网络”：物联网通信技术（传输）</h3><p>小船在水上测到的数据，需要实时传回岸上，这就需要强大的无线通信技术。</p>
+<ul>
+<li><strong>1. 硬件通信模块：ESP-01S WiFi 模块</strong><ul>
+<li>该模块支持2.4GHz频段，能在100米范围（视距）内提供稳定的无线网络。它通过串口（RX&#x2F;TX）与 STM32 通信，把单片机里的数据打包发到互联网上。</li>
+</ul>
+</li>
+<li><strong>2. 通信协议：MQTT 协议</strong><ul>
+<li><strong>为什么用 MQTT：</strong> 在复杂的水域环境中，网络信号可能不好。MQTT 是一种<strong>轻量级、低开销、高可靠</strong>的物联网协议。它采用“发布-订阅”模式，即使在网络不稳定的情况下，也能最大程度保证数据不丢失。</li>
+</ul>
+</li>
+<li><strong>3. 云端中枢：OneNET 物联网云平台</strong><ul>
+<li>由中国移动提供的物联网平台。小船作为“设备”接入该平台，源源不断地把水质数据上传到云端数据库中；同时，云平台也可以向下发指令（比如遥控小船的动作）</li>
+</ul>
+</li>
+</ul>
+<h3 id="四、系统的“决策端”：软件可视化与-AI-技术（应用）"><a href="#四、系统的“决策端”：软件可视化与-AI-技术（应用）" class="headerlink" title="四、系统的“决策端”：软件可视化与 AI 技术（应用）"></a>四、系统的“决策端”：软件可视化与 AI 技术（应用）</h3><p>终端用户（监测人员）如何看数据？如何分析污染？***</p>
+<ul>
+<li><strong>1. 跨平台可视化界面（H5 &#x2F; 微信小程序 &#x2F; PC端）：</strong><ul>
+<li>系统开发了多个客户端。通过调用 OneNET 云平台的 API 接口，抓取云端数据，并使用<strong>ECharts 数据图表</strong>，把枯燥的数字变成直观的折线图、仪表盘，实时显示水温、pH值、电量等。</li>
+</ul>
+</li>
+<li><strong>2. 引入大模型技术（科大讯飞星火认知大模型）：</strong><ul>
+<li>这是本系统的一项<strong>极大创新</strong>。论文中提到接入了“科大讯飞星火大平台”的 API。</li>
+<li><strong>底层技术：</strong> 采用 WebSocket 协议实现网页端与 AI 服务器的<strong>双向实时通信</strong>。</li>
+<li><strong>应用场景：</strong> 当检测到异常数据（例如某区域 pH 值突然过低，呈强酸性），监测人员可以在系统里直接询问 AI 大模型。AI 会结合当前的水质数据，提供高效的数据分析、污染源追踪建议或异常问题的解决方案（类似于给系统配备了一个水质环保专家）。</li>
+</ul>
+</li>
+</ul>
+<p><strong>论文地址：<a target="_blank" rel="noopener" href="https://kns.cnki.net/kcms2/article/abstract?v=vxt3_kKBHYNEJzrmyA4eGKltgMKXlhXAEj7-gV4zCn_JtsnotFjNa4ZY_g_gg7S8gnAdUqFXHrBm78N9car35ANc0oEoZRM_UtwUZfWrOGXqB-4ITyTaO1GwUrjosmNs5YskwcmgkkfXQ9TIN_SPVToIBNNhCznsfKrpRazdaSc=&uniplatform=NZKPT">https://kns.cnki.net/kcms2/article/abstract?v=vxt3_kKBHYNEJzrmyA4eGKltgMKXlhXAEj7-gV4zCn_JtsnotFjNa4ZY_g_gg7S8gnAdUqFXHrBm78N9car35ANc0oEoZRM_UtwUZfWrOGXqB-4ITyTaO1GwUrjosmNs5YskwcmgkkfXQ9TIN_SPVToIBNNhCznsfKrpRazdaSc=&amp;uniplatform=NZKPT</a></strong></p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F/" class="category-chain-item">嵌入式</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F/" class="print-no-link">#嵌入式</a>
+      
+        <a href="/tags/STM32/" class="print-no-link">#STM32</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>嵌入式开发·基于stm32便携式污水监测船技术细节详解</div>
+      <div>https://tsyangblog.site/2026/03/09/嵌入式/基于stm32便携式污水监测船技术细节详解/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>小唐</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2026年3月9日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2026/03/09/%E5%90%8E%E7%AB%AF/%E5%90%8E%E7%AB%AF%E5%BC%80%E7%AF%87/" title="后端开发·栏目介绍">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">后端开发·栏目介绍</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2026/03/09/%E5%B5%8C%E5%85%A5%E5%BC%8F/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%BC%80%E7%AF%87/" title="嵌入式开发·栏目介绍">
+                        <span class="hidden-mobile">嵌入式开发·栏目介绍</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div id="gitalk-container"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#gitalk-container', function() {
+      Fluid.utils.createCssLink('/css/gitalk.css')
+      Fluid.utils.createScript('https://lib.baomitu.com/gitalk/1.8.0/gitalk.min.js', function() {
+        var options = Object.assign(
+          {"clientID":"Ov23liZQDI8BrS44zUL7","clientSecret":"075fad544223a91a3529c013c644d5f341ff6e1d","repo":"blog_comments","owner":"XtangUser","admin":["XtangUser"],"language":"zh-CN","labels":["Gitalk","Comment"],"perPage":10,"pagerDirection":"last","distractionFreeMode":false,"createIssueManually":false,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token"},
+          {
+            id: 'abf69d992108484fbe58c9f31d34690d'
+          }
+        )
+        var gitalk = new Gitalk(options);
+        gitalk.render('gitalk-container');
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+      用代码记录生活，用文字传递温度
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="openkounter-site-pv-container" style="display: none">
+        总访问量 
+        <span id="openkounter-site-pv"></span>
+         次
+      </span>
+    
+    
+      <span id="openkounter-site-uv-container" style="display: none">
+        总访客数 
+        <span id="openkounter-site-uv"></span>
+         人
+      </span>
+    
+    
+
+  
+
+</div>
+
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    function isExpandAllEnabled() {
+      return CONFIG.toc && CONFIG.toc.expand_all === true;
+    }
+    function expandAllToc() {
+      if (!isExpandAllEnabled()) { return; }
+      jQuery('#toc-body .tocbot-is-collapsed').removeClass('tocbot-is-collapsed');
+    }
+    function updateTocToggle($li, $childList) {
+      var $toggle = $li.children('.toc-toggle');
+      if ($toggle.length === 0) { return; }
+      var collapsed = $childList.hasClass('tocbot-is-collapsed');
+      $toggle
+        .toggleClass('toc-toggle-collapsed', collapsed)
+        .toggleClass('toc-toggle-expanded', !collapsed);
+    }
+    function bindTocToggle() {
+      if (!isExpandAllEnabled()) { return; }
+      jQuery('#toc-body .toc-list-item').each(function() {
+        var $li = jQuery(this);
+        var $childList = $li.children('ol');
+        if ($childList.length === 0) {
+          if ($li.children('.toc-toggle').length === 0) {
+            $li.prepend('<span class="toc-toggle toc-toggle-placeholder" aria-hidden="true">›</span>');
+          }
+          return;
+        }
+
+        if ($li.children('.toc-toggle').length === 0) {
+          $li.prepend('<span class="toc-toggle toc-toggle-expanded" aria-hidden="true">›</span>');
+        }
+        updateTocToggle($li, $childList);
+      });
+      jQuery('#toc-body').off('click.tocToggle').on('click.tocToggle', '.toc-toggle', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        var $li = jQuery(this).parent('.toc-list-item');
+        var $childList = $li.children('ol');
+        if ($childList.length === 0) { return; }
+        $childList.toggleClass('tocbot-is-collapsed');
+        updateTocToggle($li, $childList);
+      });
+      if (!window.__tocToggleObserver) {
+        window.__tocToggleObserver = new MutationObserver(function(mutations) {
+          mutations.forEach(function(mutation) {
+            if (mutation.type !== 'attributes' || mutation.attributeName !== 'class') { return; }
+            var $list = jQuery(mutation.target);
+            var $li = $list.parent('.toc-list-item');
+            if ($li.length === 0) { return; }
+            updateTocToggle($li, $list);
+          });
+        });
+        jQuery('#toc-body ol').each(function() {
+          window.__tocToggleObserver.observe(this, { attributes: true });
+        });
+      }
+    }
+    var tocConfig = Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc);
+    if (isExpandAllEnabled()) {
+      tocConfig.collapseDepth = 6;
+    }
+    window.tocbot.init(tocConfig);
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+    expandAllToc();
+    bindTocToggle();
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+        expandAllToc();
+        bindTocToggle();
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script defer src="/js/openkounter.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+<!-- hexo injector body_end start --><script defer src="/js/mouse-particles.js"></script><script defer src="/js/live2d-helper.js"></script><script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "d25f7f4a1df0482f859f16ff4400fe43"}'></script><!-- hexo injector body_end end --><script src="https://cdn.jsdelivr.net/npm/live2d-widget@^3.1.3/lib/L2Dwidget.min.js"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"scale":1,"hHeadPos":0.5,"vHeadPos":0.618,"jsonPath":"https://cdn.jsdelivr.net/npm/live2d-widget-model-koharu@1.0.5/assets/koharu.model.json"},"display":{"superSample":2,"position":"left","width":200,"height":400,"hOffset":20,"vOffset":-20},"mobile":{"show":true,"scale":0.8},"react":{"opacityDefault":0.9,"opacityOnHover":0.3}});</script></body>
+</html>
