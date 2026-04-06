@@ -245,9 +245,9 @@
     
     <tags>
       
-      <tag>FastAPI</tag>
-      
       <tag>Python</tag>
+      
+      <tag>FastAPI</tag>
       
       <tag>Web框架</tag>
       
@@ -796,6 +796,8 @@
     
     <tags>
       
+      <tag>深度学习</tag>
+      
       <tag>FastAPI</tag>
       
       <tag>LeetCode</tag>
@@ -805,8 +807,6 @@
       <tag>大模型</tag>
       
       <tag>机器学习</tag>
-      
-      <tag>深度学习</tag>
       
       <tag>NLP</tag>
       
@@ -900,33 +900,6 @@
   
   
   <entry>
-    <title>嵌入式开发·基于stm32便携式污水监测船技术细节详解</title>
-    <link href="/2026/03/09/%E5%B5%8C%E5%85%A5%E5%BC%8F/%E5%9F%BA%E4%BA%8Estm32%E4%BE%BF%E6%90%BA%E5%BC%8F%E6%B1%A1%E6%B0%B4%E7%9B%91%E6%B5%8B%E8%88%B9%E6%8A%80%E6%9C%AF%E7%BB%86%E8%8A%82%E8%AF%A6%E8%A7%A3/"/>
-    <url>/2026/03/09/%E5%B5%8C%E5%85%A5%E5%BC%8F/%E5%9F%BA%E4%BA%8Estm32%E4%BE%BF%E6%90%BA%E5%BC%8F%E6%B1%A1%E6%B0%B4%E7%9B%91%E6%B5%8B%E8%88%B9%E6%8A%80%E6%9C%AF%E7%BB%86%E8%8A%82%E8%AF%A6%E8%A7%A3/</url>
-    
-    <content type="html"><![CDATA[<h1 id="基于stm32便携式污水监测船技术细节详解"><a href="#基于stm32便携式污水监测船技术细节详解" class="headerlink" title="基于stm32便携式污水监测船技术细节详解"></a>基于stm32便携式污水监测船技术细节详解</h1><p>1.为什么选这款核心控制器：STM32F103C8T6</p><p>性价比高、资源丰富（GPIO、ADC、定时器、UART接口够用）、生态成熟。对于本项目的数据采集和电机控制，F103的性能完全满足实时性要求。</p><p><img src="https://s3.imagency.cn/e/fa3b463dc229c7bf4a49e9050124c1d8.png"></p><p>我选用的主控是STM32F103C8T6。它基于Cortex-M3内核，主频72MHz，拥有64K Flash（相当于固态硬盘）和20K SRAM（内存），对于这个便携式检测船项目来说性价比很高。</p><p>在资源分配上，我充分利用了它的外设：</p><ol><li><strong>串口方面</strong>：它有3个USART。我用USART1打印调试日志，USART2对接ESP8266 Wi-Fi模块上传数据到OneNET云平台。</li><li><strong>ADC方面</strong>：它有2个12位ADC。我开启了多通道扫描模式配合DMA，实时采集pH值、浊度和TDS传感器的模拟信号。</li><li><strong>定时器方面</strong>：我使用通用定时器产生两路PWM，控制船体电机的差速转向。</li></ol><p>总体来说，C8T6的资源刚好满足项目需求，且引脚（48脚）体积小，适合便携式设备。</p><h1 id="2-GPIO、ADC、I2C、SPI原理解释"><a href="#2-GPIO、ADC、I2C、SPI原理解释" class="headerlink" title="2.GPIO、ADC、I2C、SPI原理解释"></a>2.GPIO、ADC、I2C、SPI原理解释</h1><h3 id="GPIO-—-最简单的“引脚开关”"><a href="#GPIO-—-最简单的“引脚开关”" class="headerlink" title="GPIO — 最简单的“引脚开关”"></a>GPIO — 最简单的“引脚开关”</h3><p>全称：General Purpose Input Output，通用输入输出。</p><p>就是单片机最普通的引脚，只有两种状态：</p><ul><li>高电平：3.3V &#x2F; 5V</li><li>低电平：0V</li></ul><p>两种模式</p><ol><li>输出（Output）</li></ol><ul><li>输出高：灯亮、继电器吸合</li><li>输出低：灯灭、继电器断开</li></ul><ol start="2"><li>输入（Input）</li></ol><p>  单片机读取外部电平。</p><ul><li>读高 &#x2F; 读低，判断按键按下、传感器信号</li></ul><p>一句话理解</p><p>GPIO &#x3D; 单片机的手和眼，能控制也能读取。</p><hr><h2 id="ADC-—-测量“模拟量”的转换器"><a href="#ADC-—-测量“模拟量”的转换器" class="headerlink" title="ADC — 测量“模拟量”的转换器"></a>ADC — 测量“模拟量”的转换器</h2><p>全称：Analog to Digital Converter，模拟转数字。</p><p>现实世界很多量是连续变化的：</p><ul><li>电压 0~3.3V</li><li>温度、光照、声音、电位器旋钮</li></ul><p>但单片机只认 0 和 1，所以需要 ADC。</p><ol><li>外部输入连续电压</li><li>ADC 把它转成数字（比如 0~4095）</li><li>单片机就能计算：电压 &#x3D; 多少、温度 &#x3D; 多少</li></ol><p>关键概念</p><ul><li>分辨率：12 位，即 0~4095</li><li>参考电压：3.3V</li><li>数字越大，电压越高</li></ul><p>ADC &#x3D; 把“连续电压”翻译成单片机能看懂的“数字”。</p><h2 id="I2C-—-两根线的“低速简约通信”"><a href="#I2C-—-两根线的“低速简约通信”" class="headerlink" title="I2C — 两根线的“低速简约通信”"></a>I2C — 两根线的“低速简约通信”</h2><p>全称：Inter-Integrated Circuit</p><ol><li>SDA：数据线（发数据）</li><li>SCL：时钟线（同步节奏）</li></ol><ul><li>主机（单片机）发时钟信号，大家同步</li><li>总线上可以挂多个设备</li><li>每个设备有唯一地址</li><li>主机喊地址，对应设备回应</li></ul><p>优点 &#x2F; 缺点</p><ul><li>优点：线少、简单、支持多设备</li><li>缺点：速度不快</li></ul><p>典型设备</p><p>OLED 屏、陀螺仪、温湿度传感器、EEPROM</p><p>I2C &#x3D; 两根线，大家轮流说话，地址找人。</p><h2 id="SPI-—-四根线的“高速通信”"><a href="#SPI-—-四根线的“高速通信”" class="headerlink" title="SPI — 四根线的“高速通信”"></a>SPI — 四根线的“高速通信”</h2><p>全称：Serial Peripheral Interface</p><p>通常 4 根线</p><ol><li>SCLK：时钟</li><li>MOSI：主机发 -&gt; 从机收</li><li>MISO：从机发 -&gt; 主机收</li><li>CS&#x2F;SS：片选（选谁通信）</li></ol><ul><li>全双工：一边发一边收</li><li>时钟一跳，数据就移一位</li><li>用 CS 选中一个设备，只跟它说话</li><li>速度可以非常快</li></ul><p>优点 &#x2F; 缺点</p><ul><li>优点：极快、全双工、稳定</li><li>缺点：线多，每个设备要单独 CS</li></ul><p>典型设备</p><p>Flash、屏、SD 卡、高速 ADC、射频模块</p><p>SPI &#x3D; 高速专车，点对点，速度快到飞起。</p><hr><p>超简总结（最好记）</p><ul><li><strong>GPIO</strong>：控制高低电平、读开关</li><li><strong>ADC</strong>：把模拟电压转成数字</li><li><strong>I2C</strong>：2 根线，慢，省引脚，多设备</li><li><strong>SPI</strong>：4 根线，快，全双工，高速设备</li></ul><h2 id="传感器模块"><a href="#传感器模块" class="headerlink" title="传感器模块"></a>传感器模块</h2><ul><li><p><strong>pH 传感器（E-201 玻璃探头）：</strong></p><ul><li><strong>原理：</strong> 用于检测水体的酸碱度（0~14）。它输出的是微弱的电压模拟信号，需要主控芯片进行读取转换。</li><li><strong>技术细节：</strong> pH 值的测量极易受水温影响，因此该模块在硬件设计上与下面的温度传感器（DS18B20）相连，<strong>实现了温度补偿</strong>，让酸碱度测得更准。</li></ul></li><li><p><strong>2. 温度传感器（DS18B20）：</strong></p><ul><li><strong>原理：</strong> 采用防水型探头测量水温。这是一款高精度的数字温度传感器。</li><li><strong>技术细节：</strong> 它采用单总线（1-Wire）技术，只需要一根数据线就能和主控芯片通信，大大节省了引脚资源。</li></ul></li><li><p><strong>3. 浊度传感器（TWS）：</strong></p><ul><li><strong>原理：</strong> 检测水中有机物、无机物等悬浮颗粒的多少（即水的浑浊程度）。</li><li><strong>技术细节：</strong> 光学原理，水越浑浊，透过的光越少，传感器将其转化为电压信号传入 STM32 的 ADC 接口。</li></ul></li><li><p><strong>4. TDS 电导率传感器：</strong></p><ul><li><strong>原理：</strong> 检测水中溶解的固体总量（如重金属离子、可溶性盐等）。导电率越高，说明水中杂质可能越多。</li></ul></li></ul><h3 id="三、系统的“神经网络”：物联网通信技术（传输）"><a href="#三、系统的“神经网络”：物联网通信技术（传输）" class="headerlink" title="三、系统的“神经网络”：物联网通信技术（传输）"></a>三、系统的“神经网络”：物联网通信技术（传输）</h3><p>小船在水上测到的数据，需要实时传回岸上，这就需要强大的无线通信技术。</p><ul><li><strong>1. 硬件通信模块：ESP-01S WiFi 模块</strong><ul><li>该模块支持2.4GHz频段，能在100米范围（视距）内提供稳定的无线网络。它通过串口（RX&#x2F;TX）与 STM32 通信，把单片机里的数据打包发到互联网上。</li></ul></li><li><strong>2. 通信协议：MQTT 协议</strong><ul><li><strong>为什么用 MQTT：</strong> 在复杂的水域环境中，网络信号可能不好。MQTT 是一种<strong>轻量级、低开销、高可靠</strong>的物联网协议。它采用“发布-订阅”模式，即使在网络不稳定的情况下，也能最大程度保证数据不丢失。</li></ul></li><li><strong>3. 云端中枢：OneNET 物联网云平台</strong><ul><li>由中国移动提供的物联网平台。小船作为“设备”接入该平台，源源不断地把水质数据上传到云端数据库中；同时，云平台也可以向下发指令（比如遥控小船的动作）</li></ul></li></ul><h3 id="四、系统的“决策端”：软件可视化与-AI-技术（应用）"><a href="#四、系统的“决策端”：软件可视化与-AI-技术（应用）" class="headerlink" title="四、系统的“决策端”：软件可视化与 AI 技术（应用）"></a>四、系统的“决策端”：软件可视化与 AI 技术（应用）</h3><p>终端用户（监测人员）如何看数据？如何分析污染？***</p><ul><li><strong>1. 跨平台可视化界面（H5 &#x2F; 微信小程序 &#x2F; PC端）：</strong><ul><li>系统开发了多个客户端。通过调用 OneNET 云平台的 API 接口，抓取云端数据，并使用<strong>ECharts 数据图表</strong>，把枯燥的数字变成直观的折线图、仪表盘，实时显示水温、pH值、电量等。</li></ul></li><li><strong>2. 引入大模型技术（科大讯飞星火认知大模型）：</strong><ul><li>这是本系统的一项<strong>极大创新</strong>。论文中提到接入了“科大讯飞星火大平台”的 API。</li><li><strong>底层技术：</strong> 采用 WebSocket 协议实现网页端与 AI 服务器的<strong>双向实时通信</strong>。</li><li><strong>应用场景：</strong> 当检测到异常数据（例如某区域 pH 值突然过低，呈强酸性），监测人员可以在系统里直接询问 AI 大模型。AI 会结合当前的水质数据，提供高效的数据分析、污染源追踪建议或异常问题的解决方案（类似于给系统配备了一个水质环保专家）。</li></ul></li></ul><p><strong>论文地址：<a href="https://kns.cnki.net/kcms2/article/abstract?v=vxt3_kKBHYNEJzrmyA4eGKltgMKXlhXAEj7-gV4zCn_JtsnotFjNa4ZY_g_gg7S8gnAdUqFXHrBm78N9car35ANc0oEoZRM_UtwUZfWrOGXqB-4ITyTaO1GwUrjosmNs5YskwcmgkkfXQ9TIN_SPVToIBNNhCznsfKrpRazdaSc=&uniplatform=NZKPT">https://kns.cnki.net/kcms2/article/abstract?v=vxt3_kKBHYNEJzrmyA4eGKltgMKXlhXAEj7-gV4zCn_JtsnotFjNa4ZY_g_gg7S8gnAdUqFXHrBm78N9car35ANc0oEoZRM_UtwUZfWrOGXqB-4ITyTaO1GwUrjosmNs5YskwcmgkkfXQ9TIN_SPVToIBNNhCznsfKrpRazdaSc=&amp;uniplatform=NZKPT</a></strong></p>]]></content>
-    
-    
-    <categories>
-      
-      <category>嵌入式</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>嵌入式</tag>
-      
-      <tag>STM32</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
     <title>嵌入式开发·栏目介绍</title>
     <link href="/2026/03/09/%E5%B5%8C%E5%85%A5%E5%BC%8F/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%BC%80%E7%AF%87/"/>
     <url>/2026/03/09/%E5%B5%8C%E5%85%A5%E5%BC%8F/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%BC%80%E7%AF%87/</url>
@@ -954,25 +927,25 @@
   
   
   <entry>
-    <title>数据库·栏目介绍</title>
-    <link href="/2026/03/09/%E6%95%B0%E6%8D%AE%E5%BA%93/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%BC%80%E7%AF%87/"/>
-    <url>/2026/03/09/%E6%95%B0%E6%8D%AE%E5%BA%93/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%BC%80%E7%AF%87/</url>
+    <title>嵌入式开发·基于stm32便携式污水监测船技术细节详解</title>
+    <link href="/2026/03/09/%E5%B5%8C%E5%85%A5%E5%BC%8F/%E5%9F%BA%E4%BA%8Estm32%E4%BE%BF%E6%90%BA%E5%BC%8F%E6%B1%A1%E6%B0%B4%E7%9B%91%E6%B5%8B%E8%88%B9%E6%8A%80%E6%9C%AF%E7%BB%86%E8%8A%82%E8%AF%A6%E8%A7%A3/"/>
+    <url>/2026/03/09/%E5%B5%8C%E5%85%A5%E5%BC%8F/%E5%9F%BA%E4%BA%8Estm32%E4%BE%BF%E6%90%BA%E5%BC%8F%E6%B1%A1%E6%B0%B4%E7%9B%91%E6%B5%8B%E8%88%B9%E6%8A%80%E6%9C%AF%E7%BB%86%E8%8A%82%E8%AF%A6%E8%A7%A3/</url>
     
-    <content type="html"><![CDATA[<blockquote><p>这里记录数据库相关的学习笔记与实战经验。</p></blockquote><span id="more"></span><h2 id="📌-本栏目内容"><a href="#📌-本栏目内容" class="headerlink" title="📌 本栏目内容"></a>📌 本栏目内容</h2><p>本栏目将持续更新以下方向的技术文章：</p><ul><li><strong>MySQL</strong> 基础与进阶</li><li><strong>数据库设计</strong> 范式、ER 图</li><li><strong>SQL 优化</strong> 索引与查询性能</li><li><strong>数据库原理</strong> 课程学习笔记</li></ul><blockquote><p>持续更新中，敬请期待 🚀</p></blockquote>]]></content>
+    <content type="html"><![CDATA[<h1 id="基于stm32便携式污水监测船技术细节详解"><a href="#基于stm32便携式污水监测船技术细节详解" class="headerlink" title="基于stm32便携式污水监测船技术细节详解"></a>基于stm32便携式污水监测船技术细节详解</h1><p>1.为什么选这款核心控制器：STM32F103C8T6</p><p>性价比高、资源丰富（GPIO、ADC、定时器、UART接口够用）、生态成熟。对于本项目的数据采集和电机控制，F103的性能完全满足实时性要求。</p><p><img src="https://s3.imagency.cn/e/fa3b463dc229c7bf4a49e9050124c1d8.png"></p><p>我选用的主控是STM32F103C8T6。它基于Cortex-M3内核，主频72MHz，拥有64K Flash（相当于固态硬盘）和20K SRAM（内存），对于这个便携式检测船项目来说性价比很高。</p><p>在资源分配上，我充分利用了它的外设：</p><ol><li><strong>串口方面</strong>：它有3个USART。我用USART1打印调试日志，USART2对接ESP8266 Wi-Fi模块上传数据到OneNET云平台。</li><li><strong>ADC方面</strong>：它有2个12位ADC。我开启了多通道扫描模式配合DMA，实时采集pH值、浊度和TDS传感器的模拟信号。</li><li><strong>定时器方面</strong>：我使用通用定时器产生两路PWM，控制船体电机的差速转向。</li></ol><p>总体来说，C8T6的资源刚好满足项目需求，且引脚（48脚）体积小，适合便携式设备。</p><h1 id="2-GPIO、ADC、I2C、SPI原理解释"><a href="#2-GPIO、ADC、I2C、SPI原理解释" class="headerlink" title="2.GPIO、ADC、I2C、SPI原理解释"></a>2.GPIO、ADC、I2C、SPI原理解释</h1><h3 id="GPIO-—-最简单的“引脚开关”"><a href="#GPIO-—-最简单的“引脚开关”" class="headerlink" title="GPIO — 最简单的“引脚开关”"></a>GPIO — 最简单的“引脚开关”</h3><p>全称：General Purpose Input Output，通用输入输出。</p><p>就是单片机最普通的引脚，只有两种状态：</p><ul><li>高电平：3.3V &#x2F; 5V</li><li>低电平：0V</li></ul><p>两种模式</p><ol><li>输出（Output）</li></ol><ul><li>输出高：灯亮、继电器吸合</li><li>输出低：灯灭、继电器断开</li></ul><ol start="2"><li>输入（Input）</li></ol><p>  单片机读取外部电平。</p><ul><li>读高 &#x2F; 读低，判断按键按下、传感器信号</li></ul><p>一句话理解</p><p>GPIO &#x3D; 单片机的手和眼，能控制也能读取。</p><hr><h2 id="ADC-—-测量“模拟量”的转换器"><a href="#ADC-—-测量“模拟量”的转换器" class="headerlink" title="ADC — 测量“模拟量”的转换器"></a>ADC — 测量“模拟量”的转换器</h2><p>全称：Analog to Digital Converter，模拟转数字。</p><p>现实世界很多量是连续变化的：</p><ul><li>电压 0~3.3V</li><li>温度、光照、声音、电位器旋钮</li></ul><p>但单片机只认 0 和 1，所以需要 ADC。</p><ol><li>外部输入连续电压</li><li>ADC 把它转成数字（比如 0~4095）</li><li>单片机就能计算：电压 &#x3D; 多少、温度 &#x3D; 多少</li></ol><p>关键概念</p><ul><li>分辨率：12 位，即 0~4095</li><li>参考电压：3.3V</li><li>数字越大，电压越高</li></ul><p>ADC &#x3D; 把“连续电压”翻译成单片机能看懂的“数字”。</p><h2 id="I2C-—-两根线的“低速简约通信”"><a href="#I2C-—-两根线的“低速简约通信”" class="headerlink" title="I2C — 两根线的“低速简约通信”"></a>I2C — 两根线的“低速简约通信”</h2><p>全称：Inter-Integrated Circuit</p><ol><li>SDA：数据线（发数据）</li><li>SCL：时钟线（同步节奏）</li></ol><ul><li>主机（单片机）发时钟信号，大家同步</li><li>总线上可以挂多个设备</li><li>每个设备有唯一地址</li><li>主机喊地址，对应设备回应</li></ul><p>优点 &#x2F; 缺点</p><ul><li>优点：线少、简单、支持多设备</li><li>缺点：速度不快</li></ul><p>典型设备</p><p>OLED 屏、陀螺仪、温湿度传感器、EEPROM</p><p>I2C &#x3D; 两根线，大家轮流说话，地址找人。</p><h2 id="SPI-—-四根线的“高速通信”"><a href="#SPI-—-四根线的“高速通信”" class="headerlink" title="SPI — 四根线的“高速通信”"></a>SPI — 四根线的“高速通信”</h2><p>全称：Serial Peripheral Interface</p><p>通常 4 根线</p><ol><li>SCLK：时钟</li><li>MOSI：主机发 -&gt; 从机收</li><li>MISO：从机发 -&gt; 主机收</li><li>CS&#x2F;SS：片选（选谁通信）</li></ol><ul><li>全双工：一边发一边收</li><li>时钟一跳，数据就移一位</li><li>用 CS 选中一个设备，只跟它说话</li><li>速度可以非常快</li></ul><p>优点 &#x2F; 缺点</p><ul><li>优点：极快、全双工、稳定</li><li>缺点：线多，每个设备要单独 CS</li></ul><p>典型设备</p><p>Flash、屏、SD 卡、高速 ADC、射频模块</p><p>SPI &#x3D; 高速专车，点对点，速度快到飞起。</p><hr><p>超简总结（最好记）</p><ul><li><strong>GPIO</strong>：控制高低电平、读开关</li><li><strong>ADC</strong>：把模拟电压转成数字</li><li><strong>I2C</strong>：2 根线，慢，省引脚，多设备</li><li><strong>SPI</strong>：4 根线，快，全双工，高速设备</li></ul><h2 id="传感器模块"><a href="#传感器模块" class="headerlink" title="传感器模块"></a>传感器模块</h2><ul><li><p><strong>pH 传感器（E-201 玻璃探头）：</strong></p><ul><li><strong>原理：</strong> 用于检测水体的酸碱度（0~14）。它输出的是微弱的电压模拟信号，需要主控芯片进行读取转换。</li><li><strong>技术细节：</strong> pH 值的测量极易受水温影响，因此该模块在硬件设计上与下面的温度传感器（DS18B20）相连，<strong>实现了温度补偿</strong>，让酸碱度测得更准。</li></ul></li><li><p><strong>2. 温度传感器（DS18B20）：</strong></p><ul><li><strong>原理：</strong> 采用防水型探头测量水温。这是一款高精度的数字温度传感器。</li><li><strong>技术细节：</strong> 它采用单总线（1-Wire）技术，只需要一根数据线就能和主控芯片通信，大大节省了引脚资源。</li></ul></li><li><p><strong>3. 浊度传感器（TWS）：</strong></p><ul><li><strong>原理：</strong> 检测水中有机物、无机物等悬浮颗粒的多少（即水的浑浊程度）。</li><li><strong>技术细节：</strong> 光学原理，水越浑浊，透过的光越少，传感器将其转化为电压信号传入 STM32 的 ADC 接口。</li></ul></li><li><p><strong>4. TDS 电导率传感器：</strong></p><ul><li><strong>原理：</strong> 检测水中溶解的固体总量（如重金属离子、可溶性盐等）。导电率越高，说明水中杂质可能越多。</li></ul></li></ul><h3 id="三、系统的“神经网络”：物联网通信技术（传输）"><a href="#三、系统的“神经网络”：物联网通信技术（传输）" class="headerlink" title="三、系统的“神经网络”：物联网通信技术（传输）"></a>三、系统的“神经网络”：物联网通信技术（传输）</h3><p>小船在水上测到的数据，需要实时传回岸上，这就需要强大的无线通信技术。</p><ul><li><strong>1. 硬件通信模块：ESP-01S WiFi 模块</strong><ul><li>该模块支持2.4GHz频段，能在100米范围（视距）内提供稳定的无线网络。它通过串口（RX&#x2F;TX）与 STM32 通信，把单片机里的数据打包发到互联网上。</li></ul></li><li><strong>2. 通信协议：MQTT 协议</strong><ul><li><strong>为什么用 MQTT：</strong> 在复杂的水域环境中，网络信号可能不好。MQTT 是一种<strong>轻量级、低开销、高可靠</strong>的物联网协议。它采用“发布-订阅”模式，即使在网络不稳定的情况下，也能最大程度保证数据不丢失。</li></ul></li><li><strong>3. 云端中枢：OneNET 物联网云平台</strong><ul><li>由中国移动提供的物联网平台。小船作为“设备”接入该平台，源源不断地把水质数据上传到云端数据库中；同时，云平台也可以向下发指令（比如遥控小船的动作）</li></ul></li></ul><h3 id="四、系统的“决策端”：软件可视化与-AI-技术（应用）"><a href="#四、系统的“决策端”：软件可视化与-AI-技术（应用）" class="headerlink" title="四、系统的“决策端”：软件可视化与 AI 技术（应用）"></a>四、系统的“决策端”：软件可视化与 AI 技术（应用）</h3><p>终端用户（监测人员）如何看数据？如何分析污染？***</p><ul><li><strong>1. 跨平台可视化界面（H5 &#x2F; 微信小程序 &#x2F; PC端）：</strong><ul><li>系统开发了多个客户端。通过调用 OneNET 云平台的 API 接口，抓取云端数据，并使用<strong>ECharts 数据图表</strong>，把枯燥的数字变成直观的折线图、仪表盘，实时显示水温、pH值、电量等。</li></ul></li><li><strong>2. 引入大模型技术（科大讯飞星火认知大模型）：</strong><ul><li>这是本系统的一项<strong>极大创新</strong>。论文中提到接入了“科大讯飞星火大平台”的 API。</li><li><strong>底层技术：</strong> 采用 WebSocket 协议实现网页端与 AI 服务器的<strong>双向实时通信</strong>。</li><li><strong>应用场景：</strong> 当检测到异常数据（例如某区域 pH 值突然过低，呈强酸性），监测人员可以在系统里直接询问 AI 大模型。AI 会结合当前的水质数据，提供高效的数据分析、污染源追踪建议或异常问题的解决方案（类似于给系统配备了一个水质环保专家）。</li></ul></li></ul><p><strong>论文地址：<a href="https://kns.cnki.net/kcms2/article/abstract?v=vxt3_kKBHYNEJzrmyA4eGKltgMKXlhXAEj7-gV4zCn_JtsnotFjNa4ZY_g_gg7S8gnAdUqFXHrBm78N9car35ANc0oEoZRM_UtwUZfWrOGXqB-4ITyTaO1GwUrjosmNs5YskwcmgkkfXQ9TIN_SPVToIBNNhCznsfKrpRazdaSc=&uniplatform=NZKPT">https://kns.cnki.net/kcms2/article/abstract?v=vxt3_kKBHYNEJzrmyA4eGKltgMKXlhXAEj7-gV4zCn_JtsnotFjNa4ZY_g_gg7S8gnAdUqFXHrBm78N9car35ANc0oEoZRM_UtwUZfWrOGXqB-4ITyTaO1GwUrjosmNs5YskwcmgkkfXQ9TIN_SPVToIBNNhCznsfKrpRazdaSc=&amp;uniplatform=NZKPT</a></strong></p>]]></content>
     
     
     <categories>
       
-      <category>数据库</category>
+      <category>嵌入式</category>
       
     </categories>
     
     
     <tags>
       
-      <tag>数据库</tag>
+      <tag>嵌入式</tag>
       
-      <tag>MySQL</tag>
+      <tag>STM32</tag>
       
     </tags>
     
@@ -1000,6 +973,33 @@
       <tag>工具</tag>
       
       <tag>效率</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>数据库·栏目介绍</title>
+    <link href="/2026/03/09/%E6%95%B0%E6%8D%AE%E5%BA%93/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%BC%80%E7%AF%87/"/>
+    <url>/2026/03/09/%E6%95%B0%E6%8D%AE%E5%BA%93/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%BC%80%E7%AF%87/</url>
+    
+    <content type="html"><![CDATA[<blockquote><p>这里记录数据库相关的学习笔记与实战经验。</p></blockquote><span id="more"></span><h2 id="📌-本栏目内容"><a href="#📌-本栏目内容" class="headerlink" title="📌 本栏目内容"></a>📌 本栏目内容</h2><p>本栏目将持续更新以下方向的技术文章：</p><ul><li><strong>MySQL</strong> 基础与进阶</li><li><strong>数据库设计</strong> 范式、ER 图</li><li><strong>SQL 优化</strong> 索引与查询性能</li><li><strong>数据库原理</strong> 课程学习笔记</li></ul><blockquote><p>持续更新中，敬请期待 🚀</p></blockquote>]]></content>
+    
+    
+    <categories>
+      
+      <category>数据库</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>数据库</tag>
+      
+      <tag>MySQL</tag>
       
     </tags>
     
