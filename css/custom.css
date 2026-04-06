@@ -3,18 +3,18 @@
    ============================================================ */
 
 :root {
-  --bg-0: #eef7ff;
-  --bg-1: #dfeaf7;
-  --bg-2: #f8fbff;
-  --card: rgba(255, 255, 255, 0.74);
-  --card-strong: rgba(245, 249, 255, 0.94);
-  --text: #12304a;
-  --muted: #53708b;
-  --line: rgba(79, 140, 189, 0.18);
-  --accent: #0ea5e9;
-  --accent-2: #6366f1;
-  --accent-3: #ec4899;
-  --shadow: 0 24px 70px rgba(86, 120, 160, 0.18);
+  --bg-0: #f5fbff;
+  --bg-1: #e6f0fb;
+  --bg-2: #fbfdff;
+  --card: rgba(255, 255, 255, 0.88);
+  --card-strong: rgba(248, 251, 255, 0.96);
+  --text: #17324d;
+  --muted: #5f7f9b;
+  --line: rgba(84, 146, 196, 0.16);
+  --accent: #0284c7;
+  --accent-2: #4f46e5;
+  --accent-3: #d9468d;
+  --shadow: 0 22px 60px rgba(78, 116, 155, 0.14);
 }
 
 [data-user-color-scheme="dark"] {
@@ -57,7 +57,7 @@ body::after {
 }
 
 body::before {
-  background-image: linear-gradient(color-mix(in srgb, var(--accent) 8%, transparent) 1px, transparent 1px), linear-gradient(90deg, color-mix(in srgb, var(--accent) 8%, transparent) 1px, transparent 1px);
+  background-image: linear-gradient(color-mix(in srgb, var(--accent) 7%, transparent) 1px, transparent 1px), linear-gradient(90deg, color-mix(in srgb, var(--accent) 7%, transparent) 1px, transparent 1px);
   background-size: 42px 42px;
   mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.85), transparent 92%);
 }
@@ -78,12 +78,12 @@ body::after {
 #navbar .brand,
 #navbar .navbar-brand,
 #navbar .navbar-nav .nav-link {
-  color: #e0f2fe !important;
+  color: var(--text) !important;
 }
 
 #navbar .navbar-brand:hover,
 #navbar .navbar-nav .nav-link:hover {
-  color: #67e8f9 !important;
+  color: var(--accent) !important;
 }
 
 .index-card,
@@ -107,7 +107,7 @@ body::after {
 .article-card:hover {
   transform: translateY(-6px);
   border-color: color-mix(in srgb, var(--accent) 34%, var(--line)) !important;
-  box-shadow: 0 28px 90px rgba(2, 6, 23, 0.24) !important;
+  box-shadow: 0 22px 70px rgba(78, 116, 155, 0.18) !important;
 }
 
 .markdown-body {
@@ -252,7 +252,7 @@ pre code {
   border-radius: 999px;
   background: color-mix(in srgb, var(--card-strong) 84%, transparent);
   color: var(--text);
-  box-shadow: 0 12px 30px rgba(2, 6, 23, 0.16);
+  box-shadow: 0 12px 30px rgba(78, 116, 155, 0.12);
   backdrop-filter: blur(10px) saturate(170%);
   cursor: pointer;
   transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
@@ -285,7 +285,7 @@ pre code {
 #comment-jump-button:hover {
   transform: translateY(-2px);
   border-color: color-mix(in srgb, var(--accent) 42%, var(--line));
-  box-shadow: 0 18px 46px rgba(2, 6, 23, 0.24);
+  box-shadow: 0 18px 46px rgba(78, 116, 155, 0.18);
 }
 
 #site-status-dock:hover {
@@ -363,4 +363,16 @@ pre code {
   #site-status-dock:hover {
     transform: none;
   }
+}
+
+[data-user-color-scheme="dark"] #navbar a,
+[data-user-color-scheme="dark"] #navbar .brand,
+[data-user-color-scheme="dark"] #navbar .navbar-brand,
+[data-user-color-scheme="dark"] #navbar .navbar-nav .nav-link {
+  color: #e0f2fe !important;
+}
+
+[data-user-color-scheme="dark"] #navbar .navbar-brand:hover,
+[data-user-color-scheme="dark"] #navbar .navbar-nav .nav-link:hover {
+  color: #67e8f9 !important;
 }
