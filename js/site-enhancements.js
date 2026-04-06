@@ -3,8 +3,6 @@
   var START_TIME = new Date('2024-03-23T00:00:00+08:00').getTime()
   var STATUS_ID = 'site-status-dock'
   var RUNTIME_VALUE_ID = 'site-runtime-value'
-  var PV_VALUE_ID = 'site-pv-value'
-  var UV_VALUE_ID = 'site-uv-value'
   var COMMENT_BUTTON_ID = 'comment-jump-button'
   var TIMER_INTERVAL = 1000
 
@@ -66,46 +64,36 @@
   function ensureStatusDock() {
     var dock = document.getElementById(STATUS_ID)
     var footerInner = document.querySelector('#footer .footer-inner')
+    var footerContent = document.querySelector('#footer .footer-content')
+    var statistics = document.querySelector('#footer .statistics')
     if (!dock) {
       dock = document.createElement('div')
       dock.id = STATUS_ID
       dock.setAttribute('aria-live', 'polite')
       dock.innerHTML = [
         '<span class="site-status-label">已运行</span>',
-        '<span id="' + RUNTIME_VALUE_ID + '" class="site-status-value"></span>',
-        '<span class="site-status-separator">|</span>',
-        '<span class="site-status-label">总访问量</span>',
-        '<span id="' + PV_VALUE_ID + '" class="site-status-value"></span>',
-        '<span class="site-status-suffix">次</span>',
-        '<span class="site-status-separator">|</span>',
-        '<span class="site-status-label">总访客数</span>',
-        '<span id="' + UV_VALUE_ID + '" class="site-status-value"></span>',
-        '<span class="site-status-suffix">人</span>'
+        '<span id="' + RUNTIME_VALUE_ID + '" class="site-status-value"></span>'
       ].join(' ')
       if (footerInner) {
-        footerInner.appendChild(dock)
+        if (footerContent) {
+          footerInner.insertBefore(dock, statistics || footerContent.nextSibling)
+        } else {
+          footerInner.insertBefore(dock, statistics || footerInner.firstChild)
+        }
       } else {
         document.body.appendChild(dock)
       }
     } else if (footerInner && dock.parentNode !== footerInner) {
-      footerInner.appendChild(dock)
+      if (footerContent) {
+        footerInner.insertBefore(dock, statistics || footerContent.nextSibling)
+      } else {
+        footerInner.insertBefore(dock, statistics || footerInner.firstChild)
+      }
     }
 
     var runtimeValue = document.getElementById(RUNTIME_VALUE_ID)
     if (runtimeValue) {
       runtimeValue.textContent = formatRuntime()
-    }
-
-    var pvValue = document.getElementById(PV_VALUE_ID)
-    var uvValue = document.getElementById(UV_VALUE_ID)
-    var pvSource = document.querySelector('#openkounter-site-pv')
-    var uvSource = document.querySelector('#openkounter-site-uv')
-
-    if (pvValue) {
-      pvValue.textContent = (pvSource && pvSource.textContent.trim()) || '502'
-    }
-    if (uvValue) {
-      uvValue.textContent = (uvSource && uvSource.textContent.trim()) || '348'
     }
 
     return dock

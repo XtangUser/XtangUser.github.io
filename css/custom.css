@@ -259,36 +259,46 @@ pre code {
   justify-content: center;
 }
 
+#footer .footer-content {
+  margin-bottom: 0.35rem;
+}
+
+#footer .statistics {
+  margin-top: 0.15rem;
+}
+
 #site-status-dock,
 #comment-jump-button {
   z-index: 1000;
-  border: 1px solid var(--line);
-  border-radius: 999px;
-  background: color-mix(in srgb, var(--card-strong) 84%, transparent);
   color: var(--text);
-  box-shadow: 0 12px 30px rgba(78, 116, 155, 0.12);
-  backdrop-filter: blur(10px) saturate(170%);
   cursor: pointer;
-  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  transition: transform 0.2s ease, color 0.2s ease;
 }
 
 #site-status-dock {
   position: relative;
   left: auto;
+  right: auto;
+  top: auto;
   bottom: auto;
   transform: none;
-  display: inline-flex;
+  display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0.45rem;
-  flex-wrap: wrap;
-  padding: 8px 14px;
-  font-size: 12px;
-  letter-spacing: 0.02em;
+  gap: 0.35rem;
+  flex-wrap: nowrap;
+  padding: 0;
+  font-size: 15px;
+  letter-spacing: 0.01em;
   white-space: nowrap;
   max-width: 100%;
-  margin: 0.35rem auto 0;
+  margin: 0.55rem auto 0.1rem;
   align-self: center;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+  backdrop-filter: none;
+  cursor: default;
 }
 
 #comment-jump-button {
@@ -302,12 +312,10 @@ pre code {
 #site-status-dock:hover,
 #comment-jump-button:hover {
   transform: translateY(-2px);
-  border-color: color-mix(in srgb, var(--accent) 42%, var(--line));
-  box-shadow: 0 18px 46px rgba(78, 116, 155, 0.18);
 }
 
 #site-status-dock:hover {
-  transform: translateY(-2px);
+  transform: none;
 }
 
 .site-status-label,
@@ -371,8 +379,8 @@ pre code {
   #site-status-dock {
     width: 100%;
     justify-content: center;
-    padding: 7px 10px;
-    margin-top: 0.75rem;
+    margin-top: 0.45rem;
+    font-size: 14px;
   }
 
   #comment-jump-button {
