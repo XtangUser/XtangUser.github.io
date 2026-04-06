@@ -65,6 +65,7 @@
 
   function ensureStatusDock() {
     var dock = document.getElementById(STATUS_ID)
+    var footerInner = document.querySelector('#footer .footer-inner')
     if (!dock) {
       dock = document.createElement('div')
       dock.id = STATUS_ID
@@ -81,7 +82,13 @@
         '<span id="' + UV_VALUE_ID + '" class="site-status-value"></span>',
         '<span class="site-status-suffix">人</span>'
       ].join(' ')
-      document.body.appendChild(dock)
+      if (footerInner) {
+        footerInner.appendChild(dock)
+      } else {
+        document.body.appendChild(dock)
+      }
+    } else if (footerInner && dock.parentNode !== footerInner) {
+      footerInner.appendChild(dock)
     }
 
     var runtimeValue = document.getElementById(RUNTIME_VALUE_ID)
