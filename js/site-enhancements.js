@@ -63,9 +63,9 @@
 
   function ensureStatusDock() {
     var dock = document.getElementById(STATUS_ID)
-    var footerInner = document.querySelector('#footer .footer-inner')
-    var footerContent = document.querySelector('#footer .footer-content')
-    var statistics = document.querySelector('#footer .statistics')
+    var footerInner = document.querySelector('footer .footer-inner')
+    var footerContent = document.querySelector('footer .footer-content')
+    var statistics = document.querySelector('footer .statistics')
     if (!dock) {
       dock = document.createElement('div')
       dock.id = STATUS_ID
