@@ -244,6 +244,21 @@ pre code {
   backdrop-filter: blur(14px);
 }
 
+#footer .footer-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+#footer .footer-content,
+#footer .statistics,
+#footer .beian {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
 #site-status-dock,
 #comment-jump-button {
   z-index: 1000;
@@ -264,6 +279,7 @@ pre code {
   transform: none;
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 0.45rem;
   flex-wrap: wrap;
   padding: 8px 14px;
@@ -271,7 +287,8 @@ pre code {
   letter-spacing: 0.02em;
   white-space: nowrap;
   max-width: 100%;
-  margin: 0.85rem auto 0;
+  margin: 0.35rem auto 0;
+  align-self: center;
 }
 
 #comment-jump-button {
@@ -345,6 +362,12 @@ pre code {
 }
 
 @media (max-width: 767px) {
+  #footer .footer-content,
+  #footer .statistics,
+  #footer .beian {
+    justify-content: center;
+  }
+
   #site-status-dock {
     width: 100%;
     justify-content: center;
