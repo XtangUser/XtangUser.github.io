@@ -1,0 +1,1029 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head><!-- hexo injector head_begin start --><meta name="referrer" content="no-referrer"><!-- hexo injector head_begin end -->
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/avatar.jpg">
+  <link rel="icon" href="/img/avatar.jpg">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#020617">
+  <meta name="author" content="小唐">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="深度学习–黑马1.学习路线  第一步 (标识 1)：底层数据与工具基石万物皆数，要把现实世界的数据喂给计算机，首先要把它们变成计算机认识的数学形式。  标量 (Scalar)：就是一个单独的数字（例如：温度 25度）。它是 0 维的。 向量&#x2F;矢量 (Vector)：一维的数字列表（例如：一个包含坐标 [1,2,3][1,2,3] 的数组）。在深度学习中，它常用来表示一个特征集合。 张量">
+<meta property="og:type" content="article">
+<meta property="og:title" content="深度学习--黑马">
+<meta property="og:url" content="https://tsyangblog.site/2026/04/06/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0--%E9%BB%91%E9%A9%AC/index.html">
+<meta property="og:site_name" content="别催小唐敲代码">
+<meta property="og:description" content="深度学习–黑马1.学习路线  第一步 (标识 1)：底层数据与工具基石万物皆数，要把现实世界的数据喂给计算机，首先要把它们变成计算机认识的数学形式。  标量 (Scalar)：就是一个单独的数字（例如：温度 25度）。它是 0 维的。 向量&#x2F;矢量 (Vector)：一维的数字列表（例如：一个包含坐标 [1,2,3][1,2,3] 的数组）。在深度学习中，它常用来表示一个特征集合。 张量">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/XtangUser/blog-images@main/images/20260406160907321.png">
+<meta property="article:published_time" content="2026-04-05T16:00:00.000Z">
+<meta property="article:modified_time" content="2026-04-06T12:30:08.177Z">
+<meta property="article:author" content="小唐">
+<meta property="article:tag" content="人工神经网络">
+<meta property="article:tag" content="深度学习">
+<meta property="article:tag" content="自然语言处理">
+<meta property="article:tag" content="计算机视觉">
+<meta property="article:tag" content="黑匣子">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/XtangUser/blog-images@main/images/20260406160907321.png">
+  
+  
+  
+  <title>深度学习--黑马 - 别催小唐敲代码</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"tsyangblog.site","root":"/","version":"1.9.9","typing":{"enable":true,"typeSpeed":100,"cursorChar":"|","loop":true,"scope":["home"]},"anchorjs":{"enable":true,"element":"h2,h3,h4","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#0ea5e9","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"expand_all":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0,"number":false,"scrollSmooth":true,"scrollSmoothOffset":-5},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":false,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"openkounter":{"server_url":"https://blog-counter.221036109.workers.dev","path":"window.location.pathname","ignore_local":true},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+
+  
+<!-- hexo injector head_end start --><link rel="stylesheet" href="/css/custom.css"><!-- hexo injector head_end end --><meta name="generator" content="Hexo 8.1.1"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 55vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>别催小唐敲代码</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content (desktop) -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>主页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>时间轴</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile grid menu overlay -->
+<div id="mobile-grid-menu" class="d-lg-none">
+  <div class="mobile-grid-menu-inner">
+    <div class="container">
+      <div class="row">
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-home-fill"></i>
+                  <span>主页</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/archives/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-archive-fill"></i>
+                  <span>时间轴</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/tags/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-tags-fill"></i>
+                  <span>标签</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/categories/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-category-fill"></i>
+                  <span>分类</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/about/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-user-fill"></i>
+                  <span>关于</span>
+                </div>
+              </a>
+            </div>
+          
+        
+        
+          <div class="col-4 mobile-grid-cell" id="mobile-search-btn">
+            <a href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <div class="mobile-grid-item">
+                <i class="iconfont icon-search"></i>
+                <span>搜索</span>
+              </div>
+            </a>
+          </div>
+        
+        
+          <div class="col-4 mobile-grid-cell" id="mobile-color-toggle-btn"
+               data-label-light="开灯"
+               data-label-dark="关灯">
+            <a href="javascript:;" aria-label="Color Toggle">
+              <div class="mobile-grid-item">
+                <i class="iconfont icon-dark" id="mobile-color-toggle-icon"></i>
+                <span id="mobile-color-toggle-label">关灯</span>
+              </div>
+            </a>
+          </div>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('https://images.unsplash.com/photo-1517821099604-5c8b1e5c0f2b?w=1920&q=80') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.58)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle">深度学习--黑马</span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2026-04-06 00:00" pubdate>
+          2026年4月6日
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          <!-- compatible with older versions-->
+          4.4k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          <!-- compatible with older versions-->
+          9 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="openkounter-page-views-container" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="openkounter-page-views"></span> 次
+        </span>
+        
+
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">深度学习--黑马</h1>
+            
+              <p id="updated-time" class="note note-info" style="">
+                
+                  
+                    <!-- compatible with older versions-->
+                    最后更新于：2026年4月6日 晚上
+                  
+                
+              </p>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="深度学习–黑马"><a href="#深度学习–黑马" class="headerlink" title="深度学习–黑马"></a>深度学习–黑马</h1><h2 id="1-学习路线"><a href="#1-学习路线" class="headerlink" title="1.学习路线"></a>1.学习路线</h2><img src="https://cdn.jsdelivr.net/gh/XtangUser/blog-images@main/images/20260406160907321.png" srcset="/img/loading.gif" lazyload alt="image-20260406160900196" style="zoom: 50%;" />
+
+<h4 id="第一步-标识-1-：底层数据与工具基石"><a href="#第一步-标识-1-：底层数据与工具基石" class="headerlink" title="第一步 (标识 1)：底层数据与工具基石"></a>第一步 (标识 1)：底层数据与工具基石</h4><p>万物皆数，要把现实世界的数据喂给计算机，首先要把它们变成计算机认识的数学形式。</p>
+<ul>
+<li><strong>标量 (Scalar)</strong>：就是一个单独的数字（例如：温度 25度）。它是 0 维的。</li>
+<li><strong>向量&#x2F;矢量 (Vector)</strong>：一维的数字列表（例如：一个包含坐标 [1,2,3][1,2,3] 的数组）。在深度学习中，它常用来表示一个特征集合。</li>
+<li><strong>张量 (Tensor)</strong>：<strong>⭐️ 深度学习最核心的数据结构！</strong><ul>
+<li>你可以把它理解为<strong>多维数组</strong>。</li>
+<li>标量是 0 维张量，向量是 1 维张量，矩阵是 2 维张量。</li>
+<li>彩色图片是 3 维张量（高度 H×× 宽度W ×× RGB三个颜色通道C）。</li>
+<li>深度学习框架里，所有的数据传输和运算，都是以 Tensor 的形式进行的。</li>
+</ul>
+</li>
+<li><strong>PyTorch &#x2F; TensorFlow</strong>：这是目前最主流的两个深度学习代码框架。它们就像是“搭积木的工具箱”，里面封装好了各种算张量、建网络的方法。<strong>作为新生，强烈建议你直接学 PyTorch。</strong></li>
+</ul>
+<hr>
+<h4 id="第二步-标识-2-：基础架构-ANN-人工神经网络"><a href="#第二步-标识-2-：基础架构-ANN-人工神经网络" class="headerlink" title="第二步 (标识 2)：基础架构 - ANN (人工神经网络)"></a>第二步 (标识 2)：基础架构 - ANN (人工神经网络)</h4><p>了解了数据格式，接下来是所有深度学习模型的“老祖宗”。</p>
+<ul>
+<li><strong>ANN (Artificial Neural Network &#x2F; 人工神经网络)</strong>：也常被称为全连接网络 (FCN) 或 多层感知机 (MLP)。它是模仿人类大脑神经元连接方式构建的最基础模型。它由以下三部分组成：<ul>
+<li><strong>输入层 (Input Layer -&gt; 1层)</strong>：负责接收外界输入的数据（也就是把 Tensor 喂进来）。</li>
+<li><strong>隐藏层 (Hidden Layer -&gt; n层)</strong>：<strong>⭐️ 深度学习之所以叫“深度”，就是因为这里有很多层！</strong> 这些层负责在内部进行复杂的数学计算（特征提取与非线性变换）。层数越多，网络越“深”，能学到的规律就越复杂。</li>
+<li><strong>输出层 (Output Layer -&gt; 1层)</strong>：给出最终的预测结果（例如：输出“这是一只猫的概率是90%”）。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h4 id="第三步-标识-3-：左侧分支-处理“图像”的利器"><a href="#第三步-标识-3-：左侧分支-处理“图像”的利器" class="headerlink" title="第三步 (标识 3)：左侧分支 - 处理“图像”的利器"></a>第三步 (标识 3)：左侧分支 - 处理“图像”的利器</h4><p>因为 ANN 处理图像时参数量太大且会破坏图像的空间结构，于是诞生了专门处理视觉数据的网络。</p>
+<ul>
+<li><strong>CV (Computer Vision &#x2F; 计算机视觉)</strong>：让计算机“看懂”世界的学科分支。</li>
+<li><strong>CNN (Convolutional Neural Network &#x2F; 卷积神经网络)</strong>：处理图像的绝对主力（虽然现在被 Transformer 抢了部分风头，但依然极其重要）。它的核心组件包括：<ul>
+<li><strong>卷积层 (Convolution Layer)</strong>：就像拿着一个“放大镜”（卷积核）在图片上一点点滑动扫描，提取图像的边缘、纹理、形状等局部特征。</li>
+<li><strong>池化层 (Pooling Layer)</strong>：对卷积提取出的特征图进行“打马赛克”或“缩小”操作。目的是保留重要特征的同时，减少计算量，并防止模型死记硬背（过拟合）。</li>
+</ul>
+</li>
+<li><strong>案例：图像分类，CIFAR10数据集</strong><ul>
+<li><strong>图像分类</strong>：给一张图，判断它属于哪个类别（猫、狗、飞机等）。</li>
+<li><strong>CIFAR10</strong>：深度学习中最经典的新手练习数据集，包含10个类别的6万张彩色小图片。类似于学编程时的 “Hello World”。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h4 id="第四步-标识-4-：右侧分支-处理“文本-序列”的利器"><a href="#第四步-标识-4-：右侧分支-处理“文本-序列”的利器" class="headerlink" title="第四步 (标识 4)：右侧分支 - 处理“文本&#x2F;序列”的利器"></a>第四步 (标识 4)：右侧分支 - 处理“文本&#x2F;序列”的利器</h4><p>语言文字是有前后顺序的（“我爱你”和“你爱我”意思完全不同），CNN 和 ANN 很难处理这种带有“时间先后&#x2F;上下文关系”的数据。</p>
+<ul>
+<li><strong>NLP (Natural Language Processing &#x2F; 自然语言处理)</strong>：让计算机“听懂、读懂、会写”人类语言的学科分支。</li>
+<li><strong>RNN (Recurrent Neural Network &#x2F; 循环神经网络)</strong>：专门处理序列数据的网络（注意：现在已被 Transformer&#x2F;GPT 架构大幅取代，但作为基础仍需了解）。它的特点是带有“记忆”，在处理当前词时，会参考前面处理过的词的信息。<ul>
+<li><strong>词嵌入层 (Word Embedding Layer)</strong>：计算机不认识“苹果”这两个汉字。这一层的作用查字典，把文本中的每一个词，转换成一串含有语义信息的稠密向量（Tensor），喂给网络。</li>
+<li><strong>循环网络层</strong>：一步步读取这些词向量，并不断更新自己的内部记忆（Hidden State），从而理解整句话的意思。</li>
+</ul>
+</li>
+<li><strong>案例：歌词AI生成器</strong>：一种常见的序列生成任务，模型根据前文的歌词，预测下一个最有可能出现的词，循环往复，就能写出一首完整的歌词。</li>
+</ul>
+<hr>
+<h4 id="🟢-特别注意：中间的绿色框（全连接层）"><a href="#🟢-特别注意：中间的绿色框（全连接层）" class="headerlink" title="🟢 特别注意：中间的绿色框（全连接层）"></a>🟢 特别注意：中间的绿色框（全连接层）</h4><p>你在图片中会看到，无论是左边的 CNN 还是右边的 RNN，在经历了各自特有的层（卷积、循环等）之后，<strong>最后都汇总到了一个绿色框子：全连接层 (Fully Connected Layer)</strong>。</p>
+<p><strong>解释：</strong><br>这就回到了第二步的 ANN。</p>
+<ul>
+<li>前面的卷积层（CNN）或循环层（RNN）负责做<strong>特征提取</strong>（把图片变成高级特征，把文本变成上下文特征）。</li>
+<li>最后的<strong>全连接层</strong>扮演**“分类器”或“决策者”**的角色。它把前面提取出来的高度浓缩的信息接收过来，最终计算得出具体的分类概率或预测结果。</li>
+</ul>
+<h2 id="2-什么是深度学习"><a href="#2-什么是深度学习" class="headerlink" title="2.什么是深度学习"></a>2.什么是深度学习</h2><p><img src="https://cdn.jsdelivr.net/gh/XtangUser/blog-images@main/images/20260406162459621.png" srcset="/img/loading.gif" lazyload alt="image-20260406162459457"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/XtangUser/blog-images@main/images/20260406163107449.png" srcset="/img/loading.gif" lazyload alt="image-20260406163107324"></p>
+<h3 id="1-上半部分：传统机器学习-Machine-Learning-的痛点"><a href="#1-上半部分：传统机器学习-Machine-Learning-的痛点" class="headerlink" title="1. 上半部分：传统机器学习 (Machine Learning) 的痛点"></a>1. 上半部分：传统机器学习 (Machine Learning) 的痛点</h3><p>看图的上半部分，流程是：<code>输入汽车图 -&gt; 人工提取特征 -&gt; 分类器 -&gt; 输出结果</code>。</p>
+<ul>
+<li><strong>痛点核心在“Feature extraction 特征提取 -&gt; 人做”：</strong><br>在深度学习爆发之前（大概2012年以前），计算机科学家们非常痛苦。如果想让计算机认出一辆车，研究人员（也就是图里的那个人）需要<strong>手工设计大量的规则和算法</strong>来提取特征。<ul>
+<li><em>举例：</em> 专家们需要写代码去寻找“圆形的轮廓（车轮）”、“特定的边缘和线条（车身）”、“金属的颜色和反光”。</li>
+<li><em>结果：</em> 只要换个角度、光线变暗、或者车被挡住了一半，这些人工设计的规则就失效了。</li>
+</ul>
+</li>
+<li><strong>后端的分类 (Classification)：</strong><br>传统机器学习算法（比如 SVM、随机森林，或者图里画的浅层神经网络）其实只是个“裁判”。它接收人提取好的特征，然后打分。<strong>人类提取的特征越好，它判得越准；人类提取的特征垃圾，它也无能为力。</strong></li>
+</ul>
+<hr>
+<h3 id="2-下半部分：深度学习-Deep-Learning-的革命"><a href="#2-下半部分：深度学习-Deep-Learning-的革命" class="headerlink" title="2. 下半部分：深度学习 (Deep Learning) 的革命"></a>2. 下半部分：深度学习 (Deep Learning) 的革命</h3><p>看图的下半部分，那个“人”消失了！流程变成了：<code>输入原始汽车图 -&gt; 算法自动提取特征+分类（黑匣子） -&gt; 输出结果</code>。这就是所谓的**“端到端学习 (End-to-End Learning)”**。</p>
+<ul>
+<li><strong>革命的核心：“算法提取特征”：</strong><br>我们不再需要苦逼地手工设计“寻找车轮”的代码了。我们直接把汽车图片的**原始像素（张量）**一股脑塞进深度神经网络里。</li>
+<li><strong>“Feature extraction + Classification” 融为一体：</strong><br>图里的那个大方框（深层神经网络）把两份工作一起包揽了：<ul>
+<li><strong>前面几层</strong>：自动学习提取边缘、纹理等低级特征。</li>
+<li><strong>中间几层</strong>：自动把低级特征组合成轮子、车门等高级特征。</li>
+<li><strong>最后几层</strong>：根据这些高级特征，直接输出分类结果。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="3-解读图中的“关键文字标注”（研究生必懂概念）"><a href="#3-解读图中的“关键文字标注”（研究生必懂概念）" class="headerlink" title="3. 解读图中的“关键文字标注”（研究生必懂概念）"></a>3. 解读图中的“关键文字标注”（研究生必懂概念）</h3><p>图中有几个文字标注，正是你在读论文、做研究时会经常遇到的核心概念：</p>
+<p><strong>① “张量中，只能是数值”</strong></p>
+<ul>
+<li><strong>解释</strong>：这是最底层的真理。深度学习模型不认识“车”、不认识“红色”、不认识语义。它只认识数字。所以，一张 1000×10001000×1000 的彩色汽车图，在传入模型前，必须变成一个 3×1000×10003×1000×1000 的数字矩阵（张量 Tensor），里面填满了 0-255 的像素值。</li>
+<li><strong>实操意义</strong>：你以后复现论文，<strong>很大一部分精力会花在“数据预处理”上</strong>，也就是把现实世界五花八门的数据，清洗、转换成格式完全正确的 Tensor，模型才能顺利跑起来。</li>
+</ul>
+<p><strong>② “黑匣子 (Black Box)，可解释性差”</strong></p>
+<ul>
+<li><strong>解释</strong>：这是深度学习最大的“命门”。既然是算法自己从海量数据中摸索出的特征，<strong>人类根本不知道模型到底学到了什么</strong>。<ul>
+<li><em>经典笑话：</em> 训练一个识别哈士奇和狼的模型，准确率极高。最后发现，模型根本没看动物的脸，而是发现“狼的背景通常是雪地”。这就是黑匣子带来的风险。</li>
+</ul>
+</li>
+<li><strong>实操意义</strong>：作为研究生，你在写论文时，如果提出一个新模型效果很好，审稿人一定会问“<strong>为什么有效？</strong>”。可解释性差意味着你不能只给出一个准确率数字，你还需要做大量的<strong>消融实验 (Ablation Study)</strong>，或者用可视化工具（比如 Grad-CAM，看看模型到底在看图片的哪个区域）来尝试解释你的“黑匣子”。</li>
+</ul>
+<p><strong>③ “尤其擅长处理高维数据，如图像、语音和文本”</strong></p>
+<ul>
+<li><strong>解释</strong>：什么叫高维数据？一张普通的图片有几百万个像素，一段视频有上亿个像素，这就叫高维。传统人工提取特征面对几百万维的数据直接崩溃，而深度网络（如上文提到的 CNN、RNN、Transformer）天生就是为了在汪洋大海般的数字中寻找潜在规律而生的。</li>
+</ul>
+<h6 id="第一层：理解-1000-×-1000（空间分辨率）"><a href="#第一层：理解-1000-×-1000（空间分辨率）" class="headerlink" title="第一层：理解 1000 × 1000（空间分辨率）"></a>第一层：理解 1000 × 1000（空间分辨率）</h6><p>想象你手里有一张极细密的方格纸，横着有 1000 个格子，竖着也有 1000 个格子。</p>
+<ul>
+<li>这张纸上一共有 1000×1000&#x3D;1,000,000（一百万）个小格子。</li>
+<li>在计算机视觉里，这每一个小格子就叫一个 <strong>像素 (Pixel)</strong>。</li>
+<li>这个 1000×1000的矩阵，记录的就是汽车图像的<strong>形状、轮廓和空间位置</strong>。</li>
+</ul>
+<h6 id="第二层：理解矩阵里的数字（0-到-255）"><a href="#第二层：理解矩阵里的数字（0-到-255）" class="headerlink" title="第二层：理解矩阵里的数字（0 到 255）"></a>第二层：理解矩阵里的数字（0 到 255）</h6><p>好，现在我们拿出一个小格子。计算机怎么知道这个格子应该是什么颜色、有多亮呢？<br>它用一个数字来表示<strong>光线的强度</strong>。</p>
+<p>在最常见的图片格式中，计算机用 8 位二进制（8-bit）来存储一个数值，它的范围刚好是 <strong>0 到 255</strong>。</p>
+<ul>
+<li><strong>数字 <code>0</code></strong>：代表“完全没有光”，也就是<strong>纯黑</strong>。</li>
+<li><strong>数字 <code>255</code></strong>：代表“光照到了极点”，也就是<strong>最亮</strong>。</li>
+<li>中间的数字（比如 128）：就是不同程度的灰色&#x2F;亮度。</li>
+</ul>
+<p>如果这是一张<strong>黑白（灰度）照片</strong>，那么只需要一个 1000×1000 的矩阵就够了。矩阵里如果某个区域全是 0，那里就是黑色的轮胎；如果是 255，那里可能就是反光的车窗。</p>
+<h6 id="第三层：理解开头的“3”（RGB-通道）"><a href="#第三层：理解开头的“3”（RGB-通道）" class="headerlink" title="第三层：理解开头的“3”（RGB 通道）"></a>第三层：理解开头的“3”（RGB 通道）</h6><p>但现实世界是彩色的！一辆红色的法拉利怎么表示？单靠一个表示亮度的矩阵是不够的。</p>
+<p>这就用到了物理学上的<strong>三原色原理（Red 红、Green 绿、Blue 蓝，简称 RGB）</strong>。任何颜色都可以由这三种光按不同比例混合而成。</p>
+<p>所以，为了表示彩色，计算机实际上是把<strong>三张 1000×1000的矩阵叠在了一起</strong>（这就是那个 3 的来源，我们称之为 <strong>Channel 通道</strong>）：</p>
+<ol>
+<li><strong>第 1 层矩阵 (Red 通道)</strong>：专门记录这 100万个像素里，每一个包含多少<strong>红光</strong>（0-255）。</li>
+<li><strong>第 2 层矩阵 (Green 通道)</strong>：专门记录包含多少<strong>绿光</strong>（0-255）。</li>
+<li><strong>第 3 层矩阵 (Blue 通道)</strong>：专门记录包含多少<strong>蓝光</strong>（0-255）。</li>
+</ol>
+<p><strong>💡 举几个具体的例子（假设我们看的是图片左上角第 (0,0) 个像素）：</strong></p>
+<ul>
+<li>如果这三个通道在这个位置的数字是 <code>[255, 0, 0]</code> →→ 纯红色（法拉利的车漆）。</li>
+<li>如果数字是 <code>[0, 255, 0]</code> →→ 纯绿色。</li>
+<li>如果数字是 <code>[255, 255, 255]</code> →→ 红绿蓝全开，变成纯白色。</li>
+<li>如果数字是 <code>[0, 0, 0]</code> →→ 啥光也没有，纯黑色。</li>
+<li>如果数字是 <code>[255, 255, 0]</code> →→ 红+绿，混合成纯黄色。</li>
+</ul>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" class="category-chain-item">人工智能</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" class="print-no-link">#深度学习</a>
+      
+        <a href="/tags/%E4%BA%BA%E5%B7%A5%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" class="print-no-link">#人工神经网络</a>
+      
+        <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/" class="print-no-link">#计算机视觉</a>
+      
+        <a href="/tags/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86/" class="print-no-link">#自然语言处理</a>
+      
+        <a href="/tags/%E9%BB%91%E5%8C%A3%E5%AD%90/" class="print-no-link">#黑匣子</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>深度学习--黑马</div>
+      <div>https://tsyangblog.site/2026/04/06/人工智能/深度学习--黑马/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>小唐</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2026年4月6日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2026/04/06/%E9%9A%8F%E7%AC%94/%E7%89%A9%E8%81%94%E7%BD%91%E4%B8%8EAI%E8%9E%8D%E5%90%88%EF%BC%9A%E6%A0%B8%E5%BF%83%E5%89%8D%E6%B2%BF%E7%A7%91%E6%8A%80%E4%B8%8E%E8%A1%8C%E4%B8%9A%E5%8F%91%E5%B1%95%E5%85%A8%E6%99%AF%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1/" title="物联网与AI融合：核心前沿科技与行业发展全景知识图谱">
+                        <span class="hidden-mobile">物联网与AI融合：核心前沿科技与行业发展全景知识图谱</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div id="gitalk-container"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#gitalk-container', function() {
+      Fluid.utils.createCssLink('/css/gitalk.css')
+      Fluid.utils.createScript('https://lib.baomitu.com/gitalk/1.8.0/gitalk.min.js', function() {
+        var options = Object.assign(
+          {"clientID":"Ov23liZQDI8BrS44zUL7","clientSecret":"075fad544223a91a3529c013c644d5f341ff6e1d","repo":"blog_comments","owner":"XtangUser","admin":["XtangUser"],"language":"zh-CN","labels":["Gitalk","Comment"],"perPage":10,"pagerDirection":"last","distractionFreeMode":false,"createIssueManually":false,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token"},
+          {
+            id: 'cbc8dc4e2a0758bcf190f449c9ca270d'
+          }
+        )
+        var gitalk = new Gitalk(options);
+        gitalk.render('gitalk-container');
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+      用代码记录生活，用文字传递温度
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="openkounter-site-pv-container" style="display: none">
+        总访问量 
+        <span id="openkounter-site-pv"></span>
+         次
+      </span>
+    
+    
+      <span id="openkounter-site-uv-container" style="display: none">
+        总访客数 
+        <span id="openkounter-site-uv"></span>
+         人
+      </span>
+    
+    
+
+  
+
+</div>
+
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    function isExpandAllEnabled() {
+      return CONFIG.toc && CONFIG.toc.expand_all === true;
+    }
+    function expandAllToc() {
+      if (!isExpandAllEnabled()) { return; }
+      jQuery('#toc-body .tocbot-is-collapsed').removeClass('tocbot-is-collapsed');
+    }
+    function updateTocToggle($li, $childList) {
+      var $toggle = $li.children('.toc-toggle');
+      if ($toggle.length === 0) { return; }
+      var collapsed = $childList.hasClass('tocbot-is-collapsed');
+      $toggle
+        .toggleClass('toc-toggle-collapsed', collapsed)
+        .toggleClass('toc-toggle-expanded', !collapsed);
+    }
+    function bindTocToggle() {
+      if (!isExpandAllEnabled()) { return; }
+      jQuery('#toc-body .toc-list-item').each(function() {
+        var $li = jQuery(this);
+        var $childList = $li.children('ol');
+        if ($childList.length === 0) {
+          if ($li.children('.toc-toggle').length === 0) {
+            $li.prepend('<span class="toc-toggle toc-toggle-placeholder" aria-hidden="true">›</span>');
+          }
+          return;
+        }
+
+        if ($li.children('.toc-toggle').length === 0) {
+          $li.prepend('<span class="toc-toggle toc-toggle-expanded" aria-hidden="true">›</span>');
+        }
+        updateTocToggle($li, $childList);
+      });
+      jQuery('#toc-body').off('click.tocToggle').on('click.tocToggle', '.toc-toggle', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        var $li = jQuery(this).parent('.toc-list-item');
+        var $childList = $li.children('ol');
+        if ($childList.length === 0) { return; }
+        $childList.toggleClass('tocbot-is-collapsed');
+        updateTocToggle($li, $childList);
+      });
+      if (!window.__tocToggleObserver) {
+        window.__tocToggleObserver = new MutationObserver(function(mutations) {
+          mutations.forEach(function(mutation) {
+            if (mutation.type !== 'attributes' || mutation.attributeName !== 'class') { return; }
+            var $list = jQuery(mutation.target);
+            var $li = $list.parent('.toc-list-item');
+            if ($li.length === 0) { return; }
+            updateTocToggle($li, $list);
+          });
+        });
+        jQuery('#toc-body ol').each(function() {
+          window.__tocToggleObserver.observe(this, { attributes: true });
+        });
+      }
+    }
+    var tocConfig = Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc);
+    if (isExpandAllEnabled()) {
+      tocConfig.collapseDepth = 6;
+    }
+    window.tocbot.init(tocConfig);
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+    expandAllToc();
+    bindTocToggle();
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+        expandAllToc();
+        bindTocToggle();
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script defer src="/js/openkounter.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+<!-- hexo injector body_end start --><script defer src="/js/mouse-particles.js"></script><script defer src="/js/site-enhancements.js"></script><script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "d25f7f4a1df0482f859f16ff4400fe43"}'></script><!-- hexo injector body_end end --><script src="https://cdn.jsdelivr.net/npm/live2d-widget@^3.1.3/lib/L2Dwidget.min.js"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"scale":1,"hHeadPos":0.5,"vHeadPos":0.618,"jsonPath":"https://cdn.jsdelivr.net/npm/live2d-widget-model-hijiki@1.0.5/assets/hijiki.model.json"},"display":{"superSample":2,"position":"right","width":180,"height":360,"hOffset":18,"vOffset":-24},"mobile":{"show":false,"scale":0.8},"react":{"opacityDefault":0.9,"opacityOnHover":0.3}});</script></body>
+</html>
