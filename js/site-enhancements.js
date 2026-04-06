@@ -1,7 +1,10 @@
 (function () {
   var helper = window.__xtSiteEnhancements || {}
   var START_TIME = new Date('2024-03-23T00:00:00+08:00').getTime()
-  var RUNTIME_ID = 'site-runtime-badge'
+  var STATUS_ID = 'site-status-dock'
+  var RUNTIME_VALUE_ID = 'site-runtime-value'
+  var PV_VALUE_ID = 'site-pv-value'
+  var UV_VALUE_ID = 'site-uv-value'
   var COMMENT_BUTTON_ID = 'comment-jump-button'
   var TIMER_INTERVAL = 1000
 
@@ -32,6 +35,18 @@
     return !image.closest('#navbar, .navbar, .banner, .banner-wrapper, #footer, .footer, .about-avatar, .avatar, .site-brand, .logo-wrapper')
   }
 
+  function applyFallback(image) {
+    if (!image || image.dataset.xtFallbackBound === 'true') return
+
+    image.dataset.xtFallbackBound = 'true'
+    image.addEventListener('error', function () {
+      var fallback = image.dataset.fallbackSrc || '/img/default.png'
+      if (image.dataset.xtFallbackUsed === fallback) return
+      image.dataset.xtFallbackUsed = fallback
+      image.src = fallback
+    })
+  }
+
   function enhanceImages(root) {
     var images = (root || document).querySelectorAll('img')
 
@@ -42,20 +57,51 @@
       image.loading = 'lazy'
       image.decoding = 'async'
       image.dataset.xtLazyEnhanced = 'true'
+      applyFallback(image)
     })
+
+    Array.prototype.forEach.call(images, applyFallback)
   }
 
-  function ensureRuntimeBadge() {
-    var badge = document.getElementById(RUNTIME_ID)
-    if (!badge) {
-      badge = document.createElement('div')
-      badge.id = RUNTIME_ID
-      badge.setAttribute('aria-live', 'polite')
-      document.body.appendChild(badge)
+  function ensureStatusDock() {
+    var dock = document.getElementById(STATUS_ID)
+    if (!dock) {
+      dock = document.createElement('div')
+      dock.id = STATUS_ID
+      dock.setAttribute('aria-live', 'polite')
+      dock.innerHTML = [
+        '<span class="site-status-label">已运行</span>',
+        '<span id="' + RUNTIME_VALUE_ID + '" class="site-status-value"></span>',
+        '<span class="site-status-separator">|</span>',
+        '<span class="site-status-label">总访问量</span>',
+        '<span id="' + PV_VALUE_ID + '" class="site-status-value"></span>',
+        '<span class="site-status-suffix">次</span>',
+        '<span class="site-status-separator">|</span>',
+        '<span class="site-status-label">总访客数</span>',
+        '<span id="' + UV_VALUE_ID + '" class="site-status-value"></span>',
+        '<span class="site-status-suffix">人</span>'
+      ].join(' ')
+      document.body.appendChild(dock)
     }
 
-    badge.textContent = '已运行 ' + formatRuntime()
-    return badge
+    var runtimeValue = document.getElementById(RUNTIME_VALUE_ID)
+    if (runtimeValue) {
+      runtimeValue.textContent = formatRuntime()
+    }
+
+    var pvValue = document.getElementById(PV_VALUE_ID)
+    var uvValue = document.getElementById(UV_VALUE_ID)
+    var pvSource = document.querySelector('#openkounter-site-pv')
+    var uvSource = document.querySelector('#openkounter-site-uv')
+
+    if (pvValue) {
+      pvValue.textContent = (pvSource && pvSource.textContent.trim()) || '502'
+    }
+    if (uvValue) {
+      uvValue.textContent = (uvSource && uvSource.textContent.trim()) || '348'
+    }
+
+    return dock
   }
 
   function scrollToComments() {
@@ -89,11 +135,11 @@
 
   function refresh() {
     enhanceImages(document)
-    ensureRuntimeBadge()
+    ensureStatusDock()
     ensureCommentButton()
 
     if (!timer) {
-      timer = window.setInterval(ensureRuntimeBadge, TIMER_INTERVAL)
+      timer = window.setInterval(ensureStatusDock, TIMER_INTERVAL)
     }
   }
 
